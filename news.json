@@ -1,0 +1,53 @@
+{
+ "mode": "curated-fallback",
+ "items": [
+  {
+   "title": "Vietnam's merchandise trade tops US$1 trillion in Jan–Oct 2026, first time ever",
+   "url": "https://www.vietnam-briefing.com/news/vietnam-trade-us-1-trillion-2026.html/",
+   "source": "Vietnam Briefing",
+   "seendate": "20261103",
+   "summary": "Exports US$499.24bn (+27.5% y/y), imports US$511.31bn (+37.4%); October alone posted a US$7.31bn surplus. FDI firms account for 81.2% of exports.",
+   "category": "Trade data"
+  },
+  {
+   "title": "USDA agribusiness trade mission heads to Ho Chi Minh City, Nov 9–12",
+   "url": "https://www.fas.usda.gov/topics/trade-missions/vietnam-november-2026",
+   "source": "USDA FAS",
+   "seendate": "20261106",
+   "summary": "Vietnam is the 7th-largest US agriculture export market (US$5.6bn in 2025); mission targets food-processing and retail demand.",
+   "category": "Agreements"
+  },
+  {
+   "title": "Two Vietnamese container ports hold Top-20 spots in World Bank/S&P CPPI",
+   "url": "https://en.baochinhphu.vn/two-vietnamese-container-ports-named-among-worlds-top-20-111260612154143255.htm",
+   "source": "VGP News",
+   "seendate": "20260612",
+   "summary": "Cai Mep cluster ranked 11th, Hai Phong 13th. National container throughput up ~14% y/y in the first five months of 2026.",
+   "category": "Ports & shipping"
+  },
+  {
+   "title": "Mexico's imports from Vietnam double, transshipment scrutiny rises",
+   "url": "https://mexiconewsdaily.com/business/vietnams-exports-to-mexico-transshipment-tariffs/",
+   "source": "Mexico News Daily",
+   "seendate": "20260820",
+   "summary": "Jan–Jun imports from Vietnam +103% to US$18.4bn; suspected Chinese tariff-dodging via CPTPP partner Vietnam draws attention.",
+   "category": "Ports & shipping"
+  },
+  {
+   "title": "Exports accelerate as Vietnam moves towards trade balance",
+   "url": "https://www.youtube.com/watch?v=N9DJDCaWCn0",
+   "source": "Vietnam News Agency",
+   "seendate": "20261019",
+   "summary": "Jan–Sep 2026 import-export turnover ≈ US$888bn, +30.4% y/y; FTA utilisation credited for export-mix improvement.",
+   "category": "Ports & shipping"
+  },
+  {
+   "title": "Cai Mep–Thi Vai: 6.5m TEU in 2024 (+33%), direct US/EU services expand",
+   "url": "https://ship4wd.com/import-guides/top-5-container-ports-in-vietnam",
+   "source": "Ship4wd",
+   "seendate": "20261026",
+   "summary": "Deep-water cluster now handles ULCVs up to ~214k DWT; only Vietnam complex without draft restriction for 24k-TEU ships.",
+   "category": "Ports & shipping"
+  }
+ ]
+}

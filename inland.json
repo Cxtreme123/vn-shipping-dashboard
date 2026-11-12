@@ -1,0 +1,841 @@
+{
+ "corridors": [
+  {
+   "id": "MEKONG-CM",
+   "name": "Mekong Delta ↔ Cai Mep",
+   "waterway": "Hau River · Cho Gao canal",
+   "fromTo": [
+    "Can Tho / ICDs",
+    "Cai Mep"
+   ],
+   "typicalTeu": [
+    80,
+    250
+   ],
+   "transitsToday": 10,
+   "estTeuToday": 1279,
+   "underway": 4,
+   "geofenceNote": "AIS geofence line set in aisstream_collector (barge class filter)"
+  },
+  {
+   "id": "MEKONG-HCMC",
+   "name": "Mekong Delta ↔ Cat Lai",
+   "waterway": "Tien River · Soai Rap",
+   "fromTo": [
+    "My Tho / Ben Tre",
+    "Cat Lai"
+   ],
+   "typicalTeu": [
+    60,
+    180
+   ],
+   "transitsToday": 6,
+   "estTeuToday": 443,
+   "underway": 3,
+   "geofenceNote": "AIS geofence line set in aisstream_collector (barge class filter)"
+  },
+  {
+   "id": "CATLAI-CM",
+   "name": "Cat Lai ↔ Cai Mep shuttle",
+   "waterway": "Dong Nai · Thi Vai rivers",
+   "fromTo": [
+    "Cat Lai",
+    "Cai Mep"
+   ],
+   "typicalTeu": [
+    150,
+    400
+   ],
+   "transitsToday": 7,
+   "estTeuToday": 1403,
+   "underway": 2,
+   "geofenceNote": "AIS geofence line set in aisstream_collector (barge class filter)"
+  },
+  {
+   "id": "DNGNAI-ICD",
+   "name": "Song Than / Long Binh ICD barges",
+   "waterway": "Dong Nai River",
+   "fromTo": [
+    "ICD jetties",
+    "Cat Lai / Cai Mep"
+   ],
+   "typicalTeu": [
+    60,
+    150
+   ],
+   "transitsToday": 5,
+   "estTeuToday": 417,
+   "underway": 2,
+   "geofenceNote": "AIS geofence line set in aisstream_collector (barge class filter)"
+  }
+ ],
+ "icds": [
+  {
+   "name": "Tan Cang - Song Than ICD",
+   "province": "Binh Duong",
+   "region": "Southeast",
+   "operator": "Saigon Newport",
+   "modes": "road · barge",
+   "gateways": [
+    "HCMC",
+    "CAIMEP"
+   ],
+   "catchment": 0.55,
+   "estTeuWeek": 23094
+  },
+  {
+   "name": "Tan Cang - Long Binh ICD",
+   "province": "Dong Nai",
+   "region": "Southeast",
+   "operator": "Saigon Newport",
+   "modes": "road · barge",
+   "gateways": [
+    "CAIMEP",
+    "HCMC"
+   ],
+   "catchment": 0.5,
+   "estTeuWeek": 17108
+  },
+  {
+   "name": "Sotrans ICD",
+   "province": "Ho Chi Minh City",
+   "region": "Southeast",
+   "operator": "Sotrans",
+   "modes": "road · barge",
+   "gateways": [
+    "HCMC"
+   ],
+   "catchment": 0.35,
+   "estTeuWeek": 20675
+  },
+  {
+   "name": "Transimex ICD",
+   "province": "Ho Chi Minh City",
+   "region": "Southeast",
+   "operator": "Transimex",
+   "modes": "road",
+   "gateways": [
+    "HCMC",
+    "CAIMEP"
+   ],
+   "catchment": 0.3,
+   "estTeuWeek": 17722
+  },
+  {
+   "name": "Phuoc Long ICD",
+   "province": "Ho Chi Minh City",
+   "region": "Southeast",
+   "operator": "Phuoc Long Corp",
+   "modes": "road",
+   "gateways": [
+    "CAIMEP"
+   ],
+   "catchment": 0.25,
+   "estTeuWeek": 14768
+  },
+  {
+   "name": "Can Tho ICD",
+   "province": "Can Tho",
+   "region": "Mekong Delta",
+   "operator": "Tan Cang - Can Tho",
+   "modes": "barge · road",
+   "gateways": [
+    "CAIMEP",
+    "HCMC"
+   ],
+   "catchment": 0.6,
+   "estTeuWeek": 4112
+  },
+  {
+   "name": "Que Vo ICD",
+   "province": "Bac Ninh",
+   "region": "Red River Delta",
+   "operator": "T&M Forwarding",
+   "modes": "road · rail",
+   "gateways": [
+    "HAIPHONG"
+   ],
+   "catchment": 0.45,
+   "estTeuWeek": 13165
+  },
+  {
+   "name": "Dinh Vu ICD",
+   "province": "Hai Phong",
+   "region": "Red River Delta",
+   "operator": "Dinh Vu Port JSC",
+   "modes": "road",
+   "gateways": [
+    "HAIPHONG"
+   ],
+   "catchment": 0.4,
+   "estTeuWeek": 10802
+  },
+  {
+   "name": "My Dinh ICD",
+   "province": "Ha Noi",
+   "region": "Red River Delta",
+   "operator": "Military Logistics",
+   "modes": "road · rail",
+   "gateways": [
+    "HAIPHONG"
+   ],
+   "catchment": 0.35,
+   "estTeuWeek": 6301
+  },
+  {
+   "name": "Da Nang ICD",
+   "province": "Da Nang",
+   "region": "Central Coast",
+   "operator": "Da Nang Port",
+   "modes": "road · rail",
+   "gateways": [
+    "DANANG"
+   ],
+   "catchment": 0.45,
+   "estTeuWeek": 3544
+  }
+ ],
+ "transits": [
+  {
+   "id": "B034",
+   "vessel": "DELTA PEARL 12",
+   "corridor": "MEKONG-HCMC",
+   "corridorName": "Mekong Delta ↔ Cat Lai",
+   "origin": "My Tho / Ben Tre",
+   "destination": "Cat Lai",
+   "time": "2026-11-12T23:30+07:00",
+   "capacityTeu": 68,
+   "loadFactor": 0.93,
+   "estTeu": 63,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B044",
+   "vessel": "SAIGON BARGE 21",
+   "corridor": "CATLAI-CM",
+   "corridorName": "Cat Lai ↔ Cai Mep shuttle",
+   "origin": "Cai Mep",
+   "destination": "Cat Lai",
+   "time": "2026-11-12T23:10+07:00",
+   "capacityTeu": 394,
+   "loadFactor": 0.77,
+   "estTeu": 303,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B046",
+   "vessel": "DELTA PEARL 12",
+   "corridor": "DNGNAI-ICD",
+   "corridorName": "Song Than / Long Binh ICD barges",
+   "origin": "Cat Lai / Cai Mep",
+   "destination": "ICD jetties",
+   "time": "2026-11-12T22:10+07:00",
+   "capacityTeu": 81,
+   "loadFactor": 0.56,
+   "estTeu": 45,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B027",
+   "vessel": "TIEN GIANG 77",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Can Tho / ICDs",
+   "destination": "Cai Mep",
+   "time": "2026-11-12T21:50+07:00",
+   "capacityTeu": 211,
+   "loadFactor": 0.73,
+   "estTeu": 154,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B042",
+   "vessel": "TIEN GIANG 77",
+   "corridor": "CATLAI-CM",
+   "corridorName": "Cat Lai ↔ Cai Mep shuttle",
+   "origin": "Cai Mep",
+   "destination": "Cat Lai",
+   "time": "2026-11-12T21:50+07:00",
+   "capacityTeu": 196,
+   "loadFactor": 0.67,
+   "estTeu": 131,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B022",
+   "vessel": "CAN THO 66",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Cai Mep",
+   "destination": "Can Tho / ICDs",
+   "time": "2026-11-12T20:30+07:00",
+   "capacityTeu": 215,
+   "loadFactor": 0.82,
+   "estTeu": 176,
+   "status": "UNDERWAY"
+  },
+  {
+   "id": "B029",
+   "vessel": "DONG NAI 18",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Cai Mep",
+   "destination": "Can Tho / ICDs",
+   "time": "2026-11-12T18:20+07:00",
+   "capacityTeu": 160,
+   "loadFactor": 0.82,
+   "estTeu": 131,
+   "status": "UNDERWAY"
+  },
+  {
+   "id": "B049",
+   "vessel": "DONG NAI 18",
+   "corridor": "DNGNAI-ICD",
+   "corridorName": "Song Than / Long Binh ICD barges",
+   "origin": "Cat Lai / Cai Mep",
+   "destination": "ICD jetties",
+   "time": "2026-11-12T18:10+07:00",
+   "capacityTeu": 96,
+   "loadFactor": 0.69,
+   "estTeu": 66,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B024",
+   "vessel": "VINH LONG 05",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Cai Mep",
+   "destination": "Can Tho / ICDs",
+   "time": "2026-11-12T17:50+07:00",
+   "capacityTeu": 237,
+   "loadFactor": 0.63,
+   "estTeu": 149,
+   "status": "UNDERWAY"
+  },
+  {
+   "id": "B032",
+   "vessel": "MEKONG GLORY 08",
+   "corridor": "MEKONG-HCMC",
+   "corridorName": "Mekong Delta ↔ Cat Lai",
+   "origin": "My Tho / Ben Tre",
+   "destination": "Cat Lai",
+   "time": "2026-11-12T17:50+07:00",
+   "capacityTeu": 90,
+   "loadFactor": 0.58,
+   "estTeu": 52,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B047",
+   "vessel": "TIEN GIANG 77",
+   "corridor": "DNGNAI-ICD",
+   "corridorName": "Song Than / Long Binh ICD barges",
+   "origin": "ICD jetties",
+   "destination": "Cat Lai / Cai Mep",
+   "time": "2026-11-12T17:00+07:00",
+   "capacityTeu": 139,
+   "loadFactor": 0.95,
+   "estTeu": 132,
+   "status": "UNDERWAY"
+  },
+  {
+   "id": "B041",
+   "vessel": "BEN TRE 11",
+   "corridor": "CATLAI-CM",
+   "corridorName": "Cat Lai ↔ Cai Mep shuttle",
+   "origin": "Cat Lai",
+   "destination": "Cai Mep",
+   "time": "2026-11-12T16:50+07:00",
+   "capacityTeu": 395,
+   "loadFactor": 0.62,
+   "estTeu": 245,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B048",
+   "vessel": "THI VAI 09",
+   "corridor": "DNGNAI-ICD",
+   "corridorName": "Song Than / Long Binh ICD barges",
+   "origin": "ICD jetties",
+   "destination": "Cat Lai / Cai Mep",
+   "time": "2026-11-12T14:30+07:00",
+   "capacityTeu": 106,
+   "loadFactor": 0.8,
+   "estTeu": 85,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B040",
+   "vessel": "THI VAI 09",
+   "corridor": "CATLAI-CM",
+   "corridorName": "Cat Lai ↔ Cai Mep shuttle",
+   "origin": "Cai Mep",
+   "destination": "Cat Lai",
+   "time": "2026-11-12T14:00+07:00",
+   "capacityTeu": 286,
+   "loadFactor": 0.61,
+   "estTeu": 174,
+   "status": "UNDERWAY"
+  },
+  {
+   "id": "B030",
+   "vessel": "MY THO 33",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Can Tho / ICDs",
+   "destination": "Cai Mep",
+   "time": "2026-11-12T12:10+07:00",
+   "capacityTeu": 123,
+   "loadFactor": 0.87,
+   "estTeu": 107,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B036",
+   "vessel": "VINH LONG 05",
+   "corridor": "MEKONG-HCMC",
+   "corridorName": "Mekong Delta ↔ Cat Lai",
+   "origin": "Cat Lai",
+   "destination": "My Tho / Ben Tre",
+   "time": "2026-11-12T11:30+07:00",
+   "capacityTeu": 124,
+   "loadFactor": 0.86,
+   "estTeu": 107,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B037",
+   "vessel": "MEKONG GLORY 08",
+   "corridor": "MEKONG-HCMC",
+   "corridorName": "Mekong Delta ↔ Cat Lai",
+   "origin": "Cat Lai",
+   "destination": "My Tho / Ben Tre",
+   "time": "2026-11-12T10:50+07:00",
+   "capacityTeu": 69,
+   "loadFactor": 0.63,
+   "estTeu": 43,
+   "status": "UNDERWAY"
+  },
+  {
+   "id": "B025",
+   "vessel": "TIEN GIANG 77",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Can Tho / ICDs",
+   "destination": "Cai Mep",
+   "time": "2026-11-12T07:40+07:00",
+   "capacityTeu": 85,
+   "loadFactor": 0.6,
+   "estTeu": 51,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B043",
+   "vessel": "THI VAI 09",
+   "corridor": "CATLAI-CM",
+   "corridorName": "Cat Lai ↔ Cai Mep shuttle",
+   "origin": "Cat Lai",
+   "destination": "Cai Mep",
+   "time": "2026-11-12T07:40+07:00",
+   "capacityTeu": 329,
+   "loadFactor": 0.58,
+   "estTeu": 191,
+   "status": "UNDERWAY"
+  },
+  {
+   "id": "B038",
+   "vessel": "DELTA PEARL 12",
+   "corridor": "CATLAI-CM",
+   "corridorName": "Cat Lai ↔ Cai Mep shuttle",
+   "origin": "Cat Lai",
+   "destination": "Cai Mep",
+   "time": "2026-11-12T07:20+07:00",
+   "capacityTeu": 229,
+   "loadFactor": 0.67,
+   "estTeu": 153,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B026",
+   "vessel": "LONG AN 28",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Can Tho / ICDs",
+   "destination": "Cai Mep",
+   "time": "2026-11-12T07:00+07:00",
+   "capacityTeu": 134,
+   "loadFactor": 0.8,
+   "estTeu": 107,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B031",
+   "vessel": "TIEN GIANG 77",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Can Tho / ICDs",
+   "destination": "Cai Mep",
+   "time": "2026-11-12T07:00+07:00",
+   "capacityTeu": 217,
+   "loadFactor": 0.69,
+   "estTeu": 150,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B045",
+   "vessel": "TIEN GIANG 77",
+   "corridor": "DNGNAI-ICD",
+   "corridorName": "Song Than / Long Binh ICD barges",
+   "origin": "ICD jetties",
+   "destination": "Cat Lai / Cai Mep",
+   "time": "2026-11-12T06:30+07:00",
+   "capacityTeu": 95,
+   "loadFactor": 0.94,
+   "estTeu": 89,
+   "status": "UNDERWAY"
+  },
+  {
+   "id": "B023",
+   "vessel": "MY THO 33",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Cai Mep",
+   "destination": "Can Tho / ICDs",
+   "time": "2026-11-12T05:30+07:00",
+   "capacityTeu": 172,
+   "loadFactor": 0.79,
+   "estTeu": 136,
+   "status": "UNDERWAY"
+  },
+  {
+   "id": "B028",
+   "vessel": "LONG AN 28",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Can Tho / ICDs",
+   "destination": "Cai Mep",
+   "time": "2026-11-12T05:30+07:00",
+   "capacityTeu": 153,
+   "loadFactor": 0.77,
+   "estTeu": 118,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B035",
+   "vessel": "DONG NAI 18",
+   "corridor": "MEKONG-HCMC",
+   "corridorName": "Mekong Delta ↔ Cat Lai",
+   "origin": "Cat Lai",
+   "destination": "My Tho / Ben Tre",
+   "time": "2026-11-12T04:40+07:00",
+   "capacityTeu": 132,
+   "loadFactor": 0.85,
+   "estTeu": 112,
+   "status": "UNDERWAY"
+  },
+  {
+   "id": "B039",
+   "vessel": "HAU GIANG 03",
+   "corridor": "CATLAI-CM",
+   "corridorName": "Cat Lai ↔ Cai Mep shuttle",
+   "origin": "Cat Lai",
+   "destination": "Cai Mep",
+   "time": "2026-11-12T02:10+07:00",
+   "capacityTeu": 268,
+   "loadFactor": 0.77,
+   "estTeu": 206,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B033",
+   "vessel": "LONG AN 28",
+   "corridor": "MEKONG-HCMC",
+   "corridorName": "Mekong Delta ↔ Cat Lai",
+   "origin": "Cat Lai",
+   "destination": "My Tho / Ben Tre",
+   "time": "2026-11-12T00:00+07:00",
+   "capacityTeu": 70,
+   "loadFactor": 0.94,
+   "estTeu": 66,
+   "status": "UNDERWAY"
+  },
+  {
+   "id": "B007",
+   "vessel": "MEKONG GLORY 08",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Cai Mep",
+   "destination": "Can Tho / ICDs",
+   "time": "2026-11-11T23:20+07:00",
+   "capacityTeu": 119,
+   "loadFactor": 0.91,
+   "estTeu": 108,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B009",
+   "vessel": "VINH LONG 05",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Can Tho / ICDs",
+   "destination": "Cai Mep",
+   "time": "2026-11-11T23:20+07:00",
+   "capacityTeu": 176,
+   "loadFactor": 0.83,
+   "estTeu": 146,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B015",
+   "vessel": "SAIGON BARGE 21",
+   "corridor": "MEKONG-HCMC",
+   "corridorName": "Mekong Delta ↔ Cat Lai",
+   "origin": "My Tho / Ben Tre",
+   "destination": "Cat Lai",
+   "time": "2026-11-11T22:50+07:00",
+   "capacityTeu": 141,
+   "loadFactor": 0.78,
+   "estTeu": 110,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B008",
+   "vessel": "LONG AN 28",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Can Tho / ICDs",
+   "destination": "Cai Mep",
+   "time": "2026-11-11T19:50+07:00",
+   "capacityTeu": 96,
+   "loadFactor": 0.86,
+   "estTeu": 83,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B006",
+   "vessel": "LONG AN 28",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Can Tho / ICDs",
+   "destination": "Cai Mep",
+   "time": "2026-11-11T17:20+07:00",
+   "capacityTeu": 93,
+   "loadFactor": 0.92,
+   "estTeu": 86,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B016",
+   "vessel": "TIEN GIANG 77",
+   "corridor": "CATLAI-CM",
+   "corridorName": "Cat Lai ↔ Cai Mep shuttle",
+   "origin": "Cat Lai",
+   "destination": "Cai Mep",
+   "time": "2026-11-11T17:00+07:00",
+   "capacityTeu": 355,
+   "loadFactor": 0.91,
+   "estTeu": 323,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B004",
+   "vessel": "HAU GIANG 03",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Can Tho / ICDs",
+   "destination": "Cai Mep",
+   "time": "2026-11-11T16:10+07:00",
+   "capacityTeu": 150,
+   "loadFactor": 0.7,
+   "estTeu": 105,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B011",
+   "vessel": "CAN THO 66",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Cai Mep",
+   "destination": "Can Tho / ICDs",
+   "time": "2026-11-11T15:50+07:00",
+   "capacityTeu": 224,
+   "loadFactor": 0.67,
+   "estTeu": 150,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B005",
+   "vessel": "SAIGON BARGE 21",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Can Tho / ICDs",
+   "destination": "Cai Mep",
+   "time": "2026-11-11T15:30+07:00",
+   "capacityTeu": 116,
+   "loadFactor": 0.64,
+   "estTeu": 74,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B017",
+   "vessel": "CAN THO 66",
+   "corridor": "CATLAI-CM",
+   "corridorName": "Cat Lai ↔ Cai Mep shuttle",
+   "origin": "Cat Lai",
+   "destination": "Cai Mep",
+   "time": "2026-11-11T14:40+07:00",
+   "capacityTeu": 164,
+   "loadFactor": 0.93,
+   "estTeu": 153,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B020",
+   "vessel": "MY THO 33",
+   "corridor": "DNGNAI-ICD",
+   "corridorName": "Song Than / Long Binh ICD barges",
+   "origin": "Cat Lai / Cai Mep",
+   "destination": "ICD jetties",
+   "time": "2026-11-11T14:10+07:00",
+   "capacityTeu": 103,
+   "loadFactor": 0.96,
+   "estTeu": 99,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B019",
+   "vessel": "LONG AN 28",
+   "corridor": "CATLAI-CM",
+   "corridorName": "Cat Lai ↔ Cai Mep shuttle",
+   "origin": "Cai Mep",
+   "destination": "Cat Lai",
+   "time": "2026-11-11T13:50+07:00",
+   "capacityTeu": 218,
+   "loadFactor": 0.63,
+   "estTeu": 137,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B021",
+   "vessel": "MY THO 33",
+   "corridor": "DNGNAI-ICD",
+   "corridorName": "Song Than / Long Binh ICD barges",
+   "origin": "ICD jetties",
+   "destination": "Cat Lai / Cai Mep",
+   "time": "2026-11-11T13:20+07:00",
+   "capacityTeu": 104,
+   "loadFactor": 0.61,
+   "estTeu": 63,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B012",
+   "vessel": "HAU GIANG 03",
+   "corridor": "MEKONG-HCMC",
+   "corridorName": "Mekong Delta ↔ Cat Lai",
+   "origin": "Cat Lai",
+   "destination": "My Tho / Ben Tre",
+   "time": "2026-11-11T12:30+07:00",
+   "capacityTeu": 68,
+   "loadFactor": 0.94,
+   "estTeu": 64,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B013",
+   "vessel": "BEN TRE 11",
+   "corridor": "MEKONG-HCMC",
+   "corridorName": "Mekong Delta ↔ Cat Lai",
+   "origin": "Cat Lai",
+   "destination": "My Tho / Ben Tre",
+   "time": "2026-11-11T12:00+07:00",
+   "capacityTeu": 128,
+   "loadFactor": 0.56,
+   "estTeu": 72,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B003",
+   "vessel": "SAIGON BARGE 21",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Can Tho / ICDs",
+   "destination": "Cai Mep",
+   "time": "2026-11-11T11:00+07:00",
+   "capacityTeu": 80,
+   "loadFactor": 0.65,
+   "estTeu": 52,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B018",
+   "vessel": "MY THO 33",
+   "corridor": "CATLAI-CM",
+   "corridorName": "Cat Lai ↔ Cai Mep shuttle",
+   "origin": "Cai Mep",
+   "destination": "Cat Lai",
+   "time": "2026-11-11T09:50+07:00",
+   "capacityTeu": 234,
+   "loadFactor": 0.98,
+   "estTeu": 229,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B002",
+   "vessel": "VINH LONG 05",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Can Tho / ICDs",
+   "destination": "Cai Mep",
+   "time": "2026-11-11T05:10+07:00",
+   "capacityTeu": 160,
+   "loadFactor": 0.76,
+   "estTeu": 122,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B010",
+   "vessel": "SAIGON BARGE 21",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Cai Mep",
+   "destination": "Can Tho / ICDs",
+   "time": "2026-11-11T03:50+07:00",
+   "capacityTeu": 166,
+   "loadFactor": 0.89,
+   "estTeu": 148,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B014",
+   "vessel": "THI VAI 09",
+   "corridor": "MEKONG-HCMC",
+   "corridorName": "Mekong Delta ↔ Cat Lai",
+   "origin": "My Tho / Ben Tre",
+   "destination": "Cat Lai",
+   "time": "2026-11-11T03:30+07:00",
+   "capacityTeu": 84,
+   "loadFactor": 0.92,
+   "estTeu": 77,
+   "status": "COMPLETED"
+  },
+  {
+   "id": "B001",
+   "vessel": "HAU GIANG 03",
+   "corridor": "MEKONG-CM",
+   "corridorName": "Mekong Delta ↔ Cai Mep",
+   "origin": "Can Tho / ICDs",
+   "destination": "Cai Mep",
+   "time": "2026-11-11T00:10+07:00",
+   "capacityTeu": 132,
+   "loadFactor": 0.7,
+   "estTeu": 92,
+   "status": "COMPLETED"
+  }
+ ],
+ "notes": [
+  "ICD volumes modelled from customs regional model (province catchment × ~ICD gate share) — no live gate feed in free tier",
+  "Barge transits are demo events; live tracking uses the same AISstream geofences along river corridors (Class A/B AIS carriage varies on inland barges)"
+ ]
+}

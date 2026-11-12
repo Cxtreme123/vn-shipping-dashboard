@@ -1,0 +1,12 @@
+{
+ "generatedAt": "2026-11-12T09:53+07:00",
+ "dataMode": "demo",
+ "tz": "Asia/Ho_Chi_Minh",
+ "notes": [
+  "Vessel calls & TEU estimates: demo fleet (AISstream live feed not connected)",
+  "TEU figures are model estimates from draft & port stay — not terminal-confirmed lifts",
+  "National trade totals are official (GDVC); province/commodity split is a demo model",
+  "Monthly national/region throughput is real VPA association data",
+  "ICD volumes & barge flows are corridor-model estimates (see Inland network notes)"
+ ]
+}

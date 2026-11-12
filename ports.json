@@ -1,0 +1,314 @@
+[
+ {
+  "id": "HAIPHONG",
+  "name": "Hai Phong",
+  "locode": "VNHPH",
+  "region": "North",
+  "lat": 20.865,
+  "lon": 106.683,
+  "maxDraftM": 14.5,
+  "terminals": [
+   {
+    "name": "Lach Huyen (HICT)",
+    "berths": [
+     {
+      "id": "H1",
+      "lengthM": 360,
+      "depthM": 14.5,
+      "maxClass": "NEOPAN"
+     },
+     {
+      "id": "H2",
+      "lengthM": 360,
+      "depthM": 14.5,
+      "maxClass": "NEOPAN"
+     }
+    ]
+   },
+   {
+    "name": "Lach Huyen (HHIT)",
+    "berths": [
+     {
+      "id": "I1",
+      "lengthM": 350,
+      "depthM": 14.5,
+      "maxClass": "NEOPAN"
+     },
+     {
+      "id": "I2",
+      "lengthM": 350,
+      "depthM": 14.5,
+      "maxClass": "NEOPAN"
+     }
+    ]
+   },
+   {
+    "name": "Chua Ve",
+    "berths": [
+     {
+      "id": "C1",
+      "lengthM": 180,
+      "depthM": 8.5,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "C2",
+      "lengthM": 180,
+      "depthM": 8.5,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "C3",
+      "lengthM": 180,
+      "depthM": 8.5,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "C4",
+      "lengthM": 180,
+      "depthM": 8.5,
+      "maxClass": "FEEDER"
+     }
+    ]
+   }
+  ],
+  "role": "Northern deep-water gateway; direct US/EU mainline calls at Lach Huyen",
+  "geofence": [
+   [
+    20.72,
+    106.55
+   ],
+   [
+    20.98,
+    106.95
+   ]
+  ]
+ },
+ {
+  "id": "DANANG",
+  "name": "Da Nang",
+  "locode": "VNDAD",
+  "region": "Central",
+  "lat": 16.115,
+  "lon": 108.21,
+  "maxDraftM": 11.0,
+  "terminals": [
+   {
+    "name": "Tien Sa",
+    "berths": [
+     {
+      "id": "T1",
+      "lengthM": 230,
+      "depthM": 11.0,
+      "maxClass": "PANAMAX"
+     },
+     {
+      "id": "T2",
+      "lengthM": 230,
+      "depthM": 11.0,
+      "maxClass": "PANAMAX"
+     },
+     {
+      "id": "T3",
+      "lengthM": 230,
+      "depthM": 11.0,
+      "maxClass": "PANAMAX"
+     }
+    ]
+   }
+  ],
+  "role": "Central coast regional port; intra-Asia feeders",
+  "geofence": [
+   [
+    16.02,
+    108.12
+   ],
+   [
+    16.22,
+    108.32
+   ]
+  ]
+ },
+ {
+  "id": "HCMC",
+  "name": "Ho Chi Minh (Cat Lai)",
+  "locode": "VNSGN",
+  "region": "South",
+  "lat": 10.755,
+  "lon": 106.76,
+  "maxDraftM": 11.0,
+  "terminals": [
+   {
+    "name": "Cat Lai",
+    "berths": [
+     {
+      "id": "A1",
+      "lengthM": 220,
+      "depthM": 10.5,
+      "maxClass": "PANAMAX"
+     },
+     {
+      "id": "A2",
+      "lengthM": 220,
+      "depthM": 10.5,
+      "maxClass": "PANAMAX"
+     },
+     {
+      "id": "A3",
+      "lengthM": 220,
+      "depthM": 10.5,
+      "maxClass": "PANAMAX"
+     },
+     {
+      "id": "A4",
+      "lengthM": 220,
+      "depthM": 10.5,
+      "maxClass": "PANAMAX"
+     },
+     {
+      "id": "A5",
+      "lengthM": 220,
+      "depthM": 10.5,
+      "maxClass": "PANAMAX"
+     },
+     {
+      "id": "A6",
+      "lengthM": 220,
+      "depthM": 10.5,
+      "maxClass": "PANAMAX"
+     }
+    ]
+   },
+   {
+    "name": "Tan Cang",
+    "berths": [
+     {
+      "id": "R1",
+      "lengthM": 170,
+      "depthM": 9.0,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "R2",
+      "lengthM": 170,
+      "depthM": 9.0,
+      "maxClass": "FEEDER"
+     }
+    ]
+   }
+  ],
+  "role": "Busiest river terminal; draft-limited to ~5,000 TEU feeders",
+  "geofence": [
+   [
+    10.68,
+    106.68
+   ],
+   [
+    10.83,
+    106.85
+   ]
+  ]
+ },
+ {
+  "id": "CAIMEP",
+  "name": "Cai Mep - Thi Vai",
+  "locode": "VNCMT",
+  "region": "South",
+  "lat": 10.52,
+  "lon": 107.02,
+  "maxDraftM": 16.0,
+  "terminals": [
+   {
+    "name": "CMIT",
+    "berths": [
+     {
+      "id": "M1",
+      "lengthM": 330,
+      "depthM": 15.8,
+      "maxClass": "ULCV"
+     },
+     {
+      "id": "M2",
+      "lengthM": 330,
+      "depthM": 15.8,
+      "maxClass": "ULCV"
+     },
+     {
+      "id": "M3",
+      "lengthM": 330,
+      "depthM": 15.8,
+      "maxClass": "ULCV"
+     }
+    ]
+   },
+   {
+    "name": "TCIT",
+    "berths": [
+     {
+      "id": "T1",
+      "lengthM": 300,
+      "depthM": 15.5,
+      "maxClass": "ULCV"
+     },
+     {
+      "id": "T2",
+      "lengthM": 300,
+      "depthM": 15.5,
+      "maxClass": "ULCV"
+     },
+     {
+      "id": "T3",
+      "lengthM": 300,
+      "depthM": 15.5,
+      "maxClass": "ULCV"
+     }
+    ]
+   },
+   {
+    "name": "SSIT",
+    "berths": [
+     {
+      "id": "S1",
+      "lengthM": 320,
+      "depthM": 16.0,
+      "maxClass": "ULCV"
+     },
+     {
+      "id": "S2",
+      "lengthM": 320,
+      "depthM": 16.0,
+      "maxClass": "ULCV"
+     }
+    ]
+   },
+   {
+    "name": "SP-PSA",
+    "berths": [
+     {
+      "id": "P1",
+      "lengthM": 300,
+      "depthM": 14.0,
+      "maxClass": "NEOPAN"
+     },
+     {
+      "id": "P2",
+      "lengthM": 300,
+      "depthM": 14.0,
+      "maxClass": "NEOPAN"
+     }
+    ]
+   }
+  ],
+  "role": "Deep-water cluster for ULCVs; direct transpacific & Europe loops",
+  "geofence": [
+   [
+    10.42,
+    106.92
+   ],
+   [
+    10.62,
+    107.12
+   ]
+  ]
+ }
+]

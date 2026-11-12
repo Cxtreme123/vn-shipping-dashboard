@@ -1,0 +1,355 @@
+{
+ "month": "2026-10",
+ "unit": "USD bn",
+ "totals": {
+  "export": 64.67,
+  "import": 57.36,
+  "balance": 7.31
+ },
+ "totalsSource": "GDVC preliminary October-2026 figures (official, via press)",
+ "breakdownSource": "DEMO model — province/commodity split requires a licensed transaction-level feed (Volza / EximPedia / GDVC microdata)",
+ "regions": [
+  {
+   "region": "Southeast",
+   "export": 30.39,
+   "import": 26.04,
+   "gateways": [
+    "HCMC",
+    "CAIMEP"
+   ],
+   "provinces": [
+    {
+     "name": "Ho Chi Minh City",
+     "export": 11.55,
+     "import": 9.9
+    },
+    {
+     "name": "Binh Duong",
+     "export": 8.21,
+     "import": 7.64
+    },
+    {
+     "name": "Dong Nai",
+     "export": 6.69,
+     "import": 5.23
+    },
+    {
+     "name": "Ba Ria - Vung Tau",
+     "export": 2.43,
+     "import": 2.09
+    },
+    {
+     "name": "Tay Ninh",
+     "export": 1.52,
+     "import": 1.41
+    }
+   ]
+  },
+  {
+   "region": "Red River Delta",
+   "export": 21.99,
+   "import": 21.17,
+   "gateways": [
+    "HAIPHONG"
+   ],
+   "provinces": [
+    {
+     "name": "Bac Ninh",
+     "export": 5.72,
+     "import": 5.5
+    },
+    {
+     "name": "Hai Phong",
+     "export": 5.28,
+     "import": 5.52
+    },
+    {
+     "name": "Ha Noi",
+     "export": 3.52,
+     "import": 3.09
+    },
+    {
+     "name": "Hung Yen",
+     "export": 2.42,
+     "import": 2.33
+    },
+    {
+     "name": "Vinh Phuc",
+     "export": 2.2,
+     "import": 2.3
+    },
+    {
+     "name": "Hai Duong",
+     "export": 1.76,
+     "import": 1.54
+    },
+    {
+     "name": "Quang Ninh",
+     "export": 1.1,
+     "import": 1.06
+    }
+   ]
+  },
+  {
+   "region": "Central Coast",
+   "export": 4.53,
+   "import": 2.96,
+   "gateways": [
+    "DANANG"
+   ],
+   "provinces": [
+    {
+     "name": "Da Nang",
+     "export": 1.54,
+     "import": 1.01
+    },
+    {
+     "name": "Thanh Hoa",
+     "export": 1.18,
+     "import": 0.84
+    },
+    {
+     "name": "Quang Nam",
+     "export": 1.0,
+     "import": 0.59
+    },
+    {
+     "name": "Hue",
+     "export": 0.82,
+     "import": 0.53
+    }
+   ]
+  },
+  {
+   "region": "Mekong Delta",
+   "export": 5.17,
+   "import": 2.32,
+   "gateways": [
+    "HCMC",
+    "CAIMEP"
+   ],
+   "provinces": [
+    {
+     "name": "Can Tho",
+     "export": 1.34,
+     "import": 0.6
+    },
+    {
+     "name": "Long An",
+     "export": 1.55,
+     "import": 0.76
+    },
+    {
+     "name": "Tien Giang",
+     "export": 1.24,
+     "import": 0.51
+    },
+    {
+     "name": "An Giang",
+     "export": 1.03,
+     "import": 0.46
+    }
+   ]
+  },
+  {
+   "region": "North Central",
+   "export": 1.29,
+   "import": 0.74,
+   "gateways": [
+    "DANANG"
+   ],
+   "provinces": [
+    {
+     "name": "Nghe An",
+     "export": 0.71,
+     "import": 0.41
+    },
+    {
+     "name": "Ha Tinh",
+     "export": 0.58,
+     "import": 0.36
+    }
+   ]
+  },
+  {
+   "region": "Central Highlands",
+   "export": 1.29,
+   "import": 0.42,
+   "gateways": [
+    "DANANG",
+    "CAIMEP"
+   ],
+   "provinces": [
+    {
+     "name": "Dak Lak",
+     "export": 0.54,
+     "import": 0.18
+    },
+    {
+     "name": "Lam Dong",
+     "export": 0.44,
+     "import": 0.16
+    },
+    {
+     "name": "Gia Lai",
+     "export": 0.31,
+     "import": 0.09
+    }
+   ]
+  }
+ ],
+ "commodities": [
+  {
+   "hs": "85",
+   "name": "Electrical machinery & equipment",
+   "export": 19.4,
+   "import": 13.77
+  },
+  {
+   "hs": "84",
+   "name": "Machinery & mechanical appliances",
+   "export": 6.47,
+   "import": 9.18
+  },
+  {
+   "hs": "61",
+   "name": "Knitted apparel",
+   "export": 3.56,
+   "import": 0.57
+  },
+  {
+   "hs": "62",
+   "name": "Woven apparel",
+   "export": 2.91,
+   "import": 0.46
+  },
+  {
+   "hs": "64",
+   "name": "Footwear",
+   "export": 3.23,
+   "import": 0.69
+  },
+  {
+   "hs": "90",
+   "name": "Optical & precision instruments",
+   "export": 1.62,
+   "import": 2.87
+  },
+  {
+   "hs": "39",
+   "name": "Plastics & articles",
+   "export": 1.94,
+   "import": 4.02
+  },
+  {
+   "hs": "72",
+   "name": "Iron & steel",
+   "export": 1.29,
+   "import": 3.15
+  },
+  {
+   "hs": "08",
+   "name": "Edible fruit & nuts",
+   "export": 1.29,
+   "import": 0.46
+  },
+  {
+   "hs": "03",
+   "name": "Fish & seafood",
+   "export": 1.62,
+   "import": 0.57
+  },
+  {
+   "hs": "09",
+   "name": "Coffee, tea & spices",
+   "export": 1.29,
+   "import": 0.23
+  },
+  {
+   "hs": "94",
+   "name": "Furniture & bedding",
+   "export": 1.94,
+   "import": 0.34
+  },
+  {
+   "hs": "27",
+   "name": "Mineral fuels & oils",
+   "export": 0.78,
+   "import": 5.16
+  },
+  {
+   "hs": "87",
+   "name": "Vehicles & parts",
+   "export": 0.78,
+   "import": 2.58
+  },
+  {
+   "hs": "44",
+   "name": "Wood & articles of wood",
+   "export": 1.42,
+   "import": 0.57
+  }
+ ],
+ "partners": [
+  {
+   "partner": "United States",
+   "export": 19.4,
+   "import": 2.58
+  },
+  {
+   "partner": "China",
+   "export": 9.7,
+   "import": 21.8
+  },
+  {
+   "partner": "South Korea",
+   "export": 4.2,
+   "import": 9.75
+  },
+  {
+   "partner": "Japan",
+   "export": 3.88,
+   "import": 4.02
+  },
+  {
+   "partner": "Hong Kong (China)",
+   "export": 1.94,
+   "import": 1.15
+  },
+  {
+   "partner": "Netherlands",
+   "export": 1.62,
+   "import": 0.57
+  },
+  {
+   "partner": "Germany",
+   "export": 1.29,
+   "import": 0.86
+  },
+  {
+   "partner": "Taiwan (China)",
+   "export": 1.29,
+   "import": 3.44
+  },
+  {
+   "partner": "Thailand",
+   "export": 0.97,
+   "import": 2.01
+  },
+  {
+   "partner": "India",
+   "export": 1.29,
+   "import": 1.15
+  },
+  {
+   "partner": "Singapore",
+   "export": 0.78,
+   "import": 1.72
+  },
+  {
+   "partner": "Australia",
+   "export": 0.97,
+   "import": 1.15
+  }
+ ]
+}

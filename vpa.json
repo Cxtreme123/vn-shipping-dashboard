@@ -1,0 +1,95 @@
+{
+ "month": "2026-09",
+ "monthLabel": "September 2026",
+ "national": {
+  "teu": 2511707,
+  "teuPrev": 2246271,
+  "yoyPct": 11.82,
+  "deltaTeu": 265436
+ },
+ "regions": [
+  {
+   "name": "Southeast (HCMC · Dong Nai)",
+   "nameVi": "Đông Nam Bộ",
+   "teu": 907692,
+   "teuPrev": 886381,
+   "yoyPct": 2.4
+  },
+  {
+   "name": "Northern",
+   "nameVi": "Miền Bắc",
+   "teu": 777860,
+   "teuPrev": 673429,
+   "yoyPct": 15.51
+  },
+  {
+   "name": "Cai Mep – Thi Vai",
+   "nameVi": "Cái Mép – Thị Vải",
+   "teu": 720876,
+   "teuPrev": 593429,
+   "yoyPct": 21.48
+  },
+  {
+   "name": "South Central",
+   "nameVi": "Nam Trung Bộ",
+   "teu": 84812,
+   "teuPrev": 77413,
+   "yoyPct": 9.56
+  },
+  {
+   "name": "North Central",
+   "nameVi": "Bắc Trung Bộ",
+   "teu": 13283,
+   "teuPrev": 9444,
+   "yoyPct": 40.65
+  },
+  {
+   "name": "Mekong Delta",
+   "nameVi": "Đồng bằng sông Cửu Long",
+   "teu": 7184,
+   "teuPrev": 6175,
+   "yoyPct": 16.34
+  }
+ ],
+ "mix": [
+  {
+   "key": "import",
+   "label": "Import",
+   "teu": 901963,
+   "pct": 35.9
+  },
+  {
+   "key": "export",
+   "label": "Export",
+   "teu": 816178,
+   "pct": 32.5
+  },
+  {
+   "key": "domestic",
+   "label": "Domestic",
+   "teu": 351351,
+   "pct": 14.0
+  },
+  {
+   "key": "transshipment",
+   "label": "Transshipment",
+   "teu": 113029,
+   "pct": 4.5
+  },
+  {
+   "key": "unclassified",
+   "label": "Unclassified",
+   "teu": 329186,
+   "pct": 13.1
+  }
+ ],
+ "highlights": [
+  "Throughput reached 2,511,707 TEU in September 2026, +11.82% (+265,436 TEU) year on year.",
+  "6 of 6 regions grew year on year — fastest: North Central (+40.65%).",
+  "Southeast + Cai Mep – Thi Vai handled 64.8% of the month; the Northern region 31.0%."
+ ],
+ "source": "Vietnam Seaports Association (VPA) — public monthly container report",
+ "sourceUrl": "https://www.vpa.org.vn/vn/wp-content/uploads/2026/10/VPA_Bao_cao_container_T9-2026_cong_khai.html",
+ "note": "VPA: includes some estimated/reference figures; barge handling excluded. Some ports do not report transshipment, so that share may understate actual volume.",
+ "dataMode": "live"
+}
