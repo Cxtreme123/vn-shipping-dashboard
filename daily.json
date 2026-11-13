@@ -1,114 +1,114 @@
 [
  {
   "date": "2026-10-31",
-  "HAIPHONG": 4358,
-  "DANANG": 4727,
-  "HCMC": 3554,
-  "CAIMEP": 13998,
-  "total": 26637
+  "HAIPHONG": 0,
+  "DANANG": 0,
+  "HCMC": 0,
+  "CAIMEP": 0,
+  "total": 0
  },
  {
   "date": "2026-11-01",
-  "HAIPHONG": 6969,
-  "DANANG": 3659,
-  "HCMC": 3501,
-  "CAIMEP": 27487,
-  "total": 41616
+  "HAIPHONG": 0,
+  "DANANG": 0,
+  "HCMC": 0,
+  "CAIMEP": 0,
+  "total": 0
  },
  {
   "date": "2026-11-02",
-  "HAIPHONG": 5799,
-  "DANANG": 2190,
-  "HCMC": 4670,
-  "CAIMEP": 30075,
-  "total": 42734
+  "HAIPHONG": 0,
+  "DANANG": 0,
+  "HCMC": 0,
+  "CAIMEP": 0,
+  "total": 0
  },
  {
   "date": "2026-11-03",
-  "HAIPHONG": 4845,
-  "DANANG": 3736,
-  "HCMC": 1834,
-  "CAIMEP": 33584,
-  "total": 43999
+  "HAIPHONG": 0,
+  "DANANG": 0,
+  "HCMC": 0,
+  "CAIMEP": 0,
+  "total": 0
  },
  {
   "date": "2026-11-04",
-  "HAIPHONG": 11871,
-  "DANANG": 5590,
-  "HCMC": 7825,
-  "CAIMEP": 25648,
-  "total": 50934
+  "HAIPHONG": 0,
+  "DANANG": 0,
+  "HCMC": 0,
+  "CAIMEP": 0,
+  "total": 0
  },
  {
   "date": "2026-11-05",
-  "HAIPHONG": 9163,
-  "DANANG": 3166,
-  "HCMC": 1593,
-  "CAIMEP": 35129,
-  "total": 49051
+  "HAIPHONG": 0,
+  "DANANG": 0,
+  "HCMC": 0,
+  "CAIMEP": 0,
+  "total": 0
  },
  {
   "date": "2026-11-06",
-  "HAIPHONG": 12823,
-  "DANANG": 822,
-  "HCMC": 6130,
-  "CAIMEP": 11815,
-  "total": 31590
+  "HAIPHONG": 0,
+  "DANANG": 0,
+  "HCMC": 0,
+  "CAIMEP": 0,
+  "total": 0
  },
  {
   "date": "2026-11-07",
-  "HAIPHONG": 6766,
-  "DANANG": 3165,
-  "HCMC": 2394,
-  "CAIMEP": 38431,
-  "total": 50756
+  "HAIPHONG": 0,
+  "DANANG": 0,
+  "HCMC": 0,
+  "CAIMEP": 0,
+  "total": 0
  },
  {
   "date": "2026-11-08",
-  "HAIPHONG": 8296,
-  "DANANG": 4613,
-  "HCMC": 2744,
-  "CAIMEP": 27504,
-  "total": 43157
+  "HAIPHONG": 0,
+  "DANANG": 0,
+  "HCMC": 0,
+  "CAIMEP": 0,
+  "total": 0
  },
  {
   "date": "2026-11-09",
-  "HAIPHONG": 10575,
-  "DANANG": 3100,
-  "HCMC": 1367,
-  "CAIMEP": 29956,
-  "total": 44998
+  "HAIPHONG": 0,
+  "DANANG": 0,
+  "HCMC": 0,
+  "CAIMEP": 0,
+  "total": 0
  },
  {
   "date": "2026-11-10",
-  "HAIPHONG": 7816,
-  "DANANG": 4383,
-  "HCMC": 4563,
-  "CAIMEP": 21518,
-  "total": 38280
+  "HAIPHONG": 0,
+  "DANANG": 0,
+  "HCMC": 0,
+  "CAIMEP": 0,
+  "total": 0
  },
  {
   "date": "2026-11-11",
-  "HAIPHONG": 2093,
-  "DANANG": 1425,
-  "HCMC": 4428,
-  "CAIMEP": 35544,
-  "total": 43490
+  "HAIPHONG": 0,
+  "DANANG": 0,
+  "HCMC": 0,
+  "CAIMEP": 0,
+  "total": 0
  },
  {
   "date": "2026-11-12",
-  "HAIPHONG": 9022,
-  "DANANG": 3237,
-  "HCMC": 6797,
-  "CAIMEP": 25322,
-  "total": 44378
+  "HAIPHONG": 0,
+  "DANANG": 0,
+  "HCMC": 3400,
+  "CAIMEP": 0,
+  "total": 3400
  },
  {
   "date": "2026-11-13",
-  "HAIPHONG": 3132,
-  "DANANG": 2238,
-  "HCMC": 0,
-  "CAIMEP": 34924,
-  "total": 40294
+  "HAIPHONG": 0,
+  "DANANG": 0,
+  "HCMC": 20365,
+  "CAIMEP": 26220,
+  "total": 46585
  }
 ]
