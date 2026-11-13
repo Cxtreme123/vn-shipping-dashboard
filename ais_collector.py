@@ -41,7 +41,7 @@ STATE = STORE / "ais_state.json"  # mmsi -> static data + last seen + inside
 
 WS_URL = "wss://stream.aisstream.io/v0/stream"
 # Wide approach box: the Vietnamese coast + main South China Sea lanes.
-APPROACH_BOX = [[8.0, 103.0], [22.5, 112.5]]
+APPROACH_BOX = [[1.0, 100.0], [22.5, 112.5]]  # Vietnam coast + Singapore/SCS lanes
 
 # Corridor endpoints for direction labelling: axis 'from' -> 'to'.
 CORRIDOR_ENDS = {cid: (frm, to) for cid, _n, _w, frm, to, _c, _t in CORRIDORS}
@@ -127,96 +127,142 @@ async def run(minutes: int) -> None:
         "FilterMessageTypes": ["PositionReport", "ShipStaticData"],
     }
     state = load_state()
-    deadline = dt.datetime.now(TZ) + dt.timedelta(minutes=minutes)
-    n_pos = n_static = 0
+    t0 = dt.datetime.now(TZ)
+    deadline = t0 + dt.timedelta(minutes=minutes)
+    n_pos = n_static = n_server = 0
+    MAX_ATTEMPTS, SILENT_ABORT_S = 8, 180
 
-    async with websockets.connect(WS_URL) as ws:
-        await ws.send(json.dumps(subscribe))
-        while dt.datetime.now(TZ) < deadline:
-            try:
-                raw = await asyncio.wait_for(ws.recv(), timeout=90)
-            except Exception:
-                break
-            msg = json.loads(raw)
-            mtype = msg.get("MessageType")
-            meta = msg.get("MetaData", {})
-            mmsi = str(meta.get("MMSI", ""))
-            if not mmsi:
-                continue
-            now_iso = dt.datetime.now(TZ).isoformat(timespec="seconds")
+    attempt = 0
+    while dt.datetime.now(TZ) < deadline and attempt < MAX_ATTEMPTS:
+        attempt += 1
+        try:
+            async with websockets.connect(WS_URL, ping_interval=20,
+                                          ping_timeout=60) as ws:
+                await ws.send(json.dumps(subscribe))
+                print(f"connected to aisstream (attempt {attempt}/{MAX_ATTEMPTS}) "
+                      f"— listening…", flush=True)
+                quiet_s = 0
+                while dt.datetime.now(TZ) < deadline:
+                    try:
+                        raw = await asyncio.wait_for(ws.recv(), timeout=60)
+                    except asyncio.TimeoutError:
+                        # a quiet patch is normal over Vietnam (thin shore-station
+                        # cover) — ride it out; only a subscription that delivered
+                        # NOTHING for 3 min looks dead and earns a reconnect
+                        quiet_s += 60
+                        print(f"…no AIS messages for {quiet_s // 60} min "
+                              f"({n_pos + n_static} so far) — still listening", flush=True)
+                        if quiet_s >= SILENT_ABORT_S and not (n_pos or n_static):
+                            print("subscription looks dead (3 silent minutes, 0 "
+                                  "messages) — reconnecting…", flush=True)
+                            break
+                        continue
+                    except Exception as e:
+                        print("connection dropped:", type(e).__name__, str(e)[:200],
+                              flush=True)
+                        break
+                    quiet_s = 0
+                    try:
+                        msg = json.loads(raw)
+                    except Exception:
+                        continue
+                    mtype = msg.get("MessageType")
+                    if mtype not in ("PositionReport", "ShipStaticData"):
+                        # aisstream info/error frame (e.g. invalid key) — make it
+                        # visible in the Actions log instead of dying silently
+                        n_server += 1
+                        if n_server <= 5:
+                            print("server message:", raw[:300], flush=True)
+                        if "error" in raw.lower():
+                            print("stream returned an error (see above) — if it says "
+                                  "invalid/unauthorized key, regenerate the key at "
+                                  "aisstream.io and update the AISSTREAM_API_KEY secret",
+                                  flush=True)
+                            save_state(state)
+                            return
+                        continue
 
-            if mtype == "ShipStaticData":
-                n_static += 1
-                body = msg["Message"]["ShipStaticData"]
-                dim = body.get("Dimension") or {}
-                st = state.setdefault(mmsi, {})
-                st.update({
-                    "name": (meta.get("ShipName") or "").strip(),
-                    "imo": body.get("ImoNumber"),
-                    "maxDraft": body.get("MaximumStaticDraught"),
-                    "loa": (dim.get("A") or 0) + (dim.get("B") or 0),
-                    "type": body.get("Type"),
-                    "dest": (body.get("Destination") or "").strip(),
-                    "etaAis": body.get("Eta"),  # {Month,Day,Hour,Minute} UTC
-                    "lastSeen": now_iso,
-                })
-                continue
+                    meta = msg.get("MetaData", {})
+                    mmsi = str(meta.get("MMSI", ""))
+                    if not mmsi:
+                        continue
+                    now_iso = dt.datetime.now(TZ).isoformat(timespec="seconds")
 
-            if mtype != "PositionReport":
-                continue
-            n_pos += 1
-            body = msg["Message"]["PositionReport"]
-            lat, lon = body.get("Latitude"), body.get("Longitude")
-            if lat is None or lon is None:
-                continue
-            p = port_of(lat, lon)
-            inside = p["id"] if p else None
-            st = state.setdefault(mmsi, {})
-            st["lastSeen"] = now_iso
-            st["lastLat"], st["lastLon"] = lat, lon
-            st["sog"] = body.get("Sog")
-            if body.get("Draught"):
-                st["draught"] = body["Draught"]
-            if inside:
-                # last confirmed presence in port waters — a ship that later
-                # goes silent closed its VN stay at roughly this moment
-                st["lastInside"] = {"port": inside, "time": now_iso}
-            was = st.get("inside")
+                    if mtype == "ShipStaticData":
+                        n_static += 1
+                        body = msg["Message"]["ShipStaticData"]
+                        dim = body.get("Dimension") or {}
+                        st = state.setdefault(mmsi, {})
+                        st.update({
+                            "name": (meta.get("ShipName") or "").strip(),
+                            "imo": body.get("ImoNumber"),
+                            "maxDraft": body.get("MaximumStaticDraught"),
+                            "loa": (dim.get("A") or 0) + (dim.get("B") or 0),
+                            "type": body.get("Type"),
+                            "dest": (body.get("Destination") or "").strip(),
+                            "etaAis": body.get("Eta"),  # {Month,Day,Hour,Minute} UTC
+                            "lastSeen": now_iso,
+                        })
+                        continue
 
-            if inside and was != inside:
-                st["inside"] = inside
-                append_event({
-                    "event": "ARRIVAL", "mmsi": mmsi, "port": inside, "time": now_iso,
-                    "vessel": st.get("name") or f"MMSI {mmsi}", "imo": st.get("imo"),
-                    "maxDraft": st.get("maxDraft"), "loa": st.get("loa"),
-                    "draft": st.get("draught"), "sog": st.get("sog"),
-                })
-                print(f"ARRIVAL {st.get('name') or mmsi} -> {inside}")
-            elif not inside and was:
-                st["inside"] = None
-                append_event({
-                    "event": "DEPARTURE", "mmsi": mmsi, "port": was, "time": now_iso,
-                    "vessel": st.get("name") or f"MMSI {mmsi}", "imo": st.get("imo"),
-                    "maxDraft": st.get("maxDraft"), "loa": st.get("loa"),
-                    "draft": st.get("draught"),
-                })
-                print(f"DEPARTURE {st.get('name') or mmsi} <- {was}")
+                    n_pos += 1
+                    body = msg["Message"]["PositionReport"]
+                    lat, lon = body.get("Latitude"), body.get("Longitude")
+                    if lat is None or lon is None:
+                        continue
+                    p = port_of(lat, lon)
+                    inside = p["id"] if p else None
+                    st = state.setdefault(mmsi, {})
+                    st["lastSeen"] = now_iso
+                    st["lastLat"], st["lastLon"] = lat, lon
+                    st["sog"] = body.get("Sog")
+                    if body.get("Draught"):
+                        st["draught"] = body["Draught"]
+                    if inside:
+                        # last confirmed presence in port waters — a ship that later
+                        # goes silent closed its VN stay at roughly this moment
+                        st["lastInside"] = {"port": inside, "time": now_iso}
+                    was = st.get("inside")
 
-            # --- river-corridor barge transits (subset: AIS-equipped only) ---
-            loa = float(st.get("loa") or 0)
-            barge_sized = not loa or loa < 120  # small/unknown craft only
-            cid = corridor_of(lat, lon)
-            if cid and barge_sized and not inside:
-                track = st.get("corr")
-                if not track or track.get("cid") != cid:
-                    st["corr"] = {"cid": cid, "first": [lat, lon],
-                                  "last": [lat, lon], "firstT": now_iso}
-                else:
-                    track["last"] = [lat, lon]
-                flush_transit(mmsi, st, now_iso, min_disp=0.015)
-            elif st.get("corr"):
-                flush_transit(mmsi, st, now_iso, min_disp=0.0)  # left the box
-                st["corr"] = None
+                    if inside and was != inside:
+                        st["inside"] = inside
+                        append_event({
+                            "event": "ARRIVAL", "mmsi": mmsi, "port": inside, "time": now_iso,
+                            "vessel": st.get("name") or f"MMSI {mmsi}", "imo": st.get("imo"),
+                            "maxDraft": st.get("maxDraft"), "loa": st.get("loa"),
+                            "draft": st.get("draught"), "sog": st.get("sog"),
+                        })
+                        print(f"ARRIVAL {st.get('name') or mmsi} -> {inside}", flush=True)
+                    elif not inside and was:
+                        st["inside"] = None
+                        append_event({
+                            "event": "DEPARTURE", "mmsi": mmsi, "port": was, "time": now_iso,
+                            "vessel": st.get("name") or f"MMSI {mmsi}", "imo": st.get("imo"),
+                            "maxDraft": st.get("maxDraft"), "loa": st.get("loa"),
+                            "draft": st.get("draught"),
+                        })
+                        print(f"DEPARTURE {st.get('name') or mmsi} <- {was}", flush=True)
+
+                    # --- river-corridor barge transits (subset: AIS-equipped only) ---
+                    loa = float(st.get("loa") or 0)
+                    barge_sized = not loa or loa < 120  # small/unknown craft only
+                    cid = corridor_of(lat, lon)
+                    if cid and barge_sized and not inside:
+                        track = st.get("corr")
+                        if not track or track.get("cid") != cid:
+                            st["corr"] = {"cid": cid, "first": [lat, lon],
+                                          "last": [lat, lon], "firstT": now_iso}
+                        else:
+                            track["last"] = [lat, lon]
+                        flush_transit(mmsi, st, now_iso, min_disp=0.015)
+                    elif st.get("corr"):
+                        flush_transit(mmsi, st, now_iso, min_disp=0.0)  # left the box
+                        st["corr"] = None
+        except Exception as e:
+            print("connect failed:", type(e).__name__, str(e)[:200], flush=True)
+        if dt.datetime.now(TZ) < deadline and attempt < MAX_ATTEMPTS:
+            print("reconnecting in 10s…", flush=True)
+            await asyncio.sleep(10)
 
     # soak over — flush corridor tracks still open (direction from fixes we got)
     for mmsi, st in state.items():
@@ -226,8 +272,9 @@ async def run(minutes: int) -> None:
             st["corr"] = None
 
     save_state(state)
-    print(f"soak done: {n_pos} position reports, {n_static} static reports, "
-          f"{len(state)} ships tracked")
+    mins = (dt.datetime.now(TZ) - t0).total_seconds() / 60
+    print(f"soak done in {mins:.1f} min: {n_pos} position reports, "
+          f"{n_static} static reports, {len(state)} ships tracked", flush=True)
 
 
 def main():
