@@ -15,7 +15,8 @@
    "transitsToday": 10,
    "estTeuToday": 1279,
    "underway": 4,
-   "geofenceNote": "AIS geofence line set in aisstream_collector (barge class filter)"
+   "aisToday": 0,
+   "geofenceNote": "AIS corridor geofence active in ais_collector.py (TRANSIT events, 6 h dedupe)"
   },
   {
    "id": "MEKONG-HCMC",
@@ -32,7 +33,8 @@
    "transitsToday": 6,
    "estTeuToday": 443,
    "underway": 3,
-   "geofenceNote": "AIS geofence line set in aisstream_collector (barge class filter)"
+   "aisToday": 0,
+   "geofenceNote": "AIS corridor geofence active in ais_collector.py (TRANSIT events, 6 h dedupe)"
   },
   {
    "id": "CATLAI-CM",
@@ -49,7 +51,8 @@
    "transitsToday": 7,
    "estTeuToday": 1403,
    "underway": 2,
-   "geofenceNote": "AIS geofence line set in aisstream_collector (barge class filter)"
+   "aisToday": 0,
+   "geofenceNote": "AIS corridor geofence active in ais_collector.py (TRANSIT events, 6 h dedupe)"
   },
   {
    "id": "DNGNAI-ICD",
@@ -66,7 +69,8 @@
    "transitsToday": 5,
    "estTeuToday": 417,
    "underway": 2,
-   "geofenceNote": "AIS geofence line set in aisstream_collector (barge class filter)"
+   "aisToday": 0,
+   "geofenceNote": "AIS corridor geofence active in ais_collector.py (TRANSIT events, 6 h dedupe)"
   }
  ],
  "icds": [
@@ -207,7 +211,8 @@
    "capacityTeu": 68,
    "loadFactor": 0.93,
    "estTeu": 63,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B044",
@@ -220,7 +225,8 @@
    "capacityTeu": 394,
    "loadFactor": 0.77,
    "estTeu": 303,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B046",
@@ -233,7 +239,8 @@
    "capacityTeu": 81,
    "loadFactor": 0.56,
    "estTeu": 45,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B027",
@@ -246,7 +253,8 @@
    "capacityTeu": 211,
    "loadFactor": 0.73,
    "estTeu": 154,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B042",
@@ -259,7 +267,8 @@
    "capacityTeu": 196,
    "loadFactor": 0.67,
    "estTeu": 131,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B022",
@@ -272,7 +281,8 @@
    "capacityTeu": 215,
    "loadFactor": 0.82,
    "estTeu": 176,
-   "status": "UNDERWAY"
+   "status": "UNDERWAY",
+   "source": "demo"
   },
   {
    "id": "B029",
@@ -285,7 +295,8 @@
    "capacityTeu": 160,
    "loadFactor": 0.82,
    "estTeu": 131,
-   "status": "UNDERWAY"
+   "status": "UNDERWAY",
+   "source": "demo"
   },
   {
    "id": "B049",
@@ -298,7 +309,8 @@
    "capacityTeu": 96,
    "loadFactor": 0.69,
    "estTeu": 66,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B024",
@@ -311,7 +323,8 @@
    "capacityTeu": 237,
    "loadFactor": 0.63,
    "estTeu": 149,
-   "status": "UNDERWAY"
+   "status": "UNDERWAY",
+   "source": "demo"
   },
   {
    "id": "B032",
@@ -324,7 +337,8 @@
    "capacityTeu": 90,
    "loadFactor": 0.58,
    "estTeu": 52,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B047",
@@ -337,7 +351,8 @@
    "capacityTeu": 139,
    "loadFactor": 0.95,
    "estTeu": 132,
-   "status": "UNDERWAY"
+   "status": "UNDERWAY",
+   "source": "demo"
   },
   {
    "id": "B041",
@@ -350,7 +365,8 @@
    "capacityTeu": 395,
    "loadFactor": 0.62,
    "estTeu": 245,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B048",
@@ -363,7 +379,8 @@
    "capacityTeu": 106,
    "loadFactor": 0.8,
    "estTeu": 85,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B040",
@@ -376,7 +393,8 @@
    "capacityTeu": 286,
    "loadFactor": 0.61,
    "estTeu": 174,
-   "status": "UNDERWAY"
+   "status": "UNDERWAY",
+   "source": "demo"
   },
   {
    "id": "B030",
@@ -389,7 +407,8 @@
    "capacityTeu": 123,
    "loadFactor": 0.87,
    "estTeu": 107,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B036",
@@ -402,7 +421,8 @@
    "capacityTeu": 124,
    "loadFactor": 0.86,
    "estTeu": 107,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B037",
@@ -415,7 +435,8 @@
    "capacityTeu": 69,
    "loadFactor": 0.63,
    "estTeu": 43,
-   "status": "UNDERWAY"
+   "status": "UNDERWAY",
+   "source": "demo"
   },
   {
    "id": "B025",
@@ -428,7 +449,8 @@
    "capacityTeu": 85,
    "loadFactor": 0.6,
    "estTeu": 51,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B043",
@@ -441,7 +463,8 @@
    "capacityTeu": 329,
    "loadFactor": 0.58,
    "estTeu": 191,
-   "status": "UNDERWAY"
+   "status": "UNDERWAY",
+   "source": "demo"
   },
   {
    "id": "B038",
@@ -454,7 +477,8 @@
    "capacityTeu": 229,
    "loadFactor": 0.67,
    "estTeu": 153,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B026",
@@ -467,7 +491,8 @@
    "capacityTeu": 134,
    "loadFactor": 0.8,
    "estTeu": 107,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B031",
@@ -480,7 +505,8 @@
    "capacityTeu": 217,
    "loadFactor": 0.69,
    "estTeu": 150,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B045",
@@ -493,7 +519,8 @@
    "capacityTeu": 95,
    "loadFactor": 0.94,
    "estTeu": 89,
-   "status": "UNDERWAY"
+   "status": "UNDERWAY",
+   "source": "demo"
   },
   {
    "id": "B023",
@@ -506,7 +533,8 @@
    "capacityTeu": 172,
    "loadFactor": 0.79,
    "estTeu": 136,
-   "status": "UNDERWAY"
+   "status": "UNDERWAY",
+   "source": "demo"
   },
   {
    "id": "B028",
@@ -519,7 +547,8 @@
    "capacityTeu": 153,
    "loadFactor": 0.77,
    "estTeu": 118,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B035",
@@ -532,7 +561,8 @@
    "capacityTeu": 132,
    "loadFactor": 0.85,
    "estTeu": 112,
-   "status": "UNDERWAY"
+   "status": "UNDERWAY",
+   "source": "demo"
   },
   {
    "id": "B039",
@@ -545,7 +575,8 @@
    "capacityTeu": 268,
    "loadFactor": 0.77,
    "estTeu": 206,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B033",
@@ -558,7 +589,8 @@
    "capacityTeu": 70,
    "loadFactor": 0.94,
    "estTeu": 66,
-   "status": "UNDERWAY"
+   "status": "UNDERWAY",
+   "source": "demo"
   },
   {
    "id": "B007",
@@ -571,7 +603,8 @@
    "capacityTeu": 119,
    "loadFactor": 0.91,
    "estTeu": 108,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B009",
@@ -584,7 +617,8 @@
    "capacityTeu": 176,
    "loadFactor": 0.83,
    "estTeu": 146,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B015",
@@ -597,7 +631,8 @@
    "capacityTeu": 141,
    "loadFactor": 0.78,
    "estTeu": 110,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B008",
@@ -610,7 +645,8 @@
    "capacityTeu": 96,
    "loadFactor": 0.86,
    "estTeu": 83,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B006",
@@ -623,7 +659,8 @@
    "capacityTeu": 93,
    "loadFactor": 0.92,
    "estTeu": 86,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B016",
@@ -636,7 +673,8 @@
    "capacityTeu": 355,
    "loadFactor": 0.91,
    "estTeu": 323,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B004",
@@ -649,7 +687,8 @@
    "capacityTeu": 150,
    "loadFactor": 0.7,
    "estTeu": 105,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B011",
@@ -662,7 +701,8 @@
    "capacityTeu": 224,
    "loadFactor": 0.67,
    "estTeu": 150,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B005",
@@ -675,7 +715,8 @@
    "capacityTeu": 116,
    "loadFactor": 0.64,
    "estTeu": 74,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B017",
@@ -688,7 +729,8 @@
    "capacityTeu": 164,
    "loadFactor": 0.93,
    "estTeu": 153,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B020",
@@ -701,7 +743,8 @@
    "capacityTeu": 103,
    "loadFactor": 0.96,
    "estTeu": 99,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B019",
@@ -714,7 +757,8 @@
    "capacityTeu": 218,
    "loadFactor": 0.63,
    "estTeu": 137,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B021",
@@ -727,7 +771,8 @@
    "capacityTeu": 104,
    "loadFactor": 0.61,
    "estTeu": 63,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B012",
@@ -740,7 +785,8 @@
    "capacityTeu": 68,
    "loadFactor": 0.94,
    "estTeu": 64,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B013",
@@ -753,7 +799,8 @@
    "capacityTeu": 128,
    "loadFactor": 0.56,
    "estTeu": 72,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B003",
@@ -766,7 +813,8 @@
    "capacityTeu": 80,
    "loadFactor": 0.65,
    "estTeu": 52,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B018",
@@ -779,7 +827,8 @@
    "capacityTeu": 234,
    "loadFactor": 0.98,
    "estTeu": 229,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B002",
@@ -792,7 +841,8 @@
    "capacityTeu": 160,
    "loadFactor": 0.76,
    "estTeu": 122,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B010",
@@ -805,7 +855,8 @@
    "capacityTeu": 166,
    "loadFactor": 0.89,
    "estTeu": 148,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B014",
@@ -818,7 +869,8 @@
    "capacityTeu": 84,
    "loadFactor": 0.92,
    "estTeu": 77,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   },
   {
    "id": "B001",
@@ -831,11 +883,12 @@
    "capacityTeu": 132,
    "loadFactor": 0.7,
    "estTeu": 92,
-   "status": "COMPLETED"
+   "status": "COMPLETED",
+   "source": "demo"
   }
  ],
  "notes": [
   "ICD volumes modelled from customs regional model (province catchment × ~ICD gate share) — no live gate feed in free tier",
-  "Barge transits are demo events; live tracking uses the same AISstream geofences along river corridors (Class A/B AIS carriage varies on inland barges)"
+  "Barge transits are modelled estimates; corridor AIS geofences are armed — real transits appear here as the collector observes them (many river barges do not transmit AIS)"
  ]
 }

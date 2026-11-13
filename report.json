@@ -1,9 +1,9 @@
 {
  "date": "2026-11-13",
- "generatedAt": "2026-11-13T14:08+07:00",
+ "generatedAt": "2026-11-13T12:20+07:00",
  "headline": "Vietnam daily port & trade brief — 13 Nov 2026",
  "bullets": [
-  "15 container vessels alongside across the four tracked ports; 67 further arrivals expected in the next 24-72 h.",
+  "14 container vessels alongside across the four tracked ports; 68 further arrivals expected in the next 24-72 h.",
   "Estimated 62,972 TEU being exchanged today (draft/stay model, uncalibrated).",
   "19 departures in the last 24 h.",
   "Official October-2026 trade: exports US$64.67bn, imports US$57.36bn, balance surplus US$7.31bn.",
@@ -11,13 +11,13 @@
   "VPA September 2026: national throughput 2.51m TEU (+11.82% y/y); Cai Mep – Thi Vai +21.48% y/y."
  ],
  "perPortTeu": {
-  "CAIMEP": 424063,
+  "CAIMEP": 421322,
   "DANANG": 49789,
   "HCMC": 53070,
   "HAIPHONG": 105457
  },
  "perRegionTeu": {
-  "South": 477133,
+  "South": 474392,
   "Central": 49789,
   "North": 105457
  }
