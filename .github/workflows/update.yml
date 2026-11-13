@@ -1,13 +1,11 @@
 name: Daily data refresh
-
 on:
   schedule:
-    - cron: "30 0 * * *"      # 07:30 every morning, Vietnam time
-  workflow_dispatch:          # adds a "Run workflow" button for manual refreshes
-
+    - cron: "30 0 * * *"      # 07:30 Vietnam time — morning window
+    - cron: "30 12 * * *"     # 19:30 Vietnam time — evening window
+  workflow_dispatch:          # "Run workflow" button for manual refreshes
 permissions:
   contents: write
-
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -16,11 +14,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python3 refresh.py
+      - run: pip install websockets
+      - name: Collect live AIS (20 min soak — needs the AISSTREAM_API_KEY secret)
+        env:
+          AISSTREAM_API_KEY: ${{ secrets.AISSTREAM_API_KEY }}
+        run: python3 ais_collector.py --minutes 20 || true
+      - name: Rebuild dashboard data (schedules, VPA, port calls, customs, news)
+        run: python3 refresh.py
       - name: Commit fresh data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet || git commit -m "chore: daily data refresh"
+          git diff --cached --quiet || git commit -m "chore: data refresh"
           git push
