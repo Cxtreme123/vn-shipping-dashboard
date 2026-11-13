@@ -130,32 +130,41 @@ async def run(minutes: int) -> None:
     t0 = dt.datetime.now(TZ)
     deadline = t0 + dt.timedelta(minutes=minutes)
     n_pos = n_static = n_server = 0
-    MAX_ATTEMPTS, SILENT_ABORT_S = 8, 180
+    MAX_ATTEMPTS = 8
 
     attempt = 0
     while dt.datetime.now(TZ) < deadline and attempt < MAX_ATTEMPTS:
         attempt += 1
         try:
-            async with websockets.connect(WS_URL, ping_interval=20,
-                                          ping_timeout=60) as ws:
+            # bound the connect itself by the remaining soak time — a hung
+            # handshake (a failure mode aisstream has had) must not stall the job
+            remaining = (deadline - dt.datetime.now(TZ)).total_seconds()
+            conn = await asyncio.wait_for(
+                websockets.connect(WS_URL, ping_interval=20, ping_timeout=60),
+                timeout=max(5.0, min(30.0, remaining)))
+            async with conn as ws:
                 await ws.send(json.dumps(subscribe))
                 print(f"connected to aisstream (attempt {attempt}/{MAX_ATTEMPTS}) "
                       f"— listening…", flush=True)
                 quiet_s = 0
+                subscribed = False
                 while dt.datetime.now(TZ) < deadline:
                     try:
                         raw = await asyncio.wait_for(ws.recv(), timeout=60)
                     except asyncio.TimeoutError:
-                        # a quiet patch is normal over Vietnam (thin shore-station
-                        # cover) — ride it out; only a subscription that delivered
-                        # NOTHING for 3 min looks dead and earns a reconnect
                         quiet_s += 60
-                        print(f"…no AIS messages for {quiet_s // 60} min "
-                              f"({n_pos + n_static} so far) — still listening", flush=True)
-                        if quiet_s >= SILENT_ABORT_S and not (n_pos or n_static):
-                            print("subscription looks dead (3 silent minutes, 0 "
-                                  "messages) — reconnecting…", flush=True)
+                        if not subscribed:
+                            # no SubscriptionConfirmation within 60s of connecting
+                            # = the subscription wasn't accepted — reconnect
+                            print("no subscription confirmation from aisstream "
+                                  "within 60s — reconnecting…", flush=True)
                             break
+                        else:
+                            # confirmed but quiet: normal over Vietnam (thin shore-
+                            # station cover) — ride it out until the deadline
+                            print(f"subscription active — no AIS traffic for "
+                                  f"{quiet_s // 60} min ({n_pos + n_static} messages "
+                                  f"so far) — still listening", flush=True)
                         continue
                     except Exception as e:
                         print("connection dropped:", type(e).__name__, str(e)[:200],
@@ -167,6 +176,12 @@ async def run(minutes: int) -> None:
                     except Exception:
                         continue
                     mtype = msg.get("MessageType")
+                    if mtype == "SubscriptionConfirmation":
+                        subscribed = True
+                        comp = (msg.get("Message") or {}).get("CompressionEnabled")
+                        print(f"subscription ACCEPTED by aisstream "
+                              f"(compression: {comp}) — streaming…", flush=True)
+                        continue
                     if mtype not in ("PositionReport", "ShipStaticData"):
                         # aisstream info/error frame (e.g. invalid key) — make it
                         # visible in the Actions log instead of dying silently
