@@ -1,12 +1,12 @@
 {
- "generatedAt": "2026-11-13T16:53+07:00",
- "dataMode": "schedule",
+ "generatedAt": "2026-11-14T03:16+07:00",
+ "dataMode": "live",
  "schedSources": [
   "tancangpilot"
  ],
  "tz": "Asia/Ho_Chi_Minh",
  "notes": [
-  "Vessel calls from free public pilot/terminal plans (Tan Cang Pilot + Cảng vụ Hải Phòng port authority, fetched daily); times beyond the published plan, berth windows & TEU are modelled estimates; AISstream live feed not connected",
+  "Vessel arrivals/departures observed via AISstream (live) + free public pilot/terminal plans (Tan Cang Pilot, Cảng vụ Hải Phòng); unobserved exits close at last AIS contact; berth windows & TEU remain modelled estimates",
   "TEU figures are model estimates from draft & port stay — not terminal-confirmed lifts",
   "National trade totals are official (GDVC); province/commodity split is a demo model",
   "Monthly national/region throughput is real VPA association data",
