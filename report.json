@@ -1,20 +1,20 @@
 {
- "date": "2026-11-14",
- "generatedAt": "2026-11-14T14:16+07:00",
- "headline": "Vietnam daily port & trade brief — 14 Nov 2026",
+ "date": "2026-11-15",
+ "generatedAt": "2026-11-15T01:42+07:00",
+ "headline": "Vietnam daily port & trade brief — 15 Nov 2026",
  "bullets": [
-  "11 container vessels alongside across the four tracked ports; 12 further arrivals expected in the next 24-72 h.",
-  "Estimated 49,096 TEU being exchanged today (draft/stay model, uncalibrated).",
-  "6 departures in the last 24 h.",
+  "9 container vessels alongside across the four tracked ports; 1 further arrivals expected in the next 24-72 h.",
+  "Estimated 22,372 TEU being exchanged today (draft/stay model, uncalibrated).",
+  "15 departures in the last 24 h.",
   "Official October-2026 trade: exports US$64.67bn, imports US$57.36bn, balance surplus US$7.31bn.",
   "Cai Mep continues to absorb Cat Lai overflow on mainline services; Lach Huyen (Hai Phong) holds the northern deep-water calls.",
   "VPA September 2026: national throughput 2.51m TEU (+11.82% y/y); Cai Mep – Thi Vai +21.48% y/y."
  ],
  "perPortTeu": {
-  "HCMC": 22135,
-  "CAIMEP": 18360
+  "HCMC": 33149,
+  "CAIMEP": 12240
  },
  "perRegionTeu": {
-  "South": 40495
+  "South": 45389
  }
 }
