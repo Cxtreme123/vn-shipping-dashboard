@@ -91,24 +91,24 @@
   "date": "2026-11-14",
   "HAIPHONG": 0,
   "DANANG": 0,
-  "HCMC": 7539,
+  "HCMC": 0,
   "CAIMEP": 0,
-  "total": 7539
+  "total": 0
  },
  {
   "date": "2026-11-15",
   "HAIPHONG": 0,
   "DANANG": 0,
-  "HCMC": 18324,
-  "CAIMEP": 26180,
-  "total": 44504
+  "HCMC": 10939,
+  "CAIMEP": 0,
+  "total": 10939
  },
  {
   "date": "2026-11-16",
   "HAIPHONG": 0,
   "DANANG": 0,
-  "HCMC": 11900,
-  "CAIMEP": 0,
-  "total": 11900
+  "HCMC": 25332,
+  "CAIMEP": 26180,
+  "total": 51512
  }
 ]
