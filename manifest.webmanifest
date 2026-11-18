@@ -1,0 +1,14 @@
+{
+  "name": "VN Port Watch — Vietnam Shipping & Logistics",
+  "short_name": "VN Port Watch",
+  "description": "Daily vessel movements, TEU estimates, customs data and trade news for Vietnam's four key container ports.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#050810",
+  "theme_color": "#050810",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

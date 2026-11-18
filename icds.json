@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-18T14:00+07:00",
+ "generatedAt": "2026-11-18T11:46+07:00",
  "icds": [
   {
    "id": "ICDSOTRANS",
@@ -23,30 +23,30 @@
      "lenM": 82,
      "draftM": null,
      "maxDwt": 1500,
-     "vessel": null,
-     "mmsi": null,
-     "loa": null,
-     "draught": null
+     "vessel": "TAY",
+     "mmsi": "574401551",
+     "loa": 0.0,
+     "draught": 0.0
     },
     {
      "id": "B2",
      "lenM": 82,
      "draftM": null,
      "maxDwt": 1500,
-     "vessel": null,
-     "mmsi": null,
-     "loa": null,
-     "draught": null
+     "vessel": "AN TAY 27",
+     "mmsi": "574404265",
+     "loa": 80.0,
+     "draught": 0.0
     },
     {
      "id": "B3",
      "lenM": 82,
      "draftM": null,
      "maxDwt": 1500,
-     "vessel": null,
-     "mmsi": null,
-     "loa": null,
-     "draught": null
+     "vessel": "TAY NAM 01",
+     "mmsi": "574401565",
+     "loa": 0.0,
+     "draught": 0.0
     },
     {
      "id": "B4",
@@ -70,7 +70,7 @@
     }
    ],
    "overflow": [],
-   "alongside": 0,
+   "alongside": 3,
    "recent": [
     {
      "name": "TAY NAM 01",
@@ -220,13 +220,13 @@
    "inRange": true,
    "underway": false,
    "sog": 0.0,
-   "lat": 10.884113333333334,
-   "lon": 106.84441333333332,
+   "lat": 10.884106666666666,
+   "lon": 106.84445000000001,
    "loa": 80.0,
    "draught": 0.0,
    "dest": "",
    "area": "Bình Triệu reach — Saigon R.",
-   "lastSeen": "2026-11-18T13:42+07:00"
+   "lastSeen": "2026-11-18T11:38+07:00"
   },
   {
    "name": "SOWATCO PLATINUM 1",
@@ -243,18 +243,18 @@
    "lastSeen": "2026-11-18T00:23+07:00"
   },
   {
-   "name": "SOWATCO VENUS",
-   "mmsi": "574402373",
-   "inRange": true,
-   "underway": true,
-   "sog": 3.7,
-   "lat": 10.534256666666666,
-   "lon": 106.98602,
-   "loa": 80.0,
+   "name": "SOWATCO PLATINUM 2",
+   "mmsi": "574403748",
+   "inRange": false,
+   "underway": false,
+   "sog": 0.1,
+   "lat": 10.541196666666668,
+   "lon": 107.02873666666666,
+   "loa": 0.0,
    "draught": 0.0,
    "dest": "",
    "area": "Cái Mép – Thị Vải",
-   "lastSeen": "2026-11-18T13:40+07:00"
+   "lastSeen": "2026-11-18T00:36+07:00"
   }
  ],
  "notes": [

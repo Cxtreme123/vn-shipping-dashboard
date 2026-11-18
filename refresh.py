@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Daily data refresh for the VN Port Watch dashboard (single-file edition, v5.1).
+Daily data refresh for the VN Port Watch dashboard (single-file edition, v5.2).
 
 Runs unattended in GitHub Actions (see .github/workflows/update.yml).
 Standard library only — no pip installs needed.
@@ -26,6 +26,9 @@ What it does, in order:
   5. refresh_customs()  — best-effort scrape of GDVC headline monthly totals.
   6. refresh_news()     — latest Vietnam trade/logistics news from GDELT
                           (free, no key); keeps yesterday's file on failure.
+                          Headlines are machine-translated VI→EN (free
+                          endpoints, per-string cache; original kept on any
+                          failure and shown on hover).
 
 Every source fetch appends to the HEALTH list; meta.json carries it so the
 UI can flag stale/failed feeds instead of silently serving old data.
@@ -709,6 +712,94 @@ def summarise(title: str) -> str:
     return title  # hook: plug any free LLM endpoint here for 2-line summaries
 
 
+# --------------------------------------------- VI→EN machine translation ----
+# GDELT returns Vietnamese-language headlines for most VN trade sources. The
+# robot translates title + summary to English via free keyless endpoints
+# (Google gtx first, MyMemory fallback), cached per exact string in
+# datastore/news_translate_cache.json so repeat articles cost nothing and the
+# daily endpoint load stays tiny. Failure mode is safe: the original text is
+# kept and shown as-is — a dead endpoint never breaks the feed.
+TRANS_CACHE = ROOT / "datastore" / "news_translate_cache.json"
+
+_VI_CHARS = frozenset(
+    "ăâđêôơưáàảãạấầẩẫậắằẳẵặéèẻẽẹếềểễệíìỉĩịóòỏõọốồổỗộớờởỡợúùủũụứừửữựýỳỷỹỵ"
+    "ĂÂĐÊÔƠƯÁÀẢÃẠẤẦẨẪẬẮẰẲẴẶÉÈẺẼẸẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌỐỒỔỖỘỚỜỞỠỢÚÙỦŨỤỨỪỬỮỰÝỲỶỸỴ")
+
+
+def _lang_hint(s: str) -> str:
+    """'en' (leave as-is) / 'vi' (Vietnamese diacritics) / 'other' (any other
+    non-ASCII script — GDELT occasionally returns CN/PT/TR items)."""
+    if any(c in _VI_CHARS for c in s):
+        return "vi"
+    return "other" if any(ord(c) > 127 for c in s) else "en"
+
+
+def _translate_one(text: str, cache: dict, stats: dict) -> str:
+    key = text.strip()
+    hint = _lang_hint(key)
+    if not key or hint == "en":
+        return key
+    if key in cache:
+        return cache[key]
+    out = None
+    try:  # Google Translate free endpoint (gtx), auto-detected source language
+        q = urllib.parse.quote(key[:1800])
+        url = ("https://translate.googleapis.com/translate_a/single"
+               f"?client=gtx&sl=auto&tl=en&dt=t&q={q}")
+        req = urllib.request.Request(url, headers={"User-Agent": "vn-port-dashboard/1.0"})
+        data = json.loads(urllib.request.urlopen(req, timeout=20).read())
+        segs = data[0] if isinstance(data, list) and data else None
+        cand = "".join(s[0] for s in segs if s and s[0]).strip() if segs else ""
+        if cand:
+            out = cand
+    except Exception:
+        stats["fail"] += 1
+    if not out and hint == "vi":
+        try:  # MyMemory fallback — Vietnamese only (it needs an explicit pair)
+            q = urllib.parse.quote(key[:450])
+            url = f"https://api.mymemory.translated.net/get?q={q}&langpair=vi|en"
+            req = urllib.request.Request(url, headers={"User-Agent": "vn-port-dashboard/1.0"})
+            data = json.loads(urllib.request.urlopen(req, timeout=20).read())
+            cand = ((data.get("responseData") or {}).get("translatedText") or "").strip()
+            if cand and "MYMEMORY WARNING" not in cand and cand.lower() != key.lower():
+                out = cand
+        except Exception:
+            stats["fail"] += 1
+    if out:
+        cache[key] = out
+        stats["new"] += 1
+        return out
+    return key  # untranslated — original shown
+
+
+def translate_news(items: list) -> list:
+    """Attach titleEn/summaryEn to every item (original kept on failure).
+    The per-string cache makes 2-hourly runs nearly free: only newly-seen
+    headlines hit an endpoint."""
+    cache = {}
+    if TRANS_CACHE.exists():
+        try:
+            cache = json.loads(TRANS_CACHE.read_text())
+        except Exception:
+            cache = {}
+    stats = {"new": 0, "fail": 0}
+    for it in items:
+        for src_f, dst_f in (("title", "titleEn"), ("summary", "summaryEn")):
+            orig = (it.get(src_f) or "").strip()
+            if orig:
+                it[dst_f] = _translate_one(orig, cache, stats)
+    if stats["new"]:
+        TRANS_CACHE.parent.mkdir(exist_ok=True)
+        TRANS_CACHE.write_text(json.dumps(cache, ensure_ascii=False, indent=1))
+    print(f"news translate: {stats['new']} new strings EN-translated "
+          f"(cache {len(cache)}, {stats['fail']} endpoint failures)")
+    _log_src("news-translate", "News VI→EN machine translation",
+             stats["fail"] == 0, stats["new"],
+             "" if stats["fail"] == 0
+             else f"{stats['fail']} endpoint call(s) failed — those headlines kept in Vietnamese")
+    return items
+
+
 def fetch_gdelt():
     req = urllib.request.Request(GDELT, headers={"User-Agent": "vn-port-dashboard/1.0"})
     with urllib.request.urlopen(req, timeout=45) as r:
@@ -745,7 +836,7 @@ def refresh_news() -> None:
             return
         items = [dict(a, category=classify(a["title"])) for a in FALLBACK]
         mode = "curated-fallback"
-    payload = {"mode": mode, "items": items[:40]}
+    payload = {"mode": mode, "items": translate_news(items[:40])}
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, indent=1, ensure_ascii=False))
     print("wrote news.json", f"({mode}, {len(payload['items'])} items)")
