@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-18T11:42+07:00",
+ "generatedAt": "2026-11-18T20:13+07:00",
  "dataMode": "live",
  "schedSources": [
   "haiphong-plan",
@@ -26,13 +26,13 @@
    "label": "VPA monthly throughput report",
    "ok": true,
    "rows": null,
-   "err": "no new report fetched; kept existing"
+   "err": "month 2026-09 still current"
   },
   {
    "id": "tancangpilot",
    "label": "Tan Cang Pilot plan",
    "ok": true,
-   "rows": 32,
+   "rows": 33,
    "err": ""
   },
   {
@@ -40,13 +40,13 @@
    "label": "Hai Phong plan (mirror)",
    "ok": false,
    "rows": null,
-   "err": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+   "err": "<urlopen error timed out>"
   },
   {
    "id": "haiphong-cangvu",
    "label": "Cảng vụ Hải Phòng ship plan",
    "ok": true,
-   "rows": 36,
+   "rows": 57,
    "err": ""
   },
   {
@@ -54,20 +54,20 @@
    "label": "Cảng vụ TP.HCM gov schedule",
    "ok": false,
    "rows": null,
-   "err": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+   "err": "<urlopen error timed out>"
   },
   {
    "id": "cangvu-hcmc",
    "label": "Cảng vụ TP.HCM plan",
    "ok": false,
    "rows": null,
-   "err": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+   "err": "<urlopen error timed out>"
   },
   {
    "id": "ais-haiphong",
    "label": "AIS snapshot · Hai Phong",
    "ok": true,
-   "rows": 313,
+   "rows": 309,
    "err": ""
   },
   {
@@ -81,28 +81,28 @@
    "id": "ais-hcmc",
    "label": "AIS snapshot · Ho Chi Minh (Cat Lai)",
    "ok": true,
-   "rows": 186,
+   "rows": 208,
    "err": ""
   },
   {
    "id": "ais-caimep",
    "label": "AIS snapshot · Cai Mep - Thi Vai",
    "ok": true,
-   "rows": 140,
+   "rows": 125,
    "err": ""
   },
   {
    "id": "ais-fleet",
    "label": "AIS snapshot · SOWATCO fleet (wide SE box)",
    "ok": true,
-   "rows": 524,
+   "rows": 540,
    "err": ""
   },
   {
    "id": "ais-icdsotrans",
    "label": "AIS geofence · ICD Sotrans",
    "ok": true,
-   "rows": 3,
+   "rows": 1,
    "err": ""
   },
   {
