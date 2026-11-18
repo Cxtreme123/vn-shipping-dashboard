@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Daily data refresh for the VN Port Watch dashboard (single-file edition).
+Daily data refresh for the VN Port Watch dashboard (single-file edition, v5.1).
 
 Runs unattended in GitHub Actions (see .github/workflows/update.yml).
 Standard library only — no pip installs needed.
@@ -12,25 +12,36 @@ What it does, in order:
   2. refresh_schedules()— free public daily pilot/terminal plans (Tan Cang
                           Pilot: Cat Lai / HCMC river + Cai Mep; Cảng vụ
                           Hải Phòng data: Hai Phong arrivals/departures).
-  3. build_all()        — regenerates ports/calls/daily/customs/inland/report/meta
-                          JSON for "today" (Asia/Ho_Chi_Minh). Vessel calls come
-                          from AISstream live observations when available, else
-                          from the public plans, else the clearly-labelled DEMO
-                          fleet. Observed stays are learned into
-                          datastore/history.jsonl and drive predicted port stays.
-  4. refresh_customs()  — best-effort scrape of GDVC headline monthly totals.
-  5. refresh_news()     — latest Vietnam trade/logistics news from GDELT
+  3. Open Waters AIS snapshots (AISHub aggregate) folded into the persistent
+                          visit table datastore/ow_visits.json.
+  4. build_all()        — regenerates ports/calls/daily/customs/inland/report/
+                          meta/visits JSON for "today" (Asia/Ho_Chi_Minh).
+                          Vessel calls come from the AIS visit table when
+                          available, else the public plans, else the clearly
+                          labelled DEMO fleet. Modelled TEU are calibrated to
+                          the VPA monthly regional anchors once ≥10 days of
+                          observed history exist. Observed stays are learned
+                          into datastore/history.jsonl and drive predicted
+                          port stays.
+  5. refresh_customs()  — best-effort scrape of GDVC headline monthly totals.
+  6. refresh_news()     — latest Vietnam trade/logistics news from GDELT
                           (free, no key); keeps yesterday's file on failure.
+
+Every source fetch appends to the HEALTH list; meta.json carries it so the
+UI can flag stale/failed feeds instead of silently serving old data.
 
 Data honesty contract: every JSON carries a dataMode marker ("live"/"demo") and
 the UI shows a visible DEMO DATA badge for synthetic content.
 """
 import datetime as dt
+import html as _html
 import json
 import math
 import pathlib
 import random
 import re
+import time
+import unicodedata
 import urllib.parse
 import urllib.request
 
@@ -39,6 +50,7 @@ DATA_DIR = ROOT  # flat repo: JSONs live next to index.html
 TZ = dt.timezone(dt.timedelta(hours=7))  # Asia/Ho_Chi_Minh
 
 # ---------------------------------------------------------------- ports ----
+# terminal "geo" = approximate centroid for AIS->terminal assignment only
 def _berths(ids, length, depth, maxclass):
     """Berth specs are approximate public figures (terminal operator data)."""
     return [{"id": i, "lengthM": length, "depthM": depth, "maxClass": maxclass} for i in ids]
@@ -46,11 +58,23 @@ def _berths(ids, length, depth, maxclass):
 PORTS = [
     {
         "id": "HAIPHONG", "name": "Hai Phong", "locode": "VNHPH", "region": "North",
-        "lat": 20.865, "lon": 106.683, "maxDraftM": 14.5,
+        "lat": 20.865, "lon": 106.683, "maxDraftM": 16.8,
         "terminals": [
-            {"name": "Lach Huyen (HICT)", "berths": _berths(["H1", "H2"], 360, 14.5, "NEOPAN")},
-            {"name": "Lach Huyen (HHIT)", "berths": _berths(["I1", "I2"], 350, 14.5, "NEOPAN")},
-            {"name": "Chua Ve", "berths": _berths(["C1", "C2", "C3", "C4"], 180, 8.5, "FEEDER")},
+            # Lach Huyen deep-sea berths (sourced: HICT b1-2 750m/-16m;
+            # HTIT b3-4 750m/-16m; HHIT b5-6 ~900m/16.8-18.4m alongside)
+            {"name": "Lach Huyen (HICT)", "geo": [20.832, 106.789], "berths": _berths(["H1", "H2"], 380, 16.0, "NEOPAN")},
+            {"name": "Lach Huyen (HTIT)", "geo": [20.827, 106.797], "berths": _berths(["T3", "T4"], 375, 16.0, "NEOPAN")},
+            {"name": "Lach Huyen (HHIT)", "geo": [20.822, 106.805], "berths": _berths(["I5", "I6"], 450, 16.8, "ULCV")},
+            # Dinh Vu / river terminals — berth splits INDICATIVE (operator
+            # berth numbering not public); depths from operator/VPA data
+            {"name": "Nam Dinh Vu", "berths": _berths(["NDV1", "NDV2", "NDV3", "NDV4"], 240, 9.5, "FEEDER")},
+            {"name": "Nam Hai Dinh Vu", "berths": _berths(["NHD1", "NHD2"], 228, 8.5, "FEEDER")},
+            {"name": "VIMC Dinh Vu", "berths": _berths(["VDV1", "VDV2", "VDV3"], 210, 8.5, "FEEDER")},
+            {"name": "VIP Greenport", "berths": _berths(["VGP1", "VGP2"], 220, 8.5, "FEEDER")},
+            {"name": "Tan Vu", "berths": _berths(["TV1", "TV2"], 200, 8.5, "FEEDER")},
+            {"name": "Hai An", "berths": _berths(["HAN1", "HAN2"], 200, 8.0, "FEEDER")},
+            {"name": "Nam Hai", "berths": _berths(["NH1", "NH2"], 200, 8.0, "FEEDER")},
+            {"name": "Chua Ve", "geo": [20.869, 106.667], "berths": _berths(["C1", "C2", "C3", "C4"], 180, 8.5, "FEEDER")},
         ],
         "role": "Northern deep-water gateway; direct US/EU mainline calls at Lach Huyen",
         "geofence": [[20.72, 106.55], [20.98, 106.95]],  # AISstream bounding box
@@ -59,7 +83,7 @@ PORTS = [
         "id": "DANANG", "name": "Da Nang", "locode": "VNDAD", "region": "Central",
         "lat": 16.115, "lon": 108.210, "maxDraftM": 11.0,
         "terminals": [
-            {"name": "Tien Sa", "berths": _berths(["T1", "T2", "T3"], 230, 11.0, "PANAMAX")},
+            {"name": "Tien Sa", "geo": [16.117, 108.213], "berths": _berths(["T1", "T2", "T3"], 230, 11.0, "PANAMAX")},
         ],
         "role": "Central coast regional port; intra-Asia feeders",
         "geofence": [[16.02, 108.12], [16.22, 108.32]],
@@ -68,8 +92,11 @@ PORTS = [
         "id": "HCMC", "name": "Ho Chi Minh (Cat Lai)", "locode": "VNSGN", "region": "South",
         "lat": 10.755, "lon": 106.760, "maxDraftM": 11.0,
         "terminals": [
-            {"name": "Cat Lai", "berths": _berths(["A1", "A2", "A3", "A4", "A5", "A6"], 220, 10.5, "PANAMAX")},
-            {"name": "Tan Cang", "berths": _berths(["R1", "R2"], 170, 9.0, "FEEDER")},
+            {"name": "Cat Lai", "geo": [10.767, 106.772], "berths": _berths(["A1", "A2", "A3", "A4", "A5", "A6"], 220, 10.5, "PANAMAX")},
+            {"name": "Tan Cang", "geo": [10.772, 106.715], "berths": _berths(["R1", "R2"], 170, 9.0, "FEEDER")},
+            # berth splits indicative (operator numbering not public)
+            {"name": "Tan Cang Hiep Phuoc", "geo": [10.702, 106.743], "berths": _berths(["TCH1", "TCH2"], 200, 9.5, "FEEDER")},
+            {"name": "SP-ITC", "berths": _berths(["SPC1", "SPC2"], 210, 10.0, "FEEDER")},
         ],
         "role": "Busiest river terminal; draft-limited to ~5,000 TEU feeders",
         "geofence": [[10.68, 106.68], [10.83, 106.85]],
@@ -78,10 +105,12 @@ PORTS = [
         "id": "CAIMEP", "name": "Cai Mep - Thi Vai", "locode": "VNCMT", "region": "South",
         "lat": 10.520, "lon": 107.020, "maxDraftM": 16.0,
         "terminals": [
-            {"name": "CMIT", "berths": _berths(["M1", "M2", "M3"], 330, 15.8, "ULCV")},
-            {"name": "TCIT", "berths": _berths(["T1", "T2", "T3"], 300, 15.5, "ULCV")},
-            {"name": "SSIT", "berths": _berths(["S1", "S2"], 320, 16.0, "ULCV")},
-            {"name": "SP-PSA", "berths": _berths(["P1", "P2"], 300, 14.0, "NEOPAN")},
+            {"name": "CMIT", "geo": [10.546, 107.02], "berths": _berths(["M1", "M2", "M3"], 330, 15.8, "ULCV")},
+            {"name": "TCIT", "geo": [10.552, 107.014], "berths": _berths(["T1", "T2", "T3"], 300, 15.5, "ULCV")},
+            {"name": "SSIT", "geo": [10.6, 107.005], "berths": _berths(["S1", "S2"], 320, 16.0, "ULCV")},
+            {"name": "SP-PSA", "geo": [10.59, 106.985], "berths": _berths(["P1", "P2"], 300, 14.0, "NEOPAN")},
+            # Gemalink (Gemadept–Terminal Link) — berth split indicative
+            {"name": "Gemalink", "geo": [10.612, 107.022], "berths": _berths(["GML1", "GML2"], 400, 16.0, "ULCV")},
         ],
         "role": "Deep-water cluster for ULCVs; direct transpacific & Europe loops",
         "geofence": [[10.42, 106.92], [10.62, 107.12]],
@@ -210,13 +239,30 @@ def assign_berths(calls: list[dict], rng: random.Random) -> None:
         if free:
             hint = (c.get("terminalHint") or "").strip()
             hinted = [(t, b) for t, b in free if hint and t["name"] == hint]
-            tsel, bsel = rng.choice(hinted or free)  # prefer the plan's terminal
+            pool = hinted or free  # prefer the plan's / observed terminal
+            # best-fit: the shallowest berth that still floats the vessel —
+            # deep-water berths stay reserved for the ships that need them
+            # (otherwise river barges would occupy Lach Huyen / Cai Mep rows)
+            tsel, bsel = min(pool, key=lambda tb: (tb[1]["depthM"], tb[1]["lengthM"]))
         else:
             pool = fit or [(t, b) for t in pmeta["terminals"] for b in t["berths"]]
             tsel, bsel = min(pool, key=lambda tb: busy_until.get(
                 (c["port"], tb[0]["name"], tb[1]["id"]), never))
             free_at = busy_until.get((c["port"], tsel["name"], bsel["id"]), never)
             wait_h = (free_at - eta).total_seconds() / 3600
+            if wait_h > 6 and c.get("_obsArr"):
+                # AIS saw this vessel inside the port, but no modelled berth is
+                # free: it's alongside a terminal we don't track or at anchor.
+                # Show it in the call list unassigned rather than slip it days.
+                c["terminal"], c["berth"] = "", ""
+                c["waitH"] = 0.0
+                c["status"] = "IN_PORT" if not c.get("_obsDep") else "DEPARTED"
+                if c["status"] == "DEPARTED":
+                    c["stayHours"] = round((etd - eta).total_seconds() / 3600, 1)
+                else:
+                    c["stayHours"] = round(max(0.0, (now - eta).total_seconds() / 3600), 1)
+                    c["ata"] = iso(eta)
+                continue
             if wait_h > 0:
                 eta += dt.timedelta(hours=wait_h)
                 etd += dt.timedelta(hours=wait_h)
@@ -513,7 +559,8 @@ def build_customs() -> dict:
 
 
 # -------------------------------------------------------------- report ----
-def build_report(today: dt.date, calls: list, daily: list, customs: dict) -> dict:
+def build_report(today: dt.date, calls: list, daily: list, customs: dict,
+                 calibrated: bool = False) -> dict:
     in_port = [c for c in calls if c["status"] == "IN_PORT"]
     # vessels waiting at anchorage are still pending arrivals for planning purposes
     expected = [c for c in calls if c["status"] in ("EXPECTED", "AT_ANCHORAGE")]
@@ -536,7 +583,8 @@ def build_report(today: dt.date, calls: list, daily: list, customs: dict) -> dic
     bullets = [
         f"{len(in_port)} container vessels alongside across the four tracked ports; "
         f"{len(expected)} further arrivals expected in the next 24-72 h.",
-        f"Estimated {teu_today:,} TEU being exchanged today (draft/stay model, uncalibrated).",
+        f"Estimated {teu_today:,} TEU being exchanged today "
+        f"(draft/stay model{', rescaled to VPA regional anchors' if calibrated else ', uncalibrated'}).",
         f"{len(dep24)} departures in the last 24 h.",
         f"Official October-2026 trade: exports US${t['export']}bn, imports US${t['import']}bn, "
         f"balance {'surplus' if t['balance'] >= 0 else 'deficit'} US${abs(t['balance'])}bn.",
@@ -575,6 +623,8 @@ def refresh_customs() -> None:
     OUT = ROOT / "customs.json"
     if not OUT.exists():
         print("customs.json missing — skipping totals refresh")
+        _log_src("gdvc-customs", "GDVC customs totals", False, None,
+                 "customs.json missing on disk")
         return
     data = json.loads(OUT.read_text())
     try:
@@ -590,8 +640,12 @@ def refresh_customs() -> None:
             data["month"] = month
         OUT.write_text(json.dumps(data, indent=1, ensure_ascii=False))
         print("customs totals refreshed:", data["totals"])
+        _log_src("gdvc-customs", "GDVC customs totals", True, None,
+                 f"{data.get('month', '')} totals refreshed")
     else:
         print("no new official totals parsed — keeping existing (official Oct-2026 anchors)")
+        _log_src("gdvc-customs", "GDVC customs totals", False, None,
+                 "fetch/parse failed — kept existing official anchors")
 
 
 # ---------------------------------------------------------------- news ----
@@ -682,8 +736,10 @@ def refresh_news() -> None:
     try:
         items = fetch_gdelt()
         print(f"GDELT returned {len(items)} articles")
+        _log_src("gdelt", "GDELT news feed", True, len(items))
     except Exception as e:
         print("GDELT failed:", e)
+        _log_src("gdelt", "GDELT news feed", False, err=e)
         if OUT.exists():
             print("keeping previous news.json")
             return
@@ -857,11 +913,18 @@ def refresh_vpa() -> None:
             continue
         if have and data["month"] <= have:
             print(f"VPA report {data['month']} already stored — keeping existing vpa.json")
+            _log_src("vpa", "VPA monthly throughput report", True,
+                     None, f"month {have} still current")
             return
         OUT.write_text(json.dumps(data, indent=1, ensure_ascii=False))
         print(f"wrote vpa.json ({data['monthLabel']}: {data['national']['teu']:,} TEU)")
+        _log_src("vpa", "VPA monthly throughput report", True,
+                 data["national"]["teu"], f"updated to {data['month']}")
         return
     print("no VPA report fetched — keeping existing vpa.json")
+    _log_src("vpa", "VPA monthly throughput report", bool(have), None,
+             "no new report fetched; kept existing" if have
+             else "fetch failed and no stored report on disk")
 
 # ------------------------------------------------- live AIS merge ----
 # Destination-string → tracked port (AIS destinations are free text).
@@ -920,7 +983,18 @@ def _ais_eta(e, now):
 #     departures with destination terminal (HICT / HHIT / Chua Ve ...).
 TCP_URL = "https://tancangpilot.com.vn/en/ship-plan"
 HP_URL = "https://shippingschedule.com.vn/ke-hoach-tau/hai-phong.html"
+HCM_URL = "https://shippingschedule.com.vn/ke-hoach-tau/ho-chi-minh.html"
 SCHED_STORE = ROOT / "datastore" / "schedules.json"
+
+# display names for the free plan sources (meta notes + frontend badges)
+SRC_NAMES = {
+    "tancangpilot": "Tan Cang Pilot",
+    "haiphong-plan": "Cảng vụ Hải Phòng port authority",
+    "cangvu-hcmc": "Cảng vụ Hồ Chí Minh port authority",
+}
+# plan-source precedence when two plans cover the same vessel+port:
+# Tan Cang Pilot decodes the real alongside time (//HHMM) — it wins ties.
+SRC_RANK = {"tancangpilot": 3, "cangvu-hcmc": 2, "haiphong-plan": 2}
 
 # wharf/terminal codes -> (our port id, terminal hint for display)
 def _tcp_wharf_port(wharf: str, direction: str):
@@ -937,11 +1011,51 @@ def _tcp_wharf_port(wharf: str, direction: str):
         return "CAIMEP", leg
     return "HCMC", leg  # Tan Cang pilot covers the HCMC river system
 
-HP_TERMINALS = {  # destination text -> (terminal hint) — only our tracked terminals
-    "HICT": "Lach Huyen (HICT)", "HHIT": "Lach Huyen (HHIT)",
-    "HTIT": "Lach Huyen (HHIT)", "CHUA VE": "Chua Ve",
-    "LACH HUYEN 1": "Lach Huyen (HICT)", "LACH HUYEN 2": "Lach Huyen (HHIT)",
-}
+HP_GOV_URLS = [  # Cảng vụ Hải Phòng official plan: ?d=0 today, ?d=1 tomorrow
+    "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=0",
+    "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=1",
+]
+HCM_GOV_URL = ("https://cangvuhanghaitphcm.gov.vn/index.aspx"
+               "?page=shipschedule&cat=2033")
+
+
+def _unacc(s: str) -> str:
+    """Strip Vietnamese diacritics so terminal names match ('ĐÌNH VŨ'->'DINH VU')."""
+    s = (s or "").replace("đ", "d").replace("Đ", "D")
+    return "".join(c for c in unicodedata.normalize("NFD", s)
+                   if unicodedata.category(c) != "Mn")
+
+
+# Hai Phong plan terminal text -> our terminal name (exact PORTS names so the
+# berth allocator can honour the plan's terminal). ORDERED: longer/more
+# specific names first ('NAM HAI DINH VU' before 'NAM DINH VU'/'NAM HAI').
+HP_TERM_RULES = [
+    (r"NAM\s*HAI\s*DINH\s*VU", "Nam Hai Dinh Vu"),
+    (r"NAM\s*DINH\s*VU", "Nam Dinh Vu"),
+    (r"VIP\s*GREEN", "VIP Greenport"),
+    (r"\bVIMC\b", "VIMC Dinh Vu"),
+    (r"\bNAM\s*HAI\b", "Nam Hai"),
+    (r"\bTAN\s*VU\b", "Tan Vu"),
+    (r"\bHAI\s*AN\b", "Hai An"),
+    (r"\bHHIT\b", "Lach Huyen (HHIT)"),
+    (r"\bHTIT\b", "Lach Huyen (HTIT)"),
+    (r"\bHICT\b", "Lach Huyen (HICT)"),
+    (r"LACH\s*HUYEN\s*1", "Lach Huyen (HICT)"),
+    (r"LACH\s*HUYEN\s*2", "Lach Huyen (HICT)"),
+    (r"LACH\s*HUYEN\s*[34]", "Lach Huyen (HTIT)"),
+    (r"LACH\s*HUYEN\s*[56]", "Lach Huyen (HHIT)"),
+    (r"CHUA\s*VE", "Chua Ve"),
+]
+# not tracked on the berth board: PTSC/EURO DINH VU (oil&gas), HOANG DIEU,
+# BACH DANG, THUONG LY, VAT CACH, CANG 128 (general cargo), HON DAU (anchorage)
+
+
+def _hp_terminal(text: str):
+    t = _unacc(text).upper()
+    for pat, name in HP_TERM_RULES:
+        if re.search(pat, t):
+            return name
+    return None
 
 
 
@@ -995,6 +1109,8 @@ def parse_tancangpilot(raw: str):
             note = cells[8] if len(cells) > 8 else ""
             alongside = re.search(r"//\s*(\d{1,2})(\d{2})", note)
             port, thint = _tcp_wharf_port(cells[6], direction[idx])
+            if (thint or "").strip().upper() in ("CR", "CRUISE"):
+                continue  # passenger/cruise terminal row — not a container call
             recs.append({
                 "source": "tancangpilot", "direction": direction[idx],
                 "vessel": name, "draught": _vn_float(cells[3]), "loa": _vn_float(cells[4]),
@@ -1008,6 +1124,7 @@ def parse_tancangpilot(raw: str):
 
 
 def parse_haiphong(raw: str):
+    raw = _html.unescape(raw)
     m = re.search(r"NGÀY\s*(\d{2})/(\d{2})/(\d{4})", raw)
     if not m:
         raise ValueError("hp: no plan date")
@@ -1034,9 +1151,9 @@ def parse_haiphong(raw: str):
             name = cells[2].replace("(SB)", "").strip()
             if not re.fullmatch(r"[A-Z0-9][A-Z0-9 .'\-()]{2,40}", name):
                 continue
-            frm, to = cells[8].upper(), cells[9].upper()
+            frm, to = cells[8], cells[9]
             if direction == "ARRIVING":
-                thint = HP_TERMINALS.get(to)
+                thint = _hp_terminal(to)
                 if not thint:
                     continue  # real call, but not one of our tracked terminals
                 recs.append({"source": "haiphong-plan", "direction": direction,
@@ -1045,7 +1162,10 @@ def parse_haiphong(raw: str):
                              "time": cells[1], "prevPort": frm.title(), "nextPort": "",
                              "planDt": day.isoformat()})
             else:
-                thint = HP_TERMINALS.get(frm, frm.title())
+                thint = _hp_terminal(frm)
+                if not thint:
+                    continue  # departs a terminal we don't track (general cargo,
+                              # oil&gas, anchorage) — don't mis-assign it elsewhere
                 recs.append({"source": "haiphong-plan", "direction": direction,
                              "vessel": name, "draught": _vn_float(cells[3]), "loa": _vn_float(cells[4]),
                              "port": "HAIPHONG", "terminalHint": thint,
@@ -1054,9 +1174,320 @@ def parse_haiphong(raw: str):
     return recs
 
 
+def parse_hp_cangvu(raw: str):
+    """Cảng vụ Hải Phòng official plan (csdltau.../ship_plan.aspx and the
+    cangvuhaiphong.gov.vn/ke-hoach-tau mirror). Self-validating, header-mapped:
+    sections 'Kế hoạch tàu rời cảng / di chuyển / vào cảng / qua luồng', columns
+    STT | Thời gian | Tên tàu | Mớn nước | LOA | DWT | GT | Tàu lai | T.Luồng |
+    Từ | Đến | Đại lý | Hoa tiêu. Refuses to guess: any schema drift raises and
+    the source contributes nothing rather than feeding the board garbage."""
+    raw = _html.unescape(raw)  # page serves Vietnamese as numeric entities (&#7901;…)
+    m = re.search(r"ngày\s*(\d{1,2})[/-](\d{1,2})[/-](\d{4})", raw, re.I)
+    if not m:
+        raise ValueError("hp-gov: no plan date on page")
+    day = dt.date(int(m.group(3)), int(m.group(2)), int(m.group(1)))
+    secs = re.split(r"Kế hoạch tàu", raw)
+    if len(secs) < 2:
+        raise ValueError("hp-gov: no 'Kế hoạch tàu' sections found")
+    recs = []
+    for sec in secs[1:]:
+        head = _unacc(re.sub(r"<[^>]+>", " ", sec))
+        head = re.sub(r"\s+", " ", head).strip()[:30].lower()
+        if head.startswith("roi cang"):
+            direction = "DEPARTING"
+        elif head.startswith("vao cang"):
+            direction = "ARRIVING"
+        elif head.startswith("di chuyen"):
+            direction = "SHIFTING"
+        else:
+            continue  # qua luồng duplicates vào cảng; unknown sections skipped
+        col = {}
+        rows = 0
+        for tr in re.findall(r"<tr[^>]*>(.*?)</tr>", sec, re.S):
+            cells = [re.sub(r"<[^>]+>", " ", c) for c in
+                     re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", tr, re.S)]
+            cells = [re.sub(r"\s+", " ", c).strip() for c in cells]
+            if not cells:
+                continue
+            low = [_unacc(c).lower() for c in cells]
+            if any("ten tau" in c for c in low):  # column header row
+                col.clear()
+                for i, h in enumerate(low):
+                    if "ten tau" in h: col["name"] = i
+                    elif "thoi gian" in h: col["time"] = i
+                    elif "mon nuoc" in h or h.strip() == "mon": col["draft"] = i
+                    elif h == "loa": col["loa"] = i
+                    elif h in ("tu", "xuat phat"): col["from"] = i
+                    elif h in ("den", "noi den"): col["to"] = i
+                if "name" not in col or "time" not in col:
+                    raise ValueError(f"hp-gov: header mapped incompletely: {low}")
+                continue
+            if not col:
+                if cells[0].isdigit():
+                    raise ValueError("hp-gov: data row before column header")
+                continue
+            def cell(k):
+                i = col.get(k)
+                return cells[i] if i is not None and i < len(cells) else ""
+            if not cells[0].isdigit() or not re.fullmatch(r"\d{1,2}:\d{2}", cell("time")):
+                continue
+            name = re.sub(r"\(SB\)", "", cell("name"), flags=re.I).strip()
+            name = re.sub(r"^[*\\]+", "", name).strip()
+            if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9 .'\-()]{2,40}", name):
+                continue
+            frm, to = cell("from"), cell("to")
+            if direction == "SHIFTING":
+                # a terminal-to-terminal move: show the arrival side when it is
+                # a tracked terminal, else the departure side
+                thint = _hp_terminal(to)
+                d2 = "ARRIVING" if thint else "DEPARTING"
+                thint = thint or _hp_terminal(frm)
+                if not thint:
+                    continue
+            elif direction == "ARRIVING":
+                d2, thint = "ARRIVING", _hp_terminal(to)
+                if not thint:
+                    continue
+            else:
+                d2, thint = "DEPARTING", _hp_terminal(frm)
+                if not thint:
+                    continue  # untracked origin terminal — don't mis-assign
+            recs.append({"source": "haiphong-plan", "direction": d2,
+                         "vessel": name.upper(), "draught": _vn_float(cell("draft")),
+                         "loa": _vn_float(cell("loa")), "port": "HAIPHONG",
+                         "terminalHint": thint, "time": cell("time"),
+                         "prevPort": frm.title() if d2 == "ARRIVING" else "",
+                         "nextPort": to.title() if d2 == "DEPARTING" else "",
+                         "planDt": day.isoformat()})
+            rows += 1
+    if not recs:
+        raise ValueError("hp-gov: 0 usable rows — page empty or schema changed")
+    if len(recs) > 400:
+        raise ValueError(f"hp-gov: implausible row count {len(recs)}")
+    return recs
+
+
+# Cảng vụ Hồ Chí Minh plan (ho-chi-minh.html): wharf/berth text -> (port, hint).
+# Regex-based (the page writes free text, unlike the TCP wharf codes).
+HCM_TERMINALS = [
+    (r"CAI\s?MEP|CÁI\s?MÉP|THI\s?VAI|THI\s?VẢI|CMIT|TCIT|TCTT|VICT|SSIT|GEM|CM\d",
+     ("CAIMEP", "Cai Mep – Thi Vai")),
+    (r"CAT\s?LAI|CÁT\s?LÁI|CL\d", ("HCMC", "Cat Lai")),
+    (r"TAN\s?CANG|TÂN\s?CẢNG|BEN\s?NGHE|BẾN\s?NGHÉ|BNPH|HIEP\s?PHUOC|HIỆP\s?PHƯỚC|KHANH\s?HOI|KHÁNH\s?HỘI|SAIGON|SÀI\s?GÒN",
+     ("HCMC", "HCMC river")),
+]
+
+
+def _hcm_wharf_port(text: str):
+    """Free berth/origin/destination text -> (port id, terminal hint) or None."""
+    t = (text or "").upper()
+    for pat, res in HCM_TERMINALS:
+        if re.search(pat, t):
+            return res
+    return None
+
+
+def parse_hcmc_cangvu(raw: str):
+    """Cảng vụ Hồ Chí Minh vessel plan — SELF-VALIDATING parser.
+    The page schema differs from Hai Phong's (extra nationality/call-sign
+    columns) and we cannot fetch it from every network, so this parser never
+    assumes fixed column indices: it locates the header row, maps columns by
+    their Vietnamese titles, and RAISES (=> contributes nothing, yesterday's
+    store kept) unless the structure matches. Garbage can never reach the
+    board."""
+    m = re.search(r"NGÀY\s*(\d{2})/(\d{2})/(\d{4})", raw)
+    page_day = (dt.date(int(m.group(3)), int(m.group(2)), int(m.group(1)))
+                if m else dt.datetime.now(TZ).date())
+    recs, saw_section = [], False
+    secs = re.split(r"Kế hoạch tàu", raw)
+    for sec in secs:
+        head = re.sub(r"^\s*(?:</?[^>]+>\s*)*", "", sec)[:30]
+        if re.match(r"rời cảng", head):
+            direction = "DEPARTING"
+        elif re.match(r"vào cảng|cập bến|đến cảng", head):
+            direction = "ARRIVING"
+        else:
+            continue
+        saw_section = True
+        col = {}
+        for tr in re.findall(r"<tr[^>]*>(.*?)</tr>", sec, re.S):
+            cells = [re.sub(r"<[^>]+>", " ", c) for c in
+                     re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", tr, re.S)]
+            cells = [re.sub(r"\s+", " ", c).strip() for c in cells]
+            low = [c.lower() for c in cells]
+            if any("tên tàu" in c for c in low):
+                # header row — map columns by Vietnamese titles
+                col.clear()
+                for i, h in enumerate(low):
+                    if "tên tàu" in h: col["name"] = i
+                    elif "thời gian" in h or "ngày giờ" in h: col["time"] = i
+                    elif "mớn nước" in h: col["draft"] = i
+                    elif h == "loa" or "chiều dài" in h: col["loa"] = i
+                    elif h.startswith("từ") or "nơi đi" in h: col["from"] = i
+                    elif h.startswith("đến") or "nơi đến" in h: col["to"] = i
+                    elif "cầu bến" in h or h.startswith("bến") or "vị trí" in h: col["berth"] = i
+                if "name" not in col or "time" not in col:
+                    raise ValueError(f"hcm-cangvu: header mapped {sorted(col)} — schema changed?")
+                continue
+            if not cells or not cells[0].isdigit():
+                continue
+            if not col:
+                raise ValueError("hcm-cangvu: data row before header row")
+            def cell(k):
+                i = col.get(k)
+                return cells[i] if i is not None and i < len(cells) else ""
+            name = cell("name").replace("(SB)", "").strip().upper()
+            if not re.fullmatch(r"[A-Z0-9][A-Z0-9 .'\-()]{2,40}", name):
+                continue
+            tcell = cell("time")
+            tm = re.search(r"(\d{1,2}):(\d{2})", tcell)
+            dm = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4})", tcell)
+            if not tm:
+                continue  # no parseable time -> row unusable
+            row_day = (dt.date(int(dm.group(3)), int(dm.group(2)), int(dm.group(1)))
+                       if dm else page_day)
+            berth, frm, to = cell("berth"), cell("from"), cell("to")
+            # arrivals berth at the 'to' side, departures leave from 'from'
+            key = (berth + " " + (to if direction == "ARRIVING" else frm)).strip()
+            mapped = _hcm_wharf_port(key)
+            if not mapped:
+                continue  # real call but not one of our tracked terminals
+            port, thint = mapped
+            recs.append({
+                "source": "cangvu-hcmc", "direction": direction,
+                "vessel": name, "draught": _vn_float(cell("draft")),
+                "loa": _vn_float(cell("loa")),
+                "port": port, "terminalHint": thint,
+                "time": f"{int(tm.group(1)):02d}:{tm.group(2)}",
+                "prevPort": frm.title() if direction == "ARRIVING" else "",
+                "nextPort": to.title() if direction == "DEPARTING" else "",
+                "planDt": row_day.isoformat(),
+            })
+    if not saw_section:
+        raise ValueError("hcm-cangvu: no 'Kế hoạch tàu' sections — page structure changed")
+    if not recs:
+        raise ValueError("hcm-cangvu: 0 usable rows after terminal/time filters")
+    if len(recs) > 400:
+        raise ValueError(f"hcm-cangvu: {len(recs)} rows — implausible, refusing")
+    return recs
+
+
+# Cảng vụ HCM official shipschedule (cangvuhanghaitphcm.gov.vn): the
+# 'Vị trí neo đậu' (berth/anchorage position) text -> (port, terminal hint).
+# Positive matches only — anchorages (NEO …), oil/gas jetties and worksites
+# fall through and the row is skipped. ORDER matters: specific names first.
+HCM_GOV_POSITIONS = [
+    (r"GEMALINK|GEMADEPT.?TERMINAL\s*LINK", ("CAIMEP", "Gemalink")),
+    (r"CMIT|CAI\s*MEP\s*\(CMIT\)|CANG\s*QUOC\s*TE\s*CAI\s*MEP", ("CAIMEP", "CMIT")),
+    (r"TCIT", ("CAIMEP", "TCIT")),
+    (r"TCTT|TAN\s*CANG.*THI\s*VAI", ("CAIMEP", "")),
+    (r"SSIT", ("CAIMEP", "SSIT")),
+    (r"SP.?PSA", ("CAIMEP", "SP-PSA")),
+    (r"\bVICT\b", ("CAIMEP", "")),
+    (r"CAI\s*MEP|THI\s*VAI", ("CAIMEP", "")),  # generic Cai Mep – Thi Vai
+    (r"C\.?\s?LAI\s*\d?|CL\s?\d", ("HCMC", "Cat Lai")),
+    (r"SP.?ITC", ("HCMC", "SP-ITC")),
+    (r"TCHP|HIEP\s*PHUOC", ("HCMC", "Tan Cang Hiep Phuoc")),
+    (r"BN_?PH|BP\s?\d|BEN\s*NGHE|TAN\s*CANG|KHANH\s*HOI|SAIGON", ("HCMC", "Tan Cang")),
+]
+
+
+def _hcm_gov_pos(text: str):
+    t = _unacc(text).upper()
+    if re.search(r"NEO|MỎ|MO\s|BO\s*BANG|PTSC|PVGAS|CALTEX|ELF\s*GAS|GAS\b|"
+                 r"HYDROCARBON|XMCP|BARIA|BEN\s*DAM|CAU\s*CANG\s*SO|CẦU\s*CẢNG|"
+                 r"KV\s*THI\s*CONG|RONG\s*DOI|TE\s*GIAC|SOWATCO-DT|"
+                 r"^(CG|SR|HL|NB|K|V|B|G)\d|^HL\s", _unacc(text).upper()):
+        return None
+    for pat, res in HCM_GOV_POSITIONS:
+        if re.search(pat, t):
+            return res
+    return None
+
+
+def parse_hcmc_gov(raw: str):
+    """Cảng vụ Hồ Chí Minh official daily ship schedule (fetched OK where the
+    shippingschedule mirror is blocked). One row per vessel with BOTH the
+    expected arrival ('Dự kiến đến VT') and departure ('Thời gian rời VT') at
+    the position — berth-side times, no pilot-station steam offset. Today's
+    plan only (page carries no date column). Self-validating: raises on any
+    schema drift so a changed page contributes nothing instead of garbage."""
+    raw = _html.unescape(raw)
+    low_raw = _unacc(re.sub(r"<[^>]+>", " ", raw)).lower()
+    if "du kien den" not in low_raw or "vi tri neo dau" not in low_raw:
+        raise ValueError("hcm-gov: expected columns not present on page")
+    day = dt.datetime.now(TZ).date()
+    col = {}
+    recs = []
+    for tr in re.findall(r"<tr[^>]*>(.*?)</tr>", raw, re.S):
+        cells = [re.sub(r"<[^>]+>", " ", c) for c in
+                 re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", tr, re.S)]
+        cells = [re.sub(r"\s+", " ", c).strip() for c in cells]
+        if not cells:
+            continue
+        low = [_unacc(c).lower() for c in cells]
+        if any("ten tau" in c for c in low):  # column header row
+            col.clear()
+            for i, h in enumerate(low):
+                if "ten tau" in h: col["name"] = i
+                elif "vi tri" in h: col["pos"] = i
+                elif "du kien den" in h: col["eta"] = i
+                elif "roi" in h and ("vt" in h or "thoi gian" in h): col["etd"] = i
+                elif "mon nuoc" in h or h.strip() == "mon": col["draft"] = i
+                elif "chieu dai" in h: col["loa"] = i
+                elif "tuyen luong" in h: col["route"] = i
+            if not {"name", "pos", "eta"} <= set(col):
+                raise ValueError(f"hcm-gov: header mapped incompletely: {low}")
+            continue
+        if not col:
+            if cells[0].isdigit():
+                raise ValueError("hcm-gov: data row before column header")
+            continue
+        def cell(k):
+            i = col.get(k)
+            return cells[i] if i is not None and i < len(cells) else ""
+        if not cells[0].isdigit():
+            continue
+        if not re.fullmatch(r"\d{1,2}:\d{2}", cell("eta")):
+            continue
+        mapped = _hcm_gov_pos(cell("pos"))
+        if not mapped:
+            continue  # anchorage / oil & gas / worksite — not a container berth
+        port, hint = mapped
+        name = re.sub(r"^[*\\\s]+", "", cell("name"))
+        name = re.sub(r"\(SB\)", "", name, flags=re.I).strip().upper()
+        if not re.fullmatch(r"[A-Z0-9][A-Z0-9 .'\-()]{2,40}", name):
+            continue
+        etd = cell("etd") if re.fullmatch(r"\d{1,2}:\d{2}", cell("etd")) else ""
+        recs.append({"source": "cangvu-hcmc", "direction": "ARRIVING",
+                     "vessel": name, "draught": _vn_float(cell("draft")),
+                     "loa": _vn_float(cell("loa")), "port": port,
+                     "terminalHint": hint, "time": cell("eta"), "timeDep": etd,
+                     "prevPort": "", "nextPort": "",
+                     "planDt": day.isoformat()})
+    if not recs:
+        raise ValueError("hcm-gov: 0 usable rows — page empty or schema changed")
+    if len(recs) > 300:
+        raise ValueError(f"hcm-gov: implausible row count {len(recs)}")
+    return recs
+
+
 def _fetch(url: str) -> str:
-    req = urllib.request.Request(url, headers={"User-Agent": "vn-port-dashboard/1.0"})
-    return urllib.request.urlopen(req, timeout=45).read().decode("utf-8", "ignore")
+    """Fetch with one retry and a longer fuse — the Hai Phong port-authority
+    page in particular is slow and drops connections from CI runners."""
+    last = None
+    for attempt in (1, 2):
+        try:
+            req = urllib.request.Request(url, headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                              "AppleWebKit/537.36 vn-port-dashboard/1.0",
+                "Accept": "text/html,application/xhtml+xml,*/*"})
+            return urllib.request.urlopen(req, timeout=60).read().decode("utf-8", "ignore")
+        except Exception as e:
+            last = e
+            print(f"  fetch attempt {attempt} failed ({url.split('/')[2]}): {e}")
+            time.sleep(6)
+    raise last
 
 
 def refresh_schedules() -> list:
@@ -1067,14 +1498,50 @@ def refresh_schedules() -> list:
         got = parse_tancangpilot(_fetch(TCP_URL))
         print(f"tancangpilot: {len(got)} plan rows")
         recs += got
+        _log_src("tancangpilot", "Tan Cang Pilot plan", True, len(got))
     except Exception as e:
         print("tancangpilot fetch/parse failed:", e)
+        _log_src("tancangpilot", "Tan Cang Pilot plan", False, err=e)
     try:
         got = parse_haiphong(_fetch(HP_URL))
         print(f"haiphong plan: {len(got)} rows")
         recs += got
+        _log_src("haiphong-mirror", "Hai Phong plan (mirror)", True, len(got))
     except Exception as e:
         print("haiphong plan fetch/parse failed:", e)
+        _log_src("haiphong-mirror", "Hai Phong plan (mirror)", False, err=e)
+    # Cảng vụ Hải Phòng official plan pages — independent of the mirror above,
+    # so Hai Phong no longer goes dark when one host blocks the CI runner
+    hp_gov_rows, hp_gov_errs = 0, []
+    for url in HP_GOV_URLS:
+        try:
+            got = parse_hp_cangvu(_fetch(url))
+            print(f"haiphong cangvu ({url.split('/')[2]}): {len(got)} rows")
+            recs += got
+            hp_gov_rows += len(got)
+        except Exception as e:
+            print(f"haiphong cangvu ({url.split('/')[2]}) failed — refused to "
+                  f"guess, contributing nothing:", e)
+            hp_gov_errs.append(str(e))
+    _log_src("haiphong-cangvu", "Cảng vụ Hải Phòng ship plan", hp_gov_rows > 0,
+             hp_gov_rows if hp_gov_rows else None, "; ".join(hp_gov_errs))
+    try:
+        got = parse_hcmc_gov(_fetch(HCM_GOV_URL))
+        print(f"hcmc cangvu gov plan: {len(got)} rows")
+        recs += got
+        _log_src("cangvu-hcmc-gov", "Cảng vụ TP.HCM gov schedule", True, len(got))
+    except Exception as e:
+        print("hcmc cangvu gov plan failed (refused to guess):", e)
+        _log_src("cangvu-hcmc-gov", "Cảng vụ TP.HCM gov schedule", False, err=e)
+    try:
+        got = parse_hcmc_cangvu(_fetch(HCM_URL))
+        print(f"hcmc cangvu plan: {len(got)} rows")
+        recs += got
+        _log_src("cangvu-hcmc", "Cảng vụ TP.HCM plan", True, len(got))
+    except Exception as e:
+        print("hcmc cangvu plan fetch/parse failed (page may block this network "
+              "or its schema changed — parser refuses to guess):", e)
+        _log_src("cangvu-hcmc", "Cảng vụ TP.HCM plan", False, err=e)
     if recs:
         SCHED_STORE.parent.mkdir(exist_ok=True)
         SCHED_STORE.write_text(json.dumps(recs, ensure_ascii=False, indent=1))
@@ -1192,14 +1659,27 @@ def sched_to_call(sr: dict, now: dt.datetime):
             pred, basis = predict_stay("", vclass, port)
             etd = eta + dt.timedelta(hours=pred)
         prev, nxt = "", ""
-    else:  # haiphong-plan
+    else:  # port-authority plans (hai-phong.html / ho-chi-minh.html / gov pages)
         t = _hm_to_dt(day, sr["time"], now)
-        if sr["direction"] == "DEPARTING":
+        if sr.get("timeDep"):
+            # Cảng vụ HCM gov page publishes BOTH the berth-side arrival and
+            # departure — use them directly (no pilot-station steam offset);
+            # equal/earlier departure rolls to the next day (00:00->00:00 = 24h)
+            eta = t
+            etd = _hm_to_dt(day, sr["timeDep"], now)
+            if etd <= eta:
+                etd += dt.timedelta(days=1)
+            pred, basis = predict_stay("", vclass, port)
+        elif sr["direction"] == "DEPARTING":
+            # pilot station -> berth steam time per port (Cat Lai is far upriver)
+            steam = {"HAIPHONG": 1.5, "HCMC": 2.5, "CAIMEP": 1.2}.get(port, 1.5)
             etd = t + dt.timedelta(minutes=30)
             pred, basis = predict_stay("", vclass, port)
             eta = etd - dt.timedelta(hours=pred)
         else:
-            eta = t + dt.timedelta(hours=1.5)   # pilot station -> Lach Huyen / Chua Ve
+            # pilot station -> berth steam time per port (Cat Lai is far upriver)
+            steam = {"HAIPHONG": 1.5, "HCMC": 2.5, "CAIMEP": 1.2}.get(port, 1.5)
+            eta = t + dt.timedelta(hours=steam)
             pred, basis = predict_stay("", vclass, port)
             etd = eta + dt.timedelta(hours=pred)
         prev, nxt = sr.get("prevPort", ""), sr.get("nextPort", "")
@@ -1222,6 +1702,7 @@ def sched_to_call(sr: dict, now: dt.datetime):
         "estTeu": estimate_teu(cap, max_draft, draft_in, draft_out, vclass, port),
         "stayPredH": pred, "stayBasis": basis,
         "source": "schedule",
+        "planSrc": sr.get("source", ""),
     }
 
 
@@ -1260,13 +1741,26 @@ def merge_schedules(calls: list, scheds: list) -> list:
                 hit["source"] = (hit.get("source") or "ais") + "+schedule"
             if call["terminalHint"] and not hit.get("terminalHint"):
                 hit["terminalHint"] = call["terminalHint"]
+            # when two PLAN sources cover the same call (e.g. Tan Cang Pilot
+            # and the Cảng vụ HCM page), the higher-ranked plan drives the
+            # times; Tan Cang's //HHMM alongside decode outranks the others.
+            prev_src = hit.get("planSrc") or ""
+            better = SRC_RANK.get(sr["source"], 1) > SRC_RANK.get(prev_src, 0)
             # the plan refines modelled times only — observed actuals untouched
             if sr["direction"] == "DEPARTING":
-                if not hit.get("_obsDep"):
-                    hit["etd"] = call["etd"]
-            elif not hit.get("_obsArr"):
+                if not hit.get("_obsDep") and (better or not prev_src):
+                    # the plan often lists BOTH legs of a quick turnaround:
+                    # the departing row can belong to an earlier visit than
+                    # the arrival we already hold — never move etd before eta
+                    if call["etd"] > hit["eta"]:
+                        hit["etd"] = call["etd"]
+            elif not hit.get("_obsArr") and (better or not prev_src):
                 hit["eta"] = call["eta"]
                 hit["etd"] = call["etd"]
+            # planSrc labels every plan that contributed (drives badge display)
+            if sr["source"] and sr["source"] not in prev_src.split("+"):
+                hit["planSrc"] = (sr["source"] + "+" + prev_src).strip("+") if better or not prev_src \
+                                 else (prev_src + "+" + sr["source"]).strip("+")
             if hit.get("stayPredH") is None:
                 hit["stayPredH"], hit["stayBasis"] = call["stayPredH"], call["stayBasis"]
         else:
@@ -1278,159 +1772,309 @@ def merge_schedules(calls: list, scheds: list) -> list:
     return calls
 
 
-def build_live_calls() -> list:
-    """Merge datastore AIS events/state into PortCall-shaped live records.
-    Returns [] when nothing usable was observed (dashboard stays demo)."""
-    store = ROOT / "datastore"
-    ev_file, st_file = store / "events.jsonl", store / "ais_state.json"
-    if not ev_file.exists() and not st_file.exists():
-        return []
-    now = dt.datetime.now(TZ)
-    cutoff = (now - dt.timedelta(days=20)).isoformat()
 
-    events = []
-    if ev_file.exists():
-        for line in ev_file.read_text().splitlines():
+# ------------------------------------------- live AIS: Open Waters snapshots ----
+# Live in-port state comes from Open Waters AIS REST snapshots
+# (https://ais.openwaters.io/v1/vessels?bbox=...): anonymous, keyless,
+# worldwide terrestrial via the AISHub aggregate (~1 min behind real time).
+# This replaced the aisstream.io websocket soak: forensically, that free
+# network has almost no VN shore receivers (zero in-port messages in weeks of
+# soaking), while the AISHub aggregate hears hundreds of vessels inside our
+# port boxes. Source terms require credit: AISHub contributors + Open Waters AIS.
+OW_API = "https://ais.openwaters.io/v1/vessels"
+OW_VISITS = ROOT / "datastore" / "ow_visits.json"
+
+# --------------------------------------------------------- source health ----
+# Every fetch round appends one record here; the run's final meta.json carries
+# the list so the UI can show per-source health instead of silently going stale.
+HEALTH: list = []
+
+
+def _log_src(sid: str, label: str, ok: bool, rows=None, err: str = "") -> None:
+    HEALTH.append({"id": sid, "label": label, "ok": bool(ok),
+                   "rows": rows, "err": (str(err)[:180] if err else "")})
+
+
+def fetch_ow_snapshots() -> dict:
+    """One REST snapshot per port geofence; per-port failure -> empty list
+    (a down feed never blocks the plan data)."""
+    out = {}
+    for p in PORTS:
+        (la0, lo0), (la1, lo1) = p["geofence"]
+        try:
+            req = urllib.request.Request(f"{OW_API}?bbox={la0},{lo0},{la1},{lo1}",
+                headers={"User-Agent": "vn-port-watch/1.0 (openwaters snapshot)"})
+            data = json.loads(urllib.request.urlopen(req, timeout=45).read())
+            recs = []
+            for f in data.get("features", []):
+                pr, geo = f.get("properties", {}), f.get("geometry") or {}
+                xy = geo.get("coordinates") or []
+                if len(xy) != 2 or not pr.get("mmsi"):
+                    continue
+                pr = dict(pr)
+                pr["lon"], pr["lat"] = xy[0], xy[1]
+                recs.append(pr)
+            out[p["id"]] = recs
+            print(f"openwaters {p['id']}: {len(recs)} vessels in box")
+            _log_src(f"ais-{p['id'].lower()}", f"AIS snapshot · {p['name']}",
+                     True, len(recs))
+        except Exception as e:
+            print(f"openwaters snapshot failed for {p['id']}:", e)
+            out[p["id"]] = []
+            _log_src(f"ais-{p['id'].lower()}", f"AIS snapshot · {p['name']}",
+                     False, err=e)
+        time.sleep(1)
+    return out
+
+
+def _ow_is_cargo(pr: dict) -> bool:
+    """Keep cargo & tanker hulls (AIS types 70-89; that band includes the
+    self-propelled river barges). Tugs/pilots/fishing/passenger stay off the
+    berth board. Unknown type: keep only if it looks ship-sized."""
+    t = pr.get("type")
+    if isinstance(t, int):
+        return 70 <= t <= 89
+    return float(pr.get("length") or 0) >= 80
+
+
+def _ow_terminal(pmeta: dict, lat: float, lon: float) -> str:
+    """Nearest terminal centroid within 2.5 km -> hint, else '' (the berth
+    allocator picks instead of guessing). Centroids are approximate; the
+    Dinh Vu cluster terminals sit too close together to resolve -> no geo."""
+    best, best_d = "", 3.0
+    for t in pmeta["terminals"]:
+        g = t.get("geo")
+        if not g:
+            continue
+        d = math.hypot((lat - g[0]) * 111.0,
+                       (lon - g[1]) * 111.0 * math.cos(math.radians(lat)))
+        if d < best_d:
+            best, best_d = t["name"], d
+    return best if best_d <= 2.5 else ""
+
+
+def observe_openwaters(snaps: dict) -> None:
+    """Fold one snapshot round into the persistent visit table
+    (datastore/ow_visits.json): who is inside which port box, since when.
+    A vessel counts as IN PORT while inside the geofence moored/anchored/
+    effectively stopped; a visit closes as DEPARTED when the vessel has been
+    absent and silent for 3h+. The table persists across runs, so even the
+    CI cadence learns multi-day stays."""
+    try:
+        state = json.loads(OW_VISITS.read_text()) if OW_VISITS.exists() else {}
+    except Exception:
+        state = {}
+    visits = state.setdefault("visits", {})
+    now = dt.datetime.now(dt.timezone.utc)
+    present = set()
+    for port, recs in snaps.items():
+        pmeta = next(p for p in PORTS if p["id"] == port)
+        for pr in recs:
+            present.add(f"{pr['mmsi']}|{port}")
+            if not _ow_is_cargo(pr):
+                continue
             try:
-                ev = json.loads(line)
+                seen = dt.datetime.fromisoformat(str(pr["seen"]).replace("Z", "+00:00"))
             except Exception:
                 continue
-            if ev.get("time", "") >= cutoff:
-                events.append(ev)
-    events.sort(key=lambda e: e["time"])
-
-    state = {}
-    if st_file.exists():
+            if (now - seen).total_seconds() > 3 * 3600:
+                continue  # stale snapshot entry — long gone or AIS off
+            mmsi = str(pr["mmsi"])
+            key = f"{mmsi}|{port}"
+            nav, sog = pr.get("nav_status"), float(pr.get("sog") or 0)
+            inside = nav in (1, 5) or sog <= 1.0  # anchored / moored / drifting
+            v = visits.get(key)
+            if inside:
+                if not v or v.get("departed"):
+                    v = {"mmsi": mmsi, "port": port, "ata": iso(seen.astimezone(TZ))}
+                    visits[key] = v
+                v.update({
+                    "name": (pr.get("name") or "").strip(),
+                    "imo": str(pr.get("imo") or ""),
+                    "type": pr.get("type"),
+                    "loa": float(pr.get("length") or 0),
+                    "draught": float(pr.get("draught") or 0),
+                    "dest": (pr.get("destination") or "").strip(),
+                    "lat": pr["lat"], "lon": pr["lon"],
+                    "lastSeen": iso(seen.astimezone(TZ)), "departed": False,
+                    "terminal": _ow_terminal(pmeta, pr["lat"], pr["lon"]),
+                })
+    # close visits whose vessel vanished from this round's snapshots
+    for key, v in visits.items():
+        if v.get("departed"):
+            continue
         try:
-            state = json.loads(st_file.read_text())
+            last = dt.datetime.fromisoformat(v["lastSeen"]).astimezone(dt.timezone.utc)
         except Exception:
-            state = {}
-
-    def is_cargo(st):
-        t = st.get("type")
-        return not isinstance(t, int) or 70 <= t <= 79  # unknown type: keep
-
-    def mk_record(mmsi, ev, st, port, eta, etd):
-        loa = float(ev.get("loa") or st.get("loa") or 0)
-        cap, vclass = _est_capacity(loa)
-        max_draft = float(ev.get("maxDraft") or st.get("maxDraft") or 0) or CLASS_DRAFT[vclass]
-        draft_in = float(ev.get("draft") or st.get("draught") or 0) or round(max_draft * 0.8, 1)
-        draft_out = round(min(max_draft, draft_in + 0.6), 1)
-        name = (ev.get("vessel") or st.get("name") or "").strip() or f"MMSI {mmsi}"
-        return {
-            "id": f"M{mmsi}", "vessel": name, "imo": str(ev.get("imo") or st.get("imo") or ""),
-            "carrier": "—", "vclass": vclass, "capacity": cap, "loa": loa,
-            "maxDraft": round(max_draft, 1), "port": port, "terminal": "", "berth": "",
-            "eta": iso(eta), "schedEta": iso(eta), "ata": None,
-            "etd": iso(etd), "atd": None,
-            "draftIn": round(draft_in, 1), "draftOut": draft_out,
-            "prevPort": "",
-            # real broadcast destination (cleaned); tracked-port id when it maps
-            "nextPort": (st.get("dest") or "").strip().upper() or (_dest_port(st.get("dest", "")) or ""),
-            "status": "EXPECTED", "stayHours": None, "waitH": 0.0,
-            "speedKn": float(st.get("sog") or CLASS_SPEED_KN[vclass]),
-            "estTeu": estimate_teu(cap, max_draft, draft_in, draft_out, vclass, port),
-            "terminalHint": "", "stayPredH": None, "stayBasis": None,
-            "source": "ais",
-        }
-
-    # --- observed arrivals/departures (geofence events) ---
-    calls, open_arr, seen = [], {}, {}
-    for ev in events:
-        mmsi, port = ev.get("mmsi", ""), ev.get("port", "")
-        if not mmsi or port not in {p["id"] for p in PORTS}:
             continue
-        st = state.get(mmsi, {})
-        if not is_cargo(st):
-            continue
-        loa_chk = float(ev.get("loa") or st.get("loa") or 0)
-        if loa_chk and loa_chk < 100:
-            continue  # river-barge band — tracked as corridor TRANSIT, not a port call
-        key = (mmsi, port)
-        if ev["event"] == "ARRIVAL":
-            open_arr.setdefault(key, ev)
-        elif ev["event"] == "DEPARTURE" and key in open_arr:
-            arr = open_arr.pop(key)
-            eta = dt.datetime.fromisoformat(arr["time"])
-            etd = dt.datetime.fromisoformat(ev["time"])
-            if etd <= eta:
-                continue
-            r = mk_record(mmsi, arr, st, port, eta, etd)
-            r["stayBasis"] = "observed via AIS"
-            r["_obsArr"] = r["_obsDep"] = True
-            record_stay(r)
-            calls.append(r)
-            seen[key] = eta
-    n_silent = 0
-    for (mmsi, port), arr in open_arr.items():
-        st = state.get(mmsi, {})
-        eta = dt.datetime.fromisoformat(arr["time"])
-        if eta > now:
-            continue
-        last_seen = None
-        try:
-            last_seen = dt.datetime.fromisoformat(st["lastSeen"])
-        except Exception:
-            pass
-        if last_seen and last_seen > eta and (now - last_seen) > dt.timedelta(hours=12):
-            # Ship broadcast from inside the port, then went silent for 12h+.
-            # Class-A AIS transmits every ~3 min even at anchor, so long
-            # silence = left reception range = sailed. Close the call at the
-            # last real contact in VN waters (real timestamp, honestly labelled).
-            r = mk_record(mmsi, arr, st, port, eta, last_seen)
-            r["stayBasis"] = "closed at last AIS contact (12h silent = sailed)"
-            r["_obsArr"] = r["_obsDep"] = True
-            record_stay(r)
-            n_silent += 1
-        else:
-            loa = float(arr.get("loa") or st.get("loa") or 0)
-            _, vclass = _est_capacity(loa)
-            pred, basis = predict_stay(f"M{mmsi}", vclass, port)
-            r = mk_record(mmsi, arr, st, port, eta, eta + dt.timedelta(hours=pred))
-            r["stayPredH"], r["stayBasis"] = round(pred, 1), basis
-            r["_obsArr"] = True
-        calls.append(r)
-        seen[(mmsi, port)] = eta
-    if n_silent:
-        print(f"closed {n_silent} call(s) at last AIS contact (ship went silent = sailed)")
+        if key not in present and (now - last).total_seconds() > 3 * 3600:
+            v["departed"] = True
+            v["atd"] = v["lastSeen"]  # last certain time inside
+    # purge closed visits older than 7 days so the store can't grow forever
+    cutoff_7d = iso(now.astimezone(TZ) - dt.timedelta(days=7))
+    for k in [k for k, v in visits.items()
+              if v.get("departed") and (v.get("atd") or v.get("lastSeen") or "") < cutoff_7d]:
+        del visits[k]
+    OW_VISITS.parent.mkdir(exist_ok=True)
+    state["updatedAt"] = iso(now.astimezone(TZ))
+    OW_VISITS.write_text(json.dumps(state, ensure_ascii=False, indent=1))
+    open_n = sum(1 for v in visits.values() if not v.get("departed"))
+    print(f"openwaters visits: {open_n} cargo vessel(s) currently inside port boxes")
 
-    # --- expected arrivals (Destination + ETA broadcast) ---
-    max_draft_of = {p["id"]: p["maxDraftM"] for p in PORTS}
-    for mmsi, st in state.items():
-        port = _dest_port(st.get("dest", ""))
-        if not port or st.get("inside") == port or not is_cargo(st):
-            continue
-        loa_chk = float(st.get("loa") or 0)
-        if loa_chk and loa_chk < 100:
-            continue  # barge band
-        # A ship too deep for its broadcast destination's river berths
-        # operationally means the deep-water cluster (Cat Lai max 11 m):
-        # remap HCMC -> Cai Mep so the berth plan stays physically possible.
-        md = float(st.get("maxDraft") or 0)
-        if port == "HCMC" and md and md > max_draft_of["HCMC"]:
-            port = "CAIMEP"
-        eta = _ais_eta(st.get("etaAis") or {}, now)
-        if not eta or not (now < eta <= now + dt.timedelta(days=5)):
-            continue
-        near = seen.get((mmsi, port))
-        if near and abs((near - eta).total_seconds()) < 12 * 3600:
-            continue  # already have the observed call for this ship
-        loa = float(st.get("loa") or 0)
-        _, vclass = _est_capacity(loa)
-        pred, basis = predict_stay(f"M{mmsi}", vclass, port)
-        r = mk_record(mmsi, {}, st, port, eta, eta + dt.timedelta(hours=pred))
-        r["nextPort"] = port
-        r["stayPredH"], r["stayBasis"] = round(pred, 1), basis
-        calls.append(r)
 
-    calls.sort(key=lambda c: c["eta"])
-    if not calls:
+def build_live_calls() -> list:
+    """Turn the Open Waters visit table into PortCall-shaped live records.
+    Returns [] when nothing usable was observed (dashboard falls back to
+    plan-only / demo)."""
+    if not OW_VISITS.exists():
         return []
-    assign_berths(calls, random.Random(7))
+    try:
+        visits = json.loads(OW_VISITS.read_text()).get("visits", {})
+    except Exception:
+        return []
+    now = dt.datetime.now(TZ)
+    calls = []
+    for v in visits.values():
+        port = v.get("port")
+        if port not in {p["id"] for p in PORTS}:
+            continue
+        try:
+            ata = dt.datetime.fromisoformat(v["ata"])
+        except Exception:
+            continue
+        if ata > now + dt.timedelta(hours=1):
+            continue  # clock-skew guard
+        loa = float(v.get("loa") or 0)
+        cap, vclass = _est_capacity(loa)
+        departed = bool(v.get("departed"))
+        if departed:
+            try:
+                atd = dt.datetime.fromisoformat(v.get("atd") or v["lastSeen"])
+            except Exception:
+                continue
+            if atd <= ata or atd < now - dt.timedelta(hours=96):
+                continue  # malformed or too old for the board
+            etd = atd
+        else:
+            if ata < now - dt.timedelta(days=10):
+                continue  # abandoned visit that never closed — drop quietly
+            pred, _basis = predict_stay(f"A{v['mmsi']}", vclass, port)
+            etd = ata + dt.timedelta(hours=pred)
+            atd = None
+        max_draft = round(float(v["draught"]) + 0.5, 1) if v.get("draught") else CLASS_DRAFT[vclass]
+        draft_in = round(float(v.get("draught") or max_draft * 0.8), 1)
+        draft_out = round(min(max_draft, draft_in + 0.6), 1)
+        name = (v.get("name") or "").strip() or f"MMSI {v['mmsi']}"
+        r = {
+            "id": f"A{v['mmsi']}", "vessel": name, "imo": v.get("imo", ""),
+            "carrier": "—", "vclass": vclass, "capacity": cap, "loa": loa,
+            "maxDraft": max_draft, "port": port, "terminal": "",
+            "berth": "", "terminalHint": v.get("terminal") or "",
+            "eta": iso(ata), "schedEta": iso(ata),
+            "ata": iso(ata), "etd": iso(etd), "atd": iso(atd) if departed else None,
+            "draftIn": draft_in, "draftOut": draft_out,
+            "prevPort": "", "nextPort": (v.get("dest") or "").upper(),
+            "status": "EXPECTED", "stayHours": None, "waitH": 0.0,
+            "speedKn": CLASS_SPEED_KN[vclass],
+            "estTeu": estimate_teu(cap, max_draft, draft_in, draft_out, vclass, port),
+            "stayPredH": None, "stayBasis": "AIS-observed arrival (Open Waters / AISHub)",
+            "source": "ais", "planSrc": "",
+            "_obsArr": True, "_obsDep": departed,
+        }
+        if departed:
+            record_stay(r)  # real turnaround times feed the stay predictor
+        calls.append(r)
+    if calls:
+        print(f"live calls from Open Waters visits: {len(calls)}")
     return calls
 
 
-# ---------------------------------------------------------------- main ----
+# ------------------------------------------- TEU calibration (VPA anchor) ----
+# The model estimates TEU per call from draft & stay. That is unbiased-ish per
+# vessel but the daily totals drift from reality. The VPA monthly report gives
+# REAL regional throughput, so once ≥10 days of observed daily history exist
+# we compute one multiplier per port that reconciles our recent daily mean
+# with the association's monthly anchor. Applied at presentation time only —
+# the stored daily history stays raw, so the factor can never compound.
+VPA_PORT_REGION = {  # dashboard port -> VPA region name prefix in vpa.json
+    "HAIPHONG": "Northern",
+    "HCMC": "Southeast",
+    "CAIMEP": "Cai Mep",
+    "DANANG": "South Central",
+}
+
+
+def calibrate_teu(hist: dict) -> dict:
+    """Return {portId: {factor, days, anchor, region, month}} — empty when the
+    VPA file or enough observed history is missing. Factor clamps keep a thin
+    or noisy history from ever producing an absurd rescale."""
+    vpa_file = DATA_DIR / "vpa.json"
+    if not vpa_file.exists():
+        print("teu calibration: no vpa.json — uncalibrated")
+        return {}
+    try:
+        vpa = json.loads(vpa_file.read_text())
+    except Exception as e:
+        print("teu calibration: vpa.json unreadable:", e)
+        return {}
+    out = {}
+    for pid, region_key in VPA_PORT_REGION.items():
+        anchor = next((r for r in vpa.get("regions", [])
+                       if r.get("name", "").startswith(region_key)), None)
+        if not anchor or not anchor.get("teu"):
+            continue
+        days = [r for r in hist.values()
+                if isinstance(r.get(pid), (int, float))][-14:]
+        if len(days) < 10:
+            print(f"teu calibration: {pid} has {len(days)} observed day(s) "
+                  f"(<10) — left uncalibrated")
+            continue
+        mean_daily = sum(float(r[pid]) for r in days) / len(days)
+        if mean_daily <= 0:
+            continue
+        factor = max(0.25, min(4.0, anchor["teu"] / (mean_daily * 30.4)))
+        out[pid] = {"factor": round(factor, 3), "days": len(days),
+                    "anchor": anchor["teu"], "region": anchor["name"],
+                    "month": vpa.get("month", "")}
+        print(f"teu calibration: {pid} x{factor:.3f} (raw mean "
+              f"{mean_daily:,.0f}/day -> VPA {anchor['name']} "
+              f"{anchor['teu']:,} TEU/month over {len(days)} obs days)")
+    return out
+
+
+def dump_visits() -> None:
+    """Public, cleaned copy of the AIS visit table for the vessel detail
+    drawer. Only the fields the UI needs; capped at 500 most recent arrivals
+    so the file stays light."""
+    if not OW_VISITS.exists():
+        return
+    try:
+        visits = json.loads(OW_VISITS.read_text()).get("visits", {})
+    except Exception:
+        return
+    rows = []
+    for v in visits.values():
+        if not v.get("ata"):
+            continue
+        rows.append({
+            "mmsi": v.get("mmsi", ""),
+            "name": (v.get("name") or "").strip(),
+            "port": v.get("port", ""),
+            "terminal": v.get("terminal") or "",
+            "loa": v.get("loa") or 0,
+            "draught": v.get("draught") or 0,
+            "dest": v.get("dest") or "",
+            "ata": v.get("ata"),
+            "lastSeen": v.get("lastSeen"),
+            "atd": v.get("atd"),
+            "departed": bool(v.get("departed")),
+        })
+    rows.sort(key=lambda r: r["ata"], reverse=True)
+    (DATA_DIR / "visits.json").write_text(
+        json.dumps(rows[:500], indent=1, ensure_ascii=False))
+    print(f"wrote visits.json ({min(len(rows), 500)} visits)")
+
+
 def build_all() -> None:
     """Regenerate every operational JSON for 'today' (Asia/Ho_Chi_Minh)."""
     DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -1453,26 +2097,67 @@ def build_all() -> None:
             c.setdefault("source", "demo")
     if scheds:
         calls = merge_schedules(calls, scheds)
+    if calls:
         calls.sort(key=lambda c: c["eta"])
         assign_berths(calls, random.Random(7))  # berth + status pass incl. plan ships
 
-    # daily TEU series from calls (last 14 days)
+    # daily TEU series (last 14 days). Today is computed from the current call
+    # list; past days come from the persisted history store, so the chart
+    # accumulates real history instead of re-deriving zeros for every day
+    # before the live feed existed.
+    hist_file = ROOT / "datastore" / "daily_history.json"
+    hist = {}
+    if hist_file.exists():
+        try:
+            hist = {r["date"]: r for r in json.loads(hist_file.read_text())}
+        except Exception:
+            hist = {}
+    day0 = today.isoformat()
+    row_today = {"date": day0}
+    total = 0
+    for p in PORTS:
+        v = sum(c["estTeu"] for c in calls
+                if c["port"] == p["id"] and c["eta"][:10] == day0)
+        row_today[p["id"]] = v
+        total += v
+    row_today["total"] = total
+    hist[day0] = row_today
+    hist = {d: r for d, r in hist.items()
+            if d >= (today - dt.timedelta(days=60)).isoformat()}  # keep 60d on disk
+    hist_file.parent.mkdir(exist_ok=True)
+    hist_file.write_text(json.dumps(list(hist.values()), ensure_ascii=False))
     daily = []
     for offset in range(-13, 1):
         day = (today + dt.timedelta(days=offset)).isoformat()
-        row = {"date": day}
-        total = 0
-        for p in PORTS:
-            v = sum(c["estTeu"] for c in calls
-                    if c["port"] == p["id"] and c["eta"][:10] == day)
-            row[p["id"]] = v
-            total += v
-        row["total"] = total
-        daily.append(row)
+        if day in hist:
+            daily.append(hist[day])
+        else:
+            row = {"date": day}
+            for p in PORTS:
+                row[p["id"]] = 0
+            row["total"] = 0
+            daily.append(row)
+
+    # TEU calibration against the VPA monthly regional anchors (real
+    # association statistics). Runs AFTER the raw daily row is persisted so
+    # stored history is never double-scaled; calls + the presentation series
+    # are scaled here, before the report & KPIs are derived from them.
+    teu_calib = calibrate_teu(hist)
+    if teu_calib:
+        for c in calls:
+            f = teu_calib.get(c["port"])
+            if f:
+                c["estTeu"] = int(round(c["estTeu"] * f["factor"]))
+        for row in daily:
+            for p in PORTS:
+                f = teu_calib.get(p["id"])
+                if f:
+                    row[p["id"]] = int(round(row.get(p["id"], 0) * f["factor"]))
+            row["total"] = sum(row.get(p["id"], 0) for p in PORTS)
 
     customs = build_customs()
     inland = make_inland(today, customs)
-    report = build_report(today, calls, daily, customs)
+    report = build_report(today, calls, daily, customs, calibrated=bool(teu_calib))
 
     # VPA monthly throughput bullet (real association statistics, if present)
     vpa_file = DATA_DIR / "vpa.json"
@@ -1496,23 +2181,39 @@ def build_all() -> None:
     for c in calls:
         c.pop("_obsArr", None)
         c.pop("_obsDep", None)
+        c.setdefault("planSrc", "")
+        # final sanity net: no call may show a departure before its arrival
+        # (two visits' plan rows can collide on one vessel — see merge_schedules)
+        if c.get("eta") and c.get("etd") and c["etd"] <= c["eta"]:
+            pred = float(c.get("stayPredH") or CLASS_STAY_H.get(c.get("vclass"), 18.0))
+            c["etd"] = iso(dt.datetime.fromisoformat(c["eta"])
+                           + dt.timedelta(hours=pred))
+            print(f"repaired etd<eta for {c['vessel']} (plan rows of two visits collided)")
+            if c.get("atd") and c.get("ata") and c["atd"] <= c["ata"]:
+                c["atd"] = c["etd"]
     dump("calls.json", calls)
     dump("daily.json", daily)
     dump("customs.json", customs)
     dump("inland.json", inland)
     dump("report.json", report)
+    dump_visits()  # public AIS visit table for the vessel detail drawer
+    src_names = [SRC_NAMES.get(x, x) for x in sorted({s.get("source") for s in scheds})] if scheds else []
+    plans_txt = " + ".join(src_names)
     if mode == "demo":
         note_calls = ("Vessel calls & TEU estimates: demo fleet "
                       "(AISstream live feed and public terminal plans not connected)")
     elif mode == "schedule":
-        note_calls = ("Vessel calls from free public pilot/terminal plans (Tan Cang Pilot + "
-                      "Cảng vụ Hải Phòng port authority, fetched daily); times beyond the published "
-                      "plan, berth windows & TEU are modelled estimates; AISstream live feed not connected")
+        note_calls = (f"Vessel calls from free public pilot/terminal plans ({plans_txt}, fetched daily); "
+                      "times beyond the published plan, berth windows & TEU are modelled estimates; "
+                      "no live AIS snapshot available this run")
     else:
-        note_calls = ("Vessel arrivals/departures observed via AISstream (live)"
-                      + (" + free public pilot/terminal plans (Tan Cang Pilot, Cảng vụ Hải Phòng)"
-                         if scheds else "")
-                      + "; unobserved exits close at last AIS contact; berth windows & TEU remain modelled estimates")
+        note_calls = ("Vessel calls: live in-port positions observed via AIS "
+                      "(Open Waters / AISHub aggregate, ~1 min delayed), merged with public "
+                      "pilot/port-authority plans"
+                      + (f" ({plans_txt})" if plans_txt else "")
+                      + "; berth assignment, forward ETDs & TEU remain modelled estimates")
+    notes_horizon = ("Pilot/port-authority plans publish ~24–36h ahead — empty berths beyond that "
+                     "horizon are unplanned, not necessarily idle")
     notes = [
         note_calls,
         "TEU figures are model estimates from draft & port stay — not terminal-confirmed lifts",
@@ -1520,15 +2221,39 @@ def build_all() -> None:
         "Monthly national/region throughput is real VPA association data",
         "ICD volumes & barge flows are corridor-model estimates (see Inland network notes)",
     ]
+    if mode == "live":
+        notes.append("AIS data credit: AISHub contributors (aishub.net) via Open Waters AIS "
+                     "(openwaters.io) — source terms require this attribution")
+    if mode != "demo":
+        notes.append(notes_horizon)
+        notes.append("Berth layouts for the Dinh Vu-area terminals (Nam Dinh Vu, Nam Hai "
+                     "Dinh Vu, VIMC Dinh Vu, VIP Greenport, Tan Vu, Hai An, Nam Hai), "
+                     "Tan Cang Hiep Phuoc, SP-ITC and Gemalink are indicative — depths from "
+                     "operator/VPA publications, but per-berth splits are not public")
     if mode != "demo":
         notes.append("Port-stay predictions learn from AIS-observed stay history (per vessel, then "
                      "class-at-port, then class default) — basis shown per call")
+    if teu_calib:
+        month = next(iter(teu_calib.values()))["month"]
+        bits = ", ".join(f"{pid} ×{v['factor']:.2f} ({v['days']}d obs)"
+                         for pid, v in sorted(teu_calib.items()))
+        notes.append(f"TEU calibration: modelled TEU rescaled to the real VPA {month} "
+                     f"regional throughput anchors — {bits}. Per-call TEU remain "
+                     f"estimates; the port-level trend is reconciled with association data")
+    else:
+        notes.append("TEU calibration: inactive until ≥10 days of observed daily history "
+                     "exist per port — shown TEU are raw draft×stay model estimates")
     dump("meta.json", {
         "generatedAt": iso(dt.datetime.now(TZ)),
         "dataMode": mode,
         "schedSources": sorted({s.get("source") for s in scheds}) if scheds else [],
         "tz": "Asia/Ho_Chi_Minh",
         "notes": notes,
+        "teuCalib": {pid: {"factor": v["factor"], "days": v["days"],
+                           "anchor": v["anchor"], "region": v["region"],
+                           "month": v["month"]}
+                     for pid, v in teu_calib.items()},
+        "sources": HEALTH,
     })
 
 
@@ -1537,12 +2262,27 @@ def main() -> None:
     refresh_vpa()
     print("=== 2/5 terminal & pilot schedules ===")
     refresh_schedules()
-    print("=== 3/5 build operational data ===")
+    print("=== 3/5 live AIS snapshots (Open Waters / AISHub) ===")
+    try:
+        observe_openwaters(fetch_ow_snapshots())
+    except Exception as e:
+        print("openwaters observation round failed (plans still apply):", e)
+    print("=== 4/5 build operational data ===")
     build_all()
-    print("=== 4/5 refresh official customs totals ===")
+    print("=== 5/5 refresh official customs totals ===")
     refresh_customs()
-    print("=== 5/5 refresh news ===")
+    print("=== 6/5 refresh news ===")
     refresh_news()
+    # customs & news run after build_all, so their health records only exist
+    # now — restamp meta.json with the complete per-source list
+    meta_file = DATA_DIR / "meta.json"
+    try:
+        m = json.loads(meta_file.read_text())
+        m["sources"] = HEALTH
+        meta_file.write_text(json.dumps(m, indent=1, ensure_ascii=False))
+        print(f"meta.json restamped with {len(HEALTH)} source-health records")
+    except Exception as e:
+        print("meta source-health restamp failed:", e)
     print("refresh complete")
 
 

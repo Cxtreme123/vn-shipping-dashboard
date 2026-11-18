@@ -6,44 +6,214 @@
   "region": "North",
   "lat": 20.865,
   "lon": 106.683,
-  "maxDraftM": 14.5,
+  "maxDraftM": 16.8,
   "terminals": [
    {
     "name": "Lach Huyen (HICT)",
+    "geo": [
+     20.832,
+     106.789
+    ],
     "berths": [
      {
       "id": "H1",
-      "lengthM": 360,
-      "depthM": 14.5,
+      "lengthM": 380,
+      "depthM": 16.0,
       "maxClass": "NEOPAN"
      },
      {
       "id": "H2",
-      "lengthM": 360,
-      "depthM": 14.5,
+      "lengthM": 380,
+      "depthM": 16.0,
+      "maxClass": "NEOPAN"
+     }
+    ]
+   },
+   {
+    "name": "Lach Huyen (HTIT)",
+    "geo": [
+     20.827,
+     106.797
+    ],
+    "berths": [
+     {
+      "id": "T3",
+      "lengthM": 375,
+      "depthM": 16.0,
+      "maxClass": "NEOPAN"
+     },
+     {
+      "id": "T4",
+      "lengthM": 375,
+      "depthM": 16.0,
       "maxClass": "NEOPAN"
      }
     ]
    },
    {
     "name": "Lach Huyen (HHIT)",
+    "geo": [
+     20.822,
+     106.805
+    ],
     "berths": [
      {
-      "id": "I1",
-      "lengthM": 350,
-      "depthM": 14.5,
-      "maxClass": "NEOPAN"
+      "id": "I5",
+      "lengthM": 450,
+      "depthM": 16.8,
+      "maxClass": "ULCV"
      },
      {
-      "id": "I2",
-      "lengthM": 350,
-      "depthM": 14.5,
-      "maxClass": "NEOPAN"
+      "id": "I6",
+      "lengthM": 450,
+      "depthM": 16.8,
+      "maxClass": "ULCV"
+     }
+    ]
+   },
+   {
+    "name": "Nam Dinh Vu",
+    "berths": [
+     {
+      "id": "NDV1",
+      "lengthM": 240,
+      "depthM": 9.5,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "NDV2",
+      "lengthM": 240,
+      "depthM": 9.5,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "NDV3",
+      "lengthM": 240,
+      "depthM": 9.5,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "NDV4",
+      "lengthM": 240,
+      "depthM": 9.5,
+      "maxClass": "FEEDER"
+     }
+    ]
+   },
+   {
+    "name": "Nam Hai Dinh Vu",
+    "berths": [
+     {
+      "id": "NHD1",
+      "lengthM": 228,
+      "depthM": 8.5,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "NHD2",
+      "lengthM": 228,
+      "depthM": 8.5,
+      "maxClass": "FEEDER"
+     }
+    ]
+   },
+   {
+    "name": "VIMC Dinh Vu",
+    "berths": [
+     {
+      "id": "VDV1",
+      "lengthM": 210,
+      "depthM": 8.5,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "VDV2",
+      "lengthM": 210,
+      "depthM": 8.5,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "VDV3",
+      "lengthM": 210,
+      "depthM": 8.5,
+      "maxClass": "FEEDER"
+     }
+    ]
+   },
+   {
+    "name": "VIP Greenport",
+    "berths": [
+     {
+      "id": "VGP1",
+      "lengthM": 220,
+      "depthM": 8.5,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "VGP2",
+      "lengthM": 220,
+      "depthM": 8.5,
+      "maxClass": "FEEDER"
+     }
+    ]
+   },
+   {
+    "name": "Tan Vu",
+    "berths": [
+     {
+      "id": "TV1",
+      "lengthM": 200,
+      "depthM": 8.5,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "TV2",
+      "lengthM": 200,
+      "depthM": 8.5,
+      "maxClass": "FEEDER"
+     }
+    ]
+   },
+   {
+    "name": "Hai An",
+    "berths": [
+     {
+      "id": "HAN1",
+      "lengthM": 200,
+      "depthM": 8.0,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "HAN2",
+      "lengthM": 200,
+      "depthM": 8.0,
+      "maxClass": "FEEDER"
+     }
+    ]
+   },
+   {
+    "name": "Nam Hai",
+    "berths": [
+     {
+      "id": "NH1",
+      "lengthM": 200,
+      "depthM": 8.0,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "NH2",
+      "lengthM": 200,
+      "depthM": 8.0,
+      "maxClass": "FEEDER"
      }
     ]
    },
    {
     "name": "Chua Ve",
+    "geo": [
+     20.869,
+     106.667
+    ],
     "berths": [
      {
       "id": "C1",
@@ -95,6 +265,10 @@
   "terminals": [
    {
     "name": "Tien Sa",
+    "geo": [
+     16.117,
+     108.213
+    ],
     "berths": [
      {
       "id": "T1",
@@ -140,6 +314,10 @@
   "terminals": [
    {
     "name": "Cat Lai",
+    "geo": [
+     10.767,
+     106.772
+    ],
     "berths": [
      {
       "id": "A1",
@@ -181,6 +359,10 @@
    },
    {
     "name": "Tan Cang",
+    "geo": [
+     10.772,
+     106.715
+    ],
     "berths": [
      {
       "id": "R1",
@@ -192,6 +374,44 @@
       "id": "R2",
       "lengthM": 170,
       "depthM": 9.0,
+      "maxClass": "FEEDER"
+     }
+    ]
+   },
+   {
+    "name": "Tan Cang Hiep Phuoc",
+    "geo": [
+     10.702,
+     106.743
+    ],
+    "berths": [
+     {
+      "id": "TCH1",
+      "lengthM": 200,
+      "depthM": 9.5,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "TCH2",
+      "lengthM": 200,
+      "depthM": 9.5,
+      "maxClass": "FEEDER"
+     }
+    ]
+   },
+   {
+    "name": "SP-ITC",
+    "berths": [
+     {
+      "id": "SPC1",
+      "lengthM": 210,
+      "depthM": 10.0,
+      "maxClass": "FEEDER"
+     },
+     {
+      "id": "SPC2",
+      "lengthM": 210,
+      "depthM": 10.0,
       "maxClass": "FEEDER"
      }
     ]
@@ -220,6 +440,10 @@
   "terminals": [
    {
     "name": "CMIT",
+    "geo": [
+     10.546,
+     107.02
+    ],
     "berths": [
      {
       "id": "M1",
@@ -243,6 +467,10 @@
    },
    {
     "name": "TCIT",
+    "geo": [
+     10.552,
+     107.014
+    ],
     "berths": [
      {
       "id": "T1",
@@ -266,6 +494,10 @@
    },
    {
     "name": "SSIT",
+    "geo": [
+     10.6,
+     107.005
+    ],
     "berths": [
      {
       "id": "S1",
@@ -283,6 +515,10 @@
    },
    {
     "name": "SP-PSA",
+    "geo": [
+     10.59,
+     106.985
+    ],
     "berths": [
      {
       "id": "P1",
@@ -295,6 +531,27 @@
       "lengthM": 300,
       "depthM": 14.0,
       "maxClass": "NEOPAN"
+     }
+    ]
+   },
+   {
+    "name": "Gemalink",
+    "geo": [
+     10.612,
+     107.022
+    ],
+    "berths": [
+     {
+      "id": "GML1",
+      "lengthM": 400,
+      "depthM": 16.0,
+      "maxClass": "ULCV"
+     },
+     {
+      "id": "GML2",
+      "lengthM": 400,
+      "depthM": 16.0,
+      "maxClass": "ULCV"
      }
     ]
    }
