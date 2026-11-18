@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-17T15:04+07:00",
+ "generatedAt": "2026-11-18T11:09+07:00",
  "dataMode": "live",
  "schedSources": [
   "haiphong-plan",
@@ -25,13 +25,13 @@
    "label": "VPA monthly throughput report",
    "ok": true,
    "rows": null,
-   "err": "no new report fetched; kept existing"
+   "err": "month 2026-09 still current"
   },
   {
    "id": "tancangpilot",
    "label": "Tan Cang Pilot plan",
    "ok": true,
-   "rows": 26,
+   "rows": 32,
    "err": ""
   },
   {
@@ -39,13 +39,13 @@
    "label": "Hai Phong plan (mirror)",
    "ok": false,
    "rows": null,
-   "err": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+   "err": "<urlopen error timed out>"
   },
   {
    "id": "haiphong-cangvu",
    "label": "Cảng vụ Hải Phòng ship plan",
    "ok": true,
-   "rows": 58,
+   "rows": 36,
    "err": ""
   },
   {
@@ -53,20 +53,20 @@
    "label": "Cảng vụ TP.HCM gov schedule",
    "ok": false,
    "rows": null,
-   "err": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+   "err": "<urlopen error timed out>"
   },
   {
    "id": "cangvu-hcmc",
    "label": "Cảng vụ TP.HCM plan",
    "ok": false,
    "rows": null,
-   "err": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+   "err": "<urlopen error timed out>"
   },
   {
    "id": "ais-haiphong",
    "label": "AIS snapshot · Hai Phong",
    "ok": true,
-   "rows": 307,
+   "rows": 310,
    "err": ""
   },
   {
@@ -80,14 +80,14 @@
    "id": "ais-hcmc",
    "label": "AIS snapshot · Ho Chi Minh (Cat Lai)",
    "ok": true,
-   "rows": 171,
+   "rows": 184,
    "err": ""
   },
   {
    "id": "ais-caimep",
    "label": "AIS snapshot · Cai Mep - Thi Vai",
    "ok": true,
-   "rows": 118,
+   "rows": 137,
    "err": ""
   },
   {
