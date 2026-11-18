@@ -717,19 +717,6 @@
  {
   "source": "haiphong-plan",
   "direction": "ARRIVING",
-  "vessel": "SITC ZHEJIANG",
-  "draught": 9.2,
-  "loa": 172.0,
-  "port": "HAIPHONG",
-  "terminalHint": "Nam Dinh Vu",
-  "time": "05:30",
-  "prevPort": "Thailand",
-  "nextPort": "",
-  "planDt": "2026-11-18"
- },
- {
-  "source": "haiphong-plan",
-  "direction": "ARRIVING",
   "vessel": "PRIDE PACIFIC",
   "draught": 9.3,
   "loa": 147.0,
@@ -737,6 +724,19 @@
   "terminalHint": "Nam Dinh Vu",
   "time": "05:30",
   "prevPort": "Hong Kong",
+  "nextPort": "",
+  "planDt": "2026-11-18"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "SITC ZHEJIANG",
+  "draught": 9.2,
+  "loa": 172.0,
+  "port": "HAIPHONG",
+  "terminalHint": "Nam Dinh Vu",
+  "time": "05:30",
+  "prevPort": "Thailand",
   "nextPort": "",
   "planDt": "2026-11-18"
  },
@@ -808,19 +808,6 @@
  {
   "source": "haiphong-plan",
   "direction": "ARRIVING",
-  "vessel": "CMA CGM FLORIDA",
-  "draught": 10.2,
-  "loa": 294.1,
-  "port": "HAIPHONG",
-  "terminalHint": "Lach Huyen (HHIT)",
-  "time": "14:30",
-  "prevPort": "Korea",
-  "nextPort": "",
-  "planDt": "2026-11-18"
- },
- {
-  "source": "haiphong-plan",
-  "direction": "ARRIVING",
   "vessel": "LONG HAI-02",
   "draught": 5.2,
   "loa": 65.5,
@@ -828,6 +815,19 @@
   "terminalHint": "Lach Huyen (HICT)",
   "time": "14:30",
   "prevPort": "Vietsov Petro",
+  "nextPort": "",
+  "planDt": "2026-11-18"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "CMA CGM FLORIDA",
+  "draught": 10.2,
+  "loa": 294.1,
+  "port": "HAIPHONG",
+  "terminalHint": "Lach Huyen (HHIT)",
+  "time": "14:30",
+  "prevPort": "Korea",
   "nextPort": "",
   "planDt": "2026-11-18"
  },

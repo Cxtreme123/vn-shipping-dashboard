@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-18T11:09+07:00",
+ "generatedAt": "2026-11-18T11:42+07:00",
  "dataMode": "live",
  "schedSources": [
   "haiphong-plan",
@@ -12,6 +12,7 @@
   "National trade totals are official (GDVC); province/commodity split is a demo model",
   "Monthly national/region throughput is real VPA association data",
   "ICD volumes & barge flows are corridor-model estimates (see Inland network notes)",
+  "ICD berth watch (Sotrans · SOWATCO Long Binh) & the SOWATCO fleet list are AIS-observed from geofences — berth slots indicative; the Long Binh geofence is approximate and free-AIS coverage on that reach is limited",
   "AIS data credit: AISHub contributors (aishub.net) via Open Waters AIS (openwaters.io) — source terms require this attribution",
   "Pilot/port-authority plans publish ~24–36h ahead — empty berths beyond that horizon are unplanned, not necessarily idle",
   "Berth layouts for the Dinh Vu-area terminals (Nam Dinh Vu, Nam Hai Dinh Vu, VIMC Dinh Vu, VIP Greenport, Tan Vu, Hai An, Nam Hai), Tan Cang Hiep Phuoc, SP-ITC and Gemalink are indicative — depths from operator/VPA publications, but per-berth splits are not public",
@@ -25,7 +26,7 @@
    "label": "VPA monthly throughput report",
    "ok": true,
    "rows": null,
-   "err": "month 2026-09 still current"
+   "err": "no new report fetched; kept existing"
   },
   {
    "id": "tancangpilot",
@@ -39,7 +40,7 @@
    "label": "Hai Phong plan (mirror)",
    "ok": false,
    "rows": null,
-   "err": "<urlopen error timed out>"
+   "err": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
   },
   {
    "id": "haiphong-cangvu",
@@ -53,20 +54,20 @@
    "label": "Cảng vụ TP.HCM gov schedule",
    "ok": false,
    "rows": null,
-   "err": "<urlopen error timed out>"
+   "err": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
   },
   {
    "id": "cangvu-hcmc",
    "label": "Cảng vụ TP.HCM plan",
    "ok": false,
    "rows": null,
-   "err": "<urlopen error timed out>"
+   "err": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
   },
   {
    "id": "ais-haiphong",
    "label": "AIS snapshot · Hai Phong",
    "ok": true,
-   "rows": 310,
+   "rows": 313,
    "err": ""
   },
   {
@@ -80,14 +81,35 @@
    "id": "ais-hcmc",
    "label": "AIS snapshot · Ho Chi Minh (Cat Lai)",
    "ok": true,
-   "rows": 184,
+   "rows": 186,
    "err": ""
   },
   {
    "id": "ais-caimep",
    "label": "AIS snapshot · Cai Mep - Thi Vai",
    "ok": true,
-   "rows": 137,
+   "rows": 140,
+   "err": ""
+  },
+  {
+   "id": "ais-fleet",
+   "label": "AIS snapshot · SOWATCO fleet (wide SE box)",
+   "ok": true,
+   "rows": 524,
+   "err": ""
+  },
+  {
+   "id": "ais-icdsotrans",
+   "label": "AIS geofence · ICD Sotrans",
+   "ok": true,
+   "rows": 3,
+   "err": ""
+  },
+  {
+   "id": "ais-sowatcolb",
+   "label": "AIS geofence · SOWATCO Long Binh",
+   "ok": true,
+   "rows": 0,
    "err": ""
   },
   {

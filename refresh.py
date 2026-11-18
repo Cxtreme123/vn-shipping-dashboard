@@ -1784,6 +1784,89 @@ def merge_schedules(calls: list, scheds: list) -> list:
 OW_API = "https://ais.openwaters.io/v1/vessels"
 OW_VISITS = ROOT / "datastore" / "ow_visits.json"
 
+# --------------------------------------- inland ICDs: separate live boards ----
+# ICD Sotrans & SOWATCO Long Binh (both SOTRANS-group river facilities in
+# TP. Thủ Đức) sit INSIDE the wide fleet snapshot box below, so their boards
+# cost no extra API calls: their geofences are carved out of that snapshot.
+# Visits are recorded under their own port ids (ICDSOTRANS / SOWATCOLB) which
+# build_live_calls ignores (not in PORTS) — they never touch the seaport
+# board. Geofences: ICD Sotrans is pinned empirically to the moored-barge
+# cluster along its 412 m wharf on the Trường Thọ channel; SOWATCO Long Binh
+# is estimated from the street address (1352/36 Nguyễn Xiển, Đồng Nai
+# riverbank) — mark geoApprox until dwell clusters confirm it, then tighten.
+ICD_SITES = [
+    {
+        "id": "ICDSOTRANS", "name": "ICD Sotrans",
+        "operator": "SOTRANS Group (SOWATCO)",
+        "address": "Km 9 Xa Lộ Hà Nội, P. Trường Thọ, TP. Thủ Đức",
+        "waterway": "Trường Thọ channel — Saigon River system",
+        "geo": (10.8135, 106.7505, 10.8185, 106.7550),  # la0, lo0, la1, lo1
+        "coverage": "good",
+        "coverageNote": ("Busy barge channel, well covered by the free AIS "
+                         "network (20+ barges visible on a typical snapshot)."),
+        "wharfNote": ("412 m continuous wharf (operator data) shown as 5 "
+                      "indicative barge slots of ~82 m — slot split is ours, "
+                      "not an operator numbering"),
+        "specs": {
+            "Opened": "2010",
+            "Area": "10 ha",
+            "Wharf": "412 m (operator)",
+            "Barge transit": "Sài Gòn/VICT 2h · Cát Lái 3h · SPCT 4h · Cái Mép 8h (operator)",
+        },
+        "berths": [{"id": f"B{i}", "lenM": 82, "draftM": None, "maxDwt": 1500}
+                   for i in range(1, 6)],
+        "axis": "lat",  # wharf runs N–S: order alongside vessels by latitude
+        "geoApprox": False,
+    },
+    {
+        "id": "SOWATCOLB", "name": "SOWATCO Long Binh",
+        "operator": "SOWATCO / SOTRANS Group",
+        "address": "1352/36 Nguyễn Xiển, P. Long Bình, TP. Thủ Đức",
+        "waterway": "Đồng Nai River",
+        "geo": (10.8165, 106.8185, 10.8285, 106.8285),
+        "coverage": "limited",
+        "coverageNote": ("The Đồng Nai reach at Long Bình sits at the edge of "
+                         "free-AIS coverage — alongside barges can be "
+                         "undercounted or invisible here"),
+        "wharfNote": ("3 piers per SOWATCO: 44 m / 88 m / 70 m, low-tide "
+                      "draft 3 / 3 / 7 m; pier 3 takes 5,000 DWT (parent-co "
+                      "page lists piers 1–2 at 600 DWT)"),
+        "specs": {
+            "Area": "200,000 m²",
+            "Yard capacity": "22,000 TEU",
+            "Quay cranes": "45 t class",
+            "Depot clients": "CMA CGM · MSC · HMM · ONE · Hapag-Lloyd · Evergreen (depot lists)",
+        },
+        "berths": [
+            {"id": "P1", "lenM": 44, "draftM": 3, "maxDwt": 600},
+            {"id": "P2", "lenM": 88, "draftM": 3, "maxDwt": 600},
+            {"id": "P3", "lenM": 70, "draftM": 7, "maxDwt": 5000},
+        ],
+        "axis": "lat",
+        "geoApprox": True,
+    },
+]
+
+# area attribution for the SOWATCO barge fleet tracker — checked in order,
+# ICD geofences first (handled separately), then these named reaches
+FLEET_AREAS = [
+    ("Trường Thọ channel — ICD row", (10.808, 106.744, 10.836, 106.760)),
+    ("Bình Triệu reach — Saigon R.", (10.874, 106.833, 10.906, 106.857)),
+    ("Cát Lái reach", (10.745, 106.755, 10.782, 106.800)),
+    ("SP-ITC / Phú Hữu", (10.755, 106.795, 10.790, 106.825)),
+    ("Đồng Nai river (lower)", (10.780, 106.800, 10.830, 106.840)),
+    ("Saigon river (central)", (10.700, 106.680, 10.874, 106.760)),
+    ("Nhà Bè / Hiệp Phước", (10.600, 106.700, 10.720, 106.790)),
+    ("Soài Rạp / Lòng Tàu channel", (10.580, 106.790, 10.720, 106.920)),
+    ("Cần Giờ / approach", (10.400, 106.700, 10.600, 106.900)),
+    ("Cái Mép – Thị Vải", (10.450, 106.900, 10.650, 107.150)),
+    ("Vũng Tàu anchorage", (10.250, 106.950, 10.450, 107.150)),
+]
+
+# most recent snapshot round, incl. the wide "_fleet" box — build_icds()
+# reads live positions from here (set by fetch_ow_snapshots)
+LAST_SNAPS: dict = {}
+
 # --------------------------------------------------------- source health ----
 # Every fetch round appends one record here; the run's final meta.json carries
 # the list so the UI can show per-source health instead of silently going stale.
@@ -1795,25 +1878,33 @@ def _log_src(sid: str, label: str, ok: bool, rows=None, err: str = "") -> None:
                    "rows": rows, "err": (str(err)[:180] if err else "")})
 
 
+def _ow_fetch_box(bbox: str) -> list:
+    """One bbox snapshot -> list of property dicts with lat/lon attached."""
+    req = urllib.request.Request(f"{OW_API}?bbox={bbox}",
+        headers={"User-Agent": "vn-port-watch/1.0 (openwaters snapshot)"})
+    data = json.loads(urllib.request.urlopen(req, timeout=45).read())
+    recs = []
+    for f in data.get("features", []):
+        pr, geo = f.get("properties", {}), f.get("geometry") or {}
+        xy = geo.get("coordinates") or []
+        if len(xy) != 2 or not pr.get("mmsi"):
+            continue
+        pr = dict(pr)
+        pr["lon"], pr["lat"] = xy[0], xy[1]
+        recs.append(pr)
+    return recs
+
+
 def fetch_ow_snapshots() -> dict:
     """One REST snapshot per port geofence; per-port failure -> empty list
-    (a down feed never blocks the plan data)."""
+    (a down feed never blocks the plan data). Plus one wide SE-waterways box
+    for the inland ICD boards & the SOWATCO barge fleet tracker."""
+    global LAST_SNAPS
     out = {}
     for p in PORTS:
         (la0, lo0), (la1, lo1) = p["geofence"]
         try:
-            req = urllib.request.Request(f"{OW_API}?bbox={la0},{lo0},{la1},{lo1}",
-                headers={"User-Agent": "vn-port-watch/1.0 (openwaters snapshot)"})
-            data = json.loads(urllib.request.urlopen(req, timeout=45).read())
-            recs = []
-            for f in data.get("features", []):
-                pr, geo = f.get("properties", {}), f.get("geometry") or {}
-                xy = geo.get("coordinates") or []
-                if len(xy) != 2 or not pr.get("mmsi"):
-                    continue
-                pr = dict(pr)
-                pr["lon"], pr["lat"] = xy[0], xy[1]
-                recs.append(pr)
+            recs = _ow_fetch_box(f"{la0},{lo0},{la1},{lo1}")
             out[p["id"]] = recs
             print(f"openwaters {p['id']}: {len(recs)} vessels in box")
             _log_src(f"ais-{p['id'].lower()}", f"AIS snapshot · {p['name']}",
@@ -1824,6 +1915,20 @@ def fetch_ow_snapshots() -> dict:
             _log_src(f"ais-{p['id'].lower()}", f"AIS snapshot · {p['name']}",
                      False, err=e)
         time.sleep(1)
+    # wide box: HCMC + Nhà Bè + lower Đồng Nai + Cái Mép approach — the whole
+    # operating area of the SOWATCO barge fleet (both ICDs sit inside it)
+    try:
+        recs = _ow_fetch_box("10.40,106.55,10.95,107.15")
+        out["_fleet"] = recs
+        print(f"openwaters _fleet (wide SE box): {len(recs)} vessels")
+        _log_src("ais-fleet", "AIS snapshot · SOWATCO fleet (wide SE box)",
+                 True, len(recs))
+    except Exception as e:
+        print("openwaters wide fleet snapshot failed:", e)
+        out["_fleet"] = []
+        _log_src("ais-fleet", "AIS snapshot · SOWATCO fleet (wide SE box)",
+                 False, err=e)
+    LAST_SNAPS = out
     return out
 
 
@@ -1867,38 +1972,53 @@ def observe_openwaters(snaps: dict) -> None:
     visits = state.setdefault("visits", {})
     now = dt.datetime.now(dt.timezone.utc)
     present = set()
+
+    def _record(pr: dict, port_id: str, terminal: str) -> None:
+        """Fold one snapshot record into the visit table for port_id."""
+        present.add(f"{pr['mmsi']}|{port_id}")
+        if not _ow_is_cargo(pr):
+            return
+        try:
+            seen = dt.datetime.fromisoformat(str(pr["seen"]).replace("Z", "+00:00"))
+        except Exception:
+            return
+        if (now - seen).total_seconds() > 3 * 3600:
+            return  # stale snapshot entry — long gone or AIS off
+        mmsi = str(pr["mmsi"])
+        key = f"{mmsi}|{port_id}"
+        nav, sog = pr.get("nav_status"), float(pr.get("sog") or 0)
+        inside = nav in (1, 5) or sog <= 1.0  # anchored / moored / drifting
+        v = visits.get(key)
+        if inside:
+            if not v or v.get("departed"):
+                v = {"mmsi": mmsi, "port": port_id, "ata": iso(seen.astimezone(TZ))}
+                visits[key] = v
+            v.update({
+                "name": (pr.get("name") or "").strip(),
+                "imo": str(pr.get("imo") or ""),
+                "type": pr.get("type"),
+                "loa": float(pr.get("length") or 0),
+                "draught": float(pr.get("draught") or 0),
+                "dest": (pr.get("destination") or "").strip(),
+                "lat": pr["lat"], "lon": pr["lon"],
+                "lastSeen": iso(seen.astimezone(TZ)), "departed": False,
+                "terminal": terminal,
+            })
+
     for port, recs in snaps.items():
+        if port.startswith("_"):
+            continue  # the wide fleet box is consumed via the ICD loop below
         pmeta = next(p for p in PORTS if p["id"] == port)
         for pr in recs:
-            present.add(f"{pr['mmsi']}|{port}")
-            if not _ow_is_cargo(pr):
-                continue
-            try:
-                seen = dt.datetime.fromisoformat(str(pr["seen"]).replace("Z", "+00:00"))
-            except Exception:
-                continue
-            if (now - seen).total_seconds() > 3 * 3600:
-                continue  # stale snapshot entry — long gone or AIS off
-            mmsi = str(pr["mmsi"])
-            key = f"{mmsi}|{port}"
-            nav, sog = pr.get("nav_status"), float(pr.get("sog") or 0)
-            inside = nav in (1, 5) or sog <= 1.0  # anchored / moored / drifting
-            v = visits.get(key)
-            if inside:
-                if not v or v.get("departed"):
-                    v = {"mmsi": mmsi, "port": port, "ata": iso(seen.astimezone(TZ))}
-                    visits[key] = v
-                v.update({
-                    "name": (pr.get("name") or "").strip(),
-                    "imo": str(pr.get("imo") or ""),
-                    "type": pr.get("type"),
-                    "loa": float(pr.get("length") or 0),
-                    "draught": float(pr.get("draught") or 0),
-                    "dest": (pr.get("destination") or "").strip(),
-                    "lat": pr["lat"], "lon": pr["lon"],
-                    "lastSeen": iso(seen.astimezone(TZ)), "departed": False,
-                    "terminal": _ow_terminal(pmeta, pr["lat"], pr["lon"]),
-                })
+            _record(pr, port, _ow_terminal(pmeta, pr["lat"], pr["lon"]))
+    # inland ICD carve-outs: both facilities sit inside the wide fleet box
+    # (fall back to the HCMC box if the wide fetch failed this run)
+    icd_src = snaps.get("_fleet") or snaps.get("HCMC") or []
+    for site in ICD_SITES:
+        la0, lo0, la1, lo1 = site["geo"]
+        for pr in icd_src:
+            if la0 <= pr["lat"] <= la1 and lo0 <= pr["lon"] <= lo1:
+                _record(pr, site["id"], "")
     # close visits whose vessel vanished from this round's snapshots
     for key, v in visits.items():
         if v.get("departed"):
@@ -2075,6 +2195,173 @@ def dump_visits() -> None:
     print(f"wrote visits.json ({min(len(rows), 500)} visits)")
 
 
+# ------------------------------------------- ICD boards & SOWATCO fleet ----
+def _pr_fresh(pr: dict) -> bool:
+    try:
+        seen = dt.datetime.fromisoformat(str(pr["seen"]).replace("Z", "+00:00"))
+        return (dt.datetime.now(dt.timezone.utc) - seen).total_seconds() <= 3 * 3600
+    except Exception:
+        return False
+
+
+def _sane_loa(x) -> float:
+    """Inland transponders often carry corrupt dimension fields (a 6 m
+    'cargo barge'). Absurd LOA is shown as no-data (0), never as fact."""
+    x = float(x or 0)
+    return x if 20 <= x <= 400 else 0.0
+
+
+def _fleet_area(lat: float, lon: float) -> str:
+    for site in ICD_SITES:
+        la0, lo0, la1, lo1 = site["geo"]
+        if la0 <= lat <= la1 and lo0 <= lon <= lo1:
+            return site["name"]
+    for name, (la0, lo0, la1, lo1) in FLEET_AREAS:
+        if la0 <= lat <= la1 and lo0 <= lon <= lo1:
+            return name
+    return "in range — other waters"
+
+
+def build_icds() -> None:
+    """Live ICD berth boards (ICD Sotrans · SOWATCO Long Binh) + the SOWATCO
+    barge fleet tracker -> data/icds.json. Positions come from the wide
+    '_fleet' snapshot (fallback: the HCMC box); alongside history comes from
+    the persistent visit table. Everything here is AIS-observed except the
+    berth-slot assignment, which is positional ordering along the wharf."""
+    try:
+        visits = (json.loads(OW_VISITS.read_text()).get("visits", {})
+                  if OW_VISITS.exists() else {})
+    except Exception:
+        visits = {}
+    recs = LAST_SNAPS.get("_fleet") or LAST_SNAPS.get("HCMC") or []
+
+    icds = []
+    for site in ICD_SITES:
+        la0, lo0, la1, lo1 = site["geo"]
+        inside = [pr for pr in recs
+                  if la0 <= pr["lat"] <= la1 and lo0 <= pr["lon"] <= lo1
+                  and _pr_fresh(pr) and _ow_is_cargo(pr)]
+        moored = sorted(
+            (pr for pr in inside
+             if pr.get("nav_status") in (1, 5) or float(pr.get("sog") or 0) <= 1.0),
+            key=lambda pr: pr["lat"] if site.get("axis") == "lat" else pr["lon"])
+        berths = []
+        for i, b in enumerate(site["berths"]):
+            pr = moored[i] if i < len(moored) else None
+            berths.append({
+                "id": b["id"], "lenM": b["lenM"], "draftM": b.get("draftM"),
+                "maxDwt": b.get("maxDwt"),
+                "vessel": ((pr.get("name") or "").strip() or f"MMSI {pr['mmsi']}") if pr else None,
+                "mmsi": str(pr["mmsi"]) if pr else None,
+                "loa": _sane_loa(pr.get("length")) if pr else None,
+                "draught": float(pr.get("draught") or 0) if pr else None,
+            })
+        overflow = [{"name": (pr.get("name") or "").strip() or f"MMSI {pr['mmsi']}",
+                     "mmsi": str(pr["mmsi"]),
+                     "loa": _sane_loa(pr.get("length"))}
+                    for pr in moored[len(site["berths"]):]]
+        recent = []
+        cand = sorted((v for v in visits.values() if v.get("port") == site["id"]),
+                      key=lambda v: v.get("ata") or "", reverse=True)[:8]
+        for v in cand:
+            stay = None
+            try:
+                end = v.get("atd") or v.get("lastSeen")
+                stay = round((dt.datetime.fromisoformat(end)
+                              - dt.datetime.fromisoformat(v["ata"])).total_seconds() / 3600, 1)
+            except Exception:
+                pass
+            recent.append({
+                "name": (v.get("name") or "").strip() or f"MMSI {v.get('mmsi')}",
+                "mmsi": str(v.get("mmsi") or ""),
+                "ata": v.get("ata"), "atd": v.get("atd"),
+                "departed": bool(v.get("departed")), "stayH": stay,
+                "loa": v.get("loa") or 0, "draught": v.get("draught") or 0,
+            })
+        icds.append({
+            "id": site["id"], "name": site["name"], "operator": site["operator"],
+            "address": site["address"], "waterway": site["waterway"],
+            "coverage": site["coverage"], "coverageNote": site["coverageNote"],
+            "wharfNote": site["wharfNote"], "specs": site["specs"],
+            "geoApprox": bool(site.get("geoApprox")),
+            "berths": berths, "overflow": overflow,
+            "alongside": len(moored), "recent": recent,
+        })
+        _log_src(f"ais-{site['id'].lower()}", f"AIS geofence · {site['name']}",
+                 bool(recs), len(moored),
+                 err="" if recs else "no snapshot this run")
+
+    # ---- SOWATCO barge fleet: every name-matched hull in the wide snapshot.
+    # Fresh (<3h) entries are live; stale ones still carry their last-heard
+    # position & time (honestly labelled). The visit table is the deepest
+    # fallback for hulls the aggregate doesn't hold at all this round. ----
+    fleet: dict = {}
+    now_utc = dt.datetime.now(dt.timezone.utc)
+    for pr in recs:
+        nm = (pr.get("name") or "").strip().upper()
+        if not (nm.startswith("SOWATCO") or nm.startswith("SOTRANS")):
+            continue
+        if not pr.get("mmsi"):
+            continue
+        try:
+            seen = dt.datetime.fromisoformat(str(pr["seen"]).replace("Z", "+00:00"))
+        except Exception:
+            continue
+        fresh = (now_utc - seen).total_seconds() <= 3 * 3600
+        sog = float(pr.get("sog") or 0)
+        fleet[str(pr["mmsi"])] = {
+            "name": (pr.get("name") or "").strip(),
+            "mmsi": str(pr["mmsi"]),
+            "inRange": fresh,
+            "underway": bool(fresh and sog > 1.0 and pr.get("nav_status") not in (1, 5)),
+            "sog": sog,
+            "lat": pr["lat"], "lon": pr["lon"],
+            "loa": _sane_loa(pr.get("length")),
+            "draught": float(pr.get("draught") or 0),
+            "dest": (pr.get("destination") or "").strip(),
+            "area": _fleet_area(pr["lat"], pr["lon"]),
+            "lastSeen": iso(seen.astimezone(TZ)),
+        }
+    for v in visits.values():
+        nm = (v.get("name") or "").strip().upper()
+        if not (nm.startswith("SOWATCO") or nm.startswith("SOTRANS")):
+            continue
+        mmsi = str(v.get("mmsi") or "")
+        if not mmsi or mmsi in fleet:
+            continue
+        fleet[mmsi] = {
+            "name": (v.get("name") or "").strip(),
+            "mmsi": mmsi,
+            "inRange": False, "underway": False, "sog": None,
+            "lat": v.get("lat"), "lon": v.get("lon"),
+            "loa": _sane_loa(v.get("loa")),
+            "draught": v.get("draught") or 0,
+            "dest": v.get("dest") or "",
+            "area": (f"last: {v.get('port')}"
+                     + (" (departed)" if v.get("departed") else " (AIS silent)")),
+            "lastSeen": v.get("atd") or v.get("lastSeen"),
+        }
+    fleet_rows = sorted(fleet.values(), key=lambda r: r["name"])
+
+    notes = [
+        "Berth occupancy & visit history are AIS-observed (Open Waters / AISHub aggregate, ~1 min delayed); "
+        "the berth a barge is shown in is positional ordering along the wharf, not an operator assignment",
+        "ICD Sotrans: 412 m wharf shown as 5 indicative ~82 m barge slots (operator publishes no slot numbering)",
+        "SOWATCO Long Binh: pier specs (44/88/70 m, draft 3/3/7 m) from SOWATCO; the geofence is approximate "
+        "until dwell clusters confirm it, and free-AIS coverage on this Đồng Nai reach is limited",
+        "Fleet tracker lists AIS name-matched SOWATCO/SOTRANS hulls only — entries older than 3h show "
+        "their last-heard position & time; a barge with AIS off may be absent or stale",
+        "AIS data credit: AISHub contributors (aishub.net) via Open Waters AIS (openwaters.io)",
+    ]
+    (DATA_DIR / "icds.json").write_text(json.dumps({
+        "generatedAt": iso(dt.datetime.now(TZ)),
+        "icds": icds, "fleet": fleet_rows, "notes": notes,
+    }, indent=1, ensure_ascii=False))
+    print(f"wrote icds.json ({len(icds)} ICD boards, "
+          f"{sum(i['alongside'] for i in icds)} alongside, "
+          f"{len(fleet_rows)} SOWATCO-named vessels)")
+
+
 def build_all() -> None:
     """Regenerate every operational JSON for 'today' (Asia/Ho_Chi_Minh)."""
     DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -2197,6 +2484,7 @@ def build_all() -> None:
     dump("inland.json", inland)
     dump("report.json", report)
     dump_visits()  # public AIS visit table for the vessel detail drawer
+    build_icds()   # live ICD berth boards + SOWATCO barge fleet (icds.json)
     src_names = [SRC_NAMES.get(x, x) for x in sorted({s.get("source") for s in scheds})] if scheds else []
     plans_txt = " + ".join(src_names)
     if mode == "demo":
@@ -2220,6 +2508,9 @@ def build_all() -> None:
         "National trade totals are official (GDVC); province/commodity split is a demo model",
         "Monthly national/region throughput is real VPA association data",
         "ICD volumes & barge flows are corridor-model estimates (see Inland network notes)",
+        "ICD berth watch (Sotrans · SOWATCO Long Binh) & the SOWATCO fleet list are AIS-observed "
+        "from geofences — berth slots indicative; the Long Binh geofence is approximate and "
+        "free-AIS coverage on that reach is limited",
     ]
     if mode == "live":
         notes.append("AIS data credit: AISHub contributors (aishub.net) via Open Waters AIS "
