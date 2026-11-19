@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-19T20:21+07:00",
+ "generatedAt": "2026-11-20T05:17+07:00",
  "dataMode": "live",
  "schedSources": [
   "haiphong-plan",
@@ -32,7 +32,7 @@
    "id": "tancangpilot",
    "label": "Tan Cang Pilot plan",
    "ok": true,
-   "rows": 29,
+   "rows": 30,
    "err": ""
   },
   {
@@ -46,8 +46,8 @@
    "id": "haiphong-cangvu",
    "label": "Cảng vụ Hải Phòng ship plan",
    "ok": true,
-   "rows": 47,
-   "err": ""
+   "rows": 18,
+   "err": "hp-gov: 0 usable rows — page empty or schema changed"
   },
   {
    "id": "cangvu-hcmc-gov",
@@ -67,7 +67,7 @@
    "id": "ais-haiphong",
    "label": "AIS snapshot · Hai Phong",
    "ok": true,
-   "rows": 303,
+   "rows": 321,
    "err": ""
   },
   {
@@ -81,28 +81,28 @@
    "id": "ais-hcmc",
    "label": "AIS snapshot · Ho Chi Minh (Cat Lai)",
    "ok": true,
-   "rows": 206,
+   "rows": 191,
    "err": ""
   },
   {
    "id": "ais-caimep",
    "label": "AIS snapshot · Cai Mep - Thi Vai",
    "ok": true,
-   "rows": 124,
+   "rows": 125,
    "err": ""
   },
   {
    "id": "ais-fleet",
    "label": "AIS snapshot · SOWATCO fleet (wide SE box)",
    "ok": true,
-   "rows": 536,
+   "rows": 532,
    "err": ""
   },
   {
    "id": "ais-icdsotrans",
    "label": "AIS geofence · ICD Sotrans",
    "ok": true,
-   "rows": 0,
+   "rows": 1,
    "err": ""
   },
   {
