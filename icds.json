@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-19T13:27+07:00",
+ "generatedAt": "2026-11-19T20:21+07:00",
  "icds": [
   {
    "id": "ICDSOTRANS",
@@ -23,20 +23,20 @@
      "lenM": 82,
      "draftM": null,
      "maxDwt": 1500,
-     "vessel": "AN TAY 17",
-     "mmsi": "574402223",
-     "loa": 0.0,
-     "draught": 0.0
+     "vessel": null,
+     "mmsi": null,
+     "loa": null,
+     "draught": null
     },
     {
      "id": "B2",
      "lenM": 82,
      "draftM": null,
      "maxDwt": 1500,
-     "vessel": "TAY NAM 38",
-     "mmsi": "574401541",
-     "loa": 0.0,
-     "draught": 0.0
+     "vessel": null,
+     "mmsi": null,
+     "loa": null,
+     "draught": null
     },
     {
      "id": "B3",
@@ -70,14 +70,14 @@
     }
    ],
    "overflow": [],
-   "alongside": 2,
+   "alongside": 0,
    "recent": [
     {
      "name": "TAY NAM 38",
      "mmsi": "574401541",
      "ata": "2026-11-19T11:59+07:00",
-     "atd": null,
-     "departed": false,
+     "atd": "2026-11-19T13:21+07:00",
+     "departed": true,
      "stayH": 1.4,
      "loa": 0,
      "draught": 0
@@ -86,8 +86,8 @@
      "name": "AN TAY 17",
      "mmsi": "574402223",
      "ata": "2026-11-19T11:57+07:00",
-     "atd": null,
-     "departed": false,
+     "atd": "2026-11-19T13:18+07:00",
+     "departed": true,
      "stayH": 1.4,
      "loa": 0,
      "draught": 0
@@ -184,13 +184,27 @@
    "inRange": false,
    "underway": false,
    "sog": null,
-   "lat": 20.829213333333332,
-   "lon": 106.78909999999999,
+   "lat": 20.83782,
+   "lon": 106.77637333333334,
    "loa": 71.0,
    "draught": 0,
    "dest": "",
-   "area": "last: HAIPHONG (departed)",
-   "lastSeen": "2026-11-17T15:00+07:00"
+   "area": "last: HAIPHONG (AIS silent)",
+   "lastSeen": "2026-11-19T20:18+07:00"
+  },
+  {
+   "name": "SOWATCO 03",
+   "mmsi": "574402815",
+   "inRange": false,
+   "underway": false,
+   "sog": null,
+   "lat": 20.838225,
+   "lon": 106.775785,
+   "loa": 76.0,
+   "draught": 0,
+   "dest": "",
+   "area": "last: HAIPHONG (AIS silent)",
+   "lastSeen": "2026-11-19T20:09+07:00"
   },
   {
    "name": "SOWATCO 18",
@@ -240,13 +254,13 @@
    "inRange": true,
    "underway": false,
    "sog": 0.0,
-   "lat": 10.882476666666667,
-   "lon": 106.84531166666667,
+   "lat": 10.882538333333335,
+   "lon": 106.84529500000001,
    "loa": 85.0,
    "draught": 0.0,
    "dest": "",
    "area": "Bình Triệu reach — Saigon R.",
-   "lastSeen": "2026-11-19T13:13+07:00"
+   "lastSeen": "2026-11-19T20:19+07:00"
   },
   {
    "name": "SOWATCO EXPLORER",
@@ -265,30 +279,30 @@
   {
    "name": "SOWATCO MASTER",
    "mmsi": "574401464",
-   "inRange": true,
-   "underway": true,
-   "sog": 6.1,
+   "inRange": false,
+   "underway": false,
+   "sog": null,
    "lat": 10.633136666666667,
    "lon": 106.82063833333333,
    "loa": 80.0,
-   "draught": 0.0,
+   "draught": 0,
    "dest": "",
-   "area": "Soài Rạp / Lòng Tàu channel",
+   "area": "Soài Rạp / Lòng Tàu channel (registry)",
    "lastSeen": "2026-11-19T13:25+07:00"
   },
   {
    "name": "SOWATCO PIONEER",
    "mmsi": "574401465",
    "inRange": true,
-   "underway": false,
-   "sog": 0.0,
-   "lat": 10.640868333333334,
-   "lon": 106.81168833333332,
+   "underway": true,
+   "sog": 5.0,
+   "lat": 10.776715,
+   "lon": 106.86775333333334,
    "loa": 80.0,
    "draught": 0.0,
    "dest": "",
-   "area": "Soài Rạp / Lòng Tàu channel",
-   "lastSeen": "2026-11-19T13:23+07:00"
+   "area": "in range — other waters",
+   "lastSeen": "2026-11-19T20:13+07:00"
   },
   {
    "name": "SOWATCO PLATINUM 1",
@@ -296,13 +310,13 @@
    "inRange": true,
    "underway": false,
    "sog": 0.0,
-   "lat": 10.537296666666666,
-   "lon": 107.02844499999999,
+   "lat": 10.53706,
+   "lon": 107.02843333333334,
    "loa": 0.0,
    "draught": 0.0,
    "dest": "",
    "area": "Cái Mép – Thị Vải",
-   "lastSeen": "2026-11-19T12:06+07:00"
+   "lastSeen": "2026-11-19T20:00+07:00"
   },
   {
    "name": "SOWATCO VENUS",
@@ -310,13 +324,13 @@
    "inRange": true,
    "underway": false,
    "sog": 0.0,
-   "lat": 10.893120000000001,
-   "lon": 106.83998833333334,
+   "lat": 10.894035,
+   "lon": 106.83982333333333,
    "loa": 80.0,
    "draught": 0.0,
    "dest": "",
    "area": "Bình Triệu reach — Saigon R.",
-   "lastSeen": "2026-11-19T13:13+07:00"
+   "lastSeen": "2026-11-19T18:52+07:00"
   }
  ],
  "notes": [

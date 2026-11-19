@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-19T13:27+07:00",
+ "generatedAt": "2026-11-19T20:21+07:00",
  "dataMode": "live",
  "schedSources": [
   "haiphong-plan",
@@ -26,7 +26,7 @@
    "label": "VPA monthly throughput report",
    "ok": true,
    "rows": null,
-   "err": "no new report fetched; kept existing"
+   "err": "month 2026-09 still current"
   },
   {
    "id": "tancangpilot",
@@ -40,13 +40,13 @@
    "label": "Hai Phong plan (mirror)",
    "ok": false,
    "rows": null,
-   "err": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+   "err": "<urlopen error timed out>"
   },
   {
    "id": "haiphong-cangvu",
    "label": "Cảng vụ Hải Phòng ship plan",
    "ok": true,
-   "rows": 33,
+   "rows": 47,
    "err": ""
   },
   {
@@ -54,20 +54,20 @@
    "label": "Cảng vụ TP.HCM gov schedule",
    "ok": false,
    "rows": null,
-   "err": "<urlopen error [Errno -5] No address associated with hostname>"
+   "err": "<urlopen error timed out>"
   },
   {
    "id": "cangvu-hcmc",
    "label": "Cảng vụ TP.HCM plan",
    "ok": false,
    "rows": null,
-   "err": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+   "err": "<urlopen error timed out>"
   },
   {
    "id": "ais-haiphong",
    "label": "AIS snapshot · Hai Phong",
    "ok": true,
-   "rows": 309,
+   "rows": 303,
    "err": ""
   },
   {
@@ -81,28 +81,28 @@
    "id": "ais-hcmc",
    "label": "AIS snapshot · Ho Chi Minh (Cat Lai)",
    "ok": true,
-   "rows": 196,
+   "rows": 206,
    "err": ""
   },
   {
    "id": "ais-caimep",
    "label": "AIS snapshot · Cai Mep - Thi Vai",
    "ok": true,
-   "rows": 139,
+   "rows": 124,
    "err": ""
   },
   {
    "id": "ais-fleet",
    "label": "AIS snapshot · SOWATCO fleet (wide SE box)",
    "ok": true,
-   "rows": 530,
+   "rows": 536,
    "err": ""
   },
   {
    "id": "ais-icdsotrans",
    "label": "AIS geofence · ICD Sotrans",
    "ok": true,
-   "rows": 2,
+   "rows": 0,
    "err": ""
   },
   {
