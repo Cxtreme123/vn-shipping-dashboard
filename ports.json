@@ -436,58 +436,25 @@
   "region": "South",
   "lat": 10.52,
   "lon": 107.02,
-  "maxDraftM": 16.0,
+  "maxDraftM": 16.8,
   "terminals": [
    {
-    "name": "CMIT",
+    "name": "Gemalink",
     "geo": [
-     10.546,
-     107.02
+     10.4978,
+     107.0021
     ],
     "berths": [
      {
-      "id": "M1",
-      "lengthM": 330,
-      "depthM": 15.8,
+      "id": "GML1",
+      "lengthM": 380,
+      "depthM": 15.0,
       "maxClass": "ULCV"
      },
      {
-      "id": "M2",
-      "lengthM": 330,
-      "depthM": 15.8,
-      "maxClass": "ULCV"
-     },
-     {
-      "id": "M3",
-      "lengthM": 330,
-      "depthM": 15.8,
-      "maxClass": "ULCV"
-     }
-    ]
-   },
-   {
-    "name": "TCIT",
-    "geo": [
-     10.552,
-     107.014
-    ],
-    "berths": [
-     {
-      "id": "T1",
-      "lengthM": 300,
-      "depthM": 15.5,
-      "maxClass": "ULCV"
-     },
-     {
-      "id": "T2",
-      "lengthM": 300,
-      "depthM": 15.5,
-      "maxClass": "ULCV"
-     },
-     {
-      "id": "T3",
-      "lengthM": 300,
-      "depthM": 15.5,
+      "id": "GML2",
+      "lengthM": 380,
+      "depthM": 15.0,
       "maxClass": "ULCV"
      }
     ]
@@ -495,20 +462,89 @@
    {
     "name": "SSIT",
     "geo": [
-     10.6,
-     107.005
+     10.506,
+     107.0088
     ],
     "berths": [
      {
       "id": "S1",
-      "lengthM": 320,
-      "depthM": 16.0,
+      "lengthM": 300,
+      "depthM": 16.5,
       "maxClass": "ULCV"
      },
      {
       "id": "S2",
-      "lengthM": 320,
+      "lengthM": 300,
+      "depthM": 16.5,
+      "maxClass": "ULCV"
+     }
+    ]
+   },
+   {
+    "name": "TCTT",
+    "geo": [
+     10.5095,
+     107.0111
+    ],
+    "berths": [
+     {
+      "id": "TT1",
+      "lengthM": 300,
       "depthM": 16.0,
+      "maxClass": "ULCV"
+     },
+     {
+      "id": "TT2",
+      "lengthM": 300,
+      "depthM": 16.0,
+      "maxClass": "ULCV"
+     }
+    ]
+   },
+   {
+    "name": "CMIT",
+    "geo": [
+     10.5135,
+     107.0134
+    ],
+    "berths": [
+     {
+      "id": "M1",
+      "lengthM": 300,
+      "depthM": 16.5,
+      "maxClass": "ULCV"
+     },
+     {
+      "id": "M2",
+      "lengthM": 300,
+      "depthM": 16.5,
+      "maxClass": "ULCV"
+     }
+    ]
+   },
+   {
+    "name": "TCIT",
+    "geo": [
+     10.5362,
+     107.0285
+    ],
+    "berths": [
+     {
+      "id": "T1",
+      "lengthM": 297,
+      "depthM": 16.8,
+      "maxClass": "ULCV"
+     },
+     {
+      "id": "T2",
+      "lengthM": 297,
+      "depthM": 16.8,
+      "maxClass": "ULCV"
+     },
+     {
+      "id": "T3",
+      "lengthM": 297,
+      "depthM": 16.8,
       "maxClass": "ULCV"
      }
     ]
@@ -516,42 +552,21 @@
    {
     "name": "SP-PSA",
     "geo": [
-     10.59,
-     106.985
+     10.5707,
+     107.0242
     ],
     "berths": [
      {
-      "id": "P1",
+      "id": "V1",
       "lengthM": 300,
-      "depthM": 14.0,
+      "depthM": 14.5,
       "maxClass": "NEOPAN"
      },
      {
-      "id": "P2",
+      "id": "V2",
       "lengthM": 300,
-      "depthM": 14.0,
+      "depthM": 14.5,
       "maxClass": "NEOPAN"
-     }
-    ]
-   },
-   {
-    "name": "Gemalink",
-    "geo": [
-     10.612,
-     107.022
-    ],
-    "berths": [
-     {
-      "id": "GML1",
-      "lengthM": 400,
-      "depthM": 16.0,
-      "maxClass": "ULCV"
-     },
-     {
-      "id": "GML2",
-      "lengthM": 400,
-      "depthM": 16.0,
-      "maxClass": "ULCV"
      }
     ]
    }

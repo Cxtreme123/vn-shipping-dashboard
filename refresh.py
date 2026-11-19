@@ -106,14 +106,33 @@ PORTS = [
     },
     {
         "id": "CAIMEP", "name": "Cai Mep - Thi Vai", "locode": "VNCMT", "region": "South",
-        "lat": 10.520, "lon": 107.020, "maxDraftM": 16.0,
+        "lat": 10.520, "lon": 107.020, "maxDraftM": 16.8,
+        # Terminal positions re-sourced 2026-11: Danish ENS Vietnam Port Study
+        # (2024) UTM->WGS84 centroids, cross-checked against operator pages and
+        # validated against live AIS mooring clusters. Order downstream->upstream:
+        # Gemalink, SSIT, TCTT, CMIT, TCIT, SP-PSA (SITV further upriver —
+        # Hutchison, mostly barge/regional — not modelled yet).
         "terminals": [
-            {"name": "CMIT", "geo": [10.546, 107.02], "berths": _berths(["M1", "M2", "M3"], 330, 15.8, "ULCV")},
-            {"name": "TCIT", "geo": [10.552, 107.014], "berths": _berths(["T1", "T2", "T3"], 300, 15.5, "ULCV")},
-            {"name": "SSIT", "geo": [10.6, 107.005], "berths": _berths(["S1", "S2"], 320, 16.0, "ULCV")},
-            {"name": "SP-PSA", "geo": [10.59, 106.985], "berths": _berths(["P1", "P2"], 300, 14.0, "NEOPAN")},
-            # Gemalink (Gemadept–Terminal Link) — berth split indicative
-            {"name": "Gemalink", "geo": [10.612, 107.022], "berths": _berths(["GML1", "GML2"], 400, 16.0, "ULCV")},
+            # Gemalink (Gemadept–CMA CGM/Terminal Link): 761 m main berth phase 1,
+            # depth before berth -15 m, +219 m barge berth (gemadept.com.vn)
+            {"name": "Gemalink", "geo": [10.4978, 107.0021], "berths": _berths(["GML1", "GML2"], 380, 15.0, "ULCV")},
+            # SSIT (Saigon Port–SSA Marine): 2 berths, 600 m, water depth 16.5 m,
+            # +425 m dedicated barge berth (ssit.com.vn)
+            {"name": "SSIT", "geo": [10.5060, 107.0088], "berths": _berths(["S1", "S2"], 300, 16.5, "ULCV")},
+            # TCTT (Saigon Newport): 2 berths, 600 m, vessels to 166,000 DWT,
+            # 1.1m TEU (saigonport.vn); joint 1,200 m berth with CMIT since
+            # Oct-2026. Depth indicative (operator figure not published).
+            {"name": "TCTT", "geo": [10.5095, 107.0111], "berths": _berths(["TT1", "TT2"], 300, 16.0, "ULCV")},
+            # CMIT (Saigon Port–APM Terminals): 600 m quay, 16.5 m alongside,
+            # vessels to 214,121 DWT (~20,000 TEU), 2.1m TEU (apmterminals.com)
+            {"name": "CMIT", "geo": [10.5135, 107.0134], "berths": _berths(["M1", "M2"], 300, 16.5, "ULCV")},
+            # TCIT (Saigon Newport–MOL/Wan Hai/Hanjin): 890 m, 3 berths,
+            # 16.8 m at berth (JTTRI port study; tcit.com.vn)
+            {"name": "TCIT", "geo": [10.5362, 107.0285], "berths": _berths(["T1", "T2", "T3"], 297, 16.8, "ULCV")},
+            # SP-PSA (Saigon Port–VIMC–PSA): official berths V1 & V2, 600 m,
+            # 14.5 m alongside (VIMC; VPA lists -14 m), max vessel 117,000 DWT
+            # (Vinamarine berth register)
+            {"name": "SP-PSA", "geo": [10.5707, 107.0242], "berths": _berths(["V1", "V2"], 300, 14.5, "NEOPAN")},
         ],
         "role": "Deep-water cluster for ULCVs; direct transpacific & Europe loops",
         "geofence": [[10.42, 106.92], [10.62, 107.12]],
@@ -207,6 +226,9 @@ def make_demo_calls(today: dt.date) -> list:
                 "status": "EXPECTED", "stayHours": None, "waitH": 0.0,
                 "speedKn": CLASS_SPEED_KN[cls],
                 "estTeu": estimate_teu(cap, max_draft, draft_in, draft_out, cls, port),
+                "etdPred": False,
+                "stayPredH": None, "stayP10": None, "stayP90": None,
+                "stayBasis": "demo fleet (synthetic)",
             })
     calls.sort(key=lambda c: c["eta"])
     assign_berths(calls, rng)
@@ -327,10 +349,14 @@ ICDS = [
     ("Tan Cang - Song Than ICD", "Binh Duong", "Southeast", "Saigon Newport", "road · barge", ["HCMC", "CAIMEP"], .55),
     ("Tan Cang - Long Binh ICD", "Dong Nai", "Southeast", "Saigon Newport", "road · barge", ["CAIMEP", "HCMC"], .50),
     ("Sotrans ICD", "Ho Chi Minh City", "Southeast", "Sotrans", "road · barge", ["HCMC"], .35),
-    ("Transimex ICD", "Ho Chi Minh City", "Southeast", "Transimex", "road", ["HCMC", "CAIMEP"], .30),
-    ("Phuoc Long ICD", "Ho Chi Minh City", "Southeast", "Phuoc Long Corp", "road", ["CAIMEP"], .25),
+    # SOTRANS Group confirms its barges connect VICT with "Sotrans, Transimex
+    # and Phuoc Long" ICDs; SPCT likewise lists Transimexco / Phuc Long /
+    # Phuoc Long 3 / Tanamexco as barge-connected — all have river wharfs.
+    ("Transimex ICD", "Ho Chi Minh City", "Southeast", "Transimex", "road · barge", ["HCMC", "CAIMEP"], .30),
+    ("Phuoc Long ICD", "Ho Chi Minh City", "Southeast", "Phuoc Long", "road · barge", ["CAIMEP"], .25),
+    ("Tanamexco ICD", "Ho Chi Minh City", "Southeast", "Tanamexco", "road · barge", ["HCMC"], .20),
     ("Can Tho ICD", "Can Tho", "Mekong Delta", "Tan Cang - Can Tho", "barge · road", ["CAIMEP", "HCMC"], .60),
-    ("Que Vo ICD", "Bac Ninh", "Red River Delta", "T&M Forwarding", "road · rail", ["HAIPHONG"], .45),
+    ("Tan Cang - Que Vo ICD", "Bac Ninh", "Red River Delta", "Saigon Newport", "road · rail", ["HAIPHONG"], .45),  # MoC ICD list: "Tan Cang Que Vo"
     ("Dinh Vu ICD", "Hai Phong", "Red River Delta", "Dinh Vu Port JSC", "road", ["HAIPHONG"], .40),
     ("My Dinh ICD", "Ha Noi", "Red River Delta", "Military Logistics", "road · rail", ["HAIPHONG"], .35),
     ("Da Nang ICD", "Da Nang", "Central Coast", "Da Nang Port", "road · rail", ["DANANG"], .45),
@@ -1028,18 +1054,48 @@ DEST_RULES = [
 CLASS_DRAFT = {"ULCV": 15.5, "NEOPAN": 14.5, "PANAMAX": 13.0, "FEEDER": 10.0}
 
 
+# LOA(m) -> TEU anchors from standard container-ship classes (public naval-
+# architecture reference points). Capacity follows a power law in LOA, so we
+# interpolate in log-log space — monotonic, passes through every anchor, and
+# far less degenerate than the old 4-value class constants.
+_CAP_ANCHORS = [
+    (95, 500), (120, 900), (147, 1100), (170, 1700), (200, 2500),
+    (230, 3500), (260, 4250), (294, 6500), (335, 10000), (366, 14500),
+    (399, 21000),
+]
+
+def _cap_from_loa(loa: float) -> int:
+    """Log-log interpolation of _CAP_ANCHORS; extrapolates the end slopes.
+    Still a modelled estimate (beam/gear vary by design) — labelled as such."""
+    import math as _m
+    if loa <= 0:
+        return 0
+    pts = _CAP_ANCHORS
+    if loa <= pts[0][0]:
+        lo, hi = pts[0], pts[1]
+    elif loa >= pts[-1][0]:
+        lo, hi = pts[-2], pts[-1]
+    else:
+        lo, hi = next((pts[k], pts[k + 1]) for k in range(len(pts) - 1)
+                      if pts[k][0] <= loa <= pts[k + 1][0])
+    t = (_m.log(loa) - _m.log(lo[0])) / (_m.log(hi[0]) - _m.log(lo[0]))
+    cap = _m.exp(_m.log(lo[1]) + t * (_m.log(hi[1]) - _m.log(lo[1])))
+    return int(min(24200, max(100, round(cap / 10) * 10)))
+
 def _est_capacity(loa: float):
-    """Rough (capacity, class) from length overall — AIS carries dimensions,
-    not TEU capacity, so this is a labelled estimate."""
+    """(capacity, class) from length overall — AIS carries dimensions, not
+    TEU capacity. Capacity now varies continuously with LOA (was: 4 class
+    constants that made every same-class ship show identical TEU)."""
+    if not 20 <= loa <= 400:
+        return 1200, "FEEDER"  # corrupt/missing dimension — small-feeder prior
+    cap = _cap_from_loa(loa)
     if loa >= 330:
-        return 18000, "ULCV"
+        return max(cap, 14000), "ULCV"
     if loa >= 292:
-        return 12500, "NEOPAN"
+        return max(cap, 6000), "NEOPAN"
     if loa >= 240:
-        return 5500, "PANAMAX"
-    if loa >= 170:
-        return 2500, "FEEDER"
-    return 1200, "FEEDER"
+        return max(cap, 3500), "PANAMAX"
+    return cap, "FEEDER"
 
 
 def _dest_port(dest: str):
@@ -1471,7 +1527,7 @@ HCM_GOV_POSITIONS = [
     (r"GEMALINK|GEMADEPT.?TERMINAL\s*LINK", ("CAIMEP", "Gemalink")),
     (r"CMIT|CAI\s*MEP\s*\(CMIT\)|CANG\s*QUOC\s*TE\s*CAI\s*MEP", ("CAIMEP", "CMIT")),
     (r"TCIT", ("CAIMEP", "TCIT")),
-    (r"TCTT|TAN\s*CANG.*THI\s*VAI", ("CAIMEP", "")),
+    (r"TCTT|TAN\s*CANG.*THI\s*VAI", ("CAIMEP", "TCTT")),
     (r"SSIT", ("CAIMEP", "SSIT")),
     (r"SP.?PSA", ("CAIMEP", "SP-PSA")),
     (r"\bVICT\b", ("CAIMEP", "")),
@@ -1649,10 +1705,18 @@ def refresh_schedules() -> list:
 # so the dashboard learns real turn-around times per vessel / class / port and
 # applies them to future calls instead of flat model windows.
 HIST_STORE = ROOT / "datastore" / "history.jsonl"
+FLEET_STORE = ROOT / "datastore" / "sowatco_fleet.json"
 CLASS_STAY_H = {"ULCV": 30.0, "NEOPAN": 26.0, "PANAMAX": 18.0, "FEEDER": 14.0}
 
 
 def _hist_rows() -> list:
+    """Realized-stay history, cleaned of two known poisons:
+    1) rebuild cohorts — when the visit store is (re)created, every moored
+       vessel gets the same synthetic ata, so all those 'stays' end together
+       and learn nothing real. Detect: any single ata timestamp accounting
+       for >25% of rows is a cohort; drop it.
+    2. geofence grazes — sub-2h 'stays' are mostly transiting barges clipped
+       by the box edge, not port calls; they would drag p10 to zero."""
     if not HIST_STORE.exists():
         return []
     rows = []
@@ -1661,7 +1725,11 @@ def _hist_rows() -> list:
             rows.append(json.loads(line))
         except Exception:
             continue
-    return rows
+    rows = [r for r in rows if float(r.get("stayH") or 0) >= 2.0]
+    from collections import Counter as _C
+    cohorts = _C(r.get("eta") for r in rows)
+    bad = {k for k, v in cohorts.items() if v > max(3, 0.25 * len(rows))}
+    return [r for r in rows if r.get("eta") not in bad]
 
 
 def record_stay(rec: dict) -> None:
@@ -1688,18 +1756,40 @@ def record_stay(rec: dict) -> None:
         }, ensure_ascii=False) + "\n")
 
 
+def _quantile(sorted_vals, q: float) -> float:
+    if not sorted_vals:
+        return 0.0
+    pos = (len(sorted_vals) - 1) * q
+    lo_i = int(pos)
+    hi_i = min(lo_i + 1, len(sorted_vals) - 1)
+    return sorted_vals[lo_i] + (sorted_vals[hi_i] - sorted_vals[lo_i]) * (pos - lo_i)
+
+
 def predict_stay(vessel_id: str, vclass: str, port: str):
-    """Median observed port stay — the vessel itself first (n>=2), then its
-    class at this port (n>=3), then a class default. Returns (hours, basis)."""
+    """Observed port stay as (median, p10, p90, basis) — the vessel itself
+    first (n>=2), then its class at this port (n>=3), then a class default.
+    The interval, not the point, is the honest output: port stays are wide."""
     rows = _hist_rows()
+    # Snapshot cadence is 2h, so observed stays carry ±2h quantization and a
+    # tight sample must NOT produce a tight-looking band. Floor the interval
+    # at med×0.75 .. med×1.35 — narrower than that is false precision.
+    def _band(sample):
+        med = _quantile(sample, 0.5)
+        return (round(med, 1),
+                round(min(_quantile(sample, 0.1), med * 0.75), 1),
+                round(max(_quantile(sample, 0.9), med * 1.35), 1))
     own = sorted(r["stayH"] for r in rows if r.get("id") == vessel_id)
     if len(own) >= 2:
-        return own[len(own) // 2], f"this vessel's observed history (n={len(own)})"
+        m, lo, hi = _band(own)
+        return m, lo, hi, f"this vessel's observed history (n={len(own)})"
     cp = sorted(r["stayH"] for r in rows
                 if r.get("vclass") == vclass and r.get("port") == port)
     if len(cp) >= 3:
-        return cp[len(cp) // 2], f"observed {vclass} stays at {port} (n={len(cp)})"
-    return CLASS_STAY_H.get(vclass, 18.0), f"{vclass} class default (learning)"
+        m, lo, hi = _band(cp)
+        return m, lo, hi, f"observed {vclass} stays at {port} (n={len(cp)})"
+    med = CLASS_STAY_H.get(vclass, 18.0)
+    # no local history yet — wide honest band around the class prior
+    return med, round(med * 0.45, 1), round(med * 1.9, 1), f"{vclass} class default (learning)"
 
 
 # ------------------------------------------------- schedule -> port calls ----
@@ -1739,7 +1829,7 @@ def sched_to_call(sr: dict, now: dt.datetime):
         pob = _hm_to_dt(day, sr["pob"], now)
         if sr["direction"] == "DEPARTING":
             etd = pob + dt.timedelta(minutes=30)
-            pred, basis = predict_stay("", vclass, port)
+            pred, p10, p90, basis = predict_stay("", vclass, port)
             eta = etd - dt.timedelta(hours=pred)
         else:
             if sr.get("alongside"):
@@ -1747,7 +1837,7 @@ def sched_to_call(sr: dict, now: dt.datetime):
             else:
                 steam = 1.2 if port == "CAIMEP" else 2.5  # pilot station -> berth, h
                 eta = pob + dt.timedelta(hours=steam)
-            pred, basis = predict_stay("", vclass, port)
+            pred, p10, p90, basis = predict_stay("", vclass, port)
             etd = eta + dt.timedelta(hours=pred)
         prev, nxt = "", ""
     else:  # port-authority plans (hai-phong.html / ho-chi-minh.html / gov pages)
@@ -1760,18 +1850,18 @@ def sched_to_call(sr: dict, now: dt.datetime):
             etd = _hm_to_dt(day, sr["timeDep"], now)
             if etd <= eta:
                 etd += dt.timedelta(days=1)
-            pred, basis = predict_stay("", vclass, port)
+            pred, p10, p90, basis = predict_stay("", vclass, port)
         elif sr["direction"] == "DEPARTING":
             # pilot station -> berth steam time per port (Cat Lai is far upriver)
             steam = {"HAIPHONG": 1.5, "HCMC": 2.5, "CAIMEP": 1.2}.get(port, 1.5)
             etd = t + dt.timedelta(minutes=30)
-            pred, basis = predict_stay("", vclass, port)
+            pred, p10, p90, basis = predict_stay("", vclass, port)
             eta = etd - dt.timedelta(hours=pred)
         else:
             # pilot station -> berth steam time per port (Cat Lai is far upriver)
             steam = {"HAIPHONG": 1.5, "HCMC": 2.5, "CAIMEP": 1.2}.get(port, 1.5)
             eta = t + dt.timedelta(hours=steam)
-            pred, basis = predict_stay("", vclass, port)
+            pred, p10, p90, basis = predict_stay("", vclass, port)
             etd = eta + dt.timedelta(hours=pred)
         prev, nxt = sr.get("prevPort", ""), sr.get("nextPort", "")
 
@@ -1791,7 +1881,7 @@ def sched_to_call(sr: dict, now: dt.datetime):
         "status": "EXPECTED", "stayHours": None, "waitH": 0.0,
         "speedKn": CLASS_SPEED_KN[vclass],
         "estTeu": estimate_teu(cap, max_draft, draft_in, draft_out, vclass, port),
-        "stayPredH": pred, "stayBasis": basis,
+        "stayPredH": pred, "stayP10": p10, "stayP90": p90, "stayBasis": basis,
         "source": "schedule",
         "planSrc": sr.get("source", ""),
     }
@@ -1854,6 +1944,7 @@ def merge_schedules(calls: list, scheds: list) -> list:
                                  else (prev_src + "+" + sr["source"]).strip("+")
             if hit.get("stayPredH") is None:
                 hit["stayPredH"], hit["stayBasis"] = call["stayPredH"], call["stayBasis"]
+                hit["stayP10"], hit["stayP90"] = call.get("stayP10"), call.get("stayP90")
         else:
             calls.append(call)
             by_key[key] = call
@@ -2158,6 +2249,7 @@ def build_live_calls() -> list:
         loa = float(v.get("loa") or 0)
         cap, vclass = _est_capacity(loa)
         departed = bool(v.get("departed"))
+        etd_pred = False
         if departed:
             try:
                 atd = dt.datetime.fromisoformat(v.get("atd") or v["lastSeen"])
@@ -2169,9 +2261,10 @@ def build_live_calls() -> list:
         else:
             if ata < now - dt.timedelta(days=10):
                 continue  # abandoned visit that never closed — drop quietly
-            pred, _basis = predict_stay(f"A{v['mmsi']}", vclass, port)
+            pred, p10, p90, _basis = predict_stay(f"A{v['mmsi']}", vclass, port)
             etd = ata + dt.timedelta(hours=pred)
             atd = None
+            etd_pred = True
         max_draft = round(float(v["draught"]) + 0.5, 1) if v.get("draught") else CLASS_DRAFT[vclass]
         draft_in = round(float(v.get("draught") or max_draft * 0.8), 1)
         draft_out = round(min(max_draft, draft_in + 0.6), 1)
@@ -2188,7 +2281,11 @@ def build_live_calls() -> list:
             "status": "EXPECTED", "stayHours": None, "waitH": 0.0,
             "speedKn": CLASS_SPEED_KN[vclass],
             "estTeu": estimate_teu(cap, max_draft, draft_in, draft_out, vclass, port),
-            "stayPredH": None, "stayBasis": "AIS-observed arrival (Open Waters / AISHub)",
+            "etdPred": etd_pred,
+            "stayPredH": (pred if etd_pred else None),
+            "stayP10": (p10 if etd_pred else None), "stayP90": (p90 if etd_pred else None),
+            "stayBasis": ("AIS-observed arrival; ETD predicted — " + _basis) if etd_pred
+                         else "AIS-observed arrival & departure (Open Waters / AISHub)",
             "source": "ais", "planSrc": "",
             "_obsArr": True, "_obsDep": departed,
         }
@@ -2432,6 +2529,37 @@ def build_icds() -> None:
                      + (" (departed)" if v.get("departed") else " (AIS silent)")),
             "lastSeen": v.get("atd") or v.get("lastSeen"),
         }
+    # Persistent fleet registry: the SOWATCO fleet is ~22 self-propelled
+    # barges (90-300 TEU, SOTRANS Group) but only a subset is AIS-visible in
+    # any single run (AIS switched off, or outside free-receiver coverage).
+    # Remember every name-matched hull we have EVER seen so the tracker
+    # converges on the real fleet instead of only tonight's snapshot.
+    registry: dict = {}
+    if FLEET_STORE.exists():
+        try:
+            registry = json.loads(FLEET_STORE.read_text()).get("hulls", {})
+        except Exception:
+            registry = {}
+    for mmsi, row in fleet.items():
+        registry[mmsi] = {  # freshest observation wins
+            "name": row["name"], "loa": row.get("loa"),
+            "lastSeen": row["lastSeen"], "lat": row.get("lat"),
+            "lon": row.get("lon"), "area": row.get("area") or "",
+        }
+    for mmsi, reg in registry.items():
+        if mmsi in fleet:
+            continue
+        fleet[mmsi] = {
+            "name": reg["name"], "mmsi": mmsi,
+            "inRange": False, "underway": False, "sog": None,
+            "lat": reg.get("lat"), "lon": reg.get("lon"),
+            "loa": reg.get("loa"), "draught": 0, "dest": "",
+            "area": (reg.get("area") or "last-heard") + " (registry)",
+            "lastSeen": reg.get("lastSeen"),
+        }
+    FLEET_STORE.write_text(json.dumps(
+        {"updatedAt": iso(dt.datetime.now(TZ)), "hulls": registry},
+        indent=1, ensure_ascii=False))
     fleet_rows = sorted(fleet.values(), key=lambda r: r["name"])
 
     notes = [
@@ -2440,8 +2568,9 @@ def build_icds() -> None:
         "ICD Sotrans: 412 m wharf shown as 5 indicative ~82 m barge slots (operator publishes no slot numbering)",
         "SOWATCO Long Binh: pier specs (44/88/70 m, draft 3/3/7 m) from SOWATCO; the geofence is approximate "
         "until dwell clusters confirm it, and free-AIS coverage on this Đồng Nai reach is limited",
-        "Fleet tracker lists AIS name-matched SOWATCO/SOTRANS hulls only — entries older than 3h show "
-        "their last-heard position & time; a barge with AIS off may be absent or stale",
+        "SOWATCO operates 22 self-propelled barges of 90-300 TEU (SOTRANS Group, operator figure) — "
+        "this tracker lists AIS name-matched SOWATCO/SOTRANS hulls only: a barge with AIS off or outside "
+        "free-AIS coverage is absent; hulls once seen stay listed with their last-heard time (registry)",
         "AIS data credit: AISHub contributors (aishub.net) via Open Waters AIS (openwaters.io)",
     ]
     (DATA_DIR / "icds.json").write_text(json.dumps({
@@ -2451,6 +2580,92 @@ def build_icds() -> None:
     print(f"wrote icds.json ({len(icds)} ICD boards, "
           f"{sum(i['alongside'] for i in icds)} alongside, "
           f"{len(fleet_rows)} SOWATCO-named vessels)")
+
+
+# --------------------------------------------------------- self-audit QA ----
+def _km(a_lat: float, a_lon: float, b_lat: float, b_lon: float) -> float:
+    """Equirectangular km — fine at these latitudes over short distances."""
+    import math as _m
+    dx = (a_lon - b_lon) * 111.32 * _m.cos(_m.radians((a_lat + b_lat) / 2))
+    dy = (a_lat - b_lat) * 110.57
+    return (dx * dx + dy * dy) ** 0.5
+
+
+def berth_drift_report() -> list:
+    """Compare each declared terminal centroid with the MEDIAN moored position
+    of visits attributed to it. A systematic offset > 0.75 km means the
+    declared position has drifted from reality (this is the check that would
+    have caught the SP-PSA / SSIT / Gemalink errors automatically)."""
+    try:
+        visits = json.loads(OW_VISITS.read_text()).get("visits", {})
+    except Exception:
+        return []
+    # Only visits ACTIVE in the last 12h count: terminal attribution updates on
+    # every observation, so recent visits carry the current declared geometry;
+    # older closed visits may still wear pre-correction attributions.
+    recent = iso(dt.datetime.now(TZ) - dt.timedelta(hours=12))
+    out = []
+    for p in PORTS:
+        for t in p.get("terminals", []):
+            pts = [(v["lat"], v["lon"]) for v in visits.values()
+                   if v.get("port") == p["id"] and v.get("terminal") == t["name"]
+                   and v.get("lat") and v.get("lon")
+                   and (v.get("lastSeen") or "") >= recent]
+            if len(pts) < 5:
+                continue
+            lats = sorted(x[0] for x in pts); lons = sorted(x[1] for x in pts)
+            mlat, mlon = lats[len(lats) // 2], lons[len(lons) // 2]
+            dkm = _km(mlat, mlon, t["geo"][0], t["geo"][1])
+            out.append({"port": p["id"], "terminal": t["name"], "n": len(pts),
+                        "declared": t["geo"], "observedMedian": [round(mlat, 5), round(mlon, 5)],
+                        "driftKm": round(dkm, 2), "flag": dkm > 1.5})
+    return out
+
+
+def write_qa(calls: list) -> None:
+    """Self-audit gate: the forensic checks a skeptical buyer would run,
+    computed on every refresh and published as qa.json. WARN lines print to
+    the Actions log so a regression is visible without opening the site."""
+    from collections import Counter as _C
+    n = len(calls) or 1
+    sch = _C(c.get("schedEta") for c in calls if c.get("schedEta"))
+    dup_share = sum(v for v in sch.values() if v > 1) / n
+    teu = _C(c.get("estTeu") for c in calls)
+    modal4 = sum(v for _, v in teu.most_common(4)) / n
+    ata_cov = sum(1 for c in calls if c.get("ata")) / n
+    atd_cov = sum(1 for c in calls if c.get("atd")) / n
+    plan_cov = sum(1 for c in calls if c.get("planSrc")) / n
+    pred_etd = sum(1 for c in calls if c.get("etdPred")) / n
+    drift = berth_drift_report()
+    flagged = [d for d in drift if d["flag"]]
+    metrics = {
+        "calls": n,
+        "ataCoverage": round(ata_cov, 3),
+        "atdCoverage": round(atd_cov, 3),
+        "planLinked": round(plan_cov, 3),
+        "predictedEtd": round(pred_etd, 3),
+        "dupSchedEtaShare": round(dup_share, 3),
+        "modalTeu4Share": round(modal4, 3),
+        "berthDrift": drift,
+        "berthDriftFlagged": len(flagged),
+    }
+    warns = []
+    if modal4 > 0.40:
+        warns.append(f"modal-TEU share {modal4:.0%} > 40% — volume model collapsing to defaults")
+    if ata_cov < 0.80:
+        warns.append(f"arrival coverage {ata_cov:.0%} < 80%")
+    if flagged:
+        warns.append("berth drift: " + "; ".join(
+            f"{d['port']}/{d['terminal']} {d['driftKm']}km (n={d['n']})" for d in flagged))
+    metrics["status"] = "WARN" if warns else "PASS"
+    metrics["warnings"] = warns
+    metrics["generatedAt"] = iso(dt.datetime.now(TZ))
+    (DATA_DIR / "qa.json").write_text(json.dumps(metrics, indent=1, ensure_ascii=False))
+    tag = "QA WARN" if warns else "QA PASS"
+    print(f"{tag}: {n} calls · ata {ata_cov:.0%} · atd {atd_cov:.0%} · plan-linked {plan_cov:.0%} "
+          f"· dup-schedEta {dup_share:.0%} · modal-TEU {modal4:.0%} · drift flags {len(flagged)}")
+    for w in warns:
+        print("  QA WARN:", w)
 
 
 def build_all() -> None:
@@ -2574,6 +2789,7 @@ def build_all() -> None:
     dump("customs.json", customs)
     dump("inland.json", inland)
     dump("report.json", report)
+    write_qa(calls)  # self-audit gate — qa.json + WARN lines in the run log
     dump_visits()  # public AIS visit table for the vessel detail drawer
     build_icds()   # live ICD berth boards + SOWATCO barge fleet (icds.json)
     src_names = [SRC_NAMES.get(x, x) for x in sorted({s.get("source") for s in scheds})] if scheds else []

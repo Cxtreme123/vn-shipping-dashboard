@@ -117,7 +117,7 @@
    "province": "Ho Chi Minh City",
    "region": "Southeast",
    "operator": "Transimex",
-   "modes": "road",
+   "modes": "road · barge",
    "gateways": [
     "HCMC",
     "CAIMEP"
@@ -129,13 +129,25 @@
    "name": "Phuoc Long ICD",
    "province": "Ho Chi Minh City",
    "region": "Southeast",
-   "operator": "Phuoc Long Corp",
-   "modes": "road",
+   "operator": "Phuoc Long",
+   "modes": "road · barge",
    "gateways": [
     "CAIMEP"
    ],
    "catchment": 0.25,
    "estTeuWeek": 14768
+  },
+  {
+   "name": "Tanamexco ICD",
+   "province": "Ho Chi Minh City",
+   "region": "Southeast",
+   "operator": "Tanamexco",
+   "modes": "road · barge",
+   "gateways": [
+    "HCMC"
+   ],
+   "catchment": 0.2,
+   "estTeuWeek": 11814
   },
   {
    "name": "Can Tho ICD",
@@ -151,10 +163,10 @@
    "estTeuWeek": 4112
   },
   {
-   "name": "Que Vo ICD",
+   "name": "Tan Cang - Que Vo ICD",
    "province": "Bac Ninh",
    "region": "Red River Delta",
-   "operator": "T&M Forwarding",
+   "operator": "Saigon Newport",
    "modes": "road · rail",
    "gateways": [
     "HAIPHONG"

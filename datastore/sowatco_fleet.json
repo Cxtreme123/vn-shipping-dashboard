@@ -1,0 +1,85 @@
+{
+ "updatedAt": "2026-11-19T13:27+07:00",
+ "hulls": {
+  "574402814": {
+   "name": "SOWATCO 02",
+   "loa": 71.0,
+   "lastSeen": "2026-11-17T15:00+07:00",
+   "lat": 20.829213333333332,
+   "lon": 106.78909999999999,
+   "area": "last: HAIPHONG (departed)"
+  },
+  "574400316": {
+   "name": "SOWATCO 18",
+   "loa": 0.0,
+   "lastSeen": "2026-11-18T22:24+07:00",
+   "lat": 10.819666666666667,
+   "lon": 106.75543666666667,
+   "area": "Trường Thọ channel — ICD row"
+  },
+  "574400192": {
+   "name": "SOWATCO 24",
+   "loa": 76.0,
+   "lastSeen": "2026-11-17T15:01+07:00",
+   "lat": 10.781956666666668,
+   "lon": 106.81878833333333,
+   "area": "last: HCMC (departed)"
+  },
+  "574400189": {
+   "name": "SOWATCO 26",
+   "loa": 0.0,
+   "lastSeen": "2026-11-17T13:59+07:00",
+   "lat": 10.82184,
+   "lon": 106.755455,
+   "area": "last: HCMC (departed)"
+  },
+  "574400188": {
+   "name": "SOWATCO DISCOVER",
+   "loa": 85.0,
+   "lastSeen": "2026-11-19T13:13+07:00",
+   "lat": 10.882476666666667,
+   "lon": 106.84531166666667,
+   "area": "Bình Triệu reach — Saigon R."
+  },
+  "574400187": {
+   "name": "SOWATCO EXPLORER",
+   "loa": 80.0,
+   "lastSeen": "2026-11-19T11:48+07:00",
+   "lat": 10.65975,
+   "lon": 106.80134166666667,
+   "area": "Soài Rạp / Lòng Tàu channel"
+  },
+  "574401464": {
+   "name": "SOWATCO MASTER",
+   "loa": 80.0,
+   "lastSeen": "2026-11-19T13:25+07:00",
+   "lat": 10.633136666666667,
+   "lon": 106.82063833333333,
+   "area": "Soài Rạp / Lòng Tàu channel"
+  },
+  "574401465": {
+   "name": "SOWATCO PIONEER",
+   "loa": 80.0,
+   "lastSeen": "2026-11-19T13:23+07:00",
+   "lat": 10.640868333333334,
+   "lon": 106.81168833333332,
+   "area": "Soài Rạp / Lòng Tàu channel"
+  },
+  "574402373": {
+   "name": "SOWATCO VENUS",
+   "loa": 80.0,
+   "lastSeen": "2026-11-19T13:13+07:00",
+   "lat": 10.893120000000001,
+   "lon": 106.83998833333334,
+   "area": "Bình Triệu reach — Saigon R."
+  },
+  "574403747": {
+   "name": "SOWATCO PLATINUM 1",
+   "loa": 0.0,
+   "lastSeen": "2026-11-19T12:06+07:00",
+   "lat": 10.537296666666666,
+   "lon": 107.02844499999999,
+   "area": "Cái Mép – Thị Vải"
+  }
+ }
+}

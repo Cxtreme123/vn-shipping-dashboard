@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-19T10:39+07:00",
+ "generatedAt": "2026-11-19T13:27+07:00",
  "icds": [
   {
    "id": "ICDSOTRANS",
@@ -23,20 +23,20 @@
      "lenM": 82,
      "draftM": null,
      "maxDwt": 1500,
-     "vessel": null,
-     "mmsi": null,
-     "loa": null,
-     "draught": null
+     "vessel": "AN TAY 17",
+     "mmsi": "574402223",
+     "loa": 0.0,
+     "draught": 0.0
     },
     {
      "id": "B2",
      "lenM": 82,
      "draftM": null,
      "maxDwt": 1500,
-     "vessel": null,
-     "mmsi": null,
-     "loa": null,
-     "draught": null
+     "vessel": "TAY NAM 38",
+     "mmsi": "574401541",
+     "loa": 0.0,
+     "draught": 0.0
     },
     {
      "id": "B3",
@@ -70,15 +70,25 @@
     }
    ],
    "overflow": [],
-   "alongside": 0,
+   "alongside": 2,
    "recent": [
     {
-     "name": "TAY NAM 36",
-     "mmsi": "574401539",
-     "ata": "2026-11-18T20:07+07:00",
-     "atd": "2026-11-18T20:07+07:00",
-     "departed": true,
-     "stayH": 0.0,
+     "name": "TAY NAM 38",
+     "mmsi": "574401541",
+     "ata": "2026-11-19T11:59+07:00",
+     "atd": null,
+     "departed": false,
+     "stayH": 1.4,
+     "loa": 0,
+     "draught": 0
+    },
+    {
+     "name": "AN TAY 17",
+     "mmsi": "574402223",
+     "ata": "2026-11-19T11:57+07:00",
+     "atd": null,
+     "departed": false,
+     "stayH": 1.4,
      "loa": 0,
      "draught": 0
     },
@@ -183,48 +193,6 @@
    "lastSeen": "2026-11-17T15:00+07:00"
   },
   {
-   "name": "SOWATCO 03",
-   "mmsi": "574402815",
-   "inRange": false,
-   "underway": false,
-   "sog": null,
-   "lat": 20.802215,
-   "lon": 106.905285,
-   "loa": 76.0,
-   "draught": 0,
-   "dest": "",
-   "area": "last: HAIPHONG (AIS silent)",
-   "lastSeen": "2026-11-19T04:35+07:00"
-  },
-  {
-   "name": "SOWATCO 05",
-   "mmsi": "574402816",
-   "inRange": false,
-   "underway": false,
-   "sog": null,
-   "lat": 20.78858166666667,
-   "lon": 106.91513,
-   "loa": 76.0,
-   "draught": 0,
-   "dest": "",
-   "area": "last: HAIPHONG (AIS silent)",
-   "lastSeen": "2026-11-19T05:01+07:00"
-  },
-  {
-   "name": "SOWATCO 17",
-   "mmsi": "574400208",
-   "inRange": true,
-   "underway": true,
-   "sog": 3.3,
-   "lat": 10.638996666666666,
-   "lon": 106.84922,
-   "loa": 58.0,
-   "draught": 0.0,
-   "dest": "",
-   "area": "Soài Rạp / Lòng Tàu channel",
-   "lastSeen": "2026-11-19T10:27+07:00"
-  },
-  {
    "name": "SOWATCO 18",
    "mmsi": "574400316",
    "inRange": false,
@@ -270,43 +238,43 @@
    "name": "SOWATCO DISCOVER",
    "mmsi": "574400188",
    "inRange": true,
-   "underway": true,
-   "sog": 4.0,
-   "lat": 10.771015,
-   "lon": 106.86802666666668,
+   "underway": false,
+   "sog": 0.0,
+   "lat": 10.882476666666667,
+   "lon": 106.84531166666667,
    "loa": 85.0,
    "draught": 0.0,
    "dest": "",
-   "area": "in range — other waters",
-   "lastSeen": "2026-11-19T10:34+07:00"
+   "area": "Bình Triệu reach — Saigon R.",
+   "lastSeen": "2026-11-19T13:13+07:00"
   },
   {
    "name": "SOWATCO EXPLORER",
    "mmsi": "574400187",
-   "inRange": true,
-   "underway": true,
-   "sog": 3.7,
-   "lat": 10.724916666666667,
-   "lon": 106.75914833333333,
+   "inRange": false,
+   "underway": false,
+   "sog": null,
+   "lat": 10.65975,
+   "lon": 106.80134166666667,
    "loa": 80.0,
-   "draught": 0.0,
+   "draught": 0,
    "dest": "",
-   "area": "Saigon river (central)",
-   "lastSeen": "2026-11-19T10:33+07:00"
+   "area": "Soài Rạp / Lòng Tàu channel (registry)",
+   "lastSeen": "2026-11-19T11:48+07:00"
   },
   {
    "name": "SOWATCO MASTER",
    "mmsi": "574401464",
    "inRange": true,
    "underway": true,
-   "sog": 3.5,
-   "lat": 10.768701666666667,
-   "lon": 106.86091166666667,
+   "sog": 6.1,
+   "lat": 10.633136666666667,
+   "lon": 106.82063833333333,
    "loa": 80.0,
    "draught": 0.0,
    "dest": "",
-   "area": "in range — other waters",
-   "lastSeen": "2026-11-19T10:33+07:00"
+   "area": "Soài Rạp / Lòng Tàu channel",
+   "lastSeen": "2026-11-19T13:25+07:00"
   },
   {
    "name": "SOWATCO PIONEER",
@@ -314,27 +282,27 @@
    "inRange": true,
    "underway": false,
    "sog": 0.0,
-   "lat": 10.641083333333334,
-   "lon": 106.81163166666667,
+   "lat": 10.640868333333334,
+   "lon": 106.81168833333332,
    "loa": 80.0,
    "draught": 0.0,
    "dest": "",
    "area": "Soài Rạp / Lòng Tàu channel",
-   "lastSeen": "2026-11-19T10:28+07:00"
+   "lastSeen": "2026-11-19T13:23+07:00"
   },
   {
-   "name": "SOWATCO PLATINUM 2",
-   "mmsi": "574403748",
-   "inRange": false,
+   "name": "SOWATCO PLATINUM 1",
+   "mmsi": "574403747",
+   "inRange": true,
    "underway": false,
-   "sog": null,
-   "lat": 10.7343,
-   "lon": 106.76695833333333,
+   "sog": 0.0,
+   "lat": 10.537296666666666,
+   "lon": 107.02844499999999,
    "loa": 0.0,
-   "draught": 0,
+   "draught": 0.0,
    "dest": "",
-   "area": "last: HCMC (departed)",
-   "lastSeen": "2026-11-19T04:44+07:00"
+   "area": "Cái Mép – Thị Vải",
+   "lastSeen": "2026-11-19T12:06+07:00"
   },
   {
    "name": "SOWATCO VENUS",
@@ -342,20 +310,20 @@
    "inRange": true,
    "underway": false,
    "sog": 0.0,
-   "lat": 10.89499,
-   "lon": 106.839445,
+   "lat": 10.893120000000001,
+   "lon": 106.83998833333334,
    "loa": 80.0,
    "draught": 0.0,
    "dest": "",
    "area": "Bình Triệu reach — Saigon R.",
-   "lastSeen": "2026-11-19T09:56+07:00"
+   "lastSeen": "2026-11-19T13:13+07:00"
   }
  ],
  "notes": [
   "Berth occupancy & visit history are AIS-observed (Open Waters / AISHub aggregate, ~1 min delayed); the berth a barge is shown in is positional ordering along the wharf, not an operator assignment",
   "ICD Sotrans: 412 m wharf shown as 5 indicative ~82 m barge slots (operator publishes no slot numbering)",
   "SOWATCO Long Binh: pier specs (44/88/70 m, draft 3/3/7 m) from SOWATCO; the geofence is approximate until dwell clusters confirm it, and free-AIS coverage on this Đồng Nai reach is limited",
-  "Fleet tracker lists AIS name-matched SOWATCO/SOTRANS hulls only — entries older than 3h show their last-heard position & time; a barge with AIS off may be absent or stale",
+  "SOWATCO operates 22 self-propelled barges of 90-300 TEU (SOTRANS Group, operator figure) — this tracker lists AIS name-matched SOWATCO/SOTRANS hulls only: a barge with AIS off or outside free-AIS coverage is absent; hulls once seen stay listed with their last-heard time (registry)",
   "AIS data credit: AISHub contributors (aishub.net) via Open Waters AIS (openwaters.io)"
  ]
 }
