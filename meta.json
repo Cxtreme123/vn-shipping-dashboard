@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-20T05:17+07:00",
+ "generatedAt": "2026-11-20T10:27+07:00",
  "dataMode": "live",
  "schedSources": [
   "haiphong-plan",
@@ -32,7 +32,7 @@
    "id": "tancangpilot",
    "label": "Tan Cang Pilot plan",
    "ok": true,
-   "rows": 30,
+   "rows": 31,
    "err": ""
   },
   {
@@ -46,8 +46,8 @@
    "id": "haiphong-cangvu",
    "label": "Cảng vụ Hải Phòng ship plan",
    "ok": true,
-   "rows": 18,
-   "err": "hp-gov: 0 usable rows — page empty or schema changed"
+   "rows": 23,
+   "err": ""
   },
   {
    "id": "cangvu-hcmc-gov",
@@ -81,21 +81,21 @@
    "id": "ais-hcmc",
    "label": "AIS snapshot · Ho Chi Minh (Cat Lai)",
    "ok": true,
-   "rows": 191,
+   "rows": 186,
    "err": ""
   },
   {
    "id": "ais-caimep",
    "label": "AIS snapshot · Cai Mep - Thi Vai",
    "ok": true,
-   "rows": 125,
+   "rows": 122,
    "err": ""
   },
   {
    "id": "ais-fleet",
    "label": "AIS snapshot · SOWATCO fleet (wide SE box)",
    "ok": true,
-   "rows": 532,
+   "rows": 543,
    "err": ""
   },
   {

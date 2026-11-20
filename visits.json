@@ -1,5 +1,356 @@
 [
  {
+  "mmsi": "538008859",
+  "name": "STAR EXPLORER",
+  "port": "HAIPHONG",
+  "terminal": "",
+  "loa": 142.0,
+  "draught": 8.5,
+  "dest": "VN HPH",
+  "ata": "2026-11-20T10:25+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "312774000",
+  "name": "SUNSHINE STAR",
+  "port": "HAIPHONG",
+  "terminal": "",
+  "loa": 97.0,
+  "draught": 6.0,
+  "dest": "HAIPHONG VN",
+  "ata": "2026-11-20T10:25+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "538010219",
+  "name": "SAWASDEE VEGA",
+  "port": "HCMC",
+  "terminal": "Cat Lai",
+  "loa": 172.0,
+  "draught": 9.8,
+  "dest": "VNSGN",
+  "ata": "2026-11-20T10:25+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "636013118",
+  "name": "YM INSTRUCTION",
+  "port": "HCMC",
+  "terminal": "",
+  "loa": 172.0,
+  "draught": 8.7,
+  "dest": "VNCLI>SGSIN",
+  "ata": "2026-11-20T10:25+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574000300",
+  "name": "TUAN DUNG 36",
+  "port": "HCMC",
+  "terminal": "Tan Cang Hiep Phuoc",
+  "loa": 92.0,
+  "draught": 3.8,
+  "dest": "HCM",
+  "ata": "2026-11-20T10:25+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "564820000",
+  "name": "SINAR BANGKA",
+  "port": "CAIMEP",
+  "terminal": "",
+  "loa": 147.0,
+  "draught": 9.1,
+  "dest": "VN SGN",
+  "ata": "2026-11-20T10:25+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574401533",
+  "name": "TAY",
+  "port": "HCMC",
+  "terminal": "",
+  "loa": 0,
+  "draught": 0,
+  "dest": "",
+  "ata": "2026-11-20T10:24+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574401397",
+  "name": "DUC PHONG",
+  "port": "CAIMEP",
+  "terminal": "",
+  "loa": 80.0,
+  "draught": 0.3,
+  "dest": "",
+  "ata": "2026-11-20T10:24+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574012868",
+  "name": "SON HA 666",
+  "port": "HAIPHONG",
+  "terminal": "",
+  "loa": 79.0,
+  "draught": 6.7,
+  "dest": "AN GIANG",
+  "ata": "2026-11-20T10:24+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574332000",
+  "name": "HD PETROL",
+  "port": "HAIPHONG",
+  "terminal": "",
+  "loa": 104.0,
+  "draught": 6.2,
+  "dest": "HAIPHONG",
+  "ata": "2026-11-20T10:24+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "477809100",
+  "name": "XIN AN",
+  "port": "HCMC",
+  "terminal": "",
+  "loa": 172.0,
+  "draught": 8.0,
+  "dest": "VN HCM",
+  "ata": "2026-11-20T10:24+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "477849500",
+  "name": "SITC MACAO",
+  "port": "HCMC",
+  "terminal": "",
+  "loa": 172.0,
+  "draught": 9.6,
+  "dest": "VN SGN",
+  "ata": "2026-11-20T10:24+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574015071",
+  "name": "DAI THANG 88",
+  "port": "CAIMEP",
+  "terminal": "SP-PSA",
+  "loa": 79.0,
+  "draught": 4.8,
+  "dest": "",
+  "ata": "2026-11-20T10:23+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574401986",
+  "name": "TRANSIMEX 22",
+  "port": "CAIMEP",
+  "terminal": "",
+  "loa": 79.0,
+  "draught": 0,
+  "dest": "VIET NAM",
+  "ata": "2026-11-20T10:21+07:00",
+  "lastSeen": "2026-11-20T10:21+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "477909300",
+  "name": "JY BONITO",
+  "port": "HAIPHONG",
+  "terminal": "Lach Huyen (HHIT)",
+  "loa": 191.0,
+  "draught": 9.8,
+  "dest": "VNHPH",
+  "ata": "2026-11-20T10:20+07:00",
+  "lastSeen": "2026-11-20T10:20+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574014152",
+  "name": "GOLD STAR 19",
+  "port": "HAIPHONG",
+  "terminal": "Lach Huyen (HTIT)",
+  "loa": 117.0,
+  "draught": 6.8,
+  "dest": "HP/VN",
+  "ata": "2026-11-20T10:18+07:00",
+  "lastSeen": "2026-11-20T10:18+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574401855",
+  "name": "SP ITC 06",
+  "port": "HCMC",
+  "terminal": "",
+  "loa": 79.0,
+  "draught": 4.2,
+  "dest": "",
+  "ata": "2026-11-20T10:13+07:00",
+  "lastSeen": "2026-11-20T10:13+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574111287",
+  "name": "SONG CAM 03",
+  "port": "HAIPHONG",
+  "terminal": "",
+  "loa": 7.0,
+  "draught": 0,
+  "dest": "",
+  "ata": "2026-11-20T10:12+07:00",
+  "lastSeen": "2026-11-20T10:12+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574014393",
+  "name": "VIET THUAN 215-02",
+  "port": "CAIMEP",
+  "terminal": "",
+  "loa": 148.0,
+  "draught": 4.0,
+  "dest": "VUNG TAU",
+  "ata": "2026-11-20T10:10+07:00",
+  "lastSeen": "2026-11-20T10:10+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574401561",
+  "name": "CAI MEP 38",
+  "port": "HCMC",
+  "terminal": "",
+  "loa": 0,
+  "draught": 0,
+  "dest": "",
+  "ata": "2026-11-20T09:28+07:00",
+  "lastSeen": "2026-11-20T09:28+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574403134",
+  "name": "HA PHUONG 03",
+  "port": "CAIMEP",
+  "terminal": "",
+  "loa": 79.0,
+  "draught": 0,
+  "dest": "",
+  "ata": "2026-11-20T09:28+07:00",
+  "lastSeen": "2026-11-20T09:28+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574100137",
+  "name": "SG 10572",
+  "port": "HCMC",
+  "terminal": "Tan Cang Hiep Phuoc",
+  "loa": 65.0,
+  "draught": 3.0,
+  "dest": "",
+  "ata": "2026-11-20T09:25+07:00",
+  "lastSeen": "2026-11-20T09:25+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574115859",
+  "name": "MEKONG 08 SG7528",
+  "port": "HCMC",
+  "terminal": "Tan Cang Hiep Phuoc",
+  "loa": 52.0,
+  "draught": 0,
+  "dest": "",
+  "ata": "2026-11-20T09:05+07:00",
+  "lastSeen": "2026-11-20T09:05+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574999111",
+  "name": "AAABBB",
+  "port": "HAIPHONG",
+  "terminal": "",
+  "loa": 32.0,
+  "draught": 0,
+  "dest": "",
+  "ata": "2026-11-20T08:59+07:00",
+  "lastSeen": "2026-11-20T08:59+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574404887",
+  "name": "MHH2534",
+  "port": "HCMC",
+  "terminal": "",
+  "loa": 78.0,
+  "draught": 0,
+  "dest": "",
+  "ata": "2026-11-20T08:49+07:00",
+  "lastSeen": "2026-11-20T08:49+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574401567",
+  "name": "TAY",
+  "port": "CAIMEP",
+  "terminal": "",
+  "loa": 0,
+  "draught": 0,
+  "dest": "",
+  "ata": "2026-11-20T08:42+07:00",
+  "lastSeen": "2026-11-20T08:42+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
+  "mmsi": "574400881",
+  "name": "HCM 01",
+  "port": "HCMC",
+  "terminal": "",
+  "loa": 0,
+  "draught": 0,
+  "dest": "",
+  "ata": "2026-11-20T08:22+07:00",
+  "lastSeen": "2026-11-20T08:22+07:00",
+  "atd": null,
+  "departed": false
+ },
+ {
   "mmsi": "574401519",
   "name": "TRUNG KIEN 21",
   "port": "HAIPHONG",
@@ -21,7 +372,7 @@
   "draught": 10.2,
   "dest": "CN XMN >> VN CLI",
   "ata": "2026-11-20T05:14+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -34,7 +385,7 @@
   "draught": 11.1,
   "dest": "VNVUT",
   "ata": "2026-11-20T05:14+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -47,7 +398,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-20T05:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -61,8 +412,8 @@
   "dest": "",
   "ata": "2026-11-20T05:13+07:00",
   "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "574400766",
@@ -74,8 +425,8 @@
   "dest": "",
   "ata": "2026-11-20T05:13+07:00",
   "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "574401538",
@@ -86,7 +437,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-20T05:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -99,7 +450,7 @@
   "draught": 8.1,
   "dest": "VN HPH",
   "ata": "2026-11-20T05:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -107,12 +458,12 @@
   "mmsi": "574402516",
   "name": "VU DINH 11",
   "port": "HAIPHONG",
-  "terminal": "",
+  "terminal": "Lach Huyen (HHIT)",
   "loa": 79.0,
   "draught": 4.5,
   "dest": "",
   "ata": "2026-11-20T05:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:11+07:00",
   "atd": null,
   "departed": false
  },
@@ -125,7 +476,7 @@
   "draught": 5.3,
   "dest": "VN SGN",
   "ata": "2026-11-20T05:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -138,7 +489,7 @@
   "draught": 9.7,
   "dest": "CAT LAI TERMINAL-B3",
   "ata": "2026-11-20T05:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -164,7 +515,7 @@
   "draught": 8.8,
   "dest": "HOCHIMINH",
   "ata": "2026-11-20T05:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -177,7 +528,7 @@
   "draught": 4.1,
   "dest": "HCMC VN",
   "ata": "2026-11-20T05:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -190,7 +541,7 @@
   "draught": 7.9,
   "dest": "VN SGN > HK HKG",
   "ata": "2026-11-20T05:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -204,8 +555,8 @@
   "dest": "VNHCM",
   "ata": "2026-11-20T05:13+07:00",
   "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "574404957",
@@ -216,7 +567,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-20T05:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -229,7 +580,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-20T05:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:22+07:00",
   "atd": null,
   "departed": false
  },
@@ -242,7 +593,7 @@
   "draught": 5.7,
   "dest": "VN SGN",
   "ata": "2026-11-20T05:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -255,7 +606,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-20T05:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -277,11 +628,11 @@
   "name": "ATLANTIC OCEAN",
   "port": "CAIMEP",
   "terminal": "",
-  "loa": 0,
-  "draught": 0,
+  "loa": 113.0,
+  "draught": 6.8,
   "dest": "VN VUT",
   "ata": "2026-11-20T05:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T08:39+07:00",
   "atd": null,
   "departed": false
  },
@@ -294,7 +645,7 @@
   "draught": 4.2,
   "dest": "UUNG TAU",
   "ata": "2026-11-20T05:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T09:48+07:00",
   "atd": null,
   "departed": false
  },
@@ -307,7 +658,7 @@
   "draught": 3.3,
   "dest": "BASON SHIPYARD",
   "ata": "2026-11-20T05:12+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:03+07:00",
   "atd": null,
   "departed": false
  },
@@ -320,7 +671,7 @@
   "draught": 12.7,
   "dest": "VNHPH",
   "ata": "2026-11-20T05:12+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -333,7 +684,7 @@
   "draught": 7.4,
   "dest": "VN HPH",
   "ata": "2026-11-20T05:12+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -346,7 +697,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-20T05:12+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -354,12 +705,12 @@
   "mmsi": "574105201",
   "name": "TG 26479",
   "port": "HCMC",
-  "terminal": "Tan Cang Hiep Phuoc",
+  "terminal": "",
   "loa": 61.0,
   "draught": 0,
   "dest": "",
   "ata": "2026-11-20T05:12+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -373,8 +724,8 @@
   "dest": "HCM",
   "ata": "2026-11-20T05:12+07:00",
   "lastSeen": "2026-11-20T05:12+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:12+07:00",
+  "departed": true
  },
  {
   "mmsi": "574404265",
@@ -385,7 +736,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-20T05:11+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -398,7 +749,7 @@
   "draught": 9.0,
   "dest": "VN HPH",
   "ata": "2026-11-20T05:11+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:11+07:00",
   "atd": null,
   "departed": false
  },
@@ -411,7 +762,7 @@
   "draught": 9.4,
   "dest": "VNHPH",
   "ata": "2026-11-20T05:11+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -421,10 +772,10 @@
   "port": "HAIPHONG",
   "terminal": "Lach Huyen (HHIT)",
   "loa": 172.0,
-  "draught": 8.5,
-  "dest": "VNHPH",
+  "draught": 8.4,
+  "dest": "CNYTN",
   "ata": "2026-11-20T05:11+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -438,8 +789,8 @@
   "dest": "",
   "ata": "2026-11-20T05:09+07:00",
   "lastSeen": "2026-11-20T05:09+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:09+07:00",
+  "departed": true
  },
  {
   "mmsi": "431989000",
@@ -450,7 +801,7 @@
   "draught": 10.9,
   "dest": "CNYTN",
   "ata": "2026-11-20T05:09+07:00",
-  "lastSeen": "2026-11-20T05:09+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -463,7 +814,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-20T05:06+07:00",
-  "lastSeen": "2026-11-20T05:06+07:00",
+  "lastSeen": "2026-11-20T10:21+07:00",
   "atd": null,
   "departed": false
  },
@@ -490,8 +841,8 @@
   "dest": "",
   "ata": "2026-11-20T05:06+07:00",
   "lastSeen": "2026-11-20T05:06+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:06+07:00",
+  "departed": true
  },
  {
   "mmsi": "574401557",
@@ -502,7 +853,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-20T05:06+07:00",
-  "lastSeen": "2026-11-20T05:06+07:00",
+  "lastSeen": "2026-11-20T10:21+07:00",
   "atd": null,
   "departed": false
  },
@@ -515,7 +866,7 @@
   "draught": 4.2,
   "dest": "QUY NHON",
   "ata": "2026-11-20T05:01+07:00",
-  "lastSeen": "2026-11-20T05:01+07:00",
+  "lastSeen": "2026-11-20T09:30+07:00",
   "atd": null,
   "departed": false
  },
@@ -523,12 +874,12 @@
   "mmsi": "574401583",
   "name": "PHUOC LONG 20",
   "port": "HCMC",
-  "terminal": "",
+  "terminal": "Tan Cang Hiep Phuoc",
   "loa": 74.0,
   "draught": 0,
   "dest": "",
   "ata": "2026-11-20T04:59+07:00",
-  "lastSeen": "2026-11-20T04:59+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -554,7 +905,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-20T04:51+07:00",
-  "lastSeen": "2026-11-20T04:51+07:00",
+  "lastSeen": "2026-11-20T08:08+07:00",
   "atd": null,
   "departed": false
  },
@@ -568,19 +919,19 @@
   "dest": "",
   "ata": "2026-11-20T04:13+07:00",
   "lastSeen": "2026-11-20T04:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T04:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "574116106",
   "name": "HONG HA GAS",
   "port": "CAIMEP",
-  "terminal": "TCIT",
+  "terminal": "",
   "loa": 78.0,
   "draught": 4.5,
   "dest": "UT",
   "ata": "2026-11-20T04:07+07:00",
-  "lastSeen": "2026-11-20T04:07+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -607,8 +958,8 @@
   "dest": "",
   "ata": "2026-11-20T04:03+07:00",
   "lastSeen": "2026-11-20T04:03+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T04:03+07:00",
+  "departed": true
  },
  {
   "mmsi": "574013511",
@@ -633,8 +984,8 @@
   "dest": "",
   "ata": "2026-11-20T03:52+07:00",
   "lastSeen": "2026-11-20T03:52+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T03:52+07:00",
+  "departed": true
  },
  {
   "mmsi": "574401044",
@@ -697,7 +1048,7 @@
   "draught": 6.4,
   "dest": "SAIGON HAIPHONG",
   "ata": "2026-11-19T20:19+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -710,7 +1061,7 @@
   "draught": 8.2,
   "dest": "VNHPH",
   "ata": "2026-11-19T20:19+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -724,8 +1075,8 @@
   "dest": "HPH VN",
   "ata": "2026-11-19T20:19+07:00",
   "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "574012309",
@@ -736,7 +1087,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T20:19+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -749,7 +1100,7 @@
   "draught": 2.6,
   "dest": "PHUC AN HAIPHONG",
   "ata": "2026-11-19T20:19+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -763,8 +1114,8 @@
   "dest": "THANH HOA",
   "ata": "2026-11-19T20:19+07:00",
   "lastSeen": "2026-11-20T05:14+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:14+07:00",
+  "departed": true
  },
  {
   "mmsi": "477698400",
@@ -772,10 +1123,10 @@
   "port": "HAIPHONG",
   "terminal": "Lach Huyen (HHIT)",
   "loa": 147.0,
-  "draught": 8.5,
-  "dest": ">VN HPH",
+  "draught": 7.7,
+  "dest": ">CN SHG W2",
   "ata": "2026-11-19T20:19+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -801,7 +1152,7 @@
   "draught": 4.2,
   "dest": "HCM",
   "ata": "2026-11-19T20:19+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -814,7 +1165,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T20:19+07:00",
-  "lastSeen": "2026-11-19T20:19+07:00",
+  "lastSeen": "2026-11-20T07:48+07:00",
   "atd": null,
   "departed": false
  },
@@ -840,7 +1191,7 @@
   "draught": 4.2,
   "dest": "",
   "ata": "2026-11-19T20:19+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -893,8 +1244,8 @@
   "dest": "VE,DAN,DN,TPHCM,",
   "ata": "2026-11-19T20:19+07:00",
   "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "574013416",
@@ -905,7 +1256,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T20:19+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -913,12 +1264,12 @@
   "mmsi": "574402814",
   "name": "SOWATCO 02",
   "port": "HAIPHONG",
-  "terminal": "",
+  "terminal": "Lach Huyen (HICT)",
   "loa": 71.0,
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T20:18+07:00",
-  "lastSeen": "2026-11-20T05:10+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -944,7 +1295,7 @@
   "draught": 5.0,
   "dest": "HAI PHONG",
   "ata": "2026-11-19T20:18+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -957,7 +1308,7 @@
   "draught": 4.5,
   "dest": "VN HPH",
   "ata": "2026-11-19T20:18+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -983,7 +1334,7 @@
   "draught": 13.6,
   "dest": "VNVUT>MYTPP",
   "ata": "2026-11-19T20:18+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -1009,7 +1360,7 @@
   "draught": 7.1,
   "dest": "VN HPH",
   "ata": "2026-11-19T20:17+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -1036,8 +1387,8 @@
   "dest": "HAI PHONG",
   "ata": "2026-11-19T20:16+07:00",
   "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "636026292",
@@ -1048,7 +1399,7 @@
   "draught": 9.5,
   "dest": "VNNHT-PAP",
   "ata": "2026-11-19T20:16+07:00",
-  "lastSeen": "2026-11-20T05:10+07:00",
+  "lastSeen": "2026-11-20T10:17+07:00",
   "atd": null,
   "departed": false
  },
@@ -1075,8 +1426,8 @@
   "dest": "",
   "ata": "2026-11-19T20:15+07:00",
   "lastSeen": "2026-11-19T20:15+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-19T20:15+07:00",
+  "departed": true
  },
  {
   "mmsi": "574400908",
@@ -1100,7 +1451,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T20:14+07:00",
-  "lastSeen": "2026-11-19T20:14+07:00",
+  "lastSeen": "2026-11-20T10:21+07:00",
   "atd": null,
   "departed": false
  },
@@ -1114,8 +1465,8 @@
   "dest": "",
   "ata": "2026-11-19T20:09+07:00",
   "lastSeen": "2026-11-19T20:09+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-19T20:09+07:00",
+  "departed": true
  },
  {
   "mmsi": "574404871",
@@ -1126,7 +1477,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T20:05+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -1179,8 +1530,8 @@
   "dest": "",
   "ata": "2026-11-19T19:02+07:00",
   "lastSeen": "2026-11-19T19:02+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-19T19:02+07:00",
+  "departed": true
  },
  {
   "mmsi": "574401854",
@@ -1205,8 +1556,8 @@
   "dest": "",
   "ata": "2026-11-19T17:53+07:00",
   "lastSeen": "2026-11-19T17:53+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-19T17:53+07:00",
+  "departed": true
  },
  {
   "mmsi": "574015198",
@@ -1248,19 +1599,6 @@
   "departed": false
  },
  {
-  "mmsi": "574401533",
-  "name": "TAY",
-  "port": "HCMC",
-  "terminal": "",
-  "loa": 0,
-  "draught": 0,
-  "dest": "",
-  "ata": "2026-11-19T13:24+07:00",
-  "lastSeen": "2026-11-19T13:24+07:00",
-  "atd": "2026-11-19T13:24+07:00",
-  "departed": true
- },
- {
   "mmsi": "574401715",
   "name": "THINH  VUONG  02",
   "port": "HAIPHONG",
@@ -1278,11 +1616,11 @@
   "name": "VTT 37",
   "port": "HAIPHONG",
   "terminal": "",
-  "loa": 79.0,
+  "loa": 84.0,
   "draught": 2.2,
   "dest": "HAI PHONG",
   "ata": "2026-11-19T13:15+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -1309,8 +1647,8 @@
   "dest": "VNHPH",
   "ata": "2026-11-19T13:15+07:00",
   "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "574410000",
@@ -1334,7 +1672,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T13:14+07:00",
-  "lastSeen": "2026-11-19T13:24+07:00",
+  "lastSeen": "2026-11-20T10:11+07:00",
   "atd": null,
   "departed": false
  },
@@ -1399,7 +1737,7 @@
   "draught": 5.2,
   "dest": "HAIPHONG",
   "ata": "2026-11-19T11:59+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -1412,7 +1750,7 @@
   "draught": 1.5,
   "dest": "",
   "ata": "2026-11-19T11:59+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T09:46+07:00",
   "atd": null,
   "departed": false
  },
@@ -1422,10 +1760,10 @@
   "port": "HAIPHONG",
   "terminal": "Lach Huyen (HICT)",
   "loa": 172.0,
-  "draught": 9.5,
-  "dest": "VNHPH",
+  "draught": 9.4,
+  "dest": "SGSIN A",
   "ata": "2026-11-19T11:59+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -1438,7 +1776,7 @@
   "draught": 10.0,
   "dest": "VNHPH",
   "ata": "2026-11-19T11:59+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -1452,8 +1790,8 @@
   "dest": "''VN SGN>MY TPP''",
   "ata": "2026-11-19T11:59+07:00",
   "lastSeen": "2026-11-20T05:12+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:12+07:00",
+  "departed": true
  },
  {
   "mmsi": "352004711",
@@ -1478,8 +1816,8 @@
   "dest": "CAT LAI TERMINAL B6",
   "ata": "2026-11-19T11:59+07:00",
   "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "574400741",
@@ -1503,7 +1841,7 @@
   "draught": 8.4,
   "dest": "VN VUT",
   "ata": "2026-11-19T11:59+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -1543,8 +1881,8 @@
   "dest": "",
   "ata": "2026-11-19T11:58+07:00",
   "lastSeen": "2026-11-20T04:58+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T04:58+07:00",
+  "departed": true
  },
  {
   "mmsi": "574402148",
@@ -1594,7 +1932,7 @@
   "draught": 7.1,
   "dest": "VN HPH",
   "ata": "2026-11-19T11:56+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -1685,7 +2023,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T11:30+07:00",
-  "lastSeen": "2026-11-20T04:58+07:00",
+  "lastSeen": "2026-11-20T10:01+07:00",
   "atd": null,
   "departed": false
  },
@@ -1699,8 +2037,8 @@
   "dest": "",
   "ata": "2026-11-19T11:14+07:00",
   "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "574014968",
@@ -1737,7 +2075,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T11:14+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -1763,7 +2101,7 @@
   "draught": 6.0,
   "dest": "HAI PHONG",
   "ata": "2026-11-19T11:14+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -1789,7 +2127,7 @@
   "draught": 5.5,
   "dest": "NGHISONTHANHHOA",
   "ata": "2026-11-19T11:14+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -1797,12 +2135,12 @@
   "mmsi": "574401383",
   "name": "TN0597",
   "port": "HCMC",
-  "terminal": "Tan Cang",
+  "terminal": "",
   "loa": 77.0,
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T11:14+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -1825,10 +2163,10 @@
   "port": "HCMC",
   "terminal": "",
   "loa": 127.0,
-  "draught": 7.8,
-  "dest": "VN VUT",
+  "draught": 6.0,
+  "dest": "NB 19",
   "ata": "2026-11-19T11:14+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -1854,7 +2192,7 @@
   "draught": 5.2,
   "dest": "HO CHI MIN-VN",
   "ata": "2026-11-19T11:14+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -1893,7 +2231,7 @@
   "draught": 5.0,
   "dest": "HAI PHONG",
   "ata": "2026-11-19T11:14+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -1945,7 +2283,7 @@
   "draught": 2.9,
   "dest": "VIET-HCM",
   "ata": "2026-11-19T11:14+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -1959,8 +2297,8 @@
   "dest": "SG CM SG",
   "ata": "2026-11-19T11:14+07:00",
   "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "574260000",
@@ -1985,8 +2323,8 @@
   "dest": "VN SGN",
   "ata": "2026-11-19T11:14+07:00",
   "lastSeen": "2026-11-20T05:12+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:12+07:00",
+  "departed": true
  },
  {
   "mmsi": "574401856",
@@ -1997,7 +2335,7 @@
   "draught": 0,
   "dest": "ZHOUSHAN",
   "ata": "2026-11-19T11:14+07:00",
-  "lastSeen": "2026-11-19T13:25+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -2021,9 +2359,9 @@
   "terminal": "Tan Cang Hiep Phuoc",
   "loa": 92.0,
   "draught": 4.5,
-  "dest": "NHA BE ANCHORAGE 18",
+  "dest": "DUNG QUAT",
   "ata": "2026-11-19T11:14+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -2036,7 +2374,7 @@
   "draught": 7.0,
   "dest": "HCM",
   "ata": "2026-11-19T11:14+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -2114,7 +2452,7 @@
   "draught": 6.5,
   "dest": "VN PHU",
   "ata": "2026-11-19T11:14+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -2140,7 +2478,7 @@
   "draught": 12.0,
   "dest": "PHU MY",
   "ata": "2026-11-19T11:14+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -2166,7 +2504,7 @@
   "draught": 4.3,
   "dest": "HAI PHONG THANH HOA",
   "ata": "2026-11-19T11:13+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -2193,8 +2531,8 @@
   "dest": "",
   "ata": "2026-11-19T11:13+07:00",
   "lastSeen": "2026-11-19T11:57+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-19T11:57+07:00",
+  "departed": true
  },
  {
   "mmsi": "574014667",
@@ -2205,7 +2543,7 @@
   "draught": 3.2,
   "dest": "NAM TRIEU",
   "ata": "2026-11-19T11:13+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -2284,8 +2622,8 @@
   "dest": "",
   "ata": "2026-11-19T11:13+07:00",
   "lastSeen": "2026-11-19T20:14+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-19T20:14+07:00",
+  "departed": true
  },
  {
   "mmsi": "574401535",
@@ -2323,8 +2661,8 @@
   "dest": "",
   "ata": "2026-11-19T11:13+07:00",
   "lastSeen": "2026-11-19T13:24+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-19T13:24+07:00",
+  "departed": true
  },
  {
   "mmsi": "256845000",
@@ -2335,7 +2673,7 @@
   "draught": 10.0,
   "dest": "VNDNA",
   "ata": "2026-11-19T11:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -2362,8 +2700,8 @@
   "dest": "",
   "ata": "2026-11-19T11:12+07:00",
   "lastSeen": "2026-11-20T05:12+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:12+07:00",
+  "departed": true
  },
  {
   "mmsi": "457625000",
@@ -2374,7 +2712,7 @@
   "draught": 6.4,
   "dest": "VN HAT",
   "ata": "2026-11-19T11:12+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -2387,7 +2725,7 @@
   "draught": 5.8,
   "dest": "VN HPH",
   "ata": "2026-11-19T11:12+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:22+07:00",
   "atd": null,
   "departed": false
  },
@@ -2413,7 +2751,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T11:12+07:00",
-  "lastSeen": "2026-11-19T17:40+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -2440,8 +2778,8 @@
   "dest": "JP HTD",
   "ata": "2026-11-19T11:12+07:00",
   "lastSeen": "2026-11-20T05:12+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:12+07:00",
+  "departed": true
  },
  {
   "mmsi": "574402936",
@@ -2492,8 +2830,8 @@
   "dest": "VUNG TAU",
   "ata": "2026-11-19T11:12+07:00",
   "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "352001038",
@@ -2517,7 +2855,7 @@
   "draught": 5.8,
   "dest": "NGHI SON DUNG QUAT",
   "ata": "2026-11-19T11:11+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -2543,7 +2881,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T11:11+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -2556,7 +2894,7 @@
   "draught": 3.7,
   "dest": "HCM",
   "ata": "2026-11-19T11:11+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -2569,7 +2907,7 @@
   "draught": 7.8,
   "dest": "VN SGN",
   "ata": "2026-11-19T11:11+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -2647,7 +2985,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T11:07+07:00",
-  "lastSeen": "2026-11-20T05:09+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -2681,12 +3019,12 @@
   "mmsi": "574402265",
   "name": "PHUOC LONG 80",
   "port": "HCMC",
-  "terminal": "",
+  "terminal": "Tan Cang Hiep Phuoc",
   "loa": 80.0,
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T11:06+07:00",
-  "lastSeen": "2026-11-20T05:06+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -2699,7 +3037,7 @@
   "draught": 12.6,
   "dest": "TH LCB=>VN VUT",
   "ata": "2026-11-19T11:06+07:00",
-  "lastSeen": "2026-11-20T05:09+07:00",
+  "lastSeen": "2026-11-20T10:17+07:00",
   "atd": null,
   "departed": false
  },
@@ -2712,7 +3050,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T11:03+07:00",
-  "lastSeen": "2026-11-20T05:03+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -2726,8 +3064,8 @@
   "dest": "VNCMP",
   "ata": "2026-11-19T11:01+07:00",
   "lastSeen": "2026-11-20T05:11+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:11+07:00",
+  "departed": true
  },
  {
   "mmsi": "574401541",
@@ -2774,10 +3112,10 @@
   "port": "HAIPHONG",
   "terminal": "Lach Huyen (HTIT)",
   "loa": 100.0,
-  "draught": 6.0,
-  "dest": "VN HPH",
+  "draught": 5.1,
+  "dest": "MY KEM",
   "ata": "2026-11-19T10:53+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -2855,7 +3193,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-19T10:22+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:22+07:00",
   "atd": null,
   "departed": false
  },
@@ -2882,8 +3220,8 @@
   "dest": "",
   "ata": "2026-11-19T09:28+07:00",
   "lastSeen": "2026-11-19T20:18+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-19T20:18+07:00",
+  "departed": true
  },
  {
   "mmsi": "574015561",
@@ -2921,8 +3259,8 @@
   "dest": "FOR ORDERS",
   "ata": "2026-11-19T08:35+07:00",
   "lastSeen": "2026-11-19T08:35+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-19T08:35+07:00",
+  "departed": true
  },
  {
   "mmsi": "574401565",
@@ -2985,7 +3323,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-18T11:35+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -2998,7 +3336,7 @@
   "draught": 3.2,
   "dest": "GUANGZHOU",
   "ata": "2026-11-18T11:35+07:00",
-  "lastSeen": "2026-11-20T04:58+07:00",
+  "lastSeen": "2026-11-20T10:20+07:00",
   "atd": null,
   "departed": false
  },
@@ -3037,7 +3375,7 @@
   "draught": 5.0,
   "dest": "NGHISON",
   "ata": "2026-11-18T11:35+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -3063,7 +3401,7 @@
   "draught": 5.1,
   "dest": "HAI PHONG",
   "ata": "2026-11-18T11:35+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -3128,7 +3466,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-18T11:35+07:00",
-  "lastSeen": "2026-11-19T11:25+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -3141,7 +3479,7 @@
   "draught": 6.1,
   "dest": "HAI",
   "ata": "2026-11-18T11:35+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -3154,7 +3492,7 @@
   "draught": 8.8,
   "dest": "VN HCM",
   "ata": "2026-11-18T11:35+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -3167,7 +3505,7 @@
   "draught": 4.6,
   "dest": "HCM -VN",
   "ata": "2026-11-18T11:35+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -3258,7 +3596,7 @@
   "draught": 4.8,
   "dest": "VT",
   "ata": "2026-11-18T11:35+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -3350,8 +3688,8 @@
   "dest": "LATACA VN",
   "ata": "2026-11-18T11:35+07:00",
   "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "563132500",
@@ -3479,7 +3817,7 @@
   "draught": 14.3,
   "dest": "VN VUT",
   "ata": "2026-11-18T11:35+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -3492,7 +3830,7 @@
   "draught": 7.7,
   "dest": "VNPHU",
   "ata": "2026-11-18T11:35+07:00",
-  "lastSeen": "2026-11-20T05:10+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -3609,7 +3947,7 @@
   "draught": 1.4,
   "dest": "",
   "ata": "2026-11-18T11:34+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:05+07:00",
   "atd": null,
   "departed": false
  },
@@ -3623,8 +3961,8 @@
   "dest": "HAI DUONG",
   "ata": "2026-11-18T11:34+07:00",
   "lastSeen": "2026-11-19T20:19+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-19T20:19+07:00",
+  "departed": true
  },
  {
   "mmsi": "574004900",
@@ -3700,7 +4038,7 @@
   "draught": 9.5,
   "dest": "VN SGN",
   "ata": "2026-11-18T11:34+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -3713,7 +4051,7 @@
   "draught": 13.3,
   "dest": "VN PHU",
   "ata": "2026-11-18T11:34+07:00",
-  "lastSeen": "2026-11-20T05:05+07:00",
+  "lastSeen": "2026-11-20T10:19+07:00",
   "atd": null,
   "departed": false
  },
@@ -3752,7 +4090,7 @@
   "draught": 13.1,
   "dest": "VN PHU",
   "ata": "2026-11-18T11:34+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T09:48+07:00",
   "atd": null,
   "departed": false
  },
@@ -3778,7 +4116,7 @@
   "draught": 4.5,
   "dest": "MWZP0C",
   "ata": "2026-11-18T11:33+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -3804,7 +4142,7 @@
   "draught": 5.6,
   "dest": "VN HPG",
   "ata": "2026-11-18T11:33+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -3869,7 +4207,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-18T11:33+07:00",
-  "lastSeen": "2026-11-20T05:08+07:00",
+  "lastSeen": "2026-11-20T10:17+07:00",
   "atd": null,
   "departed": false
  },
@@ -3908,7 +4246,7 @@
   "draught": 4.2,
   "dest": "HOCHIMINH VN",
   "ata": "2026-11-18T11:33+07:00",
-  "lastSeen": "2026-11-19T20:15+07:00",
+  "lastSeen": "2026-11-20T08:47+07:00",
   "atd": null,
   "departed": false
  },
@@ -4077,7 +4415,7 @@
   "draught": 4.5,
   "dest": "VNHPH",
   "ata": "2026-11-18T11:31+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:20+07:00",
   "atd": null,
   "departed": false
  },
@@ -4090,7 +4428,7 @@
   "draught": 5.3,
   "dest": "GO DAU",
   "ata": "2026-11-18T11:31+07:00",
-  "lastSeen": "2026-11-18T11:31+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -4103,7 +4441,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-18T11:31+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:07+07:00",
   "atd": null,
   "departed": false
  },
@@ -4129,7 +4467,7 @@
   "draught": 14.5,
   "dest": "VUNG TAO",
   "ata": "2026-11-18T11:30+07:00",
-  "lastSeen": "2026-11-20T05:08+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -4142,7 +4480,7 @@
   "draught": 12.2,
   "dest": "PHUMY",
   "ata": "2026-11-18T11:30+07:00",
-  "lastSeen": "2026-11-20T05:08+07:00",
+  "lastSeen": "2026-11-20T10:17+07:00",
   "atd": null,
   "departed": false
  },
@@ -4155,7 +4493,7 @@
   "draught": 3.9,
   "dest": "YANGPU-CHINA",
   "ata": "2026-11-18T11:28+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -4181,7 +4519,7 @@
   "draught": 7.8,
   "dest": "DAVAO PHILIPPIN",
   "ata": "2026-11-18T11:28+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:22+07:00",
   "atd": null,
   "departed": false
  },
@@ -4233,7 +4571,7 @@
   "draught": 4.2,
   "dest": "SAI GON",
   "ata": "2026-11-18T11:27+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -4259,7 +4597,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-18T11:26+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -4267,12 +4605,12 @@
   "mmsi": "574401517",
   "name": "TB5555",
   "port": "HCMC",
-  "terminal": "Tan Cang",
+  "terminal": "",
   "loa": 70.0,
   "draught": 0,
   "dest": "",
   "ata": "2026-11-18T11:26+07:00",
-  "lastSeen": "2026-11-18T11:26+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -4285,7 +4623,7 @@
   "draught": 6.7,
   "dest": "VN PHU",
   "ata": "2026-11-18T11:26+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -4294,11 +4632,11 @@
   "name": "LFG ANGSA",
   "port": "CAIMEP",
   "terminal": "CMIT",
-  "loa": 200.0,
-  "draught": 13.2,
+  "loa": 0,
+  "draught": 0,
   "dest": "VN VUT",
   "ata": "2026-11-18T11:19+07:00",
-  "lastSeen": "2026-11-20T05:06+07:00",
+  "lastSeen": "2026-11-20T10:21+07:00",
   "atd": null,
   "departed": false
  },
@@ -4407,19 +4745,6 @@
   "departed": false
  },
  {
-  "mmsi": "574401397",
-  "name": "DUC PHONG",
-  "port": "CAIMEP",
-  "terminal": "",
-  "loa": 80.0,
-  "draught": 0.3,
-  "dest": "",
-  "ata": "2026-11-18T10:02+07:00",
-  "lastSeen": "2026-11-18T10:02+07:00",
-  "atd": "2026-11-18T10:02+07:00",
-  "departed": true
- },
- {
   "mmsi": "574403831",
   "name": "DUC THANH 02 SG7737",
   "port": "HAIPHONG",
@@ -4441,7 +4766,7 @@
   "draught": 4.2,
   "dest": "HAI PHONG",
   "ata": "2026-11-18T09:47+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -4467,7 +4792,7 @@
   "draught": 8.7,
   "dest": "VUNG TAU",
   "ata": "2026-11-18T09:38+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:06+07:00",
   "atd": null,
   "departed": false
  },
@@ -4480,7 +4805,7 @@
   "draught": 12.6,
   "dest": "VN VUT",
   "ata": "2026-11-18T09:36+07:00",
-  "lastSeen": "2026-11-20T03:17+07:00",
+  "lastSeen": "2026-11-20T07:56+07:00",
   "atd": null,
   "departed": false
  },
@@ -4493,7 +4818,7 @@
   "draught": 13.4,
   "dest": "PHU MY",
   "ata": "2026-11-18T09:13+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:20+07:00",
   "atd": null,
   "departed": false
  },
@@ -4675,7 +5000,7 @@
   "draught": 5.4,
   "dest": "KR PTK",
   "ata": "2026-11-17T14:46+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -4701,7 +5026,7 @@
   "draught": 5.3,
   "dest": "VN QN",
   "ata": "2026-11-17T14:46+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -4740,7 +5065,7 @@
   "draught": 3.2,
   "dest": "CAMRANH",
   "ata": "2026-11-17T14:46+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -4753,7 +5078,7 @@
   "draught": 4.0,
   "dest": "",
   "ata": "2026-11-17T14:46+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -4779,7 +5104,7 @@
   "draught": 4.0,
   "dest": "HP",
   "ata": "2026-11-17T14:46+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T09:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -4792,7 +5117,7 @@
   "draught": 5.7,
   "dest": "",
   "ata": "2026-11-17T14:46+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -4870,7 +5195,7 @@
   "draught": 5.8,
   "dest": "THAI LAN-HO CHI MINH",
   "ata": "2026-11-17T14:46+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -4896,7 +5221,7 @@
   "draught": 3.7,
   "dest": "HO CHI MINH",
   "ata": "2026-11-17T14:46+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -4922,7 +5247,7 @@
   "draught": 3.8,
   "dest": "HO CHI MINH",
   "ata": "2026-11-17T14:46+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -4935,7 +5260,7 @@
   "draught": 6.5,
   "dest": "VN VUT",
   "ata": "2026-11-17T14:46+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -4949,8 +5274,8 @@
   "dest": "CEBU:  /PHILIPPIM",
   "ata": "2026-11-17T14:46+07:00",
   "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "574404085",
@@ -5000,7 +5325,7 @@
   "draught": 2.8,
   "dest": "HOCHIMINH",
   "ata": "2026-11-17T14:46+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5026,7 +5351,7 @@
   "draught": 5.2,
   "dest": "HO CHI MINH",
   "ata": "2026-11-17T14:46+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5078,7 +5403,7 @@
   "draught": 5.2,
   "dest": "HAI PHONG",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5091,7 +5416,7 @@
   "draught": 6.0,
   "dest": "HAIPHONG",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -5104,7 +5429,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5117,7 +5442,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5143,7 +5468,7 @@
   "draught": 0,
   "dest": "PHUMY  THANH HOA",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5182,7 +5507,7 @@
   "draught": 5.7,
   "dest": "TAYNINH   HAIPHONG",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5247,7 +5572,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5260,7 +5585,7 @@
   "draught": 5.0,
   "dest": "HAI PHONG",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5286,7 +5611,7 @@
   "draught": 5.8,
   "dest": "VIETNAM HAI PHONG",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:08+07:00",
+  "lastSeen": "2026-11-20T08:59+07:00",
   "atd": null,
   "departed": false
  },
@@ -5325,7 +5650,7 @@
   "draught": 3.8,
   "dest": "VN HPH",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5364,7 +5689,7 @@
   "draught": 4.7,
   "dest": "HAI PHONG",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5377,7 +5702,7 @@
   "draught": 3.9,
   "dest": "",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5416,7 +5741,7 @@
   "draught": 4.8,
   "dest": "DUNG QUAT",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:10+07:00",
+  "lastSeen": "2026-11-20T10:22+07:00",
   "atd": null,
   "departed": false
  },
@@ -5442,7 +5767,7 @@
   "draught": 5.0,
   "dest": "VUNGANG",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5455,7 +5780,7 @@
   "draught": 4.0,
   "dest": "HAI PHONG",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5494,7 +5819,7 @@
   "draught": 4.3,
   "dest": "HAI PHONG",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5573,8 +5898,8 @@
   "dest": "NHA BE",
   "ata": "2026-11-17T14:45+07:00",
   "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "312000057",
@@ -5689,7 +6014,7 @@
   "draught": 3.9,
   "dest": "BTT2  HCM",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -5702,7 +6027,7 @@
   "draught": 5.6,
   "dest": "VN/VUT",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -5733,19 +6058,6 @@
   "departed": true
  },
  {
-  "mmsi": "574401855",
-  "name": "SP ITC 06",
-  "port": "HCMC",
-  "terminal": "Tan Cang Hiep Phuoc",
-  "loa": 79.0,
-  "draught": 4.2,
-  "dest": "",
-  "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-17T14:45+07:00",
-  "atd": "2026-11-17T14:45+07:00",
-  "departed": true
- },
- {
   "mmsi": "574001240",
   "name": "VINH QUANG STAR",
   "port": "HCMC",
@@ -5754,7 +6066,7 @@
   "draught": 4.0,
   "dest": "HOCHIMINH/VIETNAM",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5767,7 +6079,7 @@
   "draught": 0,
   "dest": "",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5780,7 +6092,7 @@
   "draught": 5.4,
   "dest": "A0HGTAU",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:19+07:00",
   "atd": null,
   "departed": false
  },
@@ -5845,7 +6157,7 @@
   "draught": 4.8,
   "dest": "HCM VN",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5885,8 +6197,8 @@
   "dest": "HCM",
   "ata": "2026-11-17T14:45+07:00",
   "lastSeen": "2026-11-20T04:36+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T04:36+07:00",
+  "departed": true
  },
  {
   "mmsi": "311002423",
@@ -5910,7 +6222,7 @@
   "draught": 14.2,
   "dest": "HCM:VN",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
+  "lastSeen": "2026-11-20T10:15+07:00",
   "atd": null,
   "departed": false
  },
@@ -5936,7 +6248,7 @@
   "draught": 10.9,
   "dest": "VN VUT",
   "ata": "2026-11-17T14:45+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
+  "lastSeen": "2026-11-20T10:25+07:00",
   "atd": null,
   "departed": false
  },
@@ -5963,8 +6275,8 @@
   "dest": "TAJUNG BARA",
   "ata": "2026-11-17T14:45+07:00",
   "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
+  "atd": "2026-11-20T05:13+07:00",
+  "departed": true
  },
  {
   "mmsi": "440737000",
@@ -6105,7 +6417,7 @@
   "draught": 4.1,
   "dest": "HAI PHONG",
   "ata": "2026-11-17T14:44+07:00",
-  "lastSeen": "2026-11-20T05:12+07:00",
+  "lastSeen": "2026-11-20T10:24+07:00",
   "atd": null,
   "departed": false
  },
@@ -6131,7 +6443,7 @@
   "draught": 3.8,
   "dest": "HAIPHONG",
   "ata": "2026-11-17T14:44+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -6144,7 +6456,7 @@
   "draught": 4.5,
   "dest": "HAI PHONG",
   "ata": "2026-11-17T14:44+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -6157,7 +6469,7 @@
   "draught": 3.6,
   "dest": "HAIPHONG",
   "ata": "2026-11-17T14:44+07:00",
-  "lastSeen": "2026-11-20T05:11+07:00",
+  "lastSeen": "2026-11-20T10:23+07:00",
   "atd": null,
   "departed": false
  },
@@ -6185,318 +6497,6 @@
   "ata": "2026-11-17T14:44+07:00",
   "lastSeen": "2026-11-17T15:00+07:00",
   "atd": "2026-11-17T15:00+07:00",
-  "departed": true
- },
- {
-  "mmsi": "574642000",
-  "name": "SAI GON GAS",
-  "port": "HAIPHONG",
-  "terminal": "",
-  "loa": 95.0,
-  "draught": 4.0,
-  "dest": "VN HP",
-  "ata": "2026-11-17T14:44+07:00",
-  "lastSeen": "2026-11-19T13:13+07:00",
-  "atd": "2026-11-19T13:13+07:00",
-  "departed": true
- },
- {
-  "mmsi": "574013773",
-  "name": "PACIFIC 25",
-  "port": "HCMC",
-  "terminal": "",
-  "loa": 69.0,
-  "draught": 3.0,
-  "dest": "TP.HCM",
-  "ata": "2026-11-17T14:44+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
- },
- {
-  "mmsi": "574401556",
-  "name": "CAI",
-  "port": "HCMC",
-  "terminal": "",
-  "loa": 0,
-  "draught": 0,
-  "dest": "",
-  "ata": "2026-11-17T14:44+07:00",
-  "lastSeen": "2026-11-17T15:00+07:00",
-  "atd": "2026-11-17T15:00+07:00",
-  "departed": true
- },
- {
-  "mmsi": "574404056",
-  "name": "NB8156",
-  "port": "HCMC",
-  "terminal": "",
-  "loa": 78.0,
-  "draught": 0,
-  "dest": "",
-  "ata": "2026-11-17T14:44+07:00",
-  "lastSeen": "2026-11-18T11:40+07:00",
-  "atd": "2026-11-18T11:40+07:00",
-  "departed": true
- },
- {
-  "mmsi": "574012503",
-  "name": "SEATECH",
-  "port": "HAIPHONG",
-  "terminal": "",
-  "loa": 130.0,
-  "draught": 4.0,
-  "dest": "ABC",
-  "ata": "2026-11-17T14:43+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
- },
- {
-  "mmsi": "373958000",
-  "name": "HOANG ANH 08",
-  "port": "HAIPHONG",
-  "terminal": "",
-  "loa": 161.0,
-  "draught": 5.1,
-  "dest": "HONGAI",
-  "ata": "2026-11-17T14:43+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
- },
- {
-  "mmsi": "574400823",
-  "name": "HD2358",
-  "port": "HAIPHONG",
-  "terminal": "",
-  "loa": 70.0,
-  "draught": 0,
-  "dest": "",
-  "ata": "2026-11-17T14:43+07:00",
-  "lastSeen": "2026-11-20T05:06+07:00",
-  "atd": null,
-  "departed": false
- },
- {
-  "mmsi": "574014565",
-  "name": "MINH PHUC 86",
-  "port": "HAIPHONG",
-  "terminal": "",
-  "loa": 79.0,
-  "draught": 3.0,
-  "dest": "HA TINH",
-  "ata": "2026-11-17T14:43+07:00",
-  "lastSeen": "2026-11-17T15:00+07:00",
-  "atd": "2026-11-17T15:00+07:00",
-  "departed": true
- },
- {
-  "mmsi": "574401974",
-  "name": "ANTAY 10",
-  "port": "HCMC",
-  "terminal": "",
-  "loa": 0,
-  "draught": 0,
-  "dest": "",
-  "ata": "2026-11-17T14:43+07:00",
-  "lastSeen": "2026-11-17T14:58+07:00",
-  "atd": "2026-11-17T14:58+07:00",
-  "departed": true
- },
- {
-  "mmsi": "574403522",
-  "name": "TRANSIMEX26",
-  "port": "HCMC",
-  "terminal": "Tan Cang",
-  "loa": 79.0,
-  "draught": 0,
-  "dest": "",
-  "ata": "2026-11-17T14:43+07:00",
-  "lastSeen": "2026-11-17T14:58+07:00",
-  "atd": "2026-11-17T14:58+07:00",
-  "departed": true
- },
- {
-  "mmsi": "574431000",
-  "name": "AN PHU OCEAN",
-  "port": "HCMC",
-  "terminal": "Cat Lai",
-  "loa": 97.0,
-  "draught": 3.8,
-  "dest": "HAIPHONG HO CHI MINH",
-  "ata": "2026-11-17T14:43+07:00",
-  "lastSeen": "2026-11-20T05:13+07:00",
-  "atd": null,
-  "departed": false
- },
- {
-  "mmsi": "538012696",
-  "name": "ZURICH STAR",
-  "port": "CAIMEP",
-  "terminal": "Gemalink",
-  "loa": 229.0,
-  "draught": 13.5,
-  "dest": "VN CMT",
-  "ata": "2026-11-17T14:43+07:00",
-  "lastSeen": "2026-11-18T11:38+07:00",
-  "atd": "2026-11-18T11:38+07:00",
-  "departed": true
- },
- {
-  "mmsi": "431260000",
-  "name": "ONE MANHATTAN",
-  "port": "CAIMEP",
-  "terminal": "",
-  "loa": 366.0,
-  "draught": 10.9,
-  "dest": "VNCMP",
-  "ata": "2026-11-17T14:43+07:00",
-  "lastSeen": "2026-11-17T14:58+07:00",
-  "atd": "2026-11-17T14:58+07:00",
-  "departed": true
- },
- {
-  "mmsi": "477325800",
-  "name": "SPRING HONOR",
-  "port": "CAIMEP",
-  "terminal": "CMIT",
-  "loa": 112.0,
-  "draught": 6.1,
-  "dest": "VNPMY",
-  "ata": "2026-11-17T14:43+07:00",
-  "lastSeen": "2026-11-17T14:43+07:00",
-  "atd": "2026-11-17T14:43+07:00",
-  "departed": true
- },
- {
-  "mmsi": "352006294",
-  "name": "CENTURION JULIA",
-  "port": "CAIMEP",
-  "terminal": "Gemalink",
-  "loa": 183.0,
-  "draught": 6.8,
-  "dest": "VN PHU",
-  "ata": "2026-11-17T14:43+07:00",
-  "lastSeen": "2026-11-18T11:39+07:00",
-  "atd": "2026-11-18T11:39+07:00",
-  "departed": true
- },
- {
-  "mmsi": "574014185",
-  "name": "HAI LINH 18",
-  "port": "CAIMEP",
-  "terminal": "CMIT",
-  "loa": 73.0,
-  "draught": 0,
-  "dest": "VUNG TAU VN",
-  "ata": "2026-11-17T14:43+07:00",
-  "lastSeen": "2026-11-20T05:06+07:00",
-  "atd": null,
-  "departed": false
- },
- {
-  "mmsi": "352005639",
-  "name": "PHOENIX GAS",
-  "port": "HAIPHONG",
-  "terminal": "",
-  "loa": 99.0,
-  "draught": 5.4,
-  "dest": "VN HPH",
-  "ata": "2026-11-17T14:42+07:00",
-  "lastSeen": "2026-11-20T05:09+07:00",
-  "atd": null,
-  "departed": false
- },
- {
-  "mmsi": "574001760",
-  "name": "VP ASPHALT 2",
-  "port": "HAIPHONG",
-  "terminal": "Chua Ve",
-  "loa": 98.0,
-  "draught": 4.0,
-  "dest": "YANGPU",
-  "ata": "2026-11-17T14:42+07:00",
-  "lastSeen": "2026-11-18T11:39+07:00",
-  "atd": "2026-11-18T11:39+07:00",
-  "departed": true
- },
- {
-  "mmsi": "574400304",
-  "name": "TAN CANG 36",
-  "port": "HCMC",
-  "terminal": "",
-  "loa": 80.0,
-  "draught": 0,
-  "dest": "",
-  "ata": "2026-11-17T14:42+07:00",
-  "lastSeen": "2026-11-17T14:42+07:00",
-  "atd": "2026-11-17T14:42+07:00",
-  "departed": true
- },
- {
-  "mmsi": "477830700",
-  "name": "DERYOUNG SUNFLOWER",
-  "port": "CAIMEP",
-  "terminal": "SP-PSA",
-  "loa": 116.0,
-  "draught": 8.6,
-  "dest": "VN PHU",
-  "ata": "2026-11-17T14:42+07:00",
-  "lastSeen": "2026-11-19T20:19+07:00",
-  "atd": null,
-  "departed": false
- },
- {
-  "mmsi": "636020222",
-  "name": "INDIGO JUGEM",
-  "port": "CAIMEP",
-  "terminal": "SP-PSA",
-  "loa": 199.0,
-  "draught": 7.4,
-  "dest": "VNPHU",
-  "ata": "2026-11-17T14:42+07:00",
-  "lastSeen": "2026-11-20T05:14+07:00",
-  "atd": null,
-  "departed": false
- },
- {
-  "mmsi": "477145900",
-  "name": "COSCO CARNATION",
-  "port": "CAIMEP",
-  "terminal": "",
-  "loa": 366.0,
-  "draught": 11.7,
-  "dest": "CNYTN",
-  "ata": "2026-11-17T14:41+07:00",
-  "lastSeen": "2026-11-18T11:33+07:00",
-  "atd": "2026-11-18T11:33+07:00",
-  "departed": true
- },
- {
-  "mmsi": "574401856",
-  "name": "SP ITC 07",
-  "port": "CAIMEP",
-  "terminal": "SSIT",
-  "loa": 89.0,
-  "draught": 0,
-  "dest": "ZHOUSHAN",
-  "ata": "2026-11-17T14:41+07:00",
-  "lastSeen": "2026-11-18T10:04+07:00",
-  "atd": "2026-11-18T10:04+07:00",
-  "departed": true
- },
- {
-  "mmsi": "574401691",
-  "name": "ANH THU  39",
-  "port": "HAIPHONG",
-  "terminal": "",
-  "loa": 59.0,
-  "draught": 0,
-  "dest": "",
-  "ata": "2026-11-17T14:40+07:00",
-  "lastSeen": "2026-11-18T11:38+07:00",
-  "atd": "2026-11-18T11:38+07:00",
   "departed": true
  }
 ]
