@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-20T20:04+07:00",
+ "generatedAt": "2026-11-21T04:57+07:00",
  "icds": [
   {
    "id": "ICDSOTRANS",
@@ -23,8 +23,8 @@
      "lenM": 82,
      "draftM": null,
      "maxDwt": 1500,
-     "vessel": "CAI MEP 10",
-     "mmsi": "574401553",
+     "vessel": "CAI MEP 45.",
+     "mmsi": "574400548",
      "loa": 0.0,
      "draught": 0.0
     },
@@ -73,11 +73,21 @@
    "alongside": 1,
    "recent": [
     {
+     "name": "CAI MEP 45.",
+     "mmsi": "574400548",
+     "ata": "2026-11-21T04:54+07:00",
+     "atd": null,
+     "departed": false,
+     "stayH": 0.0,
+     "loa": 0,
+     "draught": 0
+    },
+    {
      "name": "CAI MEP 10",
      "mmsi": "574401553",
      "ata": "2026-11-20T19:57+07:00",
-     "atd": null,
-     "departed": false,
+     "atd": "2026-11-20T19:57+07:00",
+     "departed": true,
      "stayH": 0.0,
      "loa": 0,
      "draught": 0
@@ -243,15 +253,15 @@
   {
    "name": "SOWATCO 17",
    "mmsi": "574400208",
-   "inRange": true,
-   "underway": true,
-   "sog": 4.6,
+   "inRange": false,
+   "underway": false,
+   "sog": null,
    "lat": 10.767456666666668,
    "lon": 106.70941333333333,
    "loa": 58.0,
-   "draught": 0.0,
+   "draught": 0,
    "dest": "",
-   "area": "Saigon river (central)",
+   "area": "Saigon river (central) (registry)",
    "lastSeen": "2026-11-20T20:00+07:00"
   },
   {
@@ -273,28 +283,28 @@
    "mmsi": "574400192",
    "inRange": false,
    "underway": false,
-   "sog": 0.7,
-   "lat": 10.638673333333333,
-   "lon": 106.76501333333334,
+   "sog": null,
+   "lat": 10.781956666666668,
+   "lon": 106.81878833333333,
    "loa": 76.0,
-   "draught": 0.0,
+   "draught": 0,
    "dest": "",
-   "area": "Nhà Bè / Hiệp Phước",
-   "lastSeen": "2026-11-20T05:52+07:00"
+   "area": "last: HCMC (departed)",
+   "lastSeen": "2026-11-17T15:01+07:00"
   },
   {
    "name": "SOWATCO 26",
    "mmsi": "574400189",
-   "inRange": false,
+   "inRange": true,
    "underway": false,
-   "sog": null,
-   "lat": 10.82184,
-   "lon": 106.755455,
+   "sog": 0.0,
+   "lat": 10.767016666666667,
+   "lon": 106.73603499999999,
    "loa": 0.0,
-   "draught": 0,
+   "draught": 0.0,
    "dest": "",
-   "area": "last: HCMC (departed)",
-   "lastSeen": "2026-11-17T13:59+07:00"
+   "area": "Saigon river (central)",
+   "lastSeen": "2026-11-21T04:50+07:00"
   },
   {
    "name": "SOWATCO DISCOVER",
@@ -327,15 +337,15 @@
   {
    "name": "SOWATCO HEADER",
    "mmsi": "574400238",
-   "inRange": true,
-   "underway": true,
-   "sog": 3.4,
+   "inRange": false,
+   "underway": false,
+   "sog": null,
    "lat": 10.636991666666667,
    "lon": 106.85868833333333,
    "loa": 0.0,
-   "draught": 0.0,
+   "draught": 0,
    "dest": "",
-   "area": "Soài Rạp / Lòng Tàu channel",
+   "area": "Soài Rạp / Lòng Tàu channel (registry)",
    "lastSeen": "2026-11-20T19:57+07:00"
   },
   {
@@ -371,28 +381,28 @@
    "mmsi": "574401465",
    "inRange": true,
    "underway": true,
-   "sog": 1.9,
-   "lat": 10.882126666666666,
-   "lon": 106.84207333333333,
+   "sog": 6.7,
+   "lat": 10.671031666666666,
+   "lon": 106.78252,
    "loa": 80.0,
    "draught": 0.0,
    "dest": "",
-   "area": "Bình Triệu reach — Saigon R.",
-   "lastSeen": "2026-11-20T19:52+07:00"
+   "area": "Nhà Bè / Hiệp Phước",
+   "lastSeen": "2026-11-21T04:53+07:00"
   },
   {
    "name": "SOWATCO PLATINUM 1",
    "mmsi": "574403747",
    "inRange": true,
    "underway": false,
-   "sog": 0.1,
-   "lat": 10.887258333333333,
-   "lon": 106.84547333333333,
+   "sog": 0.0,
+   "lat": 10.887113333333334,
+   "lon": 106.84560499999999,
    "loa": 0.0,
    "draught": 0.0,
    "dest": "",
    "area": "Bình Triệu reach — Saigon R.",
-   "lastSeen": "2026-11-20T19:32+07:00"
+   "lastSeen": "2026-11-21T04:54+07:00"
   },
   {
    "name": "SOWATCO PLATINUM 2",
@@ -411,16 +421,16 @@
   {
    "name": "SOWATCO VENUS",
    "mmsi": "574402373",
-   "inRange": false,
+   "inRange": true,
    "underway": false,
-   "sog": null,
-   "lat": 10.631811666666666,
-   "lon": 106.84047166666666,
+   "sog": 0.0,
+   "lat": 10.541321666666667,
+   "lon": 107.02894333333333,
    "loa": 80.0,
-   "draught": 0,
+   "draught": 0.0,
    "dest": "",
-   "area": "Soài Rạp / Lòng Tàu channel (registry)",
-   "lastSeen": "2026-11-20T10:20+07:00"
+   "area": "Cái Mép – Thị Vải",
+   "lastSeen": "2026-11-21T04:50+07:00"
   }
  ],
  "notes": [

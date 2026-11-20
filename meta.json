@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-20T20:04+07:00",
+ "generatedAt": "2026-11-21T04:57+07:00",
  "dataMode": "live",
  "schedSources": [
   "haiphong-plan",
@@ -32,7 +32,7 @@
    "id": "tancangpilot",
    "label": "Tan Cang Pilot plan",
    "ok": true,
-   "rows": 33,
+   "rows": 27,
    "err": ""
   },
   {
@@ -46,8 +46,8 @@
    "id": "haiphong-cangvu",
    "label": "Cảng vụ Hải Phòng ship plan",
    "ok": true,
-   "rows": 50,
-   "err": ""
+   "rows": 26,
+   "err": "hp-gov: 0 usable rows — page empty or schema changed"
   },
   {
    "id": "cangvu-hcmc-gov",
@@ -67,7 +67,7 @@
    "id": "ais-haiphong",
    "label": "AIS snapshot · Hai Phong",
    "ok": true,
-   "rows": 307,
+   "rows": 304,
    "err": ""
   },
   {
@@ -81,21 +81,21 @@
    "id": "ais-hcmc",
    "label": "AIS snapshot · Ho Chi Minh (Cat Lai)",
    "ok": true,
-   "rows": 182,
+   "rows": 180,
    "err": ""
   },
   {
    "id": "ais-caimep",
    "label": "AIS snapshot · Cai Mep - Thi Vai",
    "ok": true,
-   "rows": 116,
+   "rows": 125,
    "err": ""
   },
   {
    "id": "ais-fleet",
    "label": "AIS snapshot · SOWATCO fleet (wide SE box)",
    "ok": true,
-   "rows": 520,
+   "rows": 514,
    "err": ""
   },
   {
@@ -122,16 +122,9 @@
   {
    "id": "gdelt",
    "label": "GDELT news feed",
-   "ok": true,
-   "rows": 50,
-   "err": ""
-  },
-  {
-   "id": "news-translate",
-   "label": "News VI→EN machine translation",
-   "ok": true,
-   "rows": 37,
-   "err": ""
+   "ok": false,
+   "rows": null,
+   "err": "HTTP Error 429: Too Many Requests"
   }
  ]
 }
