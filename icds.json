@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-21T10:21+07:00",
+ "generatedAt": "2026-11-21T19:49+07:00",
  "icds": [
   {
    "id": "ICDSOTRANS",
@@ -23,10 +23,10 @@
      "lenM": 82,
      "draftM": null,
      "maxDwt": 1500,
-     "vessel": "TAY NAM 45",
-     "mmsi": "574401543",
-     "loa": 0.0,
-     "draught": 0.0
+     "vessel": null,
+     "mmsi": null,
+     "loa": null,
+     "draught": null
     },
     {
      "id": "B2",
@@ -70,14 +70,14 @@
     }
    ],
    "overflow": [],
-   "alongside": 1,
+   "alongside": 0,
    "recent": [
     {
      "name": "TAY NAM 45",
      "mmsi": "574401543",
      "ata": "2026-11-21T10:13+07:00",
-     "atd": null,
-     "departed": false,
+     "atd": "2026-11-21T10:13+07:00",
+     "departed": true,
      "stayH": 0.0,
      "loa": 0,
      "draught": 0
@@ -296,15 +296,15 @@
    "name": "SOWATCO 26",
    "mmsi": "574400189",
    "inRange": true,
-   "underway": true,
-   "sog": 4.4,
-   "lat": 10.768040000000001,
-   "lon": 106.70944333333334,
+   "underway": false,
+   "sog": 0.0,
+   "lat": 10.823483333333334,
+   "lon": 106.75532666666666,
    "loa": 0.0,
    "draught": 0.0,
    "dest": "",
-   "area": "Saigon river (central)",
-   "lastSeen": "2026-11-21T10:17+07:00"
+   "area": "Trường Thọ channel — ICD row",
+   "lastSeen": "2026-11-21T19:44+07:00"
   },
   {
    "name": "SOWATCO DISCOVER",
@@ -351,15 +351,15 @@
   {
    "name": "SOWATCO JUPITER",
    "mmsi": "574402374",
-   "inRange": true,
-   "underway": true,
-   "sog": 3.2,
+   "inRange": false,
+   "underway": false,
+   "sog": null,
    "lat": 10.88021,
    "lon": 106.84281666666668,
    "loa": 80.0,
-   "draught": 0.0,
+   "draught": 0,
    "dest": "",
-   "area": "Bình Triệu reach — Saigon R.",
+   "area": "Bình Triệu reach — Saigon R. (registry)",
    "lastSeen": "2026-11-21T10:09+07:00"
   },
   {
@@ -396,13 +396,13 @@
    "inRange": true,
    "underway": false,
    "sog": 0.0,
-   "lat": 10.887336666666666,
-   "lon": 106.84553166666666,
+   "lat": 10.887308333333333,
+   "lon": 106.84549999999999,
    "loa": 0.0,
    "draught": 0.0,
    "dest": "",
    "area": "Bình Triệu reach — Saigon R.",
-   "lastSeen": "2026-11-21T10:17+07:00"
+   "lastSeen": "2026-11-21T19:45+07:00"
   },
   {
    "name": "SOWATCO PLATINUM 2",
@@ -410,27 +410,27 @@
    "inRange": true,
    "underway": false,
    "sog": 0.0,
-   "lat": 10.892883333333334,
-   "lon": 106.84008999999999,
+   "lat": 10.894021666666667,
+   "lon": 106.83983333333335,
    "loa": 0.0,
    "draught": 0.0,
    "dest": "",
    "area": "Bình Triệu reach — Saigon R.",
-   "lastSeen": "2026-11-21T10:15+07:00"
+   "lastSeen": "2026-11-21T19:28+07:00"
   },
   {
    "name": "SOWATCO VENUS",
    "mmsi": "574402373",
-   "inRange": false,
-   "underway": false,
-   "sog": 0.0,
-   "lat": 10.541308333333335,
-   "lon": 107.02890833333332,
+   "inRange": true,
+   "underway": true,
+   "sog": 4.4,
+   "lat": 10.650095,
+   "lon": 106.81132333333333,
    "loa": 80.0,
    "draught": 0.0,
    "dest": "",
-   "area": "Cái Mép – Thị Vải",
-   "lastSeen": "2026-11-21T07:01+07:00"
+   "area": "Soài Rạp / Lòng Tàu channel",
+   "lastSeen": "2026-11-21T19:47+07:00"
   }
  ],
  "notes": [

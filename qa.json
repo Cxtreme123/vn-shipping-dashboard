@@ -1,40 +1,40 @@
 {
- "calls": 588,
- "ataCoverage": 0.942,
- "atdCoverage": 0.677,
- "planLinked": 0.097,
- "predictedEtd": 0.423,
- "dupSchedEtaShare": 0.799,
- "modalTeu4Share": 0.168,
+ "calls": 578,
+ "ataCoverage": 0.946,
+ "atdCoverage": 0.671,
+ "planLinked": 0.119,
+ "predictedEtd": 0.439,
+ "dupSchedEtaShare": 0.779,
+ "modalTeu4Share": 0.152,
  "berthDrift": [
   {
    "port": "HAIPHONG",
    "terminal": "Lach Huyen (HICT)",
-   "n": 7,
+   "n": 12,
    "declared": [
     20.832,
     106.789
    ],
    "observedMedian": [
-    20.83609,
-    106.77881
+    20.8367,
+    106.77968
    ],
-   "driftKm": 1.15,
+   "driftKm": 1.1,
    "flag": false
   },
   {
    "port": "HAIPHONG",
    "terminal": "Lach Huyen (HHIT)",
-   "n": 6,
+   "n": 9,
    "declared": [
     20.822,
     106.805
    ],
    "observedMedian": [
-    20.82784,
+    20.82767,
     106.81236
    ],
-   "driftKm": 1.0,
+   "driftKm": 0.99,
    "flag": false
   },
   {
@@ -46,40 +46,40 @@
     106.667
    ],
    "observedMedian": [
-    20.87998,
-    106.65807
+    20.87889,
+    106.65982
    ],
-   "driftKm": 1.53,
-   "flag": true
+   "driftKm": 1.32,
+   "flag": false
   },
   {
    "port": "HCMC",
    "terminal": "Cat Lai",
-   "n": 8,
+   "n": 7,
    "declared": [
     10.767,
     106.772
    ],
    "observedMedian": [
-    10.7501,
-    106.7835
+    10.75377,
+    106.78345
    ],
-   "driftKm": 2.25,
+   "driftKm": 1.93,
    "flag": true
   },
   {
    "port": "HCMC",
    "terminal": "Tan Cang",
-   "n": 14,
+   "n": 15,
    "declared": [
     10.772,
     106.715
    ],
    "observedMedian": [
-    10.76331,
-    106.73369
+    10.76325,
+    106.73292
    ],
-   "driftKm": 2.26,
+   "driftKm": 2.19,
    "flag": true
   },
   {
@@ -91,77 +91,47 @@
     106.743
    ],
    "observedMedian": [
-    10.70201,
-    106.75482
+    10.70099,
+    106.75556
    ],
-   "driftKm": 1.29,
-   "flag": false
-  },
-  {
-   "port": "CAIMEP",
-   "terminal": "Gemalink",
-   "n": 9,
-   "declared": [
-    10.4978,
-    107.0021
-   ],
-   "observedMedian": [
-    10.4951,
-    106.99726
-   ],
-   "driftKm": 0.61,
+   "driftKm": 1.38,
    "flag": false
   },
   {
    "port": "CAIMEP",
    "terminal": "CMIT",
-   "n": 8,
+   "n": 5,
    "declared": [
     10.5135,
     107.0134
    ],
    "observedMedian": [
-    10.52966,
-    107.01266
+    10.52955,
+    107.00894
    ],
-   "driftKm": 1.79,
+   "driftKm": 1.84,
    "flag": true
   },
   {
    "port": "CAIMEP",
-   "terminal": "TCIT",
-   "n": 5,
-   "declared": [
-    10.5362,
-    107.0285
-   ],
-   "observedMedian": [
-    10.53864,
-    107.02847
-   ],
-   "driftKm": 0.27,
-   "flag": false
-  },
-  {
-   "port": "CAIMEP",
    "terminal": "SP-PSA",
-   "n": 9,
+   "n": 10,
    "declared": [
     10.5707,
     107.0242
    ],
    "observedMedian": [
-    10.57543,
-    107.02491
+    10.57976,
+    107.02659
    ],
-   "driftKm": 0.53,
+   "driftKm": 1.03,
    "flag": false
   }
  ],
- "berthDriftFlagged": 4,
+ "berthDriftFlagged": 3,
  "status": "WARN",
  "warnings": [
-  "berth drift: HAIPHONG/Chua Ve 1.53km (n=6); HCMC/Cat Lai 2.25km (n=8); HCMC/Tan Cang 2.26km (n=14); CAIMEP/CMIT 1.79km (n=8)"
+  "berth drift: HCMC/Cat Lai 1.93km (n=7); HCMC/Tan Cang 2.19km (n=15); CAIMEP/CMIT 1.84km (n=5)"
  ],
- "generatedAt": "2026-11-21T10:21+07:00"
+ "generatedAt": "2026-11-21T19:49+07:00"
 }
