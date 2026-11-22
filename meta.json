@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-22T09:23+07:00",
+ "generatedAt": "2026-11-22T17:02+07:00",
  "dataMode": "live",
  "schedSources": [
   "haiphong-plan",
@@ -46,7 +46,7 @@
    "id": "haiphong-cangvu",
    "label": "Cảng vụ Hải Phòng ship plan",
    "ok": true,
-   "rows": 36,
+   "rows": 65,
    "err": ""
   },
   {
@@ -67,7 +67,7 @@
    "id": "ais-haiphong",
    "label": "AIS snapshot · Hai Phong",
    "ok": true,
-   "rows": 296,
+   "rows": 282,
    "err": ""
   },
   {
@@ -81,21 +81,21 @@
    "id": "ais-hcmc",
    "label": "AIS snapshot · Ho Chi Minh (Cat Lai)",
    "ok": true,
-   "rows": 186,
+   "rows": 191,
    "err": ""
   },
   {
    "id": "ais-caimep",
    "label": "AIS snapshot · Cai Mep - Thi Vai",
    "ok": true,
-   "rows": 127,
+   "rows": 128,
    "err": ""
   },
   {
    "id": "ais-fleet",
    "label": "AIS snapshot · SOWATCO fleet (wide SE box)",
    "ok": true,
-   "rows": 528,
+   "rows": 534,
    "err": ""
   },
   {
