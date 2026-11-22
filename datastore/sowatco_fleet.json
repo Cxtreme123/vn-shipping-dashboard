@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-22T03:40+07:00",
+ "updatedAt": "2026-11-22T09:23+07:00",
  "hulls": {
   "574402814": {
    "name": "SOWATCO 02",
@@ -12,10 +12,10 @@
   "574400316": {
    "name": "SOWATCO 18",
    "loa": 0.0,
-   "lastSeen": "2026-11-20T08:07+07:00",
-   "lat": 10.637943333333334,
-   "lon": 106.84531999999999,
-   "area": "Soài Rạp / Lòng Tàu channel"
+   "lastSeen": "2026-11-22T08:44+07:00",
+   "lat": 10.82175,
+   "lon": 106.75521166666667,
+   "area": "Trường Thọ channel — ICD row"
   },
   "574400192": {
    "name": "SOWATCO 24",
@@ -28,18 +28,18 @@
   "574400189": {
    "name": "SOWATCO 26",
    "loa": 0.0,
-   "lastSeen": "2026-11-21T20:53+07:00",
-   "lat": 10.824226666666668,
-   "lon": 106.75503833333333,
+   "lastSeen": "2026-11-22T09:11+07:00",
+   "lat": 10.821713333333333,
+   "lon": 106.75532666666666,
    "area": "Trường Thọ channel — ICD row"
   },
   "574400188": {
    "name": "SOWATCO DISCOVER",
    "loa": 85.0,
-   "lastSeen": "2026-11-20T07:27+07:00",
-   "lat": 10.893168333333334,
-   "lon": 106.840005,
-   "area": "Bình Triệu reach — Saigon R."
+   "lastSeen": "2026-11-22T09:19+07:00",
+   "lat": 10.70246,
+   "lon": 106.75365166666667,
+   "area": "Saigon river (central)"
   },
   "574400187": {
    "name": "SOWATCO EXPLORER",
@@ -60,25 +60,25 @@
   "574401465": {
    "name": "SOWATCO PIONEER",
    "loa": 80.0,
-   "lastSeen": "2026-11-21T04:53+07:00",
-   "lat": 10.671031666666666,
-   "lon": 106.78252,
-   "area": "Nhà Bè / Hiệp Phước"
+   "lastSeen": "2026-11-22T09:18+07:00",
+   "lat": 10.715824999999999,
+   "lon": 106.7536,
+   "area": "Saigon river (central)"
   },
   "574402373": {
    "name": "SOWATCO VENUS",
    "loa": 80.0,
-   "lastSeen": "2026-11-22T03:35+07:00",
-   "lat": 10.883063333333332,
-   "lon": 106.84520166666667,
+   "lastSeen": "2026-11-22T08:46+07:00",
+   "lat": 10.882806666666665,
+   "lon": 106.846125,
    "area": "Bình Triệu reach — Saigon R."
   },
   "574403747": {
    "name": "SOWATCO PLATINUM 1",
    "loa": 0.0,
-   "lastSeen": "2026-11-22T03:33+07:00",
-   "lat": 10.887116666666666,
-   "lon": 106.84557833333334,
+   "lastSeen": "2026-11-22T09:09+07:00",
+   "lat": 10.8872,
+   "lon": 106.84545166666666,
    "area": "Bình Triệu reach — Saigon R."
   },
   "574402815": {
