@@ -10,7 +10,7 @@
   "terminalHint": "Tan Cang",
   "pob": "07:00",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -23,7 +23,7 @@
   "terminalHint": "Cat Lai",
   "pob": "11:00",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -36,7 +36,7 @@
   "terminalHint": "Cat Lai",
   "pob": "11:00",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -49,7 +49,7 @@
   "terminalHint": "Cat Lai",
   "pob": "11:00",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -62,7 +62,7 @@
   "terminalHint": "Cat Lai",
   "pob": "12:00",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -75,7 +75,7 @@
   "terminalHint": "Cat Lai",
   "pob": "12:00",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -88,7 +88,7 @@
   "terminalHint": "Tan Cang",
   "pob": "16:30",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -101,7 +101,7 @@
   "terminalHint": "Cat Lai",
   "pob": "16:30",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -114,7 +114,7 @@
   "terminalHint": "Cat Lai",
   "pob": "22:30",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -127,7 +127,7 @@
   "terminalHint": "Tan Cang",
   "pob": "22:30",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -140,7 +140,7 @@
   "terminalHint": "Tan Cang",
   "pob": "23:00",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -153,7 +153,7 @@
   "terminalHint": "CM2",
   "pob": "17:00",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -166,7 +166,7 @@
   "terminalHint": "CM3",
   "pob": "06:30",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -174,12 +174,12 @@
   "vessel": "ERASMUS EFFORT",
   "draught": 6.3,
   "loa": 142.0,
-  "wharf": "CL7 - P/s3",
+  "wharf": "CL7 - H25",
   "port": "HCMC",
   "terminalHint": "Cat Lai",
   "pob": "02:00",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -190,9 +190,9 @@
   "wharf": "CL5 - P/s3",
   "port": "HCMC",
   "terminalHint": "Cat Lai",
-  "pob": "09:00",
+  "pob": "08:00",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -205,7 +205,7 @@
   "terminalHint": "Cat Lai",
   "pob": "09:00",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -218,20 +218,20 @@
   "terminalHint": "Cat Lai",
   "pob": "14:30",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
   "direction": "DEPARTING",
   "vessel": "PANCON CHAMPION",
-  "draught": 9.7,
+  "draught": 8.5,
   "loa": 173.0,
   "wharf": "CL1 - P/s3",
   "port": "HCMC",
   "terminalHint": "Cat Lai",
   "pob": "19:30",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -244,7 +244,7 @@
   "terminalHint": "Tan Cang",
   "pob": "20:00",
   "alongside": null,
-  "planDt": "2026-11-22T22:50:00+07:00"
+  "planDt": "2026-11-23T06:30:00+07:00"
  },
  {
   "source": "haiphong-plan",
@@ -561,19 +561,6 @@
  {
   "source": "haiphong-plan",
   "direction": "ARRIVING",
-  "vessel": "M.MARINER",
-  "draught": 8.1,
-  "loa": 136.8,
-  "port": "HAIPHONG",
-  "terminalHint": "Nam Hai Dinh Vu",
-  "time": "11:30",
-  "prevPort": "China",
-  "nextPort": "",
-  "planDt": "2026-11-23"
- },
- {
-  "source": "haiphong-plan",
-  "direction": "ARRIVING",
   "vessel": "SONGA LEOPARD",
   "draught": 8.5,
   "loa": 179.7,
@@ -594,6 +581,19 @@
   "terminalHint": "Nam Dinh Vu",
   "time": "11:30",
   "prevPort": "Da Nang",
+  "nextPort": "",
+  "planDt": "2026-11-23"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "M.MARINER",
+  "draught": 8.1,
+  "loa": 136.8,
+  "port": "HAIPHONG",
+  "terminalHint": "Nam Hai Dinh Vu",
+  "time": "11:30",
+  "prevPort": "China",
   "nextPort": "",
   "planDt": "2026-11-23"
  },

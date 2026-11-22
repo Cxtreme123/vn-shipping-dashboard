@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-23T00:58+07:00",
+ "generatedAt": "2026-11-23T06:45+07:00",
  "dataMode": "live",
  "schedSources": [
   "haiphong-plan",
@@ -67,7 +67,7 @@
    "id": "ais-haiphong",
    "label": "AIS snapshot · Hai Phong",
    "ok": true,
-   "rows": 293,
+   "rows": 311,
    "err": ""
   },
   {
@@ -81,28 +81,28 @@
    "id": "ais-hcmc",
    "label": "AIS snapshot · Ho Chi Minh (Cat Lai)",
    "ok": true,
-   "rows": 190,
+   "rows": 173,
    "err": ""
   },
   {
    "id": "ais-caimep",
    "label": "AIS snapshot · Cai Mep - Thi Vai",
    "ok": true,
-   "rows": 126,
+   "rows": 133,
    "err": ""
   },
   {
    "id": "ais-fleet",
    "label": "AIS snapshot · SOWATCO fleet (wide SE box)",
    "ok": true,
-   "rows": 527,
+   "rows": 510,
    "err": ""
   },
   {
    "id": "ais-icdsotrans",
    "label": "AIS geofence · ICD Sotrans",
    "ok": true,
-   "rows": 0,
+   "rows": 1,
    "err": ""
   },
   {
@@ -122,16 +122,9 @@
   {
    "id": "gdelt",
    "label": "GDELT news feed",
-   "ok": true,
-   "rows": 50,
-   "err": ""
-  },
-  {
-   "id": "news-translate",
-   "label": "News VI→EN machine translation",
-   "ok": true,
-   "rows": 31,
-   "err": ""
+   "ok": false,
+   "rows": null,
+   "err": "HTTP Error 429: Too Many Requests"
   }
  ]
 }
