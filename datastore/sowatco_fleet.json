@@ -1,12 +1,12 @@
 {
- "updatedAt": "2026-11-23T14:51+07:00",
+ "updatedAt": "2026-11-24T03:23+07:00",
  "hulls": {
   "574402814": {
    "name": "SOWATCO 02",
    "loa": 71.0,
-   "lastSeen": "2026-11-23T14:45+07:00",
-   "lat": 20.838445,
-   "lon": 106.77545833333333,
+   "lastSeen": "2026-11-24T03:19+07:00",
+   "lat": 20.793281666666665,
+   "lon": 106.91217333333334,
    "area": "last: HAIPHONG (AIS silent)"
   },
   "574400316": {
@@ -28,18 +28,18 @@
   "574400189": {
    "name": "SOWATCO 26",
    "loa": 0.0,
-   "lastSeen": "2026-11-23T14:38+07:00",
-   "lat": 10.823498333333333,
-   "lon": 106.75532666666666,
-   "area": "Trường Thọ channel — ICD row"
+   "lastSeen": "2026-11-24T03:21+07:00",
+   "lat": 10.804403333333333,
+   "lon": 106.72445166666667,
+   "area": "Saigon river (central)"
   },
   "574400188": {
    "name": "SOWATCO DISCOVER",
    "loa": 85.0,
-   "lastSeen": "2026-11-23T14:41+07:00",
-   "lat": 10.892933333333334,
-   "lon": 106.84007,
-   "area": "Bình Triệu reach — Saigon R."
+   "lastSeen": "2026-11-24T03:21+07:00",
+   "lat": 10.769208333333333,
+   "lon": 106.83868166666666,
+   "area": "in range — other waters"
   },
   "574400187": {
    "name": "SOWATCO EXPLORER",
@@ -52,34 +52,34 @@
   "574401464": {
    "name": "SOWATCO MASTER",
    "loa": 80.0,
-   "lastSeen": "2026-11-19T13:25+07:00",
-   "lat": 10.633136666666667,
-   "lon": 106.82063833333333,
+   "lastSeen": "2026-11-24T03:09+07:00",
+   "lat": 10.631253333333332,
+   "lon": 106.84091166666667,
    "area": "Soài Rạp / Lòng Tàu channel"
   },
   "574401465": {
    "name": "SOWATCO PIONEER",
    "loa": 80.0,
-   "lastSeen": "2026-11-23T14:44+07:00",
-   "lat": 10.892986666666667,
-   "lon": 106.84020666666667,
+   "lastSeen": "2026-11-24T03:21+07:00",
+   "lat": 10.894198333333332,
+   "lon": 106.83983166666667,
    "area": "Bình Triệu reach — Saigon R."
   },
   "574402373": {
    "name": "SOWATCO VENUS",
    "loa": 80.0,
-   "lastSeen": "2026-11-23T14:45+07:00",
-   "lat": 10.894016666666666,
-   "lon": 106.83981999999999,
-   "area": "Bình Triệu reach — Saigon R."
+   "lastSeen": "2026-11-24T03:21+07:00",
+   "lat": 10.749875,
+   "lon": 106.782695,
+   "area": "Cát Lái reach"
   },
   "574403747": {
    "name": "SOWATCO PLATINUM 1",
    "loa": 0.0,
-   "lastSeen": "2026-11-19T20:00+07:00",
-   "lat": 10.53706,
-   "lon": 107.02843333333334,
-   "area": "last: CAIMEP (departed)"
+   "lastSeen": "2026-11-24T03:20+07:00",
+   "lat": 10.798399999999999,
+   "lon": 106.87661333333334,
+   "area": "in range — other waters"
   },
   "574402815": {
    "name": "SOWATCO 03",
@@ -87,14 +87,14 @@
    "lastSeen": "2026-11-23T06:20+07:00",
    "lat": 20.827818333333333,
    "lon": 106.79141333333334,
-   "area": "last: HAIPHONG (AIS silent)"
+   "area": "last: HAIPHONG (departed)"
   },
   "574400315": {
    "name": "SOWATCO 16",
    "loa": 60.0,
-   "lastSeen": "2026-11-20T07:38+07:00",
-   "lat": 10.637955,
-   "lon": 106.845235,
+   "lastSeen": "2026-11-24T02:58+07:00",
+   "lat": 10.634441666666667,
+   "lon": 106.840645,
    "area": "Soài Rạp / Lòng Tàu channel"
   },
   "574402374": {
@@ -108,10 +108,10 @@
   "574400208": {
    "name": "SOWATCO 17",
    "loa": 58.0,
-   "lastSeen": "2026-11-23T14:45+07:00",
-   "lat": 10.805603333333332,
-   "lon": 106.72396333333333,
-   "area": "Saigon river (central)"
+   "lastSeen": "2026-11-23T21:44+07:00",
+   "lat": 10.821196666666667,
+   "lon": 106.75544833333333,
+   "area": "Trường Thọ channel — ICD row"
   },
   "574400238": {
    "name": "SOWATCO HEADER",
@@ -124,9 +124,9 @@
   "574403748": {
    "name": "SOWATCO PLATINUM 2",
    "loa": 0.0,
-   "lastSeen": "2026-11-23T14:40+07:00",
-   "lat": 10.879988333333333,
-   "lon": 106.84319,
+   "lastSeen": "2026-11-24T03:13+07:00",
+   "lat": 10.892883333333334,
+   "lon": 106.840085,
    "area": "Bình Triệu reach — Saigon R."
   },
   "574402816": {

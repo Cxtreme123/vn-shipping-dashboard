@@ -677,3 +677,66 @@
 {"id": "A574400455", "vessel": "PHUOC LONG 12", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 90.0, "stayH": 4.2, "eta": "2026-11-23T00:39+07:00", "etd": "2026-11-23T04:49+07:00"}
 {"id": "A574401974", "vessel": "ANTAY 10", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 0.0, "stayH": 4.8, "eta": "2026-11-23T00:12+07:00", "etd": "2026-11-23T04:57+07:00"}
 {"id": "A574013777", "vessel": "HOANG BAO 668", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 0.0, "stayH": 6.7, "eta": "2026-11-22T23:45+07:00", "etd": "2026-11-23T06:28+07:00"}
+{"id": "A352005889", "vessel": "MINH ANH 12", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 112.0, "stayH": 130.2, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-23T00:54+07:00"}
+{"id": "A574000740", "vessel": "NASHICO 08", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 97.0, "stayH": 114.5, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-22T09:17+07:00"}
+{"id": "A574015418", "vessel": "VTT 99", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 0.0, "stayH": 86.2, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-21T04:54+07:00"}
+{"id": "A574015088", "vessel": "HOANG PHUC 69", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 80.0, "stayH": 91.5, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-21T10:17+07:00"}
+{"id": "A574403295", "vessel": "MAT TROI VIET 26", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 79.0, "stayH": 91.5, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-21T10:17+07:00"}
+{"id": "A574006300", "vessel": "GREAT WHALE", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 121.0, "stayH": 135.9, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-23T06:40+07:00"}
+{"id": "A574012466", "vessel": "VINH QUANG 568", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 69.0, "stayH": 144.0, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A574014363", "vessel": "MINH ANH 68", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 0.0, "stayH": 108.8, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-22T03:36+07:00"}
+{"id": "A574001900", "vessel": "LONG PHU 10", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 112.0, "stayH": 62.5, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-20T05:13+07:00"}
+{"id": "A574940000", "vessel": "HOANG TRIEU 69", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 97.0, "stayH": 91.5, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-21T10:17+07:00"}
+{"id": "A574013615", "vessel": "VIET KHANG 89", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 79.0, "stayH": 135.9, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-23T06:42+07:00"}
+{"id": "A574006200", "vessel": "HOA BINH 79", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 116.0, "stayH": 144.0, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A574401533", "vessel": "TAY", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 0.0, "stayH": 13.7, "eta": "2026-11-22T16:59+07:00", "etd": "2026-11-23T06:42+07:00"}
+{"id": "A352002909", "vessel": "TRUONGMINH DREAM 02", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 200.0, "stayH": 61.9, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-20T04:36+07:00"}
+{"id": "A352005625", "vessel": "VIET THUAN 80-06", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 225.0, "stayH": 108.8, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-22T03:36+07:00"}
+{"id": "A538005376", "vessel": "ERRIKOS", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 189.0, "stayH": 144.0, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A405000266", "vessel": "FATEMA JAHAN II", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 189.0, "stayH": 62.5, "eta": "2026-11-17T14:45+07:00", "etd": "2026-11-20T05:13+07:00"}
+{"id": "A574001790", "vessel": "LONG TAN 03", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 92.0, "stayH": 123.2, "eta": "2026-11-18T11:33+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A574825000", "vessel": "MEKONG", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 91.0, "stayH": 123.2, "eta": "2026-11-18T11:35+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A574401551", "vessel": "TAY", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 0.0, "stayH": 5.9, "eta": "2026-11-23T00:50+07:00", "etd": "2026-11-23T06:42+07:00"}
+{"id": "A355709000", "vessel": "PHOENIX NEREID", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 169.0, "stayH": 123.2, "eta": "2026-11-18T11:34+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A636022816", "vessel": "SDM DONGGUAN", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 210.0, "stayH": 123.1, "eta": "2026-11-18T11:30+07:00", "etd": "2026-11-23T14:36+07:00"}
+{"id": "A574404155", "vessel": "AN TAY 20", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 0.0, "stayH": 5.8, "eta": "2026-11-23T00:52+07:00", "etd": "2026-11-23T06:40+07:00"}
+{"id": "A574401856", "vessel": "SP ITC 07", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 89.0, "stayH": 8.1, "eta": "2026-11-23T06:42+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A574006420", "vessel": "HOANG LONG 36", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 89.0, "stayH": 99.5, "eta": "2026-11-19T11:14+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A574404399", "vessel": "PHUOC LONG 98", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 79.0, "stayH": 35.5, "eta": "2026-11-22T03:12+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A372125000", "vessel": "KAMNIK", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 128.0, "stayH": 81.5, "eta": "2026-11-20T05:13+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A574401582", "vessel": "PHUOC LONG 18", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 75.0, "stayH": 9.0, "eta": "2026-11-23T05:34+07:00", "etd": "2026-11-23T14:32+07:00"}
+{"id": "A574404957", "vessel": "AN TAY 25", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 0.0, "stayH": 21.9, "eta": "2026-11-22T16:54+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A574105201", "vessel": "TG 26479", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 61.0, "stayH": 81.5, "eta": "2026-11-20T05:12+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A574401986", "vessel": "TRANSIMEX 22", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 79.0, "stayH": 76.2, "eta": "2026-11-20T10:21+07:00", "etd": "2026-11-23T14:32+07:00"}
+{"id": "A574400354", "vessel": "TAN CANG 19", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 55.0, "stayH": 21.8, "eta": "2026-11-22T16:56+07:00", "etd": "2026-11-23T14:44+07:00"}
+{"id": "A574000000", "vessel": "LONG DUONG 212", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 75.0, "stayH": 58.0, "eta": "2026-11-21T04:26+07:00", "etd": "2026-11-23T14:24+07:00"}
+{"id": "A574401585", "vessel": "PHUOC LONG 24", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 66.0, "stayH": 6.5, "eta": "2026-11-23T05:47+07:00", "etd": "2026-11-23T12:18+07:00"}
+{"id": "A636022337", "vessel": "ARALIA", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 138.0, "stayH": 34.9, "eta": "2026-11-21T19:45+07:00", "etd": "2026-11-23T06:41+07:00"}
+{"id": "A339301660", "vessel": "HELENA RISING", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 125.0, "stayH": 43.0, "eta": "2026-11-21T19:43+07:00", "etd": "2026-11-23T14:44+07:00"}
+{"id": "A352003054", "vessel": "ES DIGNITY", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 180.0, "stayH": 42.9, "eta": "2026-11-21T19:43+07:00", "etd": "2026-11-23T14:38+07:00"}
+{"id": "A574467000", "vessel": "MACSTAR HAI PHONG", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 91.0, "stayH": 35.1, "eta": "2026-11-22T03:35+07:00", "etd": "2026-11-23T14:39+07:00"}
+{"id": "A574000680", "vessel": "MD SKY", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 136.0, "stayH": 35.1, "eta": "2026-11-22T03:36+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A574401559", "vessel": "CAI", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 0.0, "stayH": 27.1, "eta": "2026-11-22T03:35+07:00", "etd": "2026-11-23T06:42+07:00"}
+{"id": "A574000140", "vessel": "MV HAI NAM 67", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 79.0, "stayH": 29.4, "eta": "2026-11-22T09:19+07:00", "etd": "2026-11-23T14:44+07:00"}
+{"id": "A563293100", "vessel": "ZIM MOUNT RAINIER", "port": "HAIPHONG", "terminal": "", "vclass": "ULCV", "loa": 366.0, "stayH": 21.8, "eta": "2026-11-22T16:57+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A563173400", "vessel": "INTERASIA ELEVATE", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 186.0, "stayH": 13.7, "eta": "2026-11-22T16:59+07:00", "etd": "2026-11-23T06:42+07:00"}
+{"id": "A574401496", "vessel": "CAIMEP22", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 0.0, "stayH": 22.4, "eta": "2026-11-22T16:20+07:00", "etd": "2026-11-23T14:43+07:00"}
+{"id": "A477128700", "vessel": "OOCL VIOLET", "port": "CAIMEP", "terminal": "", "vclass": "ULCV", "loa": 366.0, "stayH": 21.8, "eta": "2026-11-22T16:57+07:00", "etd": "2026-11-23T14:43+07:00"}
+{"id": "A538013011", "vessel": "PORTO CHELI", "port": "CAIMEP", "terminal": "", "vclass": "NEOPAN", "loa": 300.0, "stayH": 21.8, "eta": "2026-11-22T16:59+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A636014221", "vessel": "SAN DIEGO", "port": "CAIMEP", "terminal": "", "vclass": "ULCV", "loa": 334.0, "stayH": 13.7, "eta": "2026-11-22T16:48+07:00", "etd": "2026-11-23T06:31+07:00"}
+{"id": "A574014131", "vessel": "VIET THUAN 235-02", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 150.0, "stayH": 13.4, "eta": "2026-11-22T16:55+07:00", "etd": "2026-11-23T06:17+07:00"}
+{"id": "A312000052", "vessel": "INTEGRATE I", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 133.0, "stayH": 16.4, "eta": "2026-11-22T14:02+07:00", "etd": "2026-11-23T06:27+07:00"}
+{"id": "A636026671", "vessel": "SEATTLE BRIDGE", "port": "HAIPHONG", "terminal": "", "vclass": "NEOPAN", "loa": 293.0, "stayH": 13.8, "eta": "2026-11-23T00:53+07:00", "etd": "2026-11-23T14:42+07:00"}
+{"id": "A533132134", "vessel": "JASA MURNI", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 180.0, "stayH": 13.9, "eta": "2026-11-23T00:49+07:00", "etd": "2026-11-23T14:43+07:00"}
+{"id": "A574004880", "vessel": "VIETSUN CONFIDENT", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 117.0, "stayH": 13.8, "eta": "2026-11-23T00:54+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A574015327", "vessel": "VIET THUAN 11-06", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 129.0, "stayH": 13.8, "eta": "2026-11-23T00:54+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A574400766", "vessel": "TRANSIMEX 39", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 75.0, "stayH": 5.5, "eta": "2026-11-23T00:54+07:00", "etd": "2026-11-23T06:25+07:00"}
+{"id": "A374286000", "vessel": "BLPL TRUST", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 0.0, "stayH": 13.8, "eta": "2026-11-23T00:54+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A574403102", "vessel": "THANG LOI 668", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 79.0, "stayH": 13.4, "eta": "2026-11-23T00:54+07:00", "etd": "2026-11-23T14:19+07:00"}
+{"id": "A574014822", "vessel": "THANH NAM 79", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 79.0, "stayH": 13.7, "eta": "2026-11-23T00:27+07:00", "etd": "2026-11-23T14:09+07:00"}
+{"id": "A574004930", "vessel": "VIETSUN DYNAMIC", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 117.0, "stayH": 8.1, "eta": "2026-11-23T06:40+07:00", "etd": "2026-11-23T14:43+07:00"}
+{"id": "A574002850", "vessel": "HAIAN TIME", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 162.0, "stayH": 8.1, "eta": "2026-11-23T06:42+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A565688000", "vessel": "KOTA NAZIM", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 180.0, "stayH": 8.1, "eta": "2026-11-23T06:41+07:00", "etd": "2026-11-23T14:44+07:00"}
+{"id": "A457130000", "vessel": "PROSPER", "port": "HAIPHONG", "terminal": "", "vclass": "FEEDER", "loa": 119.0, "stayH": 8.1, "eta": "2026-11-23T06:41+07:00", "etd": "2026-11-23T14:44+07:00"}
+{"id": "A440655000", "vessel": "PANCON CHAMPION", "port": "HCMC", "terminal": "", "vclass": "FEEDER", "loa": 172.0, "stayH": 8.1, "eta": "2026-11-23T06:42+07:00", "etd": "2026-11-23T14:45+07:00"}
+{"id": "A574002540", "vessel": "PHUC KHANH", "port": "CAIMEP", "terminal": "", "vclass": "FEEDER", "loa": 133.0, "stayH": 8.1, "eta": "2026-11-23T06:40+07:00", "etd": "2026-11-23T14:45+07:00"}
