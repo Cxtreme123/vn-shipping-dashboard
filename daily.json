@@ -1,13 +1,5 @@
 [
  {
-  "date": "2026-11-11",
-  "HAIPHONG": 0,
-  "DANANG": 0,
-  "HCMC": 0,
-  "CAIMEP": 0,
-  "total": 0
- },
- {
   "date": "2026-11-12",
   "HAIPHONG": 0,
   "DANANG": 0,
@@ -110,5 +102,13 @@
   "HCMC": 28865,
   "CAIMEP": 28839,
   "total": 85255
+ },
+ {
+  "date": "2026-11-25",
+  "HAIPHONG": 14122,
+  "DANANG": 0,
+  "HCMC": 21800,
+  "CAIMEP": 33050,
+  "total": 68972
  }
 ]
