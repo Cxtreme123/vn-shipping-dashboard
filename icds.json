@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-26T18:04+07:00",
+ "generatedAt": "2026-11-27T04:44+07:00",
  "icds": [
   {
    "id": "ICDSOTRANS",
@@ -23,9 +23,9 @@
      "lenM": 82,
      "draftM": null,
      "maxDwt": 1500,
-     "vessel": "TAY",
-     "mmsi": "574401567",
-     "loa": 0.0,
+     "vessel": "CAI MEP 06",
+     "mmsi": "574401546",
+     "loa": 66.0,
      "draught": 0.0
     },
     {
@@ -33,8 +33,8 @@
      "lenM": 82,
      "draftM": null,
      "maxDwt": 1500,
-     "vessel": "TAY NAM 27",
-     "mmsi": "574401536",
+     "vessel": "AN TAY15",
+     "mmsi": "574401976",
      "loa": 0.0,
      "draught": 0.0
     },
@@ -43,10 +43,10 @@
      "lenM": 82,
      "draftM": null,
      "maxDwt": 1500,
-     "vessel": "CAI",
-     "mmsi": "574401495",
-     "loa": 68.0,
-     "draught": 0.0
+     "vessel": null,
+     "mmsi": null,
+     "loa": null,
+     "draught": null
     },
     {
      "id": "B4",
@@ -70,14 +70,34 @@
     }
    ],
    "overflow": [],
-   "alongside": 3,
+   "alongside": 2,
    "recent": [
+    {
+     "name": "AN TAY15",
+     "mmsi": "574401976",
+     "ata": "2026-11-27T04:42+07:00",
+     "atd": null,
+     "departed": false,
+     "stayH": 0.0,
+     "loa": 0,
+     "draught": 0
+    },
+    {
+     "name": "CAI MEP 06",
+     "mmsi": "574401546",
+     "ata": "2026-11-27T04:41+07:00",
+     "atd": null,
+     "departed": false,
+     "stayH": 0.0,
+     "loa": 66.0,
+     "draught": 0
+    },
     {
      "name": "CAI",
      "mmsi": "574401495",
      "ata": "2026-11-26T18:02+07:00",
-     "atd": null,
-     "departed": false,
+     "atd": "2026-11-26T18:02+07:00",
+     "departed": true,
      "stayH": 0.0,
      "loa": 68.0,
      "draught": 0
@@ -86,8 +106,8 @@
      "name": "TAY",
      "mmsi": "574401567",
      "ata": "2026-11-26T18:01+07:00",
-     "atd": null,
-     "departed": false,
+     "atd": "2026-11-26T18:01+07:00",
+     "departed": true,
      "stayH": 0.0,
      "loa": 0,
      "draught": 0
@@ -96,8 +116,8 @@
      "name": "TAY NAM 27",
      "mmsi": "574401536",
      "ata": "2026-11-26T17:37+07:00",
-     "atd": null,
-     "departed": false,
+     "atd": "2026-11-26T17:37+07:00",
+     "departed": true,
      "stayH": 0.0,
      "loa": 0,
      "draught": 0
@@ -127,26 +147,6 @@
      "mmsi": "574401497",
      "ata": "2026-11-26T04:58+07:00",
      "atd": "2026-11-26T04:58+07:00",
-     "departed": true,
-     "stayH": 0.0,
-     "loa": 0,
-     "draught": 0
-    },
-    {
-     "name": "TAY NAM 09",
-     "mmsi": "574401566",
-     "ata": "2026-11-25T21:28+07:00",
-     "atd": "2026-11-25T21:28+07:00",
-     "departed": true,
-     "stayH": 0.0,
-     "loa": 0,
-     "draught": 0
-    },
-    {
-     "name": "TAY",
-     "mmsi": "574401538",
-     "ata": "2026-11-25T09:37+07:00",
-     "atd": "2026-11-25T09:37+07:00",
      "departed": true,
      "stayH": 0.0,
      "loa": 0,
@@ -214,13 +214,13 @@
    "inRange": false,
    "underway": false,
    "sog": null,
-   "lat": 20.830435,
-   "lon": 106.78726,
+   "lat": 20.78438,
+   "lon": 106.91773166666667,
    "loa": 71.0,
    "draught": 0,
    "dest": "",
    "area": "last: HAIPHONG (AIS silent)",
-   "lastSeen": "2026-11-26T18:00+07:00"
+   "lastSeen": "2026-11-27T04:40+07:00"
   },
   {
    "name": "SOWATCO 03",
@@ -268,42 +268,42 @@
    "name": "SOWATCO 17",
    "mmsi": "574400208",
    "inRange": true,
-   "underway": true,
-   "sog": 1.2,
-   "lat": 10.645368333333332,
-   "lon": 106.80955,
+   "underway": false,
+   "sog": 0.0,
+   "lat": 10.770996666666667,
+   "lon": 106.73614333333333,
    "loa": 58.0,
    "draught": 0.0,
    "dest": "",
-   "area": "Soài Rạp / Lòng Tàu channel",
-   "lastSeen": "2026-11-26T17:45+07:00"
+   "area": "Saigon river (central)",
+   "lastSeen": "2026-11-27T02:32+07:00"
   },
   {
    "name": "SOWATCO 18",
    "mmsi": "574400316",
-   "inRange": false,
-   "underway": false,
-   "sog": 0.1,
-   "lat": 10.820381666666666,
-   "lon": 106.75499666666666,
+   "inRange": true,
+   "underway": true,
+   "sog": 3.0,
+   "lat": 10.749651666666667,
+   "lon": 106.74483666666667,
    "loa": 0.0,
    "draught": 0.0,
    "dest": "",
-   "area": "Trường Thọ channel — ICD row",
-   "lastSeen": "2026-11-25T19:00+07:00"
+   "area": "Saigon river (central)",
+   "lastSeen": "2026-11-27T04:42+07:00"
   },
   {
    "name": "SOWATCO 24",
    "mmsi": "574400192",
    "inRange": false,
    "underway": false,
-   "sog": 0.2,
+   "sog": null,
    "lat": 10.772421666666666,
    "lon": 106.84893666666667,
    "loa": 76.0,
-   "draught": 0.0,
+   "draught": 0,
    "dest": "",
-   "area": "in range — other waters",
+   "area": "in range — other waters (registry)",
    "lastSeen": "2026-11-26T12:34+07:00"
   },
   {
@@ -324,28 +324,28 @@
    "name": "SOWATCO DISCOVER",
    "mmsi": "574400188",
    "inRange": true,
-   "underway": false,
-   "sog": 0.0,
-   "lat": 10.891789999999999,
-   "lon": 106.84040666666667,
+   "underway": true,
+   "sog": 3.8,
+   "lat": 10.780696666666667,
+   "lon": 106.86578333333334,
    "loa": 85.0,
    "draught": 0.0,
    "dest": "",
-   "area": "Bình Triệu reach — Saigon R.",
-   "lastSeen": "2026-11-26T16:35+07:00"
+   "area": "in range — other waters",
+   "lastSeen": "2026-11-27T04:43+07:00"
   },
   {
    "name": "SOWATCO EXPLORER",
    "mmsi": "574400187",
-   "inRange": true,
+   "inRange": false,
    "underway": false,
-   "sog": 0.0,
+   "sog": null,
    "lat": 10.697688333333334,
    "lon": 106.75831833333334,
    "loa": 80.0,
-   "draught": 0.0,
+   "draught": 0,
    "dest": "",
-   "area": "Nhà Bè / Hiệp Phước",
+   "area": "last: HCMC (departed)",
    "lastSeen": "2026-11-26T15:31+07:00"
   },
   {
@@ -407,16 +407,16 @@
   {
    "name": "SOWATCO PLATINUM 1",
    "mmsi": "574403747",
-   "inRange": false,
+   "inRange": true,
    "underway": false,
-   "sog": null,
-   "lat": 10.53706,
-   "lon": 107.02843333333334,
+   "sog": 0.2,
+   "lat": 10.635308333333334,
+   "lon": 106.81575833333333,
    "loa": 0.0,
-   "draught": 0,
+   "draught": 0.0,
    "dest": "",
-   "area": "last: CAIMEP (departed)",
-   "lastSeen": "2026-11-19T20:00+07:00"
+   "area": "Soài Rạp / Lòng Tàu channel",
+   "lastSeen": "2026-11-27T04:37+07:00"
   },
   {
    "name": "SOWATCO PLATINUM 2",
@@ -444,7 +444,7 @@
    "draught": 0.0,
    "dest": "",
    "area": "Bình Triệu reach — Saigon R.",
-   "lastSeen": "2026-11-26T17:59+07:00"
+   "lastSeen": "2026-11-27T04:30+07:00"
   },
   {
    "name": "SOWATCO-15",
