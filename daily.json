@@ -33,82 +33,82 @@
  },
  {
   "date": "2026-11-17",
-  "HAIPHONG": 54952,
+  "HAIPHONG": 54034,
   "DANANG": 0,
-  "HCMC": 51016,
-  "CAIMEP": 40316,
-  "total": 146284
+  "HCMC": 49699,
+  "CAIMEP": 38826,
+  "total": 142559
  },
  {
   "date": "2026-11-18",
-  "HAIPHONG": 36952,
+  "HAIPHONG": 36334,
   "DANANG": 0,
-  "HCMC": 44128,
-  "CAIMEP": 34336,
-  "total": 115416
+  "HCMC": 42989,
+  "CAIMEP": 33067,
+  "total": 112390
  },
  {
   "date": "2026-11-19",
-  "HAIPHONG": 21351,
+  "HAIPHONG": 20994,
   "DANANG": 0,
-  "HCMC": 33470,
-  "CAIMEP": 22376,
-  "total": 77197
+  "HCMC": 32606,
+  "CAIMEP": 21549,
+  "total": 75149
  },
  {
   "date": "2026-11-20",
-  "HAIPHONG": 19653,
+  "HAIPHONG": 19325,
   "DANANG": 0,
-  "HCMC": 24852,
-  "CAIMEP": 18451,
-  "total": 62956
+  "HCMC": 24210,
+  "CAIMEP": 17769,
+  "total": 61304
  },
  {
   "date": "2026-11-21",
-  "HAIPHONG": 28274,
+  "HAIPHONG": 27802,
   "DANANG": 0,
-  "HCMC": 22932,
-  "CAIMEP": 19085,
-  "total": 70291
+  "HCMC": 22340,
+  "CAIMEP": 18379,
+  "total": 68521
  },
  {
   "date": "2026-11-22",
-  "HAIPHONG": 23963,
+  "HAIPHONG": 23563,
   "DANANG": 0,
-  "HCMC": 24788,
-  "CAIMEP": 29550,
-  "total": 78301
+  "HCMC": 24148,
+  "CAIMEP": 28458,
+  "total": 76169
  },
  {
   "date": "2026-11-23",
-  "HAIPHONG": 22371,
+  "HAIPHONG": 21997,
   "DANANG": 0,
-  "HCMC": 19728,
-  "CAIMEP": 20747,
-  "total": 62846
+  "HCMC": 19218,
+  "CAIMEP": 19980,
+  "total": 61195
  },
  {
   "date": "2026-11-24",
-  "HAIPHONG": 21435,
+  "HAIPHONG": 21077,
   "DANANG": 0,
-  "HCMC": 21245,
-  "CAIMEP": 15602,
-  "total": 58282
+  "HCMC": 20696,
+  "CAIMEP": 15025,
+  "total": 56798
  },
  {
   "date": "2026-11-25",
-  "HAIPHONG": 16310,
+  "HAIPHONG": 16037,
   "DANANG": 0,
-  "HCMC": 35146,
-  "CAIMEP": 28559,
-  "total": 80015
+  "HCMC": 34239,
+  "CAIMEP": 27503,
+  "total": 77779
  },
  {
   "date": "2026-11-26",
-  "HAIPHONG": 10777,
+  "HAIPHONG": 14563,
   "DANANG": 0,
-  "HCMC": 21343,
-  "CAIMEP": 8051,
-  "total": 40171
+  "HCMC": 28261,
+  "CAIMEP": 16498,
+  "total": 59322
  }
 ]
