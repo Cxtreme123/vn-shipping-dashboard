@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-25T21:34+07:00",
+ "generatedAt": "2026-11-26T07:30+07:00",
  "dataMode": "live",
  "schedSources": [
   "haiphong-plan",
@@ -17,9 +17,31 @@
   "Pilot/port-authority plans publish ~24–36h ahead — empty berths beyond that horizon are unplanned, not necessarily idle",
   "Berth layouts for the Dinh Vu-area terminals (Nam Dinh Vu, Nam Hai Dinh Vu, VIMC Dinh Vu, VIP Greenport, Tan Vu, Hai An, Nam Hai), Tan Cang Hiep Phuoc, SP-ITC and Gemalink are indicative — depths from operator/VPA publications, but per-berth splits are not public",
   "Port-stay predictions learn from AIS-observed stay history (per vessel, then class-at-port, then class default) — basis shown per call",
-  "TEU calibration: inactive until ≥10 days of observed daily history exist per port — shown TEU are raw draft×stay model estimates"
+  "TEU calibration: modelled TEU rescaled to the real VPA 2026-09 regional throughput anchors — CAIMEP ×0.54 (10d obs), HAIPHONG ×0.78 (10d obs), HCMC ×0.74 (10d obs). Per-call TEU remain estimates; the port-level trend is reconciled with association data"
  ],
- "teuCalib": {},
+ "teuCalib": {
+  "HAIPHONG": {
+   "factor": 0.778,
+   "days": 10,
+   "anchor": 777860,
+   "region": "Northern",
+   "month": "2026-09"
+  },
+  "HCMC": {
+   "factor": 0.736,
+   "days": 10,
+   "anchor": 907692,
+   "region": "Southeast (HCMC · Dong Nai)",
+   "month": "2026-09"
+  },
+  "CAIMEP": {
+   "factor": 0.541,
+   "days": 10,
+   "anchor": 720876,
+   "region": "Cai Mep – Thi Vai",
+   "month": "2026-09"
+  }
+ },
  "sources": [
   {
    "id": "vpa",
@@ -32,7 +54,7 @@
    "id": "tancangpilot",
    "label": "Tan Cang Pilot plan",
    "ok": true,
-   "rows": 25,
+   "rows": 31,
    "err": ""
   },
   {
@@ -46,8 +68,8 @@
    "id": "haiphong-cangvu",
    "label": "Cảng vụ Hải Phòng ship plan",
    "ok": true,
-   "rows": 48,
-   "err": ""
+   "rows": 22,
+   "err": "hp-gov: 0 usable rows — page empty or schema changed"
   },
   {
    "id": "cangvu-hcmc-gov",
@@ -67,7 +89,7 @@
    "id": "ais-haiphong",
    "label": "AIS snapshot · Hai Phong",
    "ok": true,
-   "rows": 266,
+   "rows": 279,
    "err": ""
   },
   {
@@ -81,28 +103,28 @@
    "id": "ais-hcmc",
    "label": "AIS snapshot · Ho Chi Minh (Cat Lai)",
    "ok": true,
-   "rows": 196,
+   "rows": 190,
    "err": ""
   },
   {
    "id": "ais-caimep",
    "label": "AIS snapshot · Cai Mep - Thi Vai",
    "ok": true,
-   "rows": 119,
+   "rows": 130,
    "err": ""
   },
   {
    "id": "ais-fleet",
    "label": "AIS snapshot · SOWATCO fleet (wide SE box)",
    "ok": true,
-   "rows": 549,
+   "rows": 552,
    "err": ""
   },
   {
    "id": "ais-icdsotrans",
    "label": "AIS geofence · ICD Sotrans",
    "ok": true,
-   "rows": 1,
+   "rows": 3,
    "err": ""
   },
   {
