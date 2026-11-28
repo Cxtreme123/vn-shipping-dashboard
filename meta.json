@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-27T23:49+07:00",
+ "generatedAt": "2026-11-28T08:35+07:00",
  "dataMode": "live",
  "schedSources": [
   "haiphong-plan",
@@ -17,26 +17,26 @@
   "Pilot/port-authority plans publish ~24–36h ahead — empty berths beyond that horizon are unplanned, not necessarily idle",
   "Berth layouts for the Dinh Vu-area terminals (Nam Dinh Vu, Nam Hai Dinh Vu, VIMC Dinh Vu, VIP Greenport, Tan Vu, Hai An, Nam Hai), Tan Cang Hiep Phuoc, SP-ITC and Gemalink are indicative — depths from operator/VPA publications, but per-berth splits are not public",
   "Port-stay predictions learn from AIS-observed stay history (per vessel, then class-at-port, then class default) — basis shown per call",
-  "TEU calibration: modelled TEU rescaled to the real VPA 2026-09 regional throughput anchors — CAIMEP ×0.53 (11d obs), HAIPHONG ×0.78 (11d obs), HCMC ×0.71 (11d obs). Per-call TEU remain estimates; the port-level trend is reconciled with association data"
+  "TEU calibration: modelled TEU rescaled to the real VPA 2026-09 regional throughput anchors — CAIMEP ×0.56 (12d obs), HAIPHONG ×0.81 (12d obs), HCMC ×0.73 (12d obs). Per-call TEU remain estimates; the port-level trend is reconciled with association data"
  ],
  "teuCalib": {
   "HAIPHONG": {
-   "factor": 0.778,
-   "days": 11,
+   "factor": 0.806,
+   "days": 12,
    "anchor": 777860,
    "region": "Northern",
    "month": "2026-09"
   },
   "HCMC": {
-   "factor": 0.713,
-   "days": 11,
+   "factor": 0.728,
+   "days": 12,
    "anchor": 907692,
    "region": "Southeast (HCMC · Dong Nai)",
    "month": "2026-09"
   },
   "CAIMEP": {
-   "factor": 0.526,
-   "days": 11,
+   "factor": 0.561,
+   "days": 12,
    "anchor": 720876,
    "region": "Cai Mep – Thi Vai",
    "month": "2026-09"
@@ -54,7 +54,7 @@
    "id": "tancangpilot",
    "label": "Tan Cang Pilot plan",
    "ok": true,
-   "rows": 34,
+   "rows": 24,
    "err": ""
   },
   {
@@ -68,7 +68,7 @@
    "id": "haiphong-cangvu",
    "label": "Cảng vụ Hải Phòng ship plan",
    "ok": true,
-   "rows": 63,
+   "rows": 30,
    "err": ""
   },
   {
@@ -89,7 +89,7 @@
    "id": "ais-haiphong",
    "label": "AIS snapshot · Hai Phong",
    "ok": true,
-   "rows": 264,
+   "rows": 271,
    "err": ""
   },
   {
@@ -103,28 +103,28 @@
    "id": "ais-hcmc",
    "label": "AIS snapshot · Ho Chi Minh (Cat Lai)",
    "ok": true,
-   "rows": 203,
+   "rows": 192,
    "err": ""
   },
   {
    "id": "ais-caimep",
    "label": "AIS snapshot · Cai Mep - Thi Vai",
    "ok": true,
-   "rows": 124,
+   "rows": 117,
    "err": ""
   },
   {
    "id": "ais-fleet",
    "label": "AIS snapshot · SOWATCO fleet (wide SE box)",
    "ok": true,
-   "rows": 561,
+   "rows": 539,
    "err": ""
   },
   {
    "id": "ais-icdsotrans",
    "label": "AIS geofence · ICD Sotrans",
    "ok": true,
-   "rows": 1,
+   "rows": 0,
    "err": ""
   },
   {
@@ -144,9 +144,16 @@
   {
    "id": "gdelt",
    "label": "GDELT news feed",
-   "ok": false,
-   "rows": null,
-   "err": "HTTP Error 429: Too Many Requests"
+   "ok": true,
+   "rows": 50,
+   "err": ""
+  },
+  {
+   "id": "news-translate",
+   "label": "News VI→EN machine translation",
+   "ok": true,
+   "rows": 31,
+   "err": ""
   }
  ]
 }

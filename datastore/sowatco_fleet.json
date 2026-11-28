@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-27T23:49+07:00",
+ "updatedAt": "2026-11-28T08:35+07:00",
  "hulls": {
   "574402814": {
    "name": "SOWATCO 02",
@@ -7,7 +7,7 @@
    "lastSeen": "2026-11-27T23:47+07:00",
    "lat": 20.827626666666667,
    "lon": 106.81456,
-   "area": "last: HAIPHONG (AIS silent)"
+   "area": "last: HAIPHONG (departed)"
   },
   "574400316": {
    "name": "SOWATCO 18",
@@ -68,17 +68,17 @@
   "574402373": {
    "name": "SOWATCO VENUS",
    "loa": 80.0,
-   "lastSeen": "2026-11-27T23:14+07:00",
-   "lat": 10.893513333333335,
-   "lon": 106.83995166666666,
-   "area": "Bình Triệu reach — Saigon R."
+   "lastSeen": "2026-11-28T08:30+07:00",
+   "lat": 10.668873333333332,
+   "lon": 106.78873,
+   "area": "Nhà Bè / Hiệp Phước"
   },
   "574403747": {
    "name": "SOWATCO PLATINUM 1",
    "loa": 0.0,
-   "lastSeen": "2026-11-27T23:44+07:00",
-   "lat": 10.882451666666666,
-   "lon": 106.84521833333334,
+   "lastSeen": "2026-11-28T08:29+07:00",
+   "lat": 10.882443333333333,
+   "lon": 106.845225,
    "area": "Bình Triệu reach — Saigon R."
   },
   "574402815": {
@@ -108,10 +108,10 @@
   "574400208": {
    "name": "SOWATCO 17",
    "loa": 58.0,
-   "lastSeen": "2026-11-27T22:01+07:00",
-   "lat": 10.823453333333333,
-   "lon": 106.75546666666668,
-   "area": "Trường Thọ channel — ICD row"
+   "lastSeen": "2026-11-28T08:30+07:00",
+   "lat": 10.690276666666668,
+   "lon": 106.76135166666667,
+   "area": "Nhà Bè / Hiệp Phước"
   },
   "574400238": {
    "name": "SOWATCO HEADER",
@@ -124,18 +124,18 @@
   "574403748": {
    "name": "SOWATCO PLATINUM 2",
    "loa": 0.0,
-   "lastSeen": "2026-11-27T22:23+07:00",
-   "lat": 10.894871666666667,
-   "lon": 106.83966333333333,
+   "lastSeen": "2026-11-28T08:30+07:00",
+   "lat": 10.894963333333333,
+   "lon": 106.83954833333334,
    "area": "Bình Triệu reach — Saigon R."
   },
   "574402816": {
    "name": "SOWATCO 05",
    "loa": 76.0,
-   "lastSeen": "2026-11-25T21:16+07:00",
-   "lat": 20.838031666666666,
-   "lon": 106.77599333333333,
-   "area": "last: HAIPHONG (departed)"
+   "lastSeen": "2026-11-28T07:16+07:00",
+   "lat": 20.785481666666666,
+   "lon": 106.91704666666666,
+   "area": "last: HAIPHONG (AIS silent)"
   },
   "574400207": {
    "name": "SOWATCO-15",
