@@ -17,98 +17,98 @@
  },
  {
   "date": "2026-11-17",
-  "HAIPHONG": 56930,
+  "HAIPHONG": 56436,
   "DANANG": 0,
-  "HCMC": 50461,
-  "CAIMEP": 41807,
-  "total": 149198
+  "HCMC": 51432,
+  "CAIMEP": 41732,
+  "total": 149600
  },
  {
   "date": "2026-11-18",
-  "HAIPHONG": 38282,
+  "HAIPHONG": 37949,
   "DANANG": 0,
-  "HCMC": 43649,
-  "CAIMEP": 35606,
-  "total": 117537
+  "HCMC": 44488,
+  "CAIMEP": 35542,
+  "total": 117979
  },
  {
   "date": "2026-11-19",
-  "HAIPHONG": 22119,
+  "HAIPHONG": 21927,
   "DANANG": 0,
-  "HCMC": 33106,
-  "CAIMEP": 23204,
-  "total": 78429
+  "HCMC": 33742,
+  "CAIMEP": 23162,
+  "total": 78831
  },
  {
   "date": "2026-11-20",
-  "HAIPHONG": 20360,
+  "HAIPHONG": 20184,
   "DANANG": 0,
-  "HCMC": 24582,
-  "CAIMEP": 19133,
-  "total": 64075
+  "HCMC": 25054,
+  "CAIMEP": 19099,
+  "total": 64337
  },
  {
   "date": "2026-11-21",
-  "HAIPHONG": 29292,
+  "HAIPHONG": 29037,
   "DANANG": 0,
-  "HCMC": 22683,
-  "CAIMEP": 19790,
-  "total": 71765
+  "HCMC": 23119,
+  "CAIMEP": 19755,
+  "total": 71911
  },
  {
   "date": "2026-11-22",
-  "HAIPHONG": 24826,
+  "HAIPHONG": 24610,
   "DANANG": 0,
-  "HCMC": 24518,
-  "CAIMEP": 30642,
-  "total": 79986
+  "HCMC": 24990,
+  "CAIMEP": 30588,
+  "total": 80188
  },
  {
   "date": "2026-11-23",
-  "HAIPHONG": 23176,
+  "HAIPHONG": 22974,
   "DANANG": 0,
-  "HCMC": 19513,
-  "CAIMEP": 21514,
-  "total": 64203
+  "HCMC": 19889,
+  "CAIMEP": 21475,
+  "total": 64338
  },
  {
   "date": "2026-11-24",
-  "HAIPHONG": 22206,
+  "HAIPHONG": 22013,
   "DANANG": 0,
-  "HCMC": 21014,
-  "CAIMEP": 16179,
-  "total": 59399
+  "HCMC": 21418,
+  "CAIMEP": 16150,
+  "total": 59581
  },
  {
   "date": "2026-11-25",
-  "HAIPHONG": 16897,
+  "HAIPHONG": 16750,
   "DANANG": 0,
-  "HCMC": 34764,
-  "CAIMEP": 29615,
-  "total": 81276
+  "HCMC": 35433,
+  "CAIMEP": 29562,
+  "total": 81745
  },
  {
   "date": "2026-11-26",
-  "HAIPHONG": 15343,
+  "HAIPHONG": 15210,
   "DANANG": 0,
-  "HCMC": 28694,
-  "CAIMEP": 17765,
-  "total": 61802
+  "HCMC": 29246,
+  "CAIMEP": 17733,
+  "total": 62189
  },
  {
   "date": "2026-11-27",
-  "HAIPHONG": 22084,
+  "HAIPHONG": 21892,
   "DANANG": 0,
-  "HCMC": 32155,
-  "CAIMEP": 22903,
-  "total": 77142
+  "HCMC": 32773,
+  "CAIMEP": 22862,
+  "total": 77527
  },
  {
   "date": "2026-11-28",
-  "HAIPHONG": 15482,
+  "HAIPHONG": 17881,
   "DANANG": 0,
-  "HCMC": 23112,
-  "CAIMEP": 6170,
-  "total": 44764
+  "HCMC": 16607,
+  "CAIMEP": 7007,
+  "total": 41495
  }
 ]

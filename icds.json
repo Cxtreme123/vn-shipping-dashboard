@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-28T08:35+07:00",
+ "generatedAt": "2026-11-28T17:37+07:00",
  "icds": [
   {
    "id": "ICDSOTRANS",
@@ -23,10 +23,10 @@
      "lenM": 82,
      "draftM": null,
      "maxDwt": 1500,
-     "vessel": null,
-     "mmsi": null,
-     "loa": null,
-     "draught": null
+     "vessel": "TAY",
+     "mmsi": "574401542",
+     "loa": 0.0,
+     "draught": 0.0
     },
     {
      "id": "B2",
@@ -70,8 +70,18 @@
     }
    ],
    "overflow": [],
-   "alongside": 0,
+   "alongside": 1,
    "recent": [
+    {
+     "name": "TAY",
+     "mmsi": "574401542",
+     "ata": "2026-11-28T16:59+07:00",
+     "atd": null,
+     "departed": false,
+     "stayH": 0.0,
+     "loa": 0,
+     "draught": 0
+    },
     {
      "name": "CAI MEP 10",
      "mmsi": "574401553",
@@ -137,16 +147,6 @@
      "mmsi": "574401536",
      "ata": "2026-11-26T17:37+07:00",
      "atd": "2026-11-26T17:37+07:00",
-     "departed": true,
-     "stayH": 0.0,
-     "loa": 0,
-     "draught": 0
-    },
-    {
-     "name": "TAY NAM 45",
-     "mmsi": "574401543",
-     "ata": "2026-11-26T07:26+07:00",
-     "atd": "2026-11-26T07:26+07:00",
      "departed": true,
      "stayH": 0.0,
      "loa": 0,
@@ -247,7 +247,7 @@
    "loa": 76.0,
    "draught": 0,
    "dest": "",
-   "area": "last: HAIPHONG (AIS silent)",
+   "area": "last: HAIPHONG (departed)",
    "lastSeen": "2026-11-28T07:16+07:00"
   },
   {
@@ -267,16 +267,16 @@
   {
    "name": "SOWATCO 17",
    "mmsi": "574400208",
-   "inRange": true,
-   "underway": true,
-   "sog": 6.3,
-   "lat": 10.690276666666668,
-   "lon": 106.76135166666667,
+   "inRange": false,
+   "underway": false,
+   "sog": null,
+   "lat": 10.823453333333333,
+   "lon": 106.75546666666668,
    "loa": 58.0,
-   "draught": 0.0,
+   "draught": 0,
    "dest": "",
-   "area": "Nhà Bè / Hiệp Phước",
-   "lastSeen": "2026-11-28T08:30+07:00"
+   "area": "last: HCMC (departed)",
+   "lastSeen": "2026-11-27T22:01+07:00"
   },
   {
    "name": "SOWATCO 18",
@@ -295,58 +295,58 @@
   {
    "name": "SOWATCO 24",
    "mmsi": "574400192",
-   "inRange": false,
-   "underway": false,
-   "sog": null,
-   "lat": 10.772421666666666,
-   "lon": 106.84893666666667,
+   "inRange": true,
+   "underway": true,
+   "sog": 5.3,
+   "lat": 10.713246666666667,
+   "lon": 106.75210666666666,
    "loa": 76.0,
-   "draught": 0,
+   "draught": 0.0,
    "dest": "",
-   "area": "in range — other waters (registry)",
-   "lastSeen": "2026-11-26T12:34+07:00"
+   "area": "Saigon river (central)",
+   "lastSeen": "2026-11-28T17:35+07:00"
   },
   {
    "name": "SOWATCO 26",
    "mmsi": "574400189",
-   "inRange": false,
-   "underway": false,
-   "sog": null,
-   "lat": 10.823498333333333,
-   "lon": 106.75532666666666,
+   "inRange": true,
+   "underway": true,
+   "sog": 4.9,
+   "lat": 10.771471666666667,
+   "lon": 106.734905,
    "loa": 0.0,
-   "draught": 0,
+   "draught": 0.0,
    "dest": "",
-   "area": "last: HCMC (departed)",
-   "lastSeen": "2026-11-23T14:38+07:00"
+   "area": "Saigon river (central)",
+   "lastSeen": "2026-11-28T17:34+07:00"
   },
   {
    "name": "SOWATCO DISCOVER",
    "mmsi": "574400188",
-   "inRange": false,
-   "underway": false,
-   "sog": null,
-   "lat": 10.780696666666667,
-   "lon": 106.86578333333334,
+   "inRange": true,
+   "underway": true,
+   "sog": 5.0,
+   "lat": 10.704133333333335,
+   "lon": 106.75052333333333,
    "loa": 85.0,
-   "draught": 0,
+   "draught": 0.0,
    "dest": "",
-   "area": "in range — other waters (registry)",
-   "lastSeen": "2026-11-27T04:43+07:00"
+   "area": "Saigon river (central)",
+   "lastSeen": "2026-11-28T17:34+07:00"
   },
   {
    "name": "SOWATCO EXPLORER",
    "mmsi": "574400187",
-   "inRange": false,
-   "underway": false,
-   "sog": null,
-   "lat": 10.697688333333334,
-   "lon": 106.75831833333334,
+   "inRange": true,
+   "underway": true,
+   "sog": 5.3,
+   "lat": 10.839938333333333,
+   "lon": 106.86045166666666,
    "loa": 80.0,
-   "draught": 0,
+   "draught": 0.0,
    "dest": "",
-   "area": "last: HCMC (departed)",
-   "lastSeen": "2026-11-26T15:31+07:00"
+   "area": "in range — other waters",
+   "lastSeen": "2026-11-28T17:24+07:00"
   },
   {
    "name": "SOWATCO HEADER",
@@ -379,16 +379,16 @@
   {
    "name": "SOWATCO MASTER",
    "mmsi": "574401464",
-   "inRange": false,
+   "inRange": true,
    "underway": false,
-   "sog": null,
-   "lat": 10.645999999999999,
-   "lon": 106.81309833333333,
+   "sog": 0.0,
+   "lat": 10.50849,
+   "lon": 107.00925000000001,
    "loa": 80.0,
-   "draught": 0,
+   "draught": 0.0,
    "dest": "",
-   "area": "Soài Rạp / Lòng Tàu channel (registry)",
-   "lastSeen": "2026-11-27T23:45+07:00"
+   "area": "Cái Mép – Thị Vải",
+   "lastSeen": "2026-11-28T17:31+07:00"
   },
   {
    "name": "SOWATCO PIONEER",
@@ -409,42 +409,42 @@
    "mmsi": "574403747",
    "inRange": true,
    "underway": false,
-   "sog": 0.1,
-   "lat": 10.882443333333333,
-   "lon": 106.845225,
+   "sog": 0.0,
+   "lat": 10.88263,
+   "lon": 106.84508666666667,
    "loa": 0.0,
    "draught": 0.0,
    "dest": "",
    "area": "Bình Triệu reach — Saigon R.",
-   "lastSeen": "2026-11-28T08:29+07:00"
+   "lastSeen": "2026-11-28T17:34+07:00"
   },
   {
    "name": "SOWATCO PLATINUM 2",
    "mmsi": "574403748",
    "inRange": true,
    "underway": false,
-   "sog": 0.1,
-   "lat": 10.894963333333333,
-   "lon": 106.83954833333334,
+   "sog": 0.0,
+   "lat": 10.885556666666668,
+   "lon": 106.84134999999999,
    "loa": 0.0,
    "draught": 0.0,
    "dest": "",
    "area": "Bình Triệu reach — Saigon R.",
-   "lastSeen": "2026-11-28T08:30+07:00"
+   "lastSeen": "2026-11-28T16:38+07:00"
   },
   {
    "name": "SOWATCO VENUS",
    "mmsi": "574402373",
-   "inRange": true,
-   "underway": true,
-   "sog": 7.0,
-   "lat": 10.668873333333332,
-   "lon": 106.78873,
+   "inRange": false,
+   "underway": false,
+   "sog": null,
+   "lat": 10.540548333333334,
+   "lon": 107.02879666666666,
    "loa": 80.0,
-   "draught": 0.0,
+   "draught": 0,
    "dest": "",
-   "area": "Nhà Bè / Hiệp Phước",
-   "lastSeen": "2026-11-28T08:30+07:00"
+   "area": "last: CAIMEP (departed)",
+   "lastSeen": "2026-11-24T23:21+07:00"
   },
   {
    "name": "SOWATCO-15",

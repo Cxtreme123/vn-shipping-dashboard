@@ -10,7 +10,7 @@
   "terminalHint": "Cat Lai",
   "pob": "01:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -23,7 +23,7 @@
   "terminalHint": "Cat Lai",
   "pob": "15:30",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -36,7 +36,7 @@
   "terminalHint": "Tan Cang",
   "pob": "15:30",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -49,7 +49,7 @@
   "terminalHint": "Cat Lai",
   "pob": "16:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -62,7 +62,7 @@
   "terminalHint": "TCHP",
   "pob": "16:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -73,9 +73,9 @@
   "wharf": "P/s3 - CL3",
   "port": "HCMC",
   "terminalHint": "Cat Lai",
-  "pob": "16:30",
+  "pob": "17:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -88,7 +88,7 @@
   "terminalHint": "Cat Lai",
   "pob": "16:30",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -101,7 +101,7 @@
   "terminalHint": "Cat Lai",
   "pob": "21:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -114,7 +114,7 @@
   "terminalHint": "Cat Lai",
   "pob": "21:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -127,7 +127,7 @@
   "terminalHint": "P/S3",
   "pob": "01:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -140,7 +140,7 @@
   "terminalHint": "CM4",
   "pob": "10:30",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -151,9 +151,9 @@
   "wharf": "CM3 - P/s3",
   "port": "CAIMEP",
   "terminalHint": "P/S3",
-  "pob": "17:00",
+  "pob": "11:30",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -161,12 +161,12 @@
   "vessel": "VIMC PIONEER",
   "draught": 7.9,
   "loa": 121.0,
-  "wharf": "P/s1 - CM2",
+  "wharf": "P/s3 - CM2",
   "port": "CAIMEP",
   "terminalHint": "CM2",
   "pob": "21:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -179,7 +179,7 @@
   "terminalHint": "Cat Lai",
   "pob": "01:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -192,7 +192,7 @@
   "terminalHint": "Cat Lai",
   "pob": "03:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -205,7 +205,7 @@
   "terminalHint": "Cat Lai",
   "pob": "03:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -218,33 +218,33 @@
   "terminalHint": "Tan Cang",
   "pob": "12:30",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
   "direction": "DEPARTING",
   "vessel": "UNI PREMIER",
-  "draught": 8.1,
+  "draught": 9.0,
   "loa": 182.0,
   "wharf": "CL4-5 - P/s3",
   "port": "HCMC",
   "terminalHint": "Cat Lai",
-  "pob": "14:00",
+  "pob": "13:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
   "direction": "DEPARTING",
   "vessel": "SHIMANAMI BAY",
-  "draught": 10.5,
+  "draught": 8.0,
   "loa": 186.0,
   "wharf": "CL3 - P/s3",
   "port": "HCMC",
   "terminalHint": "Cat Lai",
-  "pob": "15:00",
+  "pob": "20:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -257,20 +257,20 @@
   "terminalHint": "Cat Lai",
   "pob": "15:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
   "direction": "DEPARTING",
   "vessel": "HAIAN ROSE",
-  "draught": 8.2,
+  "draught": 6.9,
   "loa": 172.0,
   "wharf": "TCHP - H25",
   "port": "HCMC",
   "terminalHint": "TCHP",
-  "pob": "15:00",
+  "pob": "13:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -283,20 +283,20 @@
   "terminalHint": "Cat Lai",
   "pob": "20:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
   "direction": "DEPARTING",
   "vessel": "MAERSK NORBERG",
-  "draught": 8.5,
+  "draught": 8.0,
   "loa": 172.0,
   "wharf": "CL7 - P/s3",
   "port": "HCMC",
   "terminalHint": "Cat Lai",
   "pob": "20:30",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "tancangpilot",
@@ -309,7 +309,7 @@
   "terminalHint": "Cat Lai",
   "pob": "22:00",
   "alongside": null,
-  "planDt": "2026-11-28T05:50:00+07:00"
+  "planDt": "2026-11-28T15:30:00+07:00"
  },
  {
   "source": "haiphong-plan",
@@ -457,27 +457,53 @@
  {
   "source": "haiphong-plan",
   "direction": "DEPARTING",
-  "vessel": "SMOOTH WIND",
-  "draught": 8.2,
-  "loa": 172.0,
+  "vessel": "HE SHENG",
+  "draught": 7.0,
+  "loa": 146.5,
   "port": "HAIPHONG",
-  "terminalHint": "Tan Vu",
+  "terminalHint": "Nam Hai Dinh Vu",
   "time": "12:30",
   "prevPort": "",
-  "nextPort": "Japan",
+  "nextPort": "China",
   "planDt": "2026-11-28"
  },
  {
   "source": "haiphong-plan",
   "direction": "DEPARTING",
-  "vessel": "WAN HAI 105",
-  "draught": 8.2,
-  "loa": 144.1,
+  "vessel": "MILD CHORUS",
+  "draught": 8.4,
+  "loa": 147.9,
   "port": "HAIPHONG",
-  "terminalHint": "Tan Vu",
+  "terminalHint": "Nam Dinh Vu",
   "time": "16:30",
   "prevPort": "",
-  "nextPort": "Taiwan",
+  "nextPort": "Ho Chi Minh",
+  "planDt": "2026-11-28"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "SONG CHANH",
+  "draught": 2.0,
+  "loa": 62.8,
+  "port": "HAIPHONG",
+  "terminalHint": "Lach Huyen (HHIT)",
+  "time": "16:30",
+  "prevPort": "",
+  "nextPort": "Quang Yen",
+  "planDt": "2026-11-28"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "SMOOTH WIND",
+  "draught": 7.6,
+  "loa": 172.0,
+  "port": "HAIPHONG",
+  "terminalHint": "Tan Vu",
+  "time": "22:30",
+  "prevPort": "",
+  "nextPort": "Japan",
   "planDt": "2026-11-28"
  },
  {
@@ -504,6 +530,58 @@
   "time": "11:00",
   "prevPort": "",
   "nextPort": "Khu Neo Vật Cách",
+  "planDt": "2026-11-28"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "MACSTAR NGHI SON",
+  "draught": 3.0,
+  "loa": 80.0,
+  "port": "HAIPHONG",
+  "terminalHint": "Tan Vu",
+  "time": "15:30",
+  "prevPort": "",
+  "nextPort": "Dinh Vu",
+  "planDt": "2026-11-28"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "MACSTAR NGHI SON",
+  "draught": 3.0,
+  "loa": 80.0,
+  "port": "HAIPHONG",
+  "terminalHint": "Nam Dinh Vu",
+  "time": "17:30",
+  "prevPort": "Dinh Vu",
+  "nextPort": "",
+  "planDt": "2026-11-28"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "MACSTAR NGHI SON",
+  "draught": 3.0,
+  "loa": 80.0,
+  "port": "HAIPHONG",
+  "terminalHint": "Lach Huyen (HICT)",
+  "time": "21:30",
+  "prevPort": "Nam Dinh Vu",
+  "nextPort": "",
+  "planDt": "2026-11-28"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "HAI NAM 62",
+  "draught": 4.0,
+  "loa": 79.8,
+  "port": "HAIPHONG",
+  "terminalHint": "Lach Huyen (HICT)",
+  "time": "23:30",
+  "prevPort": "",
+  "nextPort": "Euro Dinh Vu",
   "planDt": "2026-11-28"
  },
  {
@@ -639,19 +717,6 @@
  {
   "source": "haiphong-plan",
   "direction": "ARRIVING",
-  "vessel": "HT SHATIAN",
-  "draught": 6.4,
-  "loa": 128.0,
-  "port": "HAIPHONG",
-  "terminalHint": "VIMC Dinh Vu",
-  "time": "11:30",
-  "prevPort": "China",
-  "nextPort": "",
-  "planDt": "2026-11-28"
- },
- {
-  "source": "haiphong-plan",
-  "direction": "ARRIVING",
   "vessel": "AFRICAN MARGAUX",
   "draught": 6.7,
   "loa": 182.9,
@@ -659,6 +724,19 @@
   "terminalHint": "Nam Dinh Vu",
   "time": "11:30",
   "prevPort": "Taiwan",
+  "nextPort": "",
+  "planDt": "2026-11-28"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "HT SHATIAN",
+  "draught": 6.4,
+  "loa": 128.0,
+  "port": "HAIPHONG",
+  "terminalHint": "VIMC Dinh Vu",
+  "time": "11:30",
+  "prevPort": "Hong Kong",
   "nextPort": "",
   "planDt": "2026-11-28"
  },
@@ -690,15 +768,379 @@
  },
  {
   "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "AAL MUMBAI",
+  "draught": 6.8,
+  "loa": 179.9,
+  "port": "HAIPHONG",
+  "terminalHint": "Nam Dinh Vu",
+  "time": "17:30",
+  "prevPort": "Ho Chi Minh",
+  "nextPort": "",
+  "planDt": "2026-11-28"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "JJ SUN",
+  "draught": 8.4,
+  "loa": 147.9,
+  "port": "HAIPHONG",
+  "terminalHint": "Nam Dinh Vu",
+  "time": "23:30",
+  "prevPort": "Hong Kong",
+  "nextPort": "",
+  "planDt": "2026-11-28"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "MACSTAR NGHI SON",
+  "draught": 3.0,
+  "loa": 80.0,
+  "port": "HAIPHONG",
+  "terminalHint": "Lach Huyen (HICT)",
+  "time": "00:00",
+  "prevPort": "",
+  "nextPort": "Nghi Son",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "HT SHATIAN",
+  "draught": 5.0,
+  "loa": 128.0,
+  "port": "HAIPHONG",
+  "terminalHint": "VIMC Dinh Vu",
+  "time": "00:30",
+  "prevPort": "",
+  "nextPort": "China",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "WAN HAI 105",
+  "draught": 8.2,
+  "loa": 144.1,
+  "port": "HAIPHONG",
+  "terminalHint": "Tan Vu",
+  "time": "00:30",
+  "prevPort": "",
+  "nextPort": "Taiwan",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "EVER CERTAIN",
+  "draught": 8.6,
+  "loa": 172.0,
+  "port": "HAIPHONG",
+  "terminalHint": "VIP Greenport",
+  "time": "02:30",
+  "prevPort": "",
+  "nextPort": "Taiwan",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "KOTA AZAM",
+  "draught": 8.4,
+  "loa": 182.8,
+  "port": "HAIPHONG",
+  "terminalHint": "Nam Dinh Vu",
+  "time": "02:30",
+  "prevPort": "",
+  "nextPort": "China",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "BIENDONG STAR",
+  "draught": 8.0,
+  "loa": 120.8,
+  "port": "HAIPHONG",
+  "terminalHint": "Tan Vu",
+  "time": "04:30",
+  "prevPort": "",
+  "nextPort": "Ho Chi Minh",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "YM THRONE",
+  "draught": 12.8,
+  "loa": 334.0,
+  "port": "HAIPHONG",
+  "terminalHint": "Lach Huyen (HICT)",
+  "time": "05:00",
+  "prevPort": "",
+  "nextPort": "China",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "SUNNY WIND",
+  "draught": 7.1,
+  "loa": 127.7,
+  "port": "HAIPHONG",
+  "terminalHint": "Chua Ve",
+  "time": "08:00",
+  "prevPort": "",
+  "nextPort": "Ho Chi Minh",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "AFRICAN MARGAUX",
+  "draught": 6.7,
+  "loa": 182.9,
+  "port": "HAIPHONG",
+  "terminalHint": "Nam Dinh Vu",
+  "time": "08:30",
+  "prevPort": "",
+  "nextPort": "Singapore",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
   "direction": "DEPARTING",
   "vessel": "CONSCIENCE",
-  "draught": 8.2,
+  "draught": 7.3,
   "loa": 146.0,
   "port": "HAIPHONG",
   "terminalHint": "Nam Dinh Vu",
-  "time": "06:30",
+  "time": "08:30",
   "prevPort": "",
   "nextPort": "China",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "MISSISSIPPI",
+  "draught": 10.9,
+  "loa": 255.0,
+  "port": "HAIPHONG",
+  "terminalHint": "Lach Huyen (HICT)",
+  "time": "09:00",
+  "prevPort": "",
+  "nextPort": "China",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "HONG RUN 18",
+  "draught": 5.1,
+  "loa": 121.0,
+  "port": "HAIPHONG",
+  "terminalHint": "VIMC Dinh Vu",
+  "time": "14:30",
+  "prevPort": "",
+  "nextPort": "China",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "GREAT FIVE OCEAN",
+  "draught": 5.5,
+  "loa": 119.4,
+  "port": "HAIPHONG",
+  "terminalHint": "Lach Huyen (HICT)",
+  "time": "00:30",
+  "prevPort": "19 - 9",
+  "nextPort": "",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "HAI DANG 666",
+  "draught": 5.7,
+  "loa": 78.9,
+  "port": "HAIPHONG",
+  "terminalHint": "Lach Huyen (HICT)",
+  "time": "05:30",
+  "prevPort": "",
+  "nextPort": "Fgg",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "DEPARTING",
+  "vessel": "GOLD STAR 19",
+  "draught": 6.6,
+  "loa": 117.6,
+  "port": "HAIPHONG",
+  "terminalHint": "Lach Huyen (HICT)",
+  "time": "09:30",
+  "prevPort": "",
+  "nextPort": "Euro Dinh Vu",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "YM HORIZON",
+  "draught": 8.4,
+  "loa": 168.8,
+  "port": "HAIPHONG",
+  "terminalHint": "Nam Dinh Vu",
+  "time": "01:30",
+  "prevPort": "Hong Kong",
+  "nextPort": "",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "HONG RUN 18",
+  "draught": 6.4,
+  "loa": 121.0,
+  "port": "HAIPHONG",
+  "terminalHint": "VIMC Dinh Vu",
+  "time": "01:30",
+  "prevPort": "China",
+  "nextPort": "",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "FORTUNE NAVIGATOR",
+  "draught": 7.7,
+  "loa": 119.1,
+  "port": "HAIPHONG",
+  "terminalHint": "Chua Ve",
+  "time": "02:00",
+  "prevPort": "Ho Chi Minh",
+  "nextPort": "",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "MSC CAPE III",
+  "draught": 10.9,
+  "loa": 221.8,
+  "port": "HAIPHONG",
+  "terminalHint": "Lach Huyen (HTIT)",
+  "time": "02:30",
+  "prevPort": "China",
+  "nextPort": "",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "MSC UGANDA",
+  "draught": 13.0,
+  "loa": 260.0,
+  "port": "HAIPHONG",
+  "terminalHint": "Lach Huyen (HTIT)",
+  "time": "08:30",
+  "prevPort": "Thailand",
+  "nextPort": "",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "OOCL BERLIN",
+  "draught": 12.3,
+  "loa": 366.5,
+  "port": "HAIPHONG",
+  "terminalHint": "Lach Huyen (HICT)",
+  "time": "08:30",
+  "prevPort": "China",
+  "nextPort": "",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "BIENDONG NAVIGATOR",
+  "draught": 8.0,
+  "loa": 149.5,
+  "port": "HAIPHONG",
+  "terminalHint": "Tan Vu",
+  "time": "09:30",
+  "prevPort": "Ho Chi Minh",
+  "nextPort": "",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "HANSA HOMBURG",
+  "draught": 9.0,
+  "loa": 175.5,
+  "port": "HAIPHONG",
+  "terminalHint": "Tan Vu",
+  "time": "11:30",
+  "prevPort": "Singapore",
+  "nextPort": "",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "SUNNY ACACIA",
+  "draught": 8.2,
+  "loa": 137.6,
+  "port": "HAIPHONG",
+  "terminalHint": "Tan Vu",
+  "time": "11:30",
+  "prevPort": "China",
+  "nextPort": "",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "SNL DA LIAN",
+  "draught": 8.6,
+  "loa": 147.9,
+  "port": "HAIPHONG",
+  "terminalHint": "Nam Hai Dinh Vu",
+  "time": "13:30",
+  "prevPort": "Hong Kong",
+  "nextPort": "",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "UNI-PRUDENT",
+  "draught": 9.2,
+  "loa": 181.8,
+  "port": "HAIPHONG",
+  "terminalHint": "VIP Greenport",
+  "time": "13:30",
+  "prevPort": "Taiwan",
+  "nextPort": "",
+  "planDt": "2026-11-29"
+ },
+ {
+  "source": "haiphong-plan",
+  "direction": "ARRIVING",
+  "vessel": "PHUC THAI",
+  "draught": 7.8,
+  "loa": 129.5,
+  "port": "HAIPHONG",
+  "terminalHint": "Chua Ve",
+  "time": "14:00",
+  "prevPort": "Ho Chi Minh",
+  "nextPort": "",
   "planDt": "2026-11-29"
  }
 ]
