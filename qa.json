@@ -1,25 +1,25 @@
 {
- "calls": 533,
- "ataCoverage": 0.929,
- "atdCoverage": 0.644,
- "planLinked": 0.131,
- "predictedEtd": 0.437,
- "dupSchedEtaShare": 0.685,
- "modalTeu4Share": 0.141,
+ "calls": 538,
+ "ataCoverage": 0.948,
+ "atdCoverage": 0.662,
+ "planLinked": 0.093,
+ "predictedEtd": 0.441,
+ "dupSchedEtaShare": 0.716,
+ "modalTeu4Share": 0.139,
  "berthDrift": [
   {
    "port": "HAIPHONG",
    "terminal": "Lach Huyen (HICT)",
-   "n": 11,
+   "n": 9,
    "declared": [
     20.832,
     106.789
    ],
    "observedMedian": [
-    20.83622,
-    106.77865
+    20.83688,
+    106.77792
    ],
-   "driftKm": 1.17,
+   "driftKm": 1.27,
    "flag": false
   },
   {
@@ -31,152 +31,167 @@
     106.797
    ],
    "observedMedian": [
-    20.82766,
-    106.79723
+    20.82744,
+    106.79584
    ],
-   "driftKm": 0.08,
+   "driftKm": 0.13,
    "flag": false
   },
   {
    "port": "HAIPHONG",
    "terminal": "Lach Huyen (HHIT)",
-   "n": 6,
+   "n": 7,
    "declared": [
     20.822,
     106.805
    ],
    "observedMedian": [
     20.82673,
-    106.82249
+    106.82084
    ],
-   "driftKm": 1.89,
+   "driftKm": 1.73,
    "flag": true
   },
   {
    "port": "HAIPHONG",
    "terminal": "Chua Ve",
-   "n": 9,
+   "n": 8,
    "declared": [
     20.869,
     106.667
    ],
    "observedMedian": [
-    20.87919,
-    106.65563
+    20.87944,
+    106.65565
    ],
-   "driftKm": 1.63,
+   "driftKm": 1.65,
    "flag": true
   },
   {
    "port": "HCMC",
    "terminal": "Cat Lai",
-   "n": 7,
+   "n": 10,
    "declared": [
     10.767,
     106.772
    ],
    "observedMedian": [
-    10.75779,
-    106.79093
+    10.75827,
+    106.79084
    ],
-   "driftKm": 2.31,
+   "driftKm": 2.28,
    "flag": true
   },
   {
    "port": "HCMC",
    "terminal": "Tan Cang",
-   "n": 15,
+   "n": 14,
    "declared": [
     10.772,
     106.715
    ],
    "observedMedian": [
-    10.76745,
-    106.73401
+    10.76586,
+    106.73382
    ],
-   "driftKm": 2.14,
+   "driftKm": 2.17,
    "flag": true
   },
   {
    "port": "HCMC",
    "terminal": "Tan Cang Hiep Phuoc",
-   "n": 21,
+   "n": 16,
    "declared": [
     10.702,
     106.743
    ],
    "observedMedian": [
-    10.70101,
-    106.75198
+    10.70456,
+    106.75383
    ],
-   "driftKm": 0.99,
+   "driftKm": 1.22,
    "flag": false
   },
   {
    "port": "CAIMEP",
    "terminal": "Gemalink",
-   "n": 13,
+   "n": 10,
    "declared": [
     10.4978,
     107.0021
    ],
    "observedMedian": [
-    10.49534,
-    106.99771
+    10.4973,
+    107.00056
    ],
-   "driftKm": 0.55,
+   "driftKm": 0.18,
+   "flag": false
+  },
+  {
+   "port": "CAIMEP",
+   "terminal": "TCTT",
+   "n": 5,
+   "declared": [
+    10.5095,
+    107.0111
+   ],
+   "observedMedian": [
+    10.50961,
+    107.00975
+   ],
+   "driftKm": 0.15,
    "flag": false
   },
   {
    "port": "CAIMEP",
    "terminal": "CMIT",
-   "n": 5,
+   "n": 7,
    "declared": [
     10.5135,
     107.0134
    ],
    "observedMedian": [
-    10.51708,
-    107.01816
+    10.52054,
+    107.01111
    ],
-   "driftKm": 0.65,
+   "driftKm": 0.82,
    "flag": false
   },
   {
    "port": "CAIMEP",
    "terminal": "TCIT",
-   "n": 8,
+   "n": 6,
    "declared": [
     10.5362,
     107.0285
    ],
    "observedMedian": [
-    10.53874,
+    10.53884,
     107.02851
    ],
-   "driftKm": 0.28,
+   "driftKm": 0.29,
    "flag": false
   },
   {
    "port": "CAIMEP",
    "terminal": "SP-PSA",
-   "n": 12,
+   "n": 14,
    "declared": [
     10.5707,
     107.0242
    ],
    "observedMedian": [
-    10.57822,
-    107.02635
+    10.57905,
+    107.02674
    ],
-   "driftKm": 0.86,
+   "driftKm": 0.96,
    "flag": false
   }
  ],
  "berthDriftFlagged": 4,
  "status": "WARN",
  "warnings": [
-  "berth drift: HAIPHONG/Lach Huyen (HHIT) 1.89km (n=6); HAIPHONG/Chua Ve 1.63km (n=9); HCMC/Cat Lai 2.31km (n=7); HCMC/Tan Cang 2.14km (n=15)"
+  "berth drift: HAIPHONG/Lach Huyen (HHIT) 1.73km (n=7); HAIPHONG/Chua Ve 1.65km (n=8); HCMC/Cat Lai 2.28km (n=10); HCMC/Tan Cang 2.17km (n=14)"
  ],
- "generatedAt": "2026-11-28T17:37+07:00"
+ "generatedAt": "2026-11-29T03:16+07:00"
 }
